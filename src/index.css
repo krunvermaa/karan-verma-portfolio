@@ -1,0 +1,193 @@
+@import "tailwindcss";
+
+@variant dark (&:where(.dark, .dark *, [data-theme="dark"], [data-theme="dark"] *));
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    --font-display: 'Syne', 'Plus Jakarta Sans', sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    /* Theme CSS Variables - Day Mode (Warm Editorial Foundation, High Contrast) */
+    --bg-canvas: #F8F6F1;
+    --bg-surface: #FFFFFF;
+    --bg-surface-subtle: #F1ECE3;
+    --bg-card: rgba(255, 255, 255, 0.98);
+    --text-primary: #090E17;
+    --text-secondary: #273449;
+    --text-muted: #53647D;
+    --border-subtle: #E2E8F0;
+    --border-medium: #CBD5E1;
+    --glass-bg: rgba(255, 255, 255, 0.9);
+    --glass-border: rgba(0, 0, 0, 0.1);
+    --grid-line: rgba(0, 0, 0, 0.05);
+    --dot-color: rgba(0, 0, 0, 0.1);
+    --ambient-glow: rgba(217, 119, 6, 0.12);
+  }
+
+  [data-theme='dark'],
+  .dark {
+    /* Theme CSS Variables - Night Mode (Crisp Obsidian Foundation, High Contrast) */
+    --bg-canvas: #0A0D14;
+    --bg-surface: #121622;
+    --bg-surface-subtle: #192030;
+    --bg-card: rgba(18, 22, 34, 0.96);
+    --text-primary: #F8FAFC;
+    --text-secondary: #CBD5E1;
+    --text-muted: #94A3B8;
+    --border-subtle: rgba(255, 255, 255, 0.12);
+    --border-medium: rgba(255, 255, 255, 0.22);
+    --glass-bg: rgba(18, 22, 34, 0.92);
+    --glass-border: rgba(255, 255, 255, 0.14);
+    --grid-line: rgba(255, 255, 255, 0.055);
+    --dot-color: rgba(255, 255, 255, 0.12);
+    --ambient-glow: rgba(99, 102, 241, 0.2);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background-color: var(--bg-canvas);
+    color: var(--text-primary);
+    transition: background-color 0.25s ease-out, color 0.25s ease-out;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+/* Dynamic CSS Theme Helpers */
+.bg-canvas {
+  background-color: var(--bg-canvas);
+}
+.bg-surface {
+  background-color: var(--bg-surface);
+}
+.bg-surface-subtle {
+  background-color: var(--bg-surface-subtle);
+}
+.text-theme-primary {
+  color: var(--text-primary);
+}
+.text-theme-secondary {
+  color: var(--text-secondary);
+}
+.text-theme-muted {
+  color: var(--text-muted);
+}
+.border-theme-subtle {
+  border-color: var(--border-subtle);
+}
+.border-theme-medium {
+  border-color: var(--border-medium);
+}
+
+/* Perspective 3D container */
+.perspective-1000 {
+  perspective: 1000px;
+}
+.perspective-1200 {
+  perspective: 1200px;
+}
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Subtle editorial grid pattern driven by CSS variables */
+.bg-grid-pattern {
+  background-size: 28px 28px;
+  background-image: 
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-size: 24px 24px;
+  background-image: radial-gradient(var(--dot-color) 1px, transparent 1px);
+}
+
+/* Soft 3D drop shadow for floating folders (inspired by MOOV) */
+.shadow-folder-glow {
+  box-shadow: 0 32px 64px -16px rgba(234, 179, 8, 0.22), 0 16px 32px -8px rgba(0, 0, 0, 0.15);
+}
+.shadow-folder-emerald {
+  box-shadow: 0 32px 64px -16px rgba(16, 185, 129, 0.22), 0 16px 32px -8px rgba(0, 0, 0, 0.15);
+}
+.shadow-folder-indigo {
+  box-shadow: 0 32px 64px -16px rgba(99, 102, 241, 0.24), 0 16px 32px -8px rgba(0, 0, 0, 0.15);
+}
+.shadow-folder-rose {
+  box-shadow: 0 32px 64px -16px rgba(244, 63, 94, 0.22), 0 16px 32px -8px rgba(0, 0, 0, 0.15);
+}
+.shadow-folder-sky {
+  box-shadow: 0 32px 64px -16px rgba(14, 165, 233, 0.22), 0 16px 32px -8px rgba(0, 0, 0, 0.15);
+}
+
+/* Diffused ambient shadow beneath floating objects (MOOV reference) */
+.ambient-shadow {
+  box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.2), 0 20px 40px -10px rgba(0, 0, 0, 0.12);
+}
+
+/* Subtle floating keyframes */
+@keyframes subtle-float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+.animate-subtle-float {
+  animation: subtle-float 5s ease-in-out infinite;
+}
+
+/* Glassmorphism utility with subtle borders driven by CSS vars */
+.glass-panel {
+  background: var(--glass-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--glass-border);
+}
+
+.glass-pill {
+  background: var(--glass-bg);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.08);
+}
+
+/* Custom smooth scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(128, 128, 128, 0.3);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(128, 128, 128, 0.5);
+}
+
+/* Print Styles for resume */
+@media print {
+  header, footer, .no-print {
+    display: none !important;
+  }
+  body {
+    background: white !important;
+    color: black !important;
+  }
+  .print-only {
+    display: block !important;
+  }
+}
