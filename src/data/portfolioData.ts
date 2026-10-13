@@ -7,7 +7,7 @@ export const PERSONAL_INFO = {
   tagline: 'Engineering robust full-stack software with obsessive aesthetic polish and micro-interaction craft.',
   bio: 'Computer Science engineer and product designer who bridges the gap between deep systems architecture and editorial-grade frontend design. Focused on building zero-slop web apps, high-throughput backend services, and design systems.',
   email: 'karan.verma.gj@gmail.com',
-  github: 'https://github.com/karanverma-dev',
+  github: 'https://github.com/krunvermaa',
   linkedin: 'https://linkedin.com/in/karanverma-dev',
   twitter: 'https://x.com/karanverma_dev',
   location: 'New Delhi / Bengaluru, India',
@@ -56,7 +56,7 @@ export const PROJECTS: Project[] = [
     technologies: ['React', 'TypeScript', 'WebRTC', 'IndexedDB', 'Node.js', 'Tailwind CSS'],
     accentColor: '#10B981', // Emerald
     folderColor: '#D1FAE5',
-    githubUrl: 'https://github.com/karanverma-dev/saksham-health',
+    githubUrl: 'https://github.com/krunvermaa/saksham-health',
     demoUrl: 'https://saksham-health.demo.app',
     year: '2025',
     highlights: ['Best Social Impact Award', 'Offline-First PWA', 'Zero Data Loss'],
@@ -96,7 +96,7 @@ export const PROJECTS: Project[] = [
     technologies: ['TypeScript', 'React', 'Tailwind CSS', 'CSS Modules', 'Radix UI', 'Vite'],
     accentColor: '#6366F1', // Indigo / Purple
     folderColor: '#E0E7FF',
-    githubUrl: 'https://github.com/karanverma-dev/aura-design-system',
+    githubUrl: 'https://github.com/krunvermaa/aura-design-system',
     demoUrl: 'https://aura-ds.demo.app',
     year: '2025',
     highlights: ['Zero-Runtime Tokens', 'WCAG AAA Compliant', 'Used by 1,200+ Devs'],
@@ -136,7 +136,7 @@ export const PROJECTS: Project[] = [
     technologies: ['Rust', 'WebAssembly', 'TypeScript', 'Canvas API', 'React'],
     accentColor: '#F59E0B', // Amber
     folderColor: '#FEF3C7',
-    githubUrl: 'https://github.com/karanverma-dev/kernel-fs-studio',
+    githubUrl: 'https://github.com/krunvermaa/kernel-fs-studio',
     demoUrl: 'https://kernelfs.demo.app',
     year: '2024',
     highlights: ['Rust + Wasm Core', 'Interactive Memory Map', 'Academic Showcase'],
@@ -176,7 +176,7 @@ export const PROJECTS: Project[] = [
     technologies: ['TypeScript', 'Canvas 2D', 'WebSockets', 'CRDT', 'React', 'Tailwind'],
     accentColor: '#EC4899', // Pink
     folderColor: '#FCE7F3',
-    githubUrl: 'https://github.com/karanverma-dev/chrono-canvas',
+    githubUrl: 'https://github.com/krunvermaa/chrono-canvas',
     demoUrl: 'https://chrono-canvas.demo.app',
     year: '2024',
     highlights: ['Quadtree Culling', 'Time-Travel Replay', 'CRDT Collaboration'],
@@ -216,7 +216,7 @@ export const PROJECTS: Project[] = [
     technologies: ['Go', 'TypeScript', 'ClickHouse', 'Next.js', 'SVG Engine', 'Tailwind'],
     accentColor: '#0EA5E9', // Sky / Cyan
     folderColor: '#E0F2FE',
-    githubUrl: 'https://github.com/karanverma-dev/pulse-metrics-engine',
+    githubUrl: 'https://github.com/krunvermaa/pulse-metrics-engine',
     demoUrl: 'https://pulse-metrics.demo.app',
     year: '2024',
     highlights: ['1.2KB Beacon Script', 'Sub-15ms Query P95', '100% Cookieless'],

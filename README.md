@@ -103,8 +103,8 @@ A production personal developer portfolio built with strict adherence to **edito
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/krunvermaa/KARAN-VERMA-Portfolio.git
-   cd KARAN-VERMA-Portfolio
+   git clone https://github.com/krunvermaa/karan-verma-portfolio.git
+   cd karan-verma-portfolio
    ```
 
 2. **Install dependencies:**
