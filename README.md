@@ -3,6 +3,7 @@
 > **Personal Portfolio & Interactive Systems Engineering Showcase**  
 > Built with **React 19**, **TypeScript**, **Vite 8**, **Tailwind CSS v4**, and **Motion**.
 
+[![Deployment](https://img.shields.io/badge/Deployment-Vercel-000000?style=flat-square&logo=vercel)](https://karan-verma-portfolio-iota.vercel.app)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![React](https://img.shields.io/badge/React-19.0-61dafb?style=flat-square&logo=react)](https://react.dev/)
 [![Vite](https://img.shields.io/badge/Vite-8.x-646CFF?style=flat-square&logo=vite)](https://vitejs.dev/)
