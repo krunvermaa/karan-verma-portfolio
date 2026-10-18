@@ -485,14 +485,187 @@ b.pill(dX + 440, heroY + 410, 175, 42, '99.98% SLA\nReal-Time Telemetry', {
   fontSize: 11
 });
 
+// Right Column: Frosted Folder Fan Graphic
+b.rect(dX + 680, heroY + 30, 540, 430, {
+  backgroundColor: '#f8fafc',
+  strokeColor: '#cbd5e1',
+  strokeWidth: 1.5,
+  roundness: true
+});
+b.text(dX + 700, heroY + 50, 'INTERACTIVE FROSTED FOLDER FAN (3D TILT)', {
+  fontSize: 12,
+  fontFamily: 3,
+  strokeColor: '#0284c7'
+});
+
+// Folder 1 (-12 deg tilt)
+b.rect(dX + 710, heroY + 90, 240, 320, {
+  backgroundColor: '#ffffff',
+  strokeColor: '#94a3b8',
+  strokeWidth: 1.5,
+  roundness: true,
+  angle: -0.08
+});
+b.pill(dX + 725, heroY + 105, 120, 24, 'TAB: MOOV-01', { backgroundColor: '#f1f5f9', fontSize: 10 });
+b.text(dX + 725, heroY + 145, 'MOOV Logistics\nFleet Telemetry\n42k Active Trips\n140ms p95 Latency', { fontSize: 12, fontFamily: 2 });
+
+// Folder 2 (0 deg tilt - center)
+b.rect(dX + 830, heroY + 110, 250, 330, {
+  backgroundColor: '#ffffff',
+  strokeColor: '#0284c7',
+  strokeWidth: 2,
+  roundness: true
+});
+b.pill(dX + 845, heroY + 125, 130, 24, 'TAB: GOVDOCS-02', { backgroundColor: '#e0f2fe', textColor: '#0369a1', fontSize: 10 });
+b.text(dX + 845, heroY + 165, 'GovDocs Vault\nDecentralized Storage\nEthereum + IPFS\nSmart Contract Auth', { fontSize: 12, fontFamily: 2 });
+b.pill(dX + 845, heroY + 280, 210, 28, '● Interactive Case Study', { backgroundColor: '#f0fdf4', textColor: '#166534', fontSize: 11 });
+
+// Folder 3 (+12 deg tilt)
+b.rect(dX + 950, heroY + 100, 240, 320, {
+  backgroundColor: '#ffffff',
+  strokeColor: '#94a3b8',
+  strokeWidth: 1.5,
+  roundness: true,
+  angle: 0.08
+});
+b.pill(dX + 965, heroY + 115, 130, 24, 'TAB: SWASTHY-03', { backgroundColor: '#fef2f2', fontSize: 10 });
+b.text(dX + 965, heroY + 155, 'SwaasthySetu\nRural Telemedicine\nWebRTC Audio/Video\nDistributed Sync', { fontSize: 12, fontFamily: 2 });
+
 // Divider
-b.line(dX + 60, heroY + 480, [[dW - 120, 0]], { strokeColor: '#e2e8f0', strokeWidth: 1 });
+b.line(dX + 60, heroY + 490, [[dW - 120, 0]], { strokeColor: '#e2e8f0', strokeWidth: 1 });
 
 // -------------------------------------------------------------
-// DESKTOP: SECTION 02 - MOOV FOLDER DEEP DIVE (PRIMARY ARCHITECTURAL DOSSIER)
+// DESKTOP: SECTION 02 - HANGING CARDS SHOWCASE
 // -------------------------------------------------------------
-const moovY = heroY + 510;
-b.sectionBadge(dX + 60, moovY, '02', 'DEEP DIVE // PRJ-01 SPECIFICATION');
+const hangY = heroY + 520;
+b.sectionBadge(dX + 60, hangY, '02', 'FEATURED WORK // SUSPENDED CLOTHESLINE');
+b.text(dX + dW - 260, hangY + 4, 'COMPONENT: HangingCardsShowcase.tsx', {
+  fontSize: 11,
+  fontFamily: 3,
+  strokeColor: '#94a3b8'
+});
+b.text(dX + 60, hangY + 36, 'Selected Architectural Works & Systems', {
+  fontSize: 26,
+  fontFamily: 2,
+  strokeColor: '#0f172a'
+});
+b.text(dX + 60, hangY + 70, 'Physical clothespin suspended steel cable with tilt physics on mouse scroll & interaction.', {
+  fontSize: 13,
+  fontFamily: 2,
+  strokeColor: '#64748b'
+});
+
+// Overhead Steel Cable
+b.line(dX + 40, hangY + 110, [[dW - 80, 0]], { strokeColor: '#475569', strokeWidth: 2.5 });
+b.pill(dX + dW / 2 - 100, hangY + 98, 200, 22, 'STEEL SUSPENSION WIRE ROPE', {
+  backgroundColor: '#334155',
+  textColor: '#ffffff',
+  fontSize: 9
+});
+
+// 4 Hanging Cards
+const cardW = 265;
+const cardGap = 26;
+const hangingProjects = [
+  {
+    title: 'MOOV LOGISTICS',
+    tag: 'Fleet Telemetry',
+    stack: 'React 19 · Node · WebSockets',
+    stats: '42K Trips · 140ms p95',
+    color: '#0284c7'
+  },
+  {
+    title: 'GOVDOCS VAULT',
+    tag: 'Decentralized Docs',
+    stack: 'Solidity · IPFS · Ethers.js',
+    stats: '100% Immutable Verification',
+    color: '#7c3aed'
+  },
+  {
+    title: 'SWASTHYA SETU',
+    tag: 'Telemedicine Hub',
+    stack: 'WebRTC · Node · MongoDB',
+    stats: 'Low-Bandwidth Rural Sync',
+    color: '#059669'
+  },
+  {
+    title: 'AI CODE AUDITOR',
+    tag: 'AST Security Scanner',
+    stack: 'Python · AST · FastAPI',
+    stats: 'Sub-second Vulnerability Run',
+    color: '#ea580c'
+  }
+];
+
+hangingProjects.forEach((proj, idx) => {
+  const cX = dX + 70 + idx * (cardW + cardGap);
+  const cY = hangY + 130;
+
+  // Clothespin Clip
+  b.rect(cX + cardW / 2 - 10, hangY + 104, 20, 26, {
+    backgroundColor: '#cbd5e1',
+    strokeColor: '#475569',
+    strokeWidth: 1.5,
+    roundness: true
+  });
+  // Card Container
+  b.rect(cX, cY, cardW, 360, {
+    backgroundColor: '#ffffff',
+    strokeColor: '#cbd5e1',
+    strokeWidth: 1.5,
+    roundness: true
+  });
+  // Top Color Strip
+  b.rect(cX, cY, cardW, 8, {
+    backgroundColor: proj.color,
+    strokeColor: proj.color
+  });
+  // Project Header
+  b.pill(cX + 16, cY + 22, 140, 22, proj.tag, {
+    backgroundColor: '#f8fafc',
+    strokeColor: '#e2e8f0',
+    textColor: proj.color,
+    fontSize: 9
+  });
+  b.text(cX + 16, cY + 54, proj.title, {
+    fontSize: 16,
+    fontFamily: 2,
+    strokeColor: '#0f172a'
+  });
+  // Preview Wireframe Graphic inside Card
+  b.rect(cX + 16, cY + 84, cardW - 32, 110, {
+    backgroundColor: '#f8fafc',
+    strokeColor: '#e2e8f0',
+    roundness: true
+  });
+  b.text(cX + 24, cY + 96, `[UI Dashboard Viewport]\n${proj.stats}`, {
+    fontSize: 10,
+    fontFamily: 3,
+    strokeColor: '#64748b'
+  });
+  // Tech Stack
+  b.text(cX + 16, cY + 210, `TECH STACK:\n${proj.stack}`, {
+    fontSize: 11,
+    fontFamily: 3,
+    strokeColor: '#334155'
+  });
+  // Action Buttons
+  b.button(cX + 16, cY + 265, cardW - 32, 34, 'View Full Case Study →', {
+    variant: 'primary',
+    fontSize: 11
+  });
+  b.button(cX + 16, cY + 310, (cardW - 38) / 2, 28, 'Live App ↗', { fontSize: 10 });
+  b.button(cX + 16 + (cardW - 38) / 2 + 6, cY + 310, (cardW - 38) / 2, 28, 'GitHub ↗', { fontSize: 10 });
+});
+
+// Divider
+b.line(dX + 60, hangY + 530, [[dW - 120, 0]], { strokeColor: '#e2e8f0', strokeWidth: 1 });
+
+// -------------------------------------------------------------
+// DESKTOP: SECTION 03 - MOOV FOLDER DEEP DIVE
+// -------------------------------------------------------------
+const moovY = hangY + 560;
+b.sectionBadge(dX + 60, moovY, '03', 'DEEP DIVE // PRJ-01 SPECIFICATION');
 b.text(dX + dW - 250, moovY + 4, 'COMPONENT: MoovFolderDeepDive.tsx', {
   fontSize: 11,
   fontFamily: 3,
@@ -1266,10 +1439,42 @@ b.button(mX + 16, mHeroY + 195, mW - 32, 38, 'Explore Work ↓', { variant: 'pri
 b.button(mX + 16, mHeroY + 240, mW - 32, 38, 'Direct Contact →', { fontSize: 12 });
 b.button(mX + 16, mHeroY + 285, mW - 32, 38, 'Download Dossier PDF', { fontSize: 12 });
 
+// Mobile Hero Single Card Preview
+b.rect(mX + 16, mHeroY + 335, mW - 32, 170, {
+  backgroundColor: '#f8fafc',
+  strokeColor: '#cbd5e1',
+  roundness: true
+});
+b.pill(mX + 26, mHeroY + 345, 140, 22, 'FOLDER FAN: MOOV', { backgroundColor: '#e0f2fe', textColor: '#0369a1', fontSize: 9 });
+b.text(mX + 26, mHeroY + 375, 'MOOV Fleet Telemetry Engine\n42k Active Trips · 140ms p95\nReact 19 + WebSockets', { fontSize: 11, fontFamily: 2 });
+b.button(mX + 26, mHeroY + 440, mW - 52, 32, 'Open Case Study →', { variant: 'primary', fontSize: 11 });
+
+// Mobile Hanging Showcase
+const mHangY = mHeroY + 530;
+b.line(mX + 16, mHangY, [[mW - 32, 0]], { strokeColor: '#e2e8f0' });
+b.text(mX + 16, mHangY + 16, '// 02 SUSPENDED WORK (TOUCH FEED)', { fontSize: 10, fontFamily: 3, strokeColor: '#0284c7' });
+
+// 2 Sample Mobile Stacked Hanging Cards
+['MOOV LOGISTICS ENGINE', 'GOVDOCS BLOCKCHAIN VAULT'].forEach((title, idx) => {
+  const cY = mHangY + 42 + idx * 220;
+  b.rect(mX + 16, cY, mW - 32, 205, {
+    backgroundColor: '#ffffff',
+    strokeColor: '#cbd5e1',
+    roundness: true
+  });
+  b.rect(mX + 16, cY, mW - 32, 6, { backgroundColor: idx === 0 ? '#0284c7' : '#7c3aed' });
+  b.text(mX + 26, cY + 18, title, { fontSize: 13, fontFamily: 2, strokeColor: '#0f172a' });
+  b.rect(mX + 26, cY + 44, mW - 52, 70, { backgroundColor: '#f8fafc', strokeColor: '#e2e8f0', roundness: true });
+  b.text(mX + 36, cY + 68, '[Real-time Dashboard Viewport]', { fontSize: 10, fontFamily: 3, strokeColor: '#64748b' });
+  b.button(mX + 26, cY + 125, mW - 52, 32, 'View Dossier Details →', { variant: 'primary', fontSize: 11 });
+  b.button(mX + 26, cY + 164, (mW - 58) / 2, 26, 'Live App ↗', { fontSize: 9 });
+  b.button(mX + 26 + (mW - 58) / 2 + 6, cY + 164, (mW - 58) / 2, 26, 'GitHub ↗', { fontSize: 9 });
+});
+
 // Mobile MOOV Folder Deep Dive
-const mMoovY = mHeroY + 340;
+const mMoovY = mHangY + 500;
 b.line(mX + 16, mMoovY, [[mW - 32, 0]], { strokeColor: '#e2e8f0' });
-b.text(mX + 16, mMoovY + 16, '// 02 MOOV LOGISTICS DOSSIER', { fontSize: 10, fontFamily: 3, strokeColor: '#0284c7' });
+b.text(mX + 16, mMoovY + 16, '// 03 MOOV LOGISTICS DOSSIER', { fontSize: 10, fontFamily: 3, strokeColor: '#0284c7' });
 
 b.rect(mX + 16, mMoovY + 40, mW - 32, 340, {
   backgroundColor: '#fffbeb',
@@ -1735,8 +1940,11 @@ b.text(lX + 40, lY + 505, '1. Frosted Folder Fan: 3D perspective tilts with CSS 
 // =============================================================
 // CONNECTING ARROWS & ANNOTATION FLOWS
 // =============================================================
-// Arrow from Desktop Hero CTA to Deep Dive Dossier
-b.arrow(dX + 140, heroY + 390, [[0, 110]], { strokeColor: '#0284c7', strokeWidth: 2 });
+// Arrow from Desktop Hero CTA to Hanging Cards
+b.arrow(dX + 140, heroY + 390, [[0, 120]], { strokeColor: '#0284c7', strokeWidth: 2 });
+
+// Arrow from Desktop Hanging Card to Deep Dive
+b.arrow(dX + 200, hangY + 480, [[0, 100]], { strokeColor: '#0284c7', strokeWidth: 2 });
 
 // Arrow from Desktop Deep Dive CTA to Modal
 b.arrow(dX + 610, moovY + 430, [[oX - (dX + 610), -200]], { strokeColor: '#ea580c', strokeWidth: 2.5 });
