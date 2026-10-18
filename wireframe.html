@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Karan Verma — Portfolio UI Wireframe Model</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background: #0b0f17;
+      color: #f8fafc;
+      overflow: hidden;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      background: #0f172a;
+      border-bottom: 1px solid #1e293b;
+      padding: 12px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      z-index: 10;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .brand-title {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 15px;
+      letter-spacing: -0.02em;
+    }
+    .badge {
+      background: #0284c7;
+      color: white;
+      font-size: 10px;
+      font-family: ui-monospace, monospace;
+      padding: 3px 8px;
+      border-radius: 9999px;
+      font-weight: 600;
+    }
+    .btn-group {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .btn {
+      background: #1e293b;
+      border: 1px solid #334155;
+      color: #cbd5e1;
+      padding: 6px 12px;
+      border-radius: 6px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+      text-decoration: none;
+    }
+    .btn:hover {
+      background: #334155;
+      color: #ffffff;
+      border-color: #64748b;
+    }
+    .btn.active {
+      background: #0284c7;
+      border-color: #38bdf8;
+      color: #ffffff;
+    }
+    .btn-primary {
+      background: #ea580c;
+      border-color: #f97316;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #c2410c;
+    }
+    main {
+      flex: 1;
+      position: relative;
+      overflow: auto;
+      background: #0b0f17;
+      background-image: 
+        radial-gradient(#1e293b 1px, transparent 1px),
+        radial-gradient(#1e293b 1px, #0b0f17 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      display: flex;
+      justify-content: center;
+      padding: 40px;
+    }
+    .svg-container {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.7);
+      transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-origin: top center;
+      max-width: 100%;
+    }
+    .svg-container svg {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-width: 2860px;
+    }
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: #1e293b;
+      border: 1px solid #38bdf8;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-size: 12px;
+      color: #e0f2fe;
+      box-shadow: 0 10px 15px -3px rgba(0,0,0,0.5);
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand-title">
+      <span>⚡ KARAN VERMA PORTFOLIO</span>
+      <span class="badge">COMPLETE UI WIREFRAME</span>
+      <span style="color: #64748b; font-size: 12px;">React 19 · TypeScript · Vite · Tailwind</span>
+    </div>
+    <div class="btn-group">
+      <button class="btn active" onclick="setView('all', this)">Overview</button>
+      <button class="btn" onclick="setView('desktop', this)">Desktop (1280px)</button>
+      <button class="btn" onclick="setView('mobile', this)">Mobile (390px)</button>
+      <button class="btn" onclick="setView('modal', this)">Case Study Modal</button>
+      <button class="btn" onclick="setView('tokens', this)">Tokens & System</button>
+    </div>
+    <div class="btn-group">
+      <button class="btn" onclick="adjustZoom(-0.15)">Zoom Out -</button>
+      <span id="zoom-level" style="font-size: 11px; font-family: monospace; color: #94a3b8; width: 44px; text-align: center;">100%</span>
+      <button class="btn" onclick="adjustZoom(0.15)">Zoom In +</button>
+      <button class="btn" onclick="resetZoom()">Reset</button>
+      <a class="btn btn-primary" href="./wireframe.excalidraw" download="wireframe.excalidraw">Download .excalidraw 📥</a>
+      <a class="btn" href="https://excalidraw.com" target="_blank" rel="noopener">Open Excalidraw.com ↗</a>
+    </div>
+  </header>
+  <main id="main-viewport">
+    <div class="svg-container" id="svg-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2860 6480" width="2860" height="6480" style="background:#f8fafc; font-family: system-ui, -apple-system, sans-serif;">
+<defs>
+  <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+    <polygon points="0 0, 10 3.5, 0 7" fill="#0284c7" />
+  </marker>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+    <path d="M 40 0 L 0 0 0 40" fill="none" stroke="#e2e8f0" stroke-width="0.75" />
+  </pattern>
+</defs>
+<rect width="100%" height="100%" fill="url(#grid)" />
+<rect x="100" y="30" width="2660" height="80" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="2"   />
+<text x="140" y="66" font-size="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="140" dy="0">KARAN VERMA — COMPLETE PORTFOLIO WEB APPLICATION WIREFRAME SPECIFICATION</tspan></text>
+<text x="140" y="88" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="140" dy="0">Interactive UI Blueprint &amp; Architecture Map · React 19 + TypeScript + Vite + Tailwind · Open in Excalidraw.com</tspan></text>
+<rect x="2480" y="52" width="240" height="36" rx="8" fill="#064e3b" stroke="#059669" stroke-width="1"   />
+<text x="2490" y="72" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#34d399" text-anchor="start"><tspan x="2490" dy="0">● HOSTED &amp; VERIFIED OK</tspan></text>
+<rect x="100" y="140" width="1280" height="5580" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"   />
+<rect x="100" y="140" width="1280" height="40" rx="0" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"   />
+<ellipse cx="122" cy="160" rx="6" ry="6" fill="#ef4444" stroke="#dc2626" stroke-width="1" />
+<ellipse cx="142" cy="160" rx="6" ry="6" fill="#f59e0b" stroke="#d97706" stroke-width="1" />
+<ellipse cx="162" cy="160" rx="6" ry="6" fill="#10b981" stroke="#059669" stroke-width="1" />
+<rect x="220" y="147" width="700" height="26" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="240" y="161" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="240" dy="0">🔒 https://karanverma.dev / localhost:3000 — Karan Verma | Full-Stack &amp; Systems Engineer</tspan></text>
+<rect x="1160" y="148" width="200" height="24" rx="8" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"   />
+<text x="1170" y="161" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0369a1" text-anchor="start"><tspan x="1170" dy="0">DESKTOP VIEWPORT: 1280px</tspan></text>
+<rect x="240" y="200" width="1000" height="56" rx="8" fill="#f8fafce6" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="260" y="212" width="150" height="32" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="270" y="230" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="270" dy="0">⚡ KV // KARAN VERMA</tspan></text>
+<text x="440" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="440" dy="0">Home</tspan></text>
+<text x="512" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="512" dy="0">Work</tspan></text>
+<text x="584" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="584" dy="0">Deep-Dive</tspan></text>
+<text x="656" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="656" dy="0">About</tspan></text>
+<text x="728" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="728" dy="0">Stack</tspan></text>
+<text x="800" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="800" dy="0">Journey</tspan></text>
+<text x="872" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="872" dy="0">Resume</tspan></text>
+<text x="944" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="944" dy="0">Contact</tspan></text>
+<rect x="1030" y="212" width="70" height="32" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1040" y="230" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1040" dy="0">☀️ / 🌙</tspan></text>
+<rect x="1110" y="212" width="110" height="32" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1165" y="230" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1165" dy="0">Let&apos;s Talk →</tspan></text>
+<rect x="160" y="290" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="304" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 01 HERO // SYSTEM ARCHITECT</tspan></text>
+<text x="1140" y="303" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1140" dy="0">COMPONENT: Hero.tsx + FrostedFolderFan.tsx</tspan></text>
+<rect x="160" y="330" width="340" height="28" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"   />
+<text x="170" y="345" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#047857" text-anchor="start"><tspan x="170" dy="0">🟢 OPEN FOR FULL-STACK &amp; SYSTEM DESIGN ROLES</tspan></text>
+<text x="160" y="404" font-size="38" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Architecting Resilient</tspan><tspan x="160" dy="1.25em">Web Systems &amp; Industrial</tspan><tspan x="160" dy="1.25em">Grade Interfaces.</tspan></text>
+<text x="160" y="541" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#475569" text-anchor="start"><tspan x="160" dy="0">B.Tech in Computer Science &amp; Engineering (8.82 CGPA, Medi-Caps University).</tspan><tspan x="160" dy="1.25em">Winner of MSME Idea Hackathon 3.0 (₹15 Lakh Govt Grant).</tspan><tspan x="160" dy="1.25em">Specializing in high-concurrency Node/Go backends, WebSockets,</tspan><tspan x="160" dy="1.25em">and meticulously engineered React 19 client applications.</tspan></text>
+<rect x="160" y="630" width="160" height="46" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="240" y="655" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="240" dy="0">Explore Work ↓</tspan></text>
+<rect x="335" y="630" width="160" height="46" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="415" y="655" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="415" dy="0">Direct Contact →</tspan></text>
+<rect x="510" y="630" width="180" height="46" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="600" y="655" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="600" dy="0">Download Dossier [PDF]</tspan></text>
+<rect x="160" y="700" width="175" height="42" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="170" y="723" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="170" dy="0">8.82 CGPA</tspan><tspan x="170" dy="1.25em">Medi-Caps Univ</tspan></text>
+<rect x="350" y="700" width="175" height="42" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1"   />
+<text x="360" y="723" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#b45309" text-anchor="start"><tspan x="360" dy="0">₹15L GRANT</tspan><tspan x="360" dy="1.25em">MSME Hackathon 3.0</tspan></text>
+<rect x="540" y="700" width="175" height="42" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1"   />
+<text x="550" y="723" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#15803d" text-anchor="start"><tspan x="550" dy="0">99.98% SLA</tspan><tspan x="550" dy="1.25em">Real-Time Telemetry</tspan></text>
+<rect x="780" y="320" width="540" height="430" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="800" y="350" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="800" dy="0">INTERACTIVE FROSTED FOLDER FAN (3D TILT)</tspan></text>
+<rect x="810" y="380" width="240" height="320" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"  transform="rotate(-4.58 930 540)" />
+<rect x="825" y="395" width="120" height="24" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="835" y="408" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="835" dy="0">TAB: MOOV-01</tspan></text>
+<text x="825" y="445" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="825" dy="0">MOOV Logistics</tspan><tspan x="825" dy="1.25em">Fleet Telemetry</tspan><tspan x="825" dy="1.25em">42k Active Trips</tspan><tspan x="825" dy="1.25em">140ms p95 Latency</tspan></text>
+<rect x="930" y="400" width="250" height="330" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"   />
+<rect x="945" y="415" width="130" height="24" rx="8" fill="#e0f2fe" stroke="#94a3b8" stroke-width="1"   />
+<text x="955" y="428" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0369a1" text-anchor="start"><tspan x="955" dy="0">TAB: GOVDOCS-02</tspan></text>
+<text x="945" y="465" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="945" dy="0">GovDocs Vault</tspan><tspan x="945" dy="1.25em">Decentralized Storage</tspan><tspan x="945" dy="1.25em">Ethereum + IPFS</tspan><tspan x="945" dy="1.25em">Smart Contract Auth</tspan></text>
+<rect x="945" y="570" width="210" height="28" rx="8" fill="#f0fdf4" stroke="#94a3b8" stroke-width="1"   />
+<text x="955" y="586" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#166534" text-anchor="start"><tspan x="955" dy="0">● Interactive Case Study</tspan></text>
+<rect x="1050" y="390" width="240" height="320" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5"  transform="rotate(4.58 1170 550)" />
+<rect x="1065" y="405" width="130" height="24" rx="8" fill="#fef2f2" stroke="#94a3b8" stroke-width="1"   />
+<text x="1075" y="418" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1075" dy="0">TAB: SWASTHY-03</tspan></text>
+<text x="1065" y="455" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1065" dy="0">SwaasthySetu</tspan><tspan x="1065" dy="1.25em">Rural Telemedicine</tspan><tspan x="1065" dy="1.25em">WebRTC Audio/Video</tspan><tspan x="1065" dy="1.25em">Distributed Sync</tspan></text>
+<line x1="160" y1="780" x2="1320" y2="780" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="810" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="824" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 02 FEATURED WORK // SUSPENDED CLOTHESLINE</tspan></text>
+<text x="1120" y="823" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1120" dy="0">COMPONENT: HangingCardsShowcase.tsx</tspan></text>
+<text x="160" y="867" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Selected Architectural Works &amp; Systems</tspan></text>
+<text x="160" y="890" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="160" dy="0">Physical clothespin suspended steel cable with tilt physics on mouse scroll &amp; interaction.</tspan></text>
+<line x1="140" y1="920" x2="1340" y2="920" stroke="#475569" stroke-width="2.5"  />
+<rect x="640" y="908" width="200" height="22" rx="8" fill="#334155" stroke="#94a3b8" stroke-width="1"   />
+<text x="650" y="920" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="650" dy="0">STEEL SUSPENSION WIRE ROPE</tspan></text>
+<rect x="293" y="914" width="20" height="26" rx="8" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"   />
+<rect x="170" y="940" width="265" height="360" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="170" y="940" width="265" height="8" rx="0" fill="#0284c7" stroke="#0284c7" stroke-width="1"   />
+<rect x="186" y="962" width="140" height="22" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="196" y="974" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="196" dy="0">Fleet Telemetry</tspan></text>
+<text x="186" y="1007" font-size="16" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="186" dy="0">MOOV LOGISTICS</tspan></text>
+<rect x="186" y="1024" width="233" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="194" y="1044" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="194" dy="0">[UI Dashboard Viewport]</tspan><tspan x="194" dy="1.25em">42K Trips · 140ms p95</tspan></text>
+<text x="186" y="1159" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="186" dy="0">TECH STACK:</tspan><tspan x="186" dy="1.25em">React 19 · Node · WebSockets</tspan></text>
+<rect x="186" y="1205" width="233" height="34" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="303" y="1224" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="303" dy="0">View Full Case Study →</tspan></text>
+<rect x="186" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="243" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="243" dy="0">Live App ↗</tspan></text>
+<rect x="306" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="362" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="362" dy="0">GitHub ↗</tspan></text>
+<rect x="584" y="914" width="20" height="26" rx="8" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"   />
+<rect x="461" y="940" width="265" height="360" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="461" y="940" width="265" height="8" rx="0" fill="#7c3aed" stroke="#7c3aed" stroke-width="1"   />
+<rect x="477" y="962" width="140" height="22" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="487" y="974" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#7c3aed" text-anchor="start"><tspan x="487" dy="0">Decentralized Docs</tspan></text>
+<text x="477" y="1007" font-size="16" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="477" dy="0">GOVDOCS VAULT</tspan></text>
+<rect x="477" y="1024" width="233" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="485" y="1044" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="485" dy="0">[UI Dashboard Viewport]</tspan><tspan x="485" dy="1.25em">100% Immutable Verification</tspan></text>
+<text x="477" y="1159" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="477" dy="0">TECH STACK:</tspan><tspan x="477" dy="1.25em">Solidity · IPFS · Ethers.js</tspan></text>
+<rect x="477" y="1205" width="233" height="34" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="594" y="1224" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="594" dy="0">View Full Case Study →</tspan></text>
+<rect x="477" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="534" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="534" dy="0">Live App ↗</tspan></text>
+<rect x="597" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="653" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="653" dy="0">GitHub ↗</tspan></text>
+<rect x="875" y="914" width="20" height="26" rx="8" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"   />
+<rect x="752" y="940" width="265" height="360" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="752" y="940" width="265" height="8" rx="0" fill="#059669" stroke="#059669" stroke-width="1"   />
+<rect x="768" y="962" width="140" height="22" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="778" y="974" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="778" dy="0">Telemedicine Hub</tspan></text>
+<text x="768" y="1007" font-size="16" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="768" dy="0">SWASTHYA SETU</tspan></text>
+<rect x="768" y="1024" width="233" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="776" y="1044" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="776" dy="0">[UI Dashboard Viewport]</tspan><tspan x="776" dy="1.25em">Low-Bandwidth Rural Sync</tspan></text>
+<text x="768" y="1159" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="768" dy="0">TECH STACK:</tspan><tspan x="768" dy="1.25em">WebRTC · Node · MongoDB</tspan></text>
+<rect x="768" y="1205" width="233" height="34" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="885" y="1224" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="885" dy="0">View Full Case Study →</tspan></text>
+<rect x="768" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="825" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="825" dy="0">Live App ↗</tspan></text>
+<rect x="888" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="944" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="944" dy="0">GitHub ↗</tspan></text>
+<rect x="1166" y="914" width="20" height="26" rx="8" fill="#cbd5e1" stroke="#475569" stroke-width="1.5"   />
+<rect x="1043" y="940" width="265" height="360" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="1043" y="940" width="265" height="8" rx="0" fill="#ea580c" stroke="#ea580c" stroke-width="1"   />
+<rect x="1059" y="962" width="140" height="22" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="1069" y="974" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ea580c" text-anchor="start"><tspan x="1069" dy="0">AST Security Scanner</tspan></text>
+<text x="1059" y="1007" font-size="16" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1059" dy="0">AI CODE AUDITOR</tspan></text>
+<rect x="1059" y="1024" width="233" height="110" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="1067" y="1044" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1067" dy="0">[UI Dashboard Viewport]</tspan><tspan x="1067" dy="1.25em">Sub-second Vulnerability Run</tspan></text>
+<text x="1059" y="1159" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1059" dy="0">TECH STACK:</tspan><tspan x="1059" dy="1.25em">Python · AST · FastAPI</tspan></text>
+<rect x="1059" y="1205" width="233" height="34" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1176" y="1224" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1176" dy="0">View Full Case Study →</tspan></text>
+<rect x="1059" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1116" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1116" dy="0">Live App ↗</tspan></text>
+<rect x="1179" y="1250" width="114" height="28" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1235" y="1265" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1235" dy="0">GitHub ↗</tspan></text>
+<line x1="160" y1="1340" x2="1320" y2="1340" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="1370" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="1384" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 03 DEEP DIVE // PRJ-01 SPECIFICATION</tspan></text>
+<text x="1130" y="1383" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: MoovFolderDeepDive.tsx</tspan></text>
+<text x="160" y="1427" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">MOOV: High-Throughput Vehicle Dispatch Engine</tspan></text>
+<rect x="180" y="1450" width="360" height="36" rx="8" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5"   />
+<text x="200" y="1471" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#92400e" text-anchor="start"><tspan x="200" dy="0">📁 DOSSIER // PRJ-01: HIGH CONCURRENCY LOGISTICS</tspan></text>
+<rect x="180" y="1484" width="1120" height="480" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="2"   />
+<rect x="210" y="1510" width="520" height="420" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<text x="230" y="1540" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="230" dy="0">LIVE ARCHITECTURAL TELEMETRY STREAM</tspan></text>
+<rect x="230" y="1565" width="230" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="244" y="1593" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="244" dy="0">99.98%</tspan></text>
+<text x="244" y="1611" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="244" dy="0">PRODUCTION SLA</tspan></text>
+<text x="244" y="1626" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="244" dy="0">Fault-tolerant multi-zone failover</tspan></text>
+<rect x="470" y="1565" width="230" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="484" y="1593" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="484" dy="0">140ms</tspan></text>
+<text x="484" y="1611" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="484" dy="0">p95 DISPATCH LATENCY</tspan></text>
+<text x="484" y="1626" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="484" dy="0">Real-time WebSocket event pump</tspan></text>
+<rect x="230" y="1660" width="230" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="244" y="1688" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="244" dy="0">42,850</tspan></text>
+<text x="244" y="1706" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="244" dy="0">CONCURRENT TRIPS</tspan></text>
+<text x="244" y="1721" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="244" dy="0">In-memory Redis spatial indexing</tspan></text>
+<rect x="470" y="1660" width="230" height="80" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="484" y="1688" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="484" dy="0">12.4k</tspan></text>
+<text x="484" y="1706" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="484" dy="0">TELEMETRY REQ / SEC</tspan></text>
+<text x="484" y="1721" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="484" dy="0">Distributed ingestion cluster</tspan></text>
+<rect x="230" y="1780" width="480" height="40" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="470" y="1802" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="470" dy="0">Open Comprehensive Architecture Case Study (Modal) →</tspan></text>
+<rect x="760" y="1510" width="500" height="420" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"   />
+<text x="785" y="1540" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="785" dy="0">SYSTEM TOPOLOGY // DISTRIBUTED EVENT PIPELINE</tspan></text>
+<rect x="785" y="1565" width="450" height="46" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"   />
+<rect x="795" y="1575" width="36" height="26" rx="8" fill="#0369a1" stroke="#0284c7" stroke-width="1"   />
+<text x="805" y="1589" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="805" dy="0">01</tspan></text>
+<text x="840" y="1584" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#e2e8f0" text-anchor="start"><tspan x="840" dy="0">CLIENT LAYER</tspan></text>
+<text x="840" y="1599" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="840" dy="0">React 19 + TypeScript + Leaflet GeoJSON Maps (Sub-100ms TTI)</tspan></text>
+<rect x="785" y="1621" width="450" height="46" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"   />
+<rect x="795" y="1631" width="36" height="26" rx="8" fill="#0369a1" stroke="#0284c7" stroke-width="1"   />
+<text x="805" y="1645" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="805" dy="0">02</tspan></text>
+<text x="840" y="1640" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#e2e8f0" text-anchor="start"><tspan x="840" dy="0">GATEWAY LAYER</tspan></text>
+<text x="840" y="1655" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="840" dy="0">Express.js + WebSockets Cluster + Rate Limiter &amp; JWT Auth</tspan></text>
+<rect x="785" y="1677" width="450" height="46" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"   />
+<rect x="795" y="1687" width="36" height="26" rx="8" fill="#0369a1" stroke="#0284c7" stroke-width="1"   />
+<text x="805" y="1701" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="805" dy="0">03</tspan></text>
+<text x="840" y="1696" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#e2e8f0" text-anchor="start"><tspan x="840" dy="0">STREAM &amp; CACHE</tspan></text>
+<text x="840" y="1711" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="840" dy="0">Redis Pub/Sub + Geospatial Indexing for Vehicle Fleet</tspan></text>
+<rect x="785" y="1733" width="450" height="46" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"   />
+<rect x="795" y="1743" width="36" height="26" rx="8" fill="#0369a1" stroke="#0284c7" stroke-width="1"   />
+<text x="805" y="1757" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="805" dy="0">04</tspan></text>
+<text x="840" y="1752" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#e2e8f0" text-anchor="start"><tspan x="840" dy="0">PERSISTENCE</tspan></text>
+<text x="840" y="1767" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="840" dy="0">PostgreSQL Spatial + Partitioned Trip Event Timeseries</tspan></text>
+<rect x="785" y="1805" width="450" height="32" rx="8" fill="#1e293b" stroke="#475569" stroke-width="1"   />
+<text x="795" y="1822" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="795" dy="0">TEAM: Sneha Patidar, Sneha Sharma, Sourav Chaudhary, Karan Verma</tspan></text>
+<line x1="160" y1="2000" x2="1320" y2="2000" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="2030" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="2044" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 04 ENGINEERING ETHOS // DEVELOPER LICENSE</tspan></text>
+<text x="1130" y="2043" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: AboutSection.tsx + Badge</tspan></text>
+<text x="160" y="2087" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Principles, Pedigree &amp; Operating Philosophy</tspan></text>
+<rect x="180" y="2114" width="380" height="440" rx="8" fill="#f8fafc" stroke="#0f172a" stroke-width="2"   />
+<rect x="180" y="2114" width="380" height="40" rx="0" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="196" y="2137" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="196" dy="0">REPUBLIC OF CODE // DEVELOPER LICENSE</tspan></text>
+<rect x="204" y="2170" width="110" height="130" rx="8" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"   />
+<text x="220" y="2234" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="middle"><tspan x="220" dy="0">[PHOTO]</tspan><tspan x="220" dy="1.25em">KARAN</tspan><tspan x="220" dy="1.25em">VERMA</tspan></text>
+<text x="328" y="2178" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="328" dy="0">LICENSE NO:</tspan><tspan x="328" dy="1.25em">KV-2026-ENG-882</tspan><tspan x="328" dy="1.25em"></tspan><tspan x="328" dy="1.25em">DEGREE:</tspan><tspan x="328" dy="1.25em">B.Tech Computer Science</tspan><tspan x="328" dy="1.25em"></tspan><tspan x="328" dy="1.25em">CGPA:</tspan><tspan x="328" dy="1.25em">8.82 / 10.00</tspan><tspan x="328" dy="1.25em"></tspan><tspan x="328" dy="1.25em">INSTITUTION:</tspan><tspan x="328" dy="1.25em">Medi-Caps University</tspan></text>
+<ellipse cx="244" cy="2360" rx="40" ry="40" fill="#fef3c7" stroke="#f59e0b" stroke-width="1.5" />
+<text x="220" y="2357" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#b45309" text-anchor="middle"><tspan x="220" dy="0">★ VERIFIED ★</tspan><tspan x="220" dy="1.25em">MSME 3.0</tspan></text>
+<rect x="400" y="2320" width="80" height="80" rx="0" fill="#ffffff" stroke="#0f172a" stroke-width="1.5"   />
+<text x="412" y="2359" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="middle"><tspan x="412" dy="0">[QR CODE</tspan><tspan x="412" dy="1.25em">VERIFY]</tspan></text>
+<line x1="196" y1="2425" x2="544" y2="2425" stroke="#cbd5e1" stroke-width="1"  />
+<text x="196" y="2443" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#047857" text-anchor="start"><tspan x="196" dy="0">STATUS: PERMITTED FOR MISSION-CRITICAL DEPLOYMENTS</tspan></text>
+<rect x="590" y="2114" width="710" height="74" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="606" y="2128" width="40" height="26" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="616" y="2143" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="616" dy="0">01</tspan></text>
+<text x="656" y="2138" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="656" dy="0">SYSTEM RELIABILITY FIRST</tspan></text>
+<text x="656" y="2159" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="656" dy="0">Engineering failure modes upfront. Every service features circuit breakers, retries, idempotent mutations, and strict SLA monitoring.</tspan></text>
+<rect x="590" y="2200" width="710" height="74" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="606" y="2214" width="40" height="26" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="616" y="2229" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="616" dy="0">02</tspan></text>
+<text x="656" y="2224" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="656" dy="0">HIGH-PERFORMANCE FRONTENDS</tspan></text>
+<text x="656" y="2245" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="656" dy="0">Sub-100ms TTI, 60fps interaction budgets, zero-layout shifts, tree-shaken bundles, and declarative state orchestration.</tspan></text>
+<rect x="590" y="2286" width="710" height="74" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="606" y="2300" width="40" height="26" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="616" y="2315" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="616" dy="0">03</tspan></text>
+<text x="656" y="2310" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="656" dy="0">DISTRIBUTED ARCHITECTURE</tspan></text>
+<text x="656" y="2331" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="656" dy="0">Decoupled services communicating over structured events (WebSockets, gRPC, Redis streams) with spatial and time-series clustering.</tspan></text>
+<rect x="590" y="2372" width="710" height="74" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="606" y="2386" width="40" height="26" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="616" y="2401" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="616" dy="0">04</tspan></text>
+<text x="656" y="2396" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="656" dy="0">HUMAN-CENTERED DX</tspan></text>
+<text x="656" y="2417" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="656" dy="0">Strict end-to-end typing, automated CI/CD pipelines, reproducible containers, and self-documenting codebases.</tspan></text>
+<rect x="590" y="2470" width="710" height="84" rx="8" fill="#fffbeb" stroke="#fde68a" stroke-width="1.5"   />
+<text x="610" y="2496" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#92400e" text-anchor="start"><tspan x="610" dy="0">🏆 NATIONAL AWARD: MSME IDEA HACKATHON 3.0 WINNER (GOVT OF INDIA)</tspan></text>
+<text x="610" y="2521" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#b45309" text-anchor="start"><tspan x="610" dy="0">Awarded ₹15 Lakh Grant by the Ministry of MSME for groundbreaking technology innovation.</tspan><tspan x="610" dy="1.25em">Lead developer responsible for distributed engineering, verification, and end-to-end delivery.</tspan></text>
+<line x1="160" y1="2590" x2="1320" y2="2590" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="2620" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="2634" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 05 TECHNICAL ARSENAL // STUDIO PINBOARD</tspan></text>
+<text x="1130" y="2633" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: SkillsSection.tsx</tspan></text>
+<text x="160" y="2677" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Full-Spectrum Technical Stack &amp; Mastery Matrix</tspan></text>
+<rect x="180" y="2700" width="1120" height="460" rx="8" fill="#fafaf9" stroke="#d6d3d1" stroke-width="2"   />
+<ellipse cx="202" cy="2722" rx="8" ry="8" fill="#ef4444" stroke="#991b1b" stroke-width="1" />
+<ellipse cx="1278" cy="2722" rx="8" ry="8" fill="#ef4444" stroke="#991b1b" stroke-width="1" />
+<ellipse cx="202" cy="3138" rx="8" ry="8" fill="#ef4444" stroke="#991b1b" stroke-width="1" />
+<ellipse cx="1278" cy="3138" rx="8" ry="8" fill="#ef4444" stroke="#991b1b" stroke-width="1" />
+<rect x="210" y="2730" width="520" height="185" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="210" y="2730" width="520" height="36" rx="0" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="226" y="2750" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="226" dy="0">⚡ FRONTEND ENGINEERING</tspan></text>
+<rect x="226" y="2780" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="2796" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ React 19 (Hooks, Concurrent)</tspan></text>
+<rect x="471" y="2780" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="2796" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ TypeScript 5.x</tspan></text>
+<rect x="226" y="2820" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="2836" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ Next.js App Router</tspan></text>
+<rect x="471" y="2820" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="2836" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ Tailwind CSS v3/v4</tspan></text>
+<rect x="226" y="2860" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="2876" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ Redux Toolkit &amp; Zustand</tspan></text>
+<rect x="471" y="2860" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="2876" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ Framer Motion &amp; Canvas</tspan></text>
+<rect x="760" y="2730" width="520" height="185" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="760" y="2730" width="520" height="36" rx="0" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="776" y="2750" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#7c3aed" text-anchor="start"><tspan x="776" dy="0">⚙️ BACKEND &amp; SYSTEMS</tspan></text>
+<rect x="776" y="2780" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="2796" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ Node.js &amp; Express</tspan></text>
+<rect x="1021" y="2780" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="2796" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ Go (Golang Systems)</tspan></text>
+<rect x="776" y="2820" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="2836" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ Python &amp; FastAPI</tspan></text>
+<rect x="1021" y="2820" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="2836" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ WebSockets / Socket.io</tspan></text>
+<rect x="776" y="2860" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="2876" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ REST &amp; GraphQL APIs</tspan></text>
+<rect x="1021" y="2860" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="2876" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ gRPC &amp; Microservices</tspan></text>
+<rect x="210" y="2935" width="520" height="185" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="210" y="2935" width="520" height="36" rx="0" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="226" y="2955" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="226" dy="0">🗄️ DATABASES &amp; CACHING</tspan></text>
+<rect x="226" y="2985" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="3001" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ PostgreSQL &amp; PostGIS</tspan></text>
+<rect x="471" y="2985" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="3001" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ MongoDB &amp; Aggregations</tspan></text>
+<rect x="226" y="3025" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="3041" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ Redis Caching &amp; Pub/Sub</tspan></text>
+<rect x="471" y="3025" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="3041" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ Prisma ORM &amp; Mongoose</tspan></text>
+<rect x="226" y="3065" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="236" y="3081" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="236" dy="0">✓ Database Indexing &amp; Tuning</tspan></text>
+<rect x="471" y="3065" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="481" y="3081" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="481" dy="0">✓ ACID Transactions</tspan></text>
+<rect x="760" y="2935" width="520" height="185" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1.5"   />
+<rect x="760" y="2935" width="520" height="36" rx="0" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="776" y="2955" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ea580c" text-anchor="start"><tspan x="776" dy="0">🚀 DEVOPS, CLOUD &amp; TOOLS</tspan></text>
+<rect x="776" y="2985" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="3001" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ Docker &amp; Containerization</tspan></text>
+<rect x="1021" y="2985" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="3001" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ Git &amp; GitHub Workflows</tspan></text>
+<rect x="776" y="3025" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="3041" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ CI/CD Automation Pipelines</tspan></text>
+<rect x="1021" y="3025" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="3041" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ AWS (S3, EC2, CloudFront)</tspan></text>
+<rect x="776" y="3065" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="786" y="3081" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="786" dy="0">✓ Linux Server Administration</tspan></text>
+<rect x="1021" y="3065" width="235" height="30" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1031" y="3081" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1031" dy="0">✓ Vite &amp; Webpack Tooling</tspan></text>
+<line x1="160" y1="3190" x2="1320" y2="3190" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="3220" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="3234" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 06 FLIGHT LOG // CHRONOLOGICAL PASSES</tspan></text>
+<text x="1130" y="3233" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: JourneySection.tsx</tspan></text>
+<text x="160" y="3277" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Milestones, Expeditions &amp; Career Evolution</tspan></text>
+<text x="160" y="3300" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="160" dy="0">Fanning timeline passes with interactive drawer tabs &amp; details.</tspan></text>
+<rect x="180" y="3330" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="194" y="3344" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="204" y="3358" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="204" dy="0">2024</tspan></text>
+<rect x="270" y="3344" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="280" y="3357" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="280" dy="0">WINNER ₹15L GRANT</tspan></text>
+<text x="194" y="3392" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="194" dy="0">MSME Idea Hackathon 3.0</tspan></text>
+<text x="194" y="3419" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="194" dy="0">Govt of India National recognition for high-impact innovation.</tspan></text>
+<line x1="194" y1="3460" x2="429" y2="3460" stroke="#f1f5f9" stroke-width="1"  />
+<text x="194" y="3477" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="194" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="465" y="3330" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="479" y="3344" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="489" y="3358" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="489" dy="0">2024</tspan></text>
+<rect x="555" y="3344" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="565" y="3357" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="565" dy="0">8.82 CGPA</tspan></text>
+<text x="479" y="3392" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="479" dy="0">B.Tech CSE Graduation</tspan></text>
+<text x="479" y="3419" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="479" dy="0">Medi-Caps University degree with academic honors.</tspan></text>
+<line x1="479" y1="3460" x2="714" y2="3460" stroke="#f1f5f9" stroke-width="1"  />
+<text x="479" y="3477" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="479" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="750" y="3330" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="764" y="3344" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="774" y="3358" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="774" dy="0">2024</tspan></text>
+<rect x="840" y="3344" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="850" y="3357" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="850" dy="0">LEAD ARCHITECT</tspan></text>
+<text x="764" y="3392" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="764" dy="0">MOOV Logistics Engine</tspan></text>
+<text x="764" y="3419" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="764" dy="0">Real-time vehicle telemetry pipeline handling 42k trips.</tspan></text>
+<line x1="764" y1="3460" x2="999" y2="3460" stroke="#f1f5f9" stroke-width="1"  />
+<text x="764" y="3477" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="764" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="1035" y="3330" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="1049" y="3344" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="1059" y="3358" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1059" dy="0">2023</tspan></text>
+<rect x="1125" y="3344" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="1135" y="3357" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="1135" dy="0">DECENTRALIZED</tspan></text>
+<text x="1049" y="3392" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1049" dy="0">GovDocs Blockchain</tspan></text>
+<text x="1049" y="3419" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1049" dy="0">Immutable document verification system on Ethereum &amp; IPFS.</tspan></text>
+<line x1="1049" y1="3460" x2="1284" y2="3460" stroke="#f1f5f9" stroke-width="1"  />
+<text x="1049" y="3477" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="1049" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="180" y="3520" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="194" y="3534" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="204" y="3548" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="204" dy="0">2023</tspan></text>
+<rect x="270" y="3534" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="280" y="3547" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="280" dy="0">HEALTHCARE DX</tspan></text>
+<text x="194" y="3582" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="194" dy="0">SwaasthySetu Platform</tspan></text>
+<text x="194" y="3609" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="194" dy="0">Low-latency rural telemedicine platform over WebRTC.</tspan></text>
+<line x1="194" y1="3650" x2="429" y2="3650" stroke="#f1f5f9" stroke-width="1"  />
+<text x="194" y="3667" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="194" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="465" y="3520" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="479" y="3534" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="489" y="3548" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="489" dy="0">2023</tspan></text>
+<rect x="555" y="3534" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="565" y="3547" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="565" dy="0">CORE LEAD</tspan></text>
+<text x="479" y="3582" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="479" dy="0">Technical Leadership</tspan></text>
+<text x="479" y="3609" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="479" dy="0">Led engineering workshops, hackathon teams, and open source.</tspan></text>
+<line x1="479" y1="3650" x2="714" y2="3650" stroke="#f1f5f9" stroke-width="1"  />
+<text x="479" y="3667" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="479" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="750" y="3520" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="764" y="3534" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="774" y="3548" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="774" dy="0">2022</tspan></text>
+<rect x="840" y="3534" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="850" y="3547" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="850" dy="0">SYSTEMS FOCUS</tspan></text>
+<text x="764" y="3582" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="764" dy="0">Full-Stack Mastery</tspan></text>
+<text x="764" y="3609" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="764" dy="0">Deep-dive into distributed systems, Go, and high-concurrency Node.</tspan></text>
+<line x1="764" y1="3650" x2="999" y2="3650" stroke="#f1f5f9" stroke-width="1"  />
+<text x="764" y="3667" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="764" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<rect x="1035" y="3520" width="265" height="170" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="1049" y="3534" width="70" height="24" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="1059" y="3548" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1059" dy="0">2026</tspan></text>
+<rect x="1125" y="3534" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="1135" y="3547" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="1135" dy="0">SYSTEMS ENG</tspan></text>
+<text x="1049" y="3582" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1049" dy="0">Present &amp; Beyond</tspan></text>
+<text x="1049" y="3609" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1049" dy="0">Designing production-grade fault-tolerant distributed web apps.</tspan></text>
+<line x1="1049" y1="3650" x2="1284" y2="3650" stroke="#f1f5f9" stroke-width="1"  />
+<text x="1049" y="3667" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#059669" text-anchor="start"><tspan x="1049" dy="0">● Verified Academic / Hackathon Record</tspan></text>
+<line x1="160" y1="3740" x2="1320" y2="3740" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="3770" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="3784" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 07 RESUME DOSSIER // PHYSICAL BINDER</tspan></text>
+<text x="1130" y="3783" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: ResumeSection.tsx</tspan></text>
+<text x="160" y="3827" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Archival Dossier, Academic Transcripts &amp; Specimen</tspan></text>
+<rect x="180" y="3850" width="1120" height="480" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="2"   />
+<ellipse cx="204" cy="3909" rx="9" ry="9" fill="#d97706" stroke="#78350f" stroke-width="1" />
+<ellipse cx="204" cy="4059" rx="9" ry="9" fill="#d97706" stroke="#78350f" stroke-width="1" />
+<ellipse cx="204" cy="4209" rx="9" ry="9" fill="#d97706" stroke="#78350f" stroke-width="1" />
+<rect x="240" y="3880" width="450" height="150" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="260" y="3896" width="120" height="24" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="270" y="3909" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="270" dy="0">IDENTITY PASS</tspan></text>
+<text x="260" y="3939" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="260" dy="0">KARAN VERMA — FULL-STACK ENGINEER</tspan><tspan x="260" dy="1.25em">Specialization: High-Concurrency Web Services &amp; UI Systems</tspan><tspan x="260" dy="1.25em">Education: B.Tech Computer Science &amp; Engineering (8.82 CGPA)</tspan><tspan x="260" dy="1.25em">Clearance: Verified for Enterprise &amp; Venture Deployments</tspan></text>
+<rect x="720" y="3880" width="480" height="150" rx="8" fill="#fef08a" stroke="#000000" stroke-width="2.5"  transform="rotate(-1.15 960 3955)" />
+<text x="740" y="3910" font-size="13" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#000000" text-anchor="start"><tspan x="740" dy="0">★ STRICTLY SYSTEM ARCHITECTURE ★</tspan><tspan x="740" dy="1.25em"></tspan><tspan x="740" dy="1.25em">NO OVERENGINEERED BLOAT · ZERO LAYOUT SHIFTS</tspan><tspan x="740" dy="1.25em">SUB-100MS TTI · TYPE INTEGRITY END-TO-END</tspan></text>
+<rect x="240" y="4050" width="960" height="180" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6,4"  />
+<rect x="260" y="4066" width="200" height="24" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="270" y="4079" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="270" dy="0">✂ PERFORATED EXPERIENCE RECORD</tspan></text>
+<text x="260" y="4109" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="260" dy="0">EXPERIENCE &amp; EDUCATION HIGHLIGHTS:</tspan><tspan x="260" dy="1.25em">• B.Tech Computer Science (Medi-Caps Univ, 8.82 CGPA, 2020-2024)</tspan><tspan x="260" dy="1.25em">• Ministry of MSME Idea Hackathon 3.0 Winner (₹15 Lakh Grant, 2024)</tspan><tspan x="260" dy="1.25em">• Full-Stack Architect: MOOV Logistics, GovDocs Vault, SwaasthySetu Telemedicine</tspan><tspan x="260" dy="1.25em">• Skills: React 19, TypeScript, Next.js, Node.js, Express, Go, Python, PostgreSQL, Redis, Docker, AWS</tspan></text>
+<rect x="240" y="4250" width="460" height="48" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="470" y="4276" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="470" dy="0">Download Karan Verma Resume (Official PDF 📄)</tspan></text>
+<rect x="720" y="4258" width="300" height="32" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"   />
+<text x="730" y="4275" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#047857" text-anchor="start"><tspan x="730" dy="0">MD5 VERIFIED: 100% ATS COMPLIANT FORMAT</tspan></text>
+<line x1="160" y1="4360" x2="1320" y2="4360" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="4390" width="160" height="24" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"   />
+<text x="170" y="4404" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1d4ed8" text-anchor="start"><tspan x="170" dy="0">// 08 COLLABORATION // STATIONERY DESK</tspan></text>
+<text x="1130" y="4403" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1130" dy="0">COMPONENT: ContactSection.tsx</tspan></text>
+<text x="160" y="4447" font-size="26" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="160" dy="0">Initiate Communication &amp; Project Dispatch</tspan></text>
+<rect x="180" y="4474" width="520" height="420" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="204" y="4498" width="470" height="90" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="224" y="4522" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="224" dy="0">LOCAL STATION CLOCK // INDORE, INDIA (IST)</tspan></text>
+<text x="224" y="4552" font-size="22" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="224" dy="0">09:41:22 AM IST  [UTC +5:30]</tspan></text>
+<rect x="520" y="4518" width="130" height="24" rx="8" fill="#064e3b" stroke="#94a3b8" stroke-width="1"   />
+<text x="530" y="4531" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#34d399" text-anchor="start"><tspan x="530" dy="0">● BUSINESS HOURS</tspan></text>
+<text x="204" y="4620" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="204" dy="0">DIRECT DISPATCH CHANNELS:</tspan></text>
+<rect x="204" y="4640" width="470" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"   />
+<text x="214" y="4660" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="214" dy="0">Email: karanverma.dev@gmail.com</tspan></text>
+<rect x="204" y="4686" width="470" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"   />
+<text x="214" y="4706" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="214" dy="0">Telegram: @karanverma</tspan></text>
+<rect x="204" y="4732" width="470" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"   />
+<text x="214" y="4752" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="214" dy="0">LinkedIn: linkedin.com/in/karanverma</tspan></text>
+<rect x="204" y="4778" width="470" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"   />
+<text x="214" y="4798" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="214" dy="0">GitHub: github.com/karanverma</tspan></text>
+<rect x="204" y="4824" width="470" height="36" rx="8" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"   />
+<text x="214" y="4844" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="214" dy="0">Location: Indore, Madhya Pradesh, India (Open to Remote &amp; Relocation)</tspan></text>
+<rect x="730" y="4474" width="570" height="420" rx="8" fill="#fffdf5" stroke="#fde68a" stroke-width="2"   />
+<rect x="1200" y="4494" width="80" height="95" rx="0" fill="#ffffff" stroke="#dc2626" stroke-width="1.5" stroke-dasharray="6,4"  />
+<text x="1210" y="4528" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#dc2626" text-anchor="middle"><tspan x="1210" dy="0">AIR MAIL</tspan><tspan x="1210" dy="1.25em">INDIA</tspan><tspan x="1210" dy="1.25em">POST</tspan></text>
+<text x="755" y="4509" font-size="14" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#78350f" text-anchor="start"><tspan x="755" dy="0">POSTAL DISPATCH TRANSMITTER</tspan></text>
+<rect x="755" y="4530" width="420" height="36" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="1"   />
+<text x="770" y="4549" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="770" dy="0">Sender Name: [Enter your full name]</tspan></text>
+<rect x="755" y="4578" width="420" height="36" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="1"   />
+<text x="770" y="4597" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="770" dy="0">Return Email: [your.email@domain.com]</tspan></text>
+<rect x="755" y="4626" width="520" height="110" rx="8" fill="#ffffff" stroke="#d6d3d1" stroke-width="1"   />
+<text x="770" y="4647" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="770" dy="0">Project Specification / Message:</tspan><tspan x="770" dy="1.25em">[Briefly describe your objectives, architecture requirements, or timeline...]</tspan></text>
+<rect x="755" y="4755" width="380" height="48" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="945" y="4781" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="945" dy="0">Seal &amp; Dispatch Message [✉️ TRANSMIT]</tspan></text>
+<ellipse cx="1196" cy="4781" rx="26" ry="26" fill="#b91c1c" stroke="#7f1d1d" stroke-width="2" />
+<text x="1182" y="4780" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1182" dy="0">KV</tspan><tspan x="1182" dy="1.25em">SEAL</tspan></text>
+<line x1="160" y1="4920" x2="1320" y2="4920" stroke="#e2e8f0" stroke-width="1"  />
+<rect x="160" y="4950" width="1160" height="100" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1.5"   />
+<text x="184" y="4984" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="184" dy="0">kv@portfolio ~ % status: 200 OK | SLA: 99.98% | latency: 12ms</tspan></text>
+<text x="184" y="5009" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="184" dy="0">Built with React 19, TypeScript, Vite, Tailwind CSS · Designed &amp; Engineered by Karan Verma © 2026</tspan></text>
+<rect x="1130" y="4980" width="150" height="40" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1.5"   />
+<text x="1205" y="5002" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1205" dy="0">Return to Top ↑</tspan></text>
+<rect x="1440" y="140" width="390" height="5580" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"   />
+<rect x="1440" y="140" width="390" height="36" rx="0" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<text x="1458" y="160" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1458" dy="0">9:41</tspan></text>
+<rect x="1595" y="148" width="80" height="18" rx="8" fill="#1e293b" stroke="#334155" stroke-width="1"   />
+<text x="1760" y="159" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1760" dy="0">5G  100%</tspan></text>
+<rect x="1456" y="188" width="358" height="28" rx="8" fill="#e0f2fe" stroke="#7dd3fc" stroke-width="1"   />
+<text x="1466" y="203" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0369a1" text-anchor="start"><tspan x="1466" dy="0">MOBILE VIEWPORT: 390px (RESPONSIVE STACK)</tspan></text>
+<rect x="1456" y="226" width="358" height="50" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"   />
+<rect x="1466" y="236" width="120" height="30" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="253" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1476" dy="0">⚡ KV VERMA</tspan></text>
+<rect x="1710" y="236" width="42" height="30" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1720" y="253" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1720" dy="0">🌙</tspan></text>
+<rect x="1760" y="236" width="44" height="30" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1782" y="253" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1782" dy="0">☰</tspan></text>
+<rect x="1456" y="294" width="358" height="24" rx="8" fill="#ecfdf5" stroke="#a7f3d0" stroke-width="1"   />
+<text x="1466" y="307" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#047857" text-anchor="start"><tspan x="1466" dy="0">🟢 OPEN FOR ROLES</tspan></text>
+<text x="1456" y="348" font-size="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="1456" dy="0">Architecting Resilient</tspan><tspan x="1456" dy="1.25em">Web Systems &amp;</tspan><tspan x="1456" dy="1.25em">Industrial Interfaces.</tspan></text>
+<text x="1456" y="428" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1456" dy="0">B.Tech CSE (8.82 CGPA, Medi-Caps Univ).</tspan><tspan x="1456" dy="1.25em">MSME Hackathon 3.0 Winner (₹15L Grant).</tspan><tspan x="1456" dy="1.25em">Distributed systems &amp; React 19 apps.</tspan></text>
+<rect x="1456" y="489" width="358" height="38" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="510" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">Explore Work ↓</tspan></text>
+<rect x="1456" y="534" width="358" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1635" y="555" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1635" dy="0">Direct Contact →</tspan></text>
+<rect x="1456" y="579" width="358" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1635" y="600" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1635" dy="0">Download Dossier PDF</tspan></text>
+<rect x="1456" y="629" width="358" height="170" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<rect x="1466" y="639" width="140" height="22" rx="8" fill="#e0f2fe" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="651" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0369a1" text-anchor="start"><tspan x="1476" dy="0">FOLDER FAN: MOOV</tspan></text>
+<text x="1466" y="678" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1466" dy="0">MOOV Fleet Telemetry Engine</tspan><tspan x="1466" dy="1.25em">42k Active Trips · 140ms p95</tspan><tspan x="1466" dy="1.25em">React 19 + WebSockets</tspan></text>
+<rect x="1466" y="734" width="338" height="32" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="752" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">Open Case Study →</tspan></text>
+<line x1="1456" y1="824" x2="1814" y2="824" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="848" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 02 SUSPENDED WORK (TOUCH FEED)</tspan></text>
+<rect x="1456" y="866" width="358" height="205" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<rect x="1456" y="866" width="358" height="6" rx="0" fill="#0284c7" stroke="#334155" stroke-width="1"   />
+<text x="1466" y="894" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1466" dy="0">MOOV LOGISTICS ENGINE</tspan></text>
+<rect x="1466" y="910" width="338" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="1476" y="942" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1476" dy="0">[Real-time Dashboard Viewport]</tspan></text>
+<rect x="1466" y="991" width="338" height="32" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="1009" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">View Dossier Details →</tspan></text>
+<rect x="1466" y="1030" width="166" height="26" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1549" y="1044" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1549" dy="0">Live App ↗</tspan></text>
+<rect x="1638" y="1030" width="166" height="26" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1721" y="1044" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1721" dy="0">GitHub ↗</tspan></text>
+<rect x="1456" y="1086" width="358" height="205" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<rect x="1456" y="1086" width="358" height="6" rx="0" fill="#7c3aed" stroke="#334155" stroke-width="1"   />
+<text x="1466" y="1114" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1466" dy="0">GOVDOCS BLOCKCHAIN VAULT</tspan></text>
+<rect x="1466" y="1130" width="338" height="70" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"   />
+<text x="1476" y="1162" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1476" dy="0">[Real-time Dashboard Viewport]</tspan></text>
+<rect x="1466" y="1211" width="338" height="32" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="1229" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">View Dossier Details →</tspan></text>
+<rect x="1466" y="1250" width="166" height="26" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1549" y="1264" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1549" dy="0">Live App ↗</tspan></text>
+<rect x="1638" y="1250" width="166" height="26" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1721" y="1264" font-size="9" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="1721" dy="0">GitHub ↗</tspan></text>
+<line x1="1456" y1="1324" x2="1814" y2="1324" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="1348" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 03 MOOV LOGISTICS DOSSIER</tspan></text>
+<rect x="1456" y="1364" width="358" height="340" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"   />
+<rect x="1466" y="1376" width="200" height="24" rx="8" fill="#fef3c7" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="1389" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#92400e" text-anchor="start"><tspan x="1476" dy="0">📁 PRJ-01: FLEET ENGINE</tspan></text>
+<rect x="1466" y="1410" width="338" height="34" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1"   />
+<text x="1476" y="1428" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1476" dy="0">SLA: 99.98% High Availability</tspan></text>
+<rect x="1466" y="1452" width="338" height="34" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1"   />
+<text x="1476" y="1470" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1476" dy="0">LATENCY: 140ms p95 Dispatch</tspan></text>
+<rect x="1466" y="1494" width="338" height="34" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1"   />
+<text x="1476" y="1512" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1476" dy="0">ACTIVE: 42,850 Fleet Trips</tspan></text>
+<rect x="1466" y="1536" width="338" height="34" rx="8" fill="#ffffff" stroke="#fde68a" stroke-width="1"   />
+<text x="1476" y="1554" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1476" dy="0">PIPELINE: WebSockets &amp; Redis Spatial</tspan></text>
+<rect x="1466" y="1589" width="338" height="40" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="1611" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">Open Case Study Modal →</tspan></text>
+<line x1="1456" y1="1734" x2="1814" y2="1734" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="1758" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 04 DEVELOPER LICENSE &amp; ETHOS</tspan></text>
+<rect x="1456" y="1774" width="358" height="360" rx="8" fill="#f8fafc" stroke="#0f172a" stroke-width="1.5"   />
+<rect x="1456" y="1774" width="358" height="32" rx="0" fill="#0f172a" stroke="#334155" stroke-width="1"   />
+<text x="1466" y="1790" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1466" dy="0">DEVELOPER LICENSE // KARAN VERMA</tspan></text>
+<text x="1466" y="1826" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1466" dy="0">ID: KV-2026-ENG-882</tspan><tspan x="1466" dy="1.25em">DEGREE: B.Tech CSE (8.82 CGPA)</tspan><tspan x="1466" dy="1.25em">INSTITUTION: Medi-Caps University</tspan><tspan x="1466" dy="1.25em">AWARD: MSME Hackathon 3.0 (₹15L Grant)</tspan></text>
+<ellipse cx="1496" cy="1939" rx="30" ry="30" fill="#fef3c7" stroke="#f59e0b" stroke-width="1" />
+<text x="1478" y="1936" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#b45309" text-anchor="start"><tspan x="1478" dy="0">MSME</tspan><tspan x="1478" dy="1.25em">SEAL</tspan></text>
+<rect x="1730" y="1909" width="60" height="60" rx="0" fill="#ffffff" stroke="#0f172a" stroke-width="1"   />
+<text x="1738" y="1938" font-size="8" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1738" dy="0">[QR CODE]</tspan></text>
+<rect x="1466" y="1989" width="338" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="2008" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1476" dy="0">1. System Reliability First (99.98% Uptime)</tspan></text>
+<rect x="1466" y="2032" width="338" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="2051" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1476" dy="0">2. High-Performance Frontends (Sub-100ms TTI)</tspan></text>
+<rect x="1466" y="2075" width="338" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="2094" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1476" dy="0">3. Distributed Architecture (Go + WebSockets)</tspan></text>
+<line x1="1456" y1="2164" x2="1814" y2="2164" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="2188" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 05 TECHNICAL STACK (PINBOARD)</tspan></text>
+<rect x="1456" y="2204" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1466" y="2221" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1466" dy="0">✓ React 19 &amp; TypeScript</tspan></text>
+<rect x="1638" y="2204" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1648" y="2221" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1648" dy="0">✓ Next.js App Router</tspan></text>
+<rect x="1456" y="2244" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1466" y="2261" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1466" dy="0">✓ Node.js &amp; Express</tspan></text>
+<rect x="1638" y="2244" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1648" y="2261" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1648" dy="0">✓ Go (Golang Systems)</tspan></text>
+<rect x="1456" y="2284" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1466" y="2301" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1466" dy="0">✓ PostgreSQL &amp; PostGIS</tspan></text>
+<rect x="1638" y="2284" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1648" y="2301" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1648" dy="0">✓ Redis Cache &amp; Pub/Sub</tspan></text>
+<rect x="1456" y="2324" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1466" y="2341" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1466" dy="0">✓ Docker &amp; Containers</tspan></text>
+<rect x="1638" y="2324" width="176" height="32" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1648" y="2341" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1648" dy="0">✓ AWS &amp; CloudFront</tspan></text>
+<line x1="1456" y1="2394" x2="1814" y2="2394" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="2418" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 06 FLIGHT LOG (TOUCH SWIPE CAROUSEL)</tspan></text>
+<rect x="1456" y="2432" width="358" height="230" rx="8" fill="#ffffff" stroke="#0284c7" stroke-width="2"   />
+<rect x="1466" y="2444" width="100" height="24" rx="8" fill="#e0f2fe" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="2457" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0369a1" text-anchor="start"><tspan x="1476" dy="0">👈 SWIPE 👉</tspan></text>
+<rect x="1710" y="2444" width="90" height="24" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="1720" y="2457" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1720" dy="0">CARD 1 OF 8</tspan></text>
+<text x="1466" y="2491" font-size="14" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1466" dy="0">MSME Idea Hackathon 3.0</tspan><tspan x="1466" dy="1.25em">National Winner (Govt ₹15L Grant)</tspan></text>
+<text x="1466" y="2533" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1466" dy="0">Ministry of MSME recognition for technology</tspan><tspan x="1466" dy="1.25em">innovation and scalable real-time systems.</tspan></text>
+<text x="1595" y="2604" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1595" dy="0">● ○ ○ ○ ○ ○ ○ ○</tspan></text>
+<line x1="1456" y1="2694" x2="1814" y2="2694" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="2718" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 07 RESUME DOSSIER &amp; SPECIMEN</tspan></text>
+<rect x="1456" y="2734" width="358" height="210" rx="8" fill="#f8fafc" stroke="#64748b" stroke-width="1"   />
+<text x="1466" y="2759" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1466" dy="0">KARAN VERMA — DOSSIER</tspan><tspan x="1466" dy="1.25em">B.Tech CSE · 8.82 CGPA · MSME Winner</tspan><tspan x="1466" dy="1.25em">React 19, TypeScript, Node, Go, Redis</tspan></text>
+<rect x="1466" y="2834" width="338" height="40" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="2856" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">Download Official Resume PDF 📄</tspan></text>
+<rect x="1466" y="2882" width="338" height="24" rx="8" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"   />
+<text x="1476" y="2895" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#047857" text-anchor="middle"><tspan x="1476" dy="0">ATS COMPLIANT · MD5 VERIFIED</tspan></text>
+<line x1="1456" y1="2974" x2="1814" y2="2974" stroke="#e2e8f0" stroke-width="1"  />
+<text x="1456" y="2998" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1456" dy="0">// 08 CONTACT DESK &amp; DISPATCH</tspan></text>
+<rect x="1456" y="3014" width="358" height="180" rx="8" fill="#fffdf5" stroke="#fde68a" stroke-width="1"   />
+<text x="1466" y="3037" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#78350f" text-anchor="start"><tspan x="1466" dy="0">🕒 09:41 AM IST · INDORE, INDIA</tspan><tspan x="1466" dy="1.25em">karanverma.dev@gmail.com</tspan><tspan x="1466" dy="1.25em">Telegram: @karanverma</tspan></text>
+<rect x="1466" y="3094" width="338" height="38" rx="8" fill="#0f172a" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1635" y="3115" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="1635" dy="0">Open Contact Letter Form ✉️</tspan></text>
+<rect x="1456" y="3214" width="358" height="70" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="1"   />
+<text x="1466" y="3237" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="1466" dy="0">© 2026 Karan Verma · React 19 + TypeScript</tspan><tspan x="1466" dy="1.25em">System Status: 200 OK (99.98% SLA)</tspan></text>
+<rect x="1880" y="140" width="860" height="980" rx="8" fill="#0f172ae6" stroke="#334155" stroke-width="2"   />
+<rect x="1910" y="170" width="800" height="920" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="2"   />
+<rect x="1910" y="170" width="800" height="60" rx="0" fill="#0f172a" stroke="#0f172a" stroke-width="1"   />
+<rect x="1930" y="184" width="260" height="32" rx="8" fill="#1e293b" stroke="#38bdf8" stroke-width="1"   />
+<text x="1940" y="202" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="1940" dy="0">PROJECT DOSSIER // PRJ-01: MOOV</tspan></text>
+<rect x="2210" y="184" width="130" height="32" rx="8" fill="#064e3b" stroke="#059669" stroke-width="1"   />
+<text x="2220" y="201" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#34d399" text-anchor="start"><tspan x="2220" dy="0">● PRODUCTION LIVE</tspan></text>
+<rect x="2620" y="184" width="70" height="32" rx="8" fill="#334155" stroke="#475569" stroke-width="1.5"   />
+<text x="2655" y="202" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="2655" dy="0">ESC [✕]</tspan></text>
+<text x="1934" y="268" font-size="22" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="1934" dy="0">MOOV: High-Throughput Vehicle Dispatch &amp; Telemetry Hub</tspan></text>
+<text x="1934" y="294" font-size="12" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1934" dy="0">A mission-critical distributed platform enabling real-time geospatial tracking, fleet load rebalancing,</tspan><tspan x="1934" dy="1.25em">and sub-second driver dispatch over low-latency WebSockets and spatial Redis clustering.</tspan></text>
+<rect x="1934" y="335" width="752" height="64" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"   />
+<ellipse cx="1970" cy="367" rx="20" ry="20" fill="#f59e0b" stroke="#b45309" stroke-width="1" />
+<text x="1960" y="372" font-size="16" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="1960" dy="0">★</tspan></text>
+<text x="2005" y="357" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#92400e" text-anchor="start"><tspan x="2005" dy="0">OFFICIAL PROJECT SPECIMEN // MSME RECOGNIZED ARCHITECTURE</tspan></text>
+<text x="2005" y="376" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#b45309" text-anchor="start"><tspan x="2005" dy="0">Verified Team Deliverable · Lead Architect: Karan Verma · Full Production Verification</tspan></text>
+<rect x="1934" y="415" width="184" height="82" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1946" y="441" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="1946" dy="0">99.98%</tspan></text>
+<text x="1946" y="458" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="1946" dy="0">PRODUCTION UPTIME</tspan></text>
+<text x="1946" y="473" font-size="8" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="1946" dy="0">Zero unhandled cluster failovers</tspan></text>
+<rect x="2128" y="415" width="184" height="82" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="2140" y="441" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="2140" dy="0">140ms</tspan></text>
+<text x="2140" y="458" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="2140" dy="0">p95 DISPATCH LATENCY</tspan></text>
+<text x="2140" y="473" font-size="8" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="2140" dy="0">Sub-second event propagation</tspan></text>
+<rect x="2322" y="415" width="184" height="82" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="2334" y="441" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="2334" dy="0">42,850</tspan></text>
+<text x="2334" y="458" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="2334" dy="0">CONCURRENT TRIPS</tspan></text>
+<text x="2334" y="473" font-size="8" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="2334" dy="0">In-memory geospatial index</tspan></text>
+<rect x="2516" y="415" width="184" height="82" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"   />
+<text x="2528" y="441" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#0f172a" text-anchor="start"><tspan x="2528" dy="0">12.4k</tspan></text>
+<text x="2528" y="458" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0284c7" text-anchor="start"><tspan x="2528" dy="0">INGESTION REQ / SEC</tspan></text>
+<text x="2528" y="473" font-size="8" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#64748b" text-anchor="start"><tspan x="2528" dy="0">Distributed Node/Go gateway</tspan></text>
+<rect x="1934" y="515" width="385" height="170" rx="8" fill="#fef2f2" stroke="#fecaca" stroke-width="1.5"   />
+<rect x="1948" y="530" width="160" height="22" rx="8" fill="#fee2e2" stroke="#94a3b8" stroke-width="1"   />
+<text x="1958" y="542" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#b91c1c" text-anchor="start"><tspan x="1958" dy="0">PROBLEM STATEMENT</tspan></text>
+<text x="1948" y="570" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#7f1d1d" text-anchor="start"><tspan x="1948" dy="0">Legacy vehicle dispatch suffered from:</tspan><tspan x="1948" dy="1.25em">• Polling bottlenecks creating 3-5s stale locations</tspan><tspan x="1948" dy="1.25em">• Database lock contention under 10k+ concurrent drivers</tspan><tspan x="1948" dy="1.25em">• Inaccurate ETA calculations ignoring real-time bottlenecks</tspan><tspan x="1948" dy="1.25em">• Lack of end-to-end telemetry traceability</tspan></text>
+<rect x="2339" y="515" width="385" height="170" rx="8" fill="#f0fdf4" stroke="#bbf7d0" stroke-width="1.5"   />
+<rect x="2353" y="530" width="160" height="22" rx="8" fill="#dcfce7" stroke="#94a3b8" stroke-width="1"   />
+<text x="2363" y="542" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#15803d" text-anchor="start"><tspan x="2363" dy="0">ARCHITECTURAL SOLUTION</tspan></text>
+<text x="2353" y="570" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#14532d" text-anchor="start"><tspan x="2353" dy="0">Engineered high-throughput event pipeline:</tspan><tspan x="2353" dy="1.25em">• WebSocket duplex channels replacing HTTP polling</tspan><tspan x="2353" dy="1.25em">• Redis Geo-Spatial indexing for O(log N) proximity search</tspan><tspan x="2353" dy="1.25em">• Partitioned PostgreSQL event logs with spatial indexes</tspan><tspan x="2353" dy="1.25em">• Sub-100ms client UI updates with React 19 concurrent state</tspan></text>
+<rect x="1934" y="700" width="752" height="90" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="1950" y="723" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1950" dy="0">COMPLETE ARCHITECTURAL TECH STACK MATRIX:</tspan></text>
+<rect x="1950" y="736" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="1960" y="747" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1960" dy="0">• React 19 Frontend</tspan></text>
+<rect x="2136" y="736" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2146" y="747" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2146" dy="0">• TypeScript 5.x</tspan></text>
+<rect x="2322" y="736" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2332" y="747" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2332" dy="0">• Express.js Gateway</tspan></text>
+<rect x="2508" y="736" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2518" y="747" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2518" dy="0">• Socket.io Cluster</tspan></text>
+<rect x="1950" y="760" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="1960" y="771" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="1960" dy="0">• Redis Geo-Spatial</tspan></text>
+<rect x="2136" y="760" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2146" y="771" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2146" dy="0">• PostgreSQL / PostGIS</tspan></text>
+<rect x="2322" y="760" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2332" y="771" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2332" dy="0">• Docker Containers</tspan></text>
+<rect x="2508" y="760" width="178" height="20" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"   />
+<text x="2518" y="771" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#334155" text-anchor="start"><tspan x="2518" dy="0">• AWS EC2 / S3</tspan></text>
+<rect x="1934" y="805" width="752" height="140" rx="8" fill="#f8fafc" stroke="#0f172a" stroke-width="1.5"   />
+<text x="1950" y="829" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1950" dy="0">TEAM COLLABORATION &amp; ATTRIBUTION ROSTER:</tspan></text>
+<rect x="1950" y="845" width="370" height="38" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"   />
+<text x="1960" y="865" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1960" dy="0">Karan Verma — Lead Architect &amp; Full-Stack</tspan><tspan x="1960" dy="1.25em">Real-time WebSocket pipeline, Redis indexing, React 19 UI</tspan></text>
+<rect x="2335" y="845" width="370" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="2345" y="865" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="2345" dy="0">Sneha Patidar — Frontend &amp; UI Systems</tspan><tspan x="2345" dy="1.25em">Design system, interactive maps, accessible components</tspan></text>
+<rect x="1950" y="891" width="370" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="1960" y="911" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="1960" dy="0">Sneha Sharma — Backend &amp; DB Architecture</tspan><tspan x="1960" dy="1.25em">PostgreSQL schema optimization, query profiling, spatial indexing</tspan></text>
+<rect x="2335" y="891" width="370" height="38" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"   />
+<text x="2345" y="911" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#1e293b" text-anchor="start"><tspan x="2345" dy="0">Sourav Chaudhary — Telemetry &amp; Distributed Ops</tspan><tspan x="2345" dy="1.25em">Cluster deployment, health checks, monitoring pipelines</tspan></text>
+<rect x="1934" y="965" width="360" height="48" rx="8" fill="#ea580c" stroke="#ea580c" stroke-width="1.5"   />
+<text x="2114" y="991" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="middle"><tspan x="2114" dy="0">Launch Live Production Application ↗</tspan></text>
+<rect x="2314" y="965" width="360" height="48" rx="8" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"   />
+<text x="2494" y="991" font-size="13" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#1e293b" text-anchor="middle"><tspan x="2494" dy="0">Inspect Source Code on GitHub ↗</tspan></text>
+<rect x="100" y="5780" width="1280" height="600" rx="8" fill="#0f172a" stroke="#1e293b" stroke-width="2"   />
+<text x="140" y="5826" font-size="20" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="700" fill="#ffffff" text-anchor="start"><tspan x="140" dy="0">DESIGN SYSTEM TOKENS &amp; RESPONSIVE BLUEPRINT SPECIFICATIONS</tspan></text>
+<text x="140" y="5850" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="140" dy="0">Core visual foundation: industrial blueprint, physical stationery metaphor, dark/light dynamic theme variables.</tspan></text>
+<text x="140" y="5885" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="140" dy="0">COLOR PALETTE TOKENS:</tspan></text>
+<rect x="140" y="5900" width="136" height="60" rx="8" fill="#0B0F17" stroke="#475569" stroke-width="1"   />
+<text x="150" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="150" dy="0">Canvas Dark</tspan></text>
+<text x="150" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="150" dy="0">#0B0F17</tspan></text>
+<rect x="288" y="5900" width="136" height="60" rx="8" fill="#1E293B" stroke="#475569" stroke-width="1"   />
+<text x="298" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="298" dy="0">Surface Slate</tspan></text>
+<text x="298" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="298" dy="0">#1E293B</tspan></text>
+<rect x="436" y="5900" width="136" height="60" rx="8" fill="#334155" stroke="#475569" stroke-width="1"   />
+<text x="446" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="446" dy="0">Border Slate</tspan></text>
+<text x="446" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#94a3b8" text-anchor="start"><tspan x="446" dy="0">#334155</tspan></text>
+<rect x="584" y="5900" width="136" height="60" rx="8" fill="#F97316" stroke="#475569" stroke-width="1"   />
+<text x="594" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="594" dy="0">Accent Orange</tspan></text>
+<text x="594" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="start"><tspan x="594" dy="0">#F97316</tspan></text>
+<rect x="732" y="5900" width="136" height="60" rx="8" fill="#06B6D4" stroke="#475569" stroke-width="1"   />
+<text x="742" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="742" dy="0">Cyan Highlight</tspan></text>
+<text x="742" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="start"><tspan x="742" dy="0">#06B6D4</tspan></text>
+<rect x="880" y="5900" width="136" height="60" rx="8" fill="#10B981" stroke="#475569" stroke-width="1"   />
+<text x="890" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="890" dy="0">Emerald Live</tspan></text>
+<text x="890" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="start"><tspan x="890" dy="0">#10B981</tspan></text>
+<rect x="1028" y="5900" width="136" height="60" rx="8" fill="#FEF3C7" stroke="#475569" stroke-width="1"   />
+<text x="1038" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1038" dy="0">Paper Manilla</tspan></text>
+<text x="1038" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="start"><tspan x="1038" dy="0">#FEF3C7</tspan></text>
+<rect x="1176" y="5900" width="136" height="60" rx="8" fill="#F8FAFC" stroke="#475569" stroke-width="1"   />
+<text x="1186" y="5924" font-size="10" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#0f172a" text-anchor="start"><tspan x="1186" dy="0">Canvas Light</tspan></text>
+<text x="1186" y="5941" font-size="9" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#475569" text-anchor="start"><tspan x="1186" dy="0">#F8FAFC</tspan></text>
+<text x="140" y="6000" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="140" dy="0">TYPOGRAPHY HIERARCHY SCALE:</tspan></text>
+<rect x="140" y="6020" width="180" height="28" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="150" y="6035" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="150" dy="0">Display Headline</tspan></text>
+<rect x="330" y="6020" width="110" height="28" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="340" y="6035" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="340" dy="0">36px - 44px</tspan></text>
+<text x="455" y="6035" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="455" dy="0">Hero statement &amp; Section display</tspan></text>
+<rect x="140" y="6056" width="180" height="28" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="150" y="6071" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="150" dy="0">Section Title</tspan></text>
+<rect x="330" y="6056" width="110" height="28" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="340" y="6071" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="340" dy="0">24px - 28px</tspan></text>
+<text x="455" y="6071" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="455" dy="0">Major section headlines</tspan></text>
+<rect x="140" y="6092" width="180" height="28" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="150" y="6107" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="150" dy="0">Card Title / H3</tspan></text>
+<rect x="330" y="6092" width="110" height="28" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="340" y="6107" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="340" dy="0">16px - 18px</tspan></text>
+<text x="455" y="6107" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="455" dy="0">Project cards &amp; telemetry titles</tspan></text>
+<rect x="140" y="6128" width="180" height="28" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="150" y="6143" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="150" dy="0">Body Text</tspan></text>
+<rect x="330" y="6128" width="110" height="28" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="340" y="6143" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="340" dy="0">13px - 14px</tspan></text>
+<text x="455" y="6143" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="455" dy="0">Descriptions &amp; dossier copy</tspan></text>
+<rect x="140" y="6164" width="180" height="28" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="150" y="6179" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="150" dy="0">Monospace Pill</tspan></text>
+<rect x="330" y="6164" width="110" height="28" rx="8" fill="#0f172a" stroke="#94a3b8" stroke-width="1"   />
+<text x="340" y="6179" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ffffff" text-anchor="start"><tspan x="340" dy="0">10px - 11px</tspan></text>
+<text x="455" y="6179" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="455" dy="0">Status pills, tech tags &amp; SLAs</tspan></text>
+<text x="800" y="6000" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="800" dy="0">RESPONSIVE BREAKPOINT SPECIFICATIONS:</tspan></text>
+<rect x="800" y="6020" width="160" height="34" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="810" y="6038" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#fde68a" text-anchor="start"><tspan x="810" dy="0">Mobile (&lt;640px)</tspan></text>
+<text x="975" y="6037" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="975" dy="0">Single column stacked, 16px padding, touch-swipe carousel for Journey</tspan></text>
+<rect x="800" y="6066" width="160" height="34" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="810" y="6084" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#fde68a" text-anchor="start"><tspan x="810" dy="0">Tablet (640px - 1024px)</tspan></text>
+<text x="975" y="6083" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="975" dy="0">2-column responsive grid, scaled badges, touch &amp; mouse dual support</tspan></text>
+<rect x="800" y="6112" width="160" height="34" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="810" y="6130" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#fde68a" text-anchor="start"><tspan x="810" dy="0">Desktop (1024px - 1440px)</tspan></text>
+<text x="975" y="6129" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="975" dy="0">Full 1280px max-width, 3D tilt folder fan, hanging cards clothesline</tspan></text>
+<rect x="800" y="6158" width="160" height="34" rx="8" fill="#1e293b" stroke="#94a3b8" stroke-width="1"   />
+<text x="810" y="6176" font-size="10" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#fde68a" text-anchor="start"><tspan x="810" dy="0">Wide (&gt;1440px)</tspan></text>
+<text x="975" y="6175" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="975" dy="0">Centered content container, ambient backdrop glow, fixed navigation</tspan></text>
+<line x1="140" y1="6230" x2="1340" y2="6230" stroke="#334155" stroke-width="1"  />
+<text x="140" y="6265" font-size="12" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#38bdf8" text-anchor="start"><tspan x="140" dy="0">PHYSICAL METAPHOR &amp; INTERACTION PATTERNS:</tspan></text>
+<text x="140" y="6294" font-size="11" font-family="system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif" font-weight="400" fill="#cbd5e1" text-anchor="start"><tspan x="140" dy="0">1. Frosted Folder Fan: 3D perspective tilts with CSS transform on mouse movement.</tspan><tspan x="140" dy="1.25em">2. Clothesline Suspension: Elastic suspension cables with gravity tilt on project cards.</tspan><tspan x="140" dy="1.25em">3. Manila Dossier Deep-Dive: Expandable architectural tabs with real-time telemetry streams.</tspan><tspan x="140" dy="1.25em">4. Developer License Badge: Hologram shimmer, security microprint borders, and QR verification.</tspan><tspan x="140" dy="1.25em">5. Flight Log Journey: Desktop fanning timeline + Mobile horizontal touch-swipe carousel.</tspan><tspan x="140" dy="1.25em">6. Postal Mail Form: Interactive desk stationery with wax seal transmit interaction.</tspan></text>
+<line x1="240" y1="680" x2="240" y2="800" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowhead)" />
+<line x1="300" y1="1290" x2="300" y2="1390" stroke="#0284c7" stroke-width="2" marker-end="url(#arrowhead)" />
+<line x1="710" y1="1800" x2="1880" y2="1600" stroke="#ea580c" stroke-width="2.5" marker-end="url(#arrowhead)" />
+<text x="950" y="1709" font-size="11" font-family="ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace" font-weight="400" fill="#ea580c" text-anchor="start"><tspan x="950" dy="0">TRIGGERS FULL CASE STUDY MODAL OVERLAY</tspan></text>
+<line x1="1635" y1="1609" x2="1880" y2="1459" stroke="#ea580c" stroke-width="2" marker-end="url(#arrowhead)" />
+</svg>
+    </div>
+  </main>
+  <div class="toast">
+    💡 <strong>Free Dev Tool:</strong> You can open <code>wireframe.excalidraw</code> in <a href="https://excalidraw.com" target="_blank" style="color:#38bdf8; text-decoration:underline;">Excalidraw.com</a> or the VS Code Excalidraw extension for drag-and-drop vector editing.
+  </div>
+  <script>
+    let currentZoom = 0.55;
+    const svgWrap = document.getElementById('svg-wrap');
+    const zoomLabel = document.getElementById('zoom-level');
+    const mainViewport = document.getElementById('main-viewport');
+
+    function updateTransform() {
+      svgWrap.style.transform = `scale(${currentZoom})`;
+      zoomLabel.textContent = Math.round(currentZoom * 100) + '%';
+    }
+
+    function adjustZoom(delta) {
+      currentZoom = Math.max(0.15, Math.min(2.5, currentZoom + delta));
+      updateTransform();
+    }
+
+    function resetZoom() {
+      currentZoom = 0.55;
+      updateTransform();
+      mainViewport.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+    }
+
+    function setView(view, btnEl) {
+      document.querySelectorAll('.btn-group .btn').forEach(b => b.classList.remove('active'));
+      if (btnEl) btnEl.classList.add('active');
+
+      if (view === 'all') {
+        currentZoom = 0.45;
+        updateTransform();
+        mainViewport.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
+      } else if (view === 'desktop') {
+        currentZoom = 0.75;
+        updateTransform();
+        mainViewport.scrollTo({ top: 100, left: 0, behavior: 'smooth' });
+      } else if (view === 'mobile') {
+        currentZoom = 0.9;
+        updateTransform();
+        mainViewport.scrollTo({ top: 100, left: 700, behavior: 'smooth' });
+      } else if (view === 'modal') {
+        currentZoom = 0.85;
+        updateTransform();
+        mainViewport.scrollTo({ top: 100, left: 1100, behavior: 'smooth' });
+      } else if (view === 'tokens') {
+        currentZoom = 0.8;
+        updateTransform();
+        mainViewport.scrollTo({ top: 2800, left: 0, behavior: 'smooth' });
+      }
+    }
+
+    updateTransform();
+  </script>
+</body>
+</html>
