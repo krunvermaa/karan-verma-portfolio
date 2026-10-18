@@ -7,25 +7,25 @@ export const DeveloperLicenseBadge: React.FC = () => {
 
   return (
     <div className="relative w-full max-w-xl mx-auto pt-7 sm:pt-8 my-1 sm:my-3 perspective-1000">
-      {/* Metal Binder Clip at Top (Licencia Creativa Reference) */}
+      {/* Metal Binder Clip at Top (Licencia Creativa Reference) - Sunset Copper Finish */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">
         {/* Metal Wire Loop */}
-        <div className="w-8 h-8 rounded-t-full border-2 border-slate-400 dark:border-slate-500 bg-transparent -mb-2 shadow-xs" />
-        {/* Silver Bulldog Clip Body */}
-        <div className="w-14 h-5 rounded-xs bg-gradient-to-r from-slate-400 via-slate-200 to-slate-400 dark:from-slate-600 dark:via-slate-400 dark:to-slate-600 border border-slate-500 shadow-md flex items-center justify-center">
-          <div className="w-10 h-1 bg-slate-600/40 dark:bg-slate-800/40 rounded-full" />
+        <div className="w-8 h-8 rounded-t-full border-2 border-orange-400/90 dark:border-orange-500/80 bg-transparent -mb-2 shadow-xs" />
+        {/* Sunset Copper Bulldog Clip Body */}
+        <div className="w-14 h-5 rounded-xs bg-gradient-to-r from-amber-600 via-orange-300 to-amber-700 dark:from-orange-800 dark:via-orange-400 dark:to-orange-900 border border-orange-600/90 dark:border-orange-700 shadow-md flex items-center justify-center">
+          <div className="w-10 h-1 bg-orange-950/40 dark:bg-black/50 rounded-full" />
         </div>
       </div>
 
       {/* Clear Acrylic / Transparent ID Badge Holder */}
-      <div className="relative p-2 sm:p-3 rounded-2xl sm:rounded-3xl bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-2 border-white dark:border-slate-700 shadow-2xl ambient-shadow transition-colors duration-300">
+      <div className="relative p-2 sm:p-3 rounded-2xl sm:rounded-3xl bg-white/85 dark:bg-[#1A110D]/85 backdrop-blur-xl border-2 border-orange-100/90 dark:border-orange-900/50 shadow-2xl ambient-shadow transition-colors duration-300">
         {/* Paper License Card Inside */}
-        <div className="relative rounded-xl sm:rounded-2xl bg-[#FFFDF9] dark:bg-[#121622] border border-amber-900/15 dark:border-slate-800 p-4 sm:p-6 md:p-7 shadow-xs overflow-hidden text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
+        <div className="relative rounded-xl sm:rounded-2xl bg-[#FFFDF9] dark:bg-[#190F0B] border border-orange-900/20 dark:border-orange-900/40 p-4 sm:p-6 md:p-7 shadow-xs overflow-hidden text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
           {/* Subtle Vintage Paper Texture */}
           <div className="absolute inset-0 bg-grid-pattern opacity-30 pointer-events-none" />
 
           {/* Top Row of Stars (Reference) */}
-          <div className="flex items-center justify-between border-b border-amber-900/15 dark:border-slate-800 pb-2.5 sm:pb-3 mb-3.5 sm:mb-4 text-rose-700 dark:text-rose-400 text-xs gap-2">
+          <div className="flex items-center justify-between border-b border-orange-900/15 dark:border-orange-900/40 pb-2.5 sm:pb-3 mb-3.5 sm:mb-4 text-orange-600 dark:text-orange-400 text-xs gap-2">
             <div className="flex items-center gap-1 sm:gap-1.5 text-xs">
               <span>★</span>
               <span>★</span>
@@ -55,8 +55,8 @@ export const DeveloperLicenseBadge: React.FC = () => {
             </div>
 
             {/* Right: Official Signature & Nationality */}
-            <div className="sm:col-span-5 w-full grid grid-cols-3 sm:flex sm:flex-col justify-between sm:justify-start gap-2 text-left sm:text-right font-mono text-[9px] sm:text-[10px] md:text-[11px] pt-2 sm:pt-0 border-t sm:border-t-0 border-slate-200 dark:border-slate-800">
-              <div className="border-b-0 sm:border-b border-slate-300 dark:border-slate-800 pb-0 sm:pb-1 min-w-0">
+            <div className="sm:col-span-5 w-full grid grid-cols-3 sm:flex sm:flex-col justify-between sm:justify-start gap-2 text-left sm:text-right font-mono text-[9px] sm:text-[10px] md:text-[11px] pt-2 sm:pt-0 border-t sm:border-t-0 border-orange-200/80 dark:border-orange-950/80">
+              <div className="border-b-0 sm:border-b border-orange-200/80 dark:border-orange-950/80 pb-0 sm:pb-1 min-w-0">
                 <span className="text-[8px] sm:text-[9px] text-slate-700 dark:text-slate-300 block uppercase font-bold">Signature:</span>
                 <span className="font-serif italic font-bold text-slate-950 dark:text-white text-[11px] sm:text-xs md:text-sm truncate block">
                   Karan Verma
@@ -74,20 +74,20 @@ export const DeveloperLicenseBadge: React.FC = () => {
           </div>
 
           {/* Middle Identity Section: Photo Box + Stamped Badge */}
-          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-3 sm:gap-4 items-center py-3 border-y border-amber-900/15 dark:border-slate-800 relative">
+          <div className="flex flex-col sm:grid sm:grid-cols-12 gap-3 sm:gap-4 items-center py-3 border-y border-orange-900/15 dark:border-orange-900/40 relative">
             {/* Left: Photo Box with Paperclip (Reference) */}
             <div className="sm:col-span-4 w-full flex flex-row sm:flex-col items-center sm:items-start justify-center gap-3 sm:gap-0 relative">
-              {/* Silver Paperclip Holding Photo */}
+              {/* Copper Paperclip Holding Photo */}
               <div className="absolute -top-3.5 left-2 sm:left-2 z-20 pointer-events-none hidden sm:block">
-                <svg className="w-5 h-8 text-slate-500 dark:text-slate-400 drop-shadow-xs" viewBox="0 0 24 48" fill="none" stroke="currentColor" strokeWidth="2.5">
+                <svg className="w-5 h-8 text-orange-400/90 dark:text-orange-500/80 drop-shadow-xs" viewBox="0 0 24 48" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <path d="M6 16v20a8 8 0 0 0 16 0V12a6 6 0 0 0-12 0v24a4 4 0 0 0 8 0V16" strokeLinecap="round" strokeLinejoin="round" />
                 </svg>
               </div>
 
               {/* Developer Portrait Avatar Frame */}
-              <div className="relative w-20 sm:w-full max-w-[120px] aspect-square rounded-xl bg-slate-950 text-white flex flex-col items-center justify-center p-2 shadow-sm border border-slate-300 dark:border-slate-700 overflow-hidden shrink-0">
+              <div className="relative w-20 sm:w-full max-w-[120px] aspect-square rounded-xl bg-slate-950 text-white flex flex-col items-center justify-center p-2 shadow-sm border border-orange-300/80 dark:border-orange-900/60 overflow-hidden shrink-0">
                 {/* Vector Graphic Portrait */}
-                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gradient-to-tr from-amber-400 to-indigo-500 flex items-center justify-center text-white font-display font-extrabold text-base sm:text-lg shadow-inner">
+                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gradient-to-tr from-orange-600 via-amber-500 to-orange-400 flex items-center justify-center text-white font-display font-extrabold text-base sm:text-lg shadow-inner">
                   KV
                 </div>
                 <div className="text-[8px] sm:text-[9px] font-mono text-slate-300 mt-1 font-semibold">
@@ -145,11 +145,11 @@ export const DeveloperLicenseBadge: React.FC = () => {
                   SOFTWARE DEVELOPER
                 </h4>
                 <div className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-800 dark:text-slate-200 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 justify-center sm:justify-start pt-0.5">
-                  <span className="text-indigo-600 dark:text-indigo-400">STUDENT COUNCIL VP</span>
-                  <span className="text-slate-400">·</span>
-                  <span className="text-purple-600 dark:text-purple-400">IIC STUDENT COORDINATOR</span>
-                  <span className="text-slate-400">·</span>
-                  <span className="text-amber-600 dark:text-amber-400">CO-FOUNDER · PRO LEARN COACHING</span>
+                  <span className="text-orange-700 dark:text-orange-400">STUDENT COUNCIL VP</span>
+                  <span className="text-orange-400/80 dark:text-orange-600/80">·</span>
+                  <span className="text-amber-700 dark:text-amber-400">IIC STUDENT COORDINATOR</span>
+                  <span className="text-orange-400/80 dark:text-orange-600/80">·</span>
+                  <span className="text-orange-800 dark:text-orange-300">CO-FOUNDER · PRO LEARN COACHING</span>
                 </div>
               </div>
 
@@ -159,7 +159,7 @@ export const DeveloperLicenseBadge: React.FC = () => {
                 className={`cursor-pointer inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full border-2 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider transform -rotate-1 sm:-rotate-2 transition-transform hover:scale-105 max-w-full my-1 ${
                   stampVerified
                     ? 'border-emerald-600 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 font-extrabold'
-                    : 'border-rose-600 text-rose-800 dark:text-rose-300 bg-rose-50 dark:bg-rose-950/60 font-extrabold'
+                    : 'border-orange-600 text-orange-800 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/60 font-extrabold'
                 }`}
               >
                 <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
@@ -169,22 +169,22 @@ export const DeveloperLicenseBadge: React.FC = () => {
             </div>
           </div>
 
-          {/* Stat Counters / Highlights Ribbon */}
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 py-2 my-1 border-b border-amber-900/15 dark:border-slate-800 text-center font-mono text-[9px]">
-            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
-              <div className="font-extrabold text-amber-700 dark:text-amber-300 text-[11px] sm:text-xs">50+ GUIDED</div>
+          {/* Stat Counters / Credentials Ribbon */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 py-2 my-1 border-b border-orange-900/15 dark:border-orange-900/40 text-center font-mono text-[9px]">
+            <div className="p-1.5 rounded-lg bg-orange-500/10 border border-orange-500/25">
+              <div className="font-extrabold text-orange-700 dark:text-orange-300 text-[11px] sm:text-xs">50+ GUIDED</div>
               <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Students Mentored</div>
             </div>
-            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
-              <div className="font-extrabold text-amber-700 dark:text-amber-300 text-[11px] sm:text-xs">3+ YRS</div>
+            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/25">
+              <div className="font-extrabold text-amber-800 dark:text-amber-300 text-[11px] sm:text-xs">3+ YRS</div>
               <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Teaching Experience</div>
             </div>
-            <div className="p-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
-              <div className="font-extrabold text-indigo-700 dark:text-indigo-300 text-[11px] sm:text-xs">₹30 LAKH</div>
+            <div className="p-1.5 rounded-lg bg-orange-600/10 border border-orange-600/25">
+              <div className="font-extrabold text-orange-700 dark:text-orange-300 text-[11px] sm:text-xs">₹30 LAKH</div>
               <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">MSME 5.0 Grant</div>
             </div>
-            <div className="p-1.5 rounded-lg bg-purple-500/10 border border-purple-500/20">
-              <div className="font-extrabold text-purple-700 dark:text-purple-300 text-[11px] sm:text-xs">35+ EVENTS</div>
+            <div className="p-1.5 rounded-lg bg-orange-500/10 border border-orange-500/25">
+              <div className="font-extrabold text-orange-800 dark:text-orange-300 text-[11px] sm:text-xs">35+ EVENTS</div>
               <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Anchored & Led</div>
             </div>
           </div>
@@ -223,9 +223,9 @@ export const DeveloperLicenseBadge: React.FC = () => {
             </div>
 
             {/* MSME Idea Hackathon 5.0 Official Team Credential Note */}
-            <div className="pt-2.5 border-t border-dashed border-amber-900/20 dark:border-slate-800/80">
+            <div className="pt-2.5 border-t border-dashed border-orange-900/20 dark:border-orange-900/40">
               <div className="flex items-start gap-1.5 text-left font-mono">
-                <Award className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
+                <Award className="w-3.5 h-3.5 text-orange-600 dark:text-orange-400 shrink-0 mt-0.5" />
                 <div className="space-y-0.5 min-w-0">
                   <div className="text-[9px] uppercase tracking-wider font-extrabold text-slate-900 dark:text-slate-100 flex flex-wrap items-center gap-1">
                     <span>MSME Idea Hackathon 5.0 Team</span>
@@ -236,7 +236,7 @@ export const DeveloperLicenseBadge: React.FC = () => {
                   <div className="font-sans font-semibold text-slate-900 dark:text-slate-200 text-[10px] break-words">
                     Sourav Chaudhary · Sneha Patidar · Sneha Sharma · Karan Verma
                   </div>
-                  <div className="text-[8.5px] text-emerald-700 dark:text-emerald-400 font-medium break-words">
+                  <div className="text-[8.5px] text-orange-800 dark:text-orange-300 font-medium break-words">
                     Selected for ₹30 Lakh Combined Grant-in-Aid Consideration across 2 Innovations
                   </div>
                 </div>
