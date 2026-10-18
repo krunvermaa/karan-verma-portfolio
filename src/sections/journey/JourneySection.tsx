@@ -108,23 +108,6 @@ export const JourneySection: React.FC = () => {
       {/* Bottom-right Amethyst Ambient Glow */}
       <div className="absolute -bottom-24 -right-24 w-[700px] h-[450px] bg-gradient-to-tr from-fuchsia-300/25 dark:from-purple-950/25 via-purple-300/20 to-indigo-400/20 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Decorative Purple/Lime Curved Vector Rays */}
-      <div className="absolute inset-0 pointer-events-none opacity-40 dark:opacity-20">
-        <svg className="w-full h-full" preserveAspectRatio="none" viewBox="0 0 1000 800" fill="none">
-          <path d="M-100 200 Q 500 700 1100 300" stroke="url(#purpleRay)" strokeWidth="1.5" strokeDasharray="6 6" />
-          <path d="M-50 400 Q 500 100 1050 500" stroke="url(#limeRay)" strokeWidth="1" />
-          <defs>
-            <linearGradient id="purpleRay" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#A855F7" stopOpacity="0.8" />
-              <stop offset="100%" stopColor="#EC4899" stopOpacity="0" />
-            </linearGradient>
-            <linearGradient id="limeRay" x1="0%" y1="0%" x2="100%" y2="100%">
-              <stop offset="0%" stopColor="#84CC16" stopOpacity="0.7" />
-              <stop offset="100%" stopColor="#8B5CF6" stopOpacity="0" />
-            </linearGradient>
-          </defs>
-        </svg>
-      </div>
 
       <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12 relative z-10">
         {/* ========================================================================= */}
@@ -437,9 +420,9 @@ export const JourneySection: React.FC = () => {
           {/* --------------------------------------------------------------------- */}
           {/* THE HUGE 3D FROSTED PURPLE GLASS POCKET FOLDER */}
           {/* --------------------------------------------------------------------- */}
-          <div className="relative z-30 rounded-[2.5rem] bg-gradient-to-b from-white/75 via-purple-100/35 to-white/65 dark:from-purple-900/40 dark:via-purple-950/45 dark:to-[#160B28]/70 backdrop-blur-3xl border-2 border-purple-300/50 dark:border-purple-500/30 shadow-[0_25px_60px_-15px_rgba(147,51,234,0.25)] dark:shadow-[0_30px_70px_-15px_rgba(147,51,234,0.5)] ring-1 ring-white/60 dark:ring-white/10 p-5 sm:p-8 md:p-10 space-y-6 sm:space-y-8 overflow-hidden">
+          <div className="relative z-30 rounded-[2.5rem] bg-gradient-to-b from-purple-600/30 via-purple-700/25 to-purple-900/40 dark:from-purple-900/40 dark:via-purple-950/45 dark:to-[#160B28]/70 backdrop-blur-3xl border-2 border-purple-300/40 dark:border-purple-500/30 shadow-[0_30px_70px_-15px_rgba(147,51,234,0.35)] dark:shadow-[0_30px_70px_-15px_rgba(147,51,234,0.5)] ring-1 ring-white/20 dark:ring-white/10 p-5 sm:p-8 md:p-10 space-y-6 sm:space-y-8 overflow-hidden">
             {/* Folder Tab Cutout on Top-Left */}
-            <div className="absolute -top-7 left-6 sm:left-12 w-48 sm:w-56 h-8 rounded-t-2xl bg-white/75 dark:bg-purple-900/60 backdrop-blur-2xl border-t-2 border-x-2 border-purple-300/60 dark:border-purple-500/40 text-purple-950 dark:text-purple-200 shadow-xs flex items-center justify-center">
+            <div className="absolute -top-7 left-6 sm:left-12 w-48 sm:w-56 h-8 rounded-t-2xl bg-purple-600/40 dark:bg-purple-900/60 backdrop-blur-2xl border-t-2 border-x-2 border-purple-300/50 dark:border-purple-500/40 text-purple-200 shadow-xs flex items-center justify-center">
               <span className="font-mono text-[10px] font-bold uppercase tracking-widest">
                 DOSSIER SPEC NO. #FLIGHT-2026
               </span>
@@ -451,7 +434,7 @@ export const JourneySection: React.FC = () => {
             {/* Folder Front Details: Active Milestone Showcase */}
             <div className="relative z-10 space-y-6">
               {/* Top Navigation & Status Bar */}
-              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-purple-200/80 dark:border-purple-400/20 pb-4 text-slate-900 dark:text-white">
+              <div className="flex flex-wrap items-center justify-between gap-3 border-b border-purple-300/30 dark:border-purple-400/20 pb-4 text-white">
                 <div className="flex items-center gap-2.5">
                   <div
                     className={`w-8 h-8 rounded-xl text-white flex items-center justify-center shadow-md shrink-0 transition-colors ${
@@ -465,10 +448,10 @@ export const JourneySection: React.FC = () => {
                     {getMilestoneIcon(activeMilestone)}
                   </div>
                   <div>
-                    <span className="font-mono text-xs font-bold text-purple-700 dark:text-purple-300 uppercase tracking-wider block">
+                    <span className="font-mono text-xs font-bold text-purple-300 uppercase tracking-wider block">
                       Active Boarding Pass
                     </span>
-                    <span className="font-display font-bold text-xs sm:text-sm text-slate-900 dark:text-white">
+                    <span className="font-display font-bold text-xs sm:text-sm text-white">
                       Record {activeIdx + 1} of {JOURNEY.length} · Class of {activeMilestone.year}
                     </span>
                   </div>
@@ -479,7 +462,7 @@ export const JourneySection: React.FC = () => {
                   <button
                     type="button"
                     onClick={handlePrev}
-                    className="p-2 rounded-xl bg-white/60 hover:bg-white/90 dark:bg-white/10 dark:hover:bg-white/20 text-purple-950 dark:text-white border border-purple-300/80 dark:border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                    className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
                     title="Previous Milestone"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -487,7 +470,7 @@ export const JourneySection: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="p-2 rounded-xl bg-white/60 hover:bg-white/90 dark:bg-white/10 dark:hover:bg-white/20 text-purple-950 dark:text-white border border-purple-300/80 dark:border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                    className="p-2 rounded-xl bg-white/10 hover:bg-white/20 text-white border border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
                     title="Next Milestone"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -499,52 +482,52 @@ export const JourneySection: React.FC = () => {
               <div className="space-y-4">
                 <div className="space-y-1">
                   <div className="flex flex-wrap items-center gap-2">
-                    <span className="font-mono text-3xl sm:text-4xl font-black text-purple-950 dark:text-white">
+                    <span className="font-mono text-3xl sm:text-4xl font-black text-white">
                       {activeMilestone.year}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-purple-100/90 dark:bg-purple-400/20 border border-purple-300/80 dark:border-purple-300/40 text-purple-950 dark:text-purple-200 font-mono text-xs font-bold">
+                    <span className="px-3 py-1 rounded-full bg-purple-500/25 border border-purple-300/40 text-purple-200 font-mono text-xs font-bold">
                       {activeMilestone.period}
                     </span>
-                    <span className="px-3 py-1 rounded-full bg-purple-900 text-white dark:bg-[#CCFF00] dark:text-slate-950 font-mono text-xs font-black shadow-xs">
+                    <span className="px-3 py-1 rounded-full bg-purple-950/80 text-white dark:bg-[#CCFF00] dark:text-slate-950 border border-purple-400/30 dark:border-transparent font-mono text-xs font-black shadow-xs">
                       {activeMilestone.category.toUpperCase()}
                     </span>
                     {isProLearn(activeMilestone) && (
-                      <span className="px-3 py-1 rounded-full bg-emerald-100 dark:bg-emerald-500/30 border border-emerald-300 dark:border-emerald-400/60 text-emerald-950 dark:text-emerald-300 font-mono text-xs font-bold flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-emerald-600 dark:text-emerald-300 animate-pulse" />
+                      <span className="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/40 text-emerald-300 font-mono text-xs font-bold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-emerald-300 animate-pulse" />
                         <span>CO-FOUNDER & EDUCATOR · 3+ YRS · 50+ STUDENTS</span>
                       </span>
                     )}
                     {isIIC(activeMilestone) && (
-                      <span className="px-3 py-1 rounded-full bg-amber-100 dark:bg-amber-500/30 border border-amber-300 dark:border-amber-400/60 text-amber-950 dark:text-amber-300 font-mono text-xs font-bold flex items-center gap-1.5">
-                        <Sparkles className="w-3 h-3 text-amber-600 dark:text-amber-300 animate-pulse" />
+                      <span className="px-3 py-1 rounded-full bg-amber-500/20 border border-amber-400/40 text-amber-300 font-mono text-xs font-bold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
                         <span>IIC & INCUBATION COORDINATOR</span>
                       </span>
                     )}
                   </div>
 
-                  <h3 className="text-xl sm:text-3xl font-display font-black text-slate-950 dark:text-white tracking-tight pt-1">
+                  <h3 className="text-xl sm:text-3xl font-display font-black text-white tracking-tight pt-1">
                     {activeMilestone.role}
                   </h3>
                   <div
                     className={`text-xs sm:text-sm font-bold font-sans ${
                       isProLearn(activeMilestone)
-                        ? 'text-emerald-800 dark:text-emerald-200'
+                        ? 'text-emerald-300'
                         : isIIC(activeMilestone)
-                        ? 'text-amber-800 dark:text-amber-200'
-                        : 'text-purple-800 dark:text-purple-200'
+                        ? 'text-amber-300'
+                        : 'text-purple-200'
                     }`}
                   >
                     {activeMilestone.organization}
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-base text-slate-900 dark:text-purple-100 font-medium font-sans leading-relaxed max-w-3xl">
+                <p className="text-xs sm:text-base text-purple-100 font-medium font-sans leading-relaxed max-w-3xl">
                   {activeMilestone.description}
                 </p>
 
                 {/* Achievements Checklist with Glowing Bullets */}
                 <div className="space-y-2 pt-2">
-                  <div className="font-mono text-[11px] font-bold text-purple-950 dark:text-purple-300 uppercase tracking-wider">
+                  <div className="font-mono text-[11px] font-bold text-purple-200 uppercase tracking-wider">
                     Verified Outcomes:
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -556,19 +539,19 @@ export const JourneySection: React.FC = () => {
                           key={aIdx}
                           className={`flex items-start gap-2.5 p-3 rounded-2xl border text-xs sm:text-sm font-medium transition-colors backdrop-blur-md shadow-2xs ${
                             isPro
-                              ? 'bg-emerald-50/60 dark:bg-emerald-950/40 border-emerald-200/70 dark:border-emerald-700/50 text-slate-900 dark:text-emerald-100'
+                              ? 'bg-emerald-950/30 dark:bg-emerald-950/40 border-emerald-400/30 dark:border-emerald-700/50 text-white dark:text-emerald-100'
                               : isCouncil
-                              ? 'bg-amber-50/60 dark:bg-amber-950/40 border-amber-200/70 dark:border-amber-700/50 text-slate-900 dark:text-amber-100'
-                              : 'bg-white/60 dark:bg-purple-950/40 border-purple-200/70 dark:border-purple-700/50 text-slate-900 dark:text-purple-100'
+                              ? 'bg-amber-950/30 dark:bg-amber-950/40 border-amber-400/30 dark:border-amber-700/50 text-white dark:text-amber-100'
+                              : 'bg-white/10 dark:bg-purple-950/40 border-white/20 dark:border-purple-700/50 text-white dark:text-purple-100'
                           }`}
                         >
                           <CheckCircle2
                             className={`w-4 h-4 shrink-0 mt-0.5 ${
                               isPro
-                                ? 'text-emerald-600 dark:text-emerald-400'
+                                ? 'text-emerald-400'
                                 : isCouncil
-                                ? 'text-amber-600 dark:text-amber-400'
-                                : 'text-purple-700 dark:text-purple-400'
+                                ? 'text-amber-400'
+                                : 'text-purple-300 dark:text-purple-400'
                             }`}
                           />
                           <span>{ach}</span>
@@ -580,20 +563,20 @@ export const JourneySection: React.FC = () => {
               </div>
 
               {/* Folder Bottom Row: Brand Pill + Action Icons */}
-              <div className="pt-4 border-t border-purple-200/80 dark:border-purple-800/60 flex flex-wrap items-center justify-between gap-3 text-slate-700 dark:text-purple-300">
+              <div className="pt-4 border-t border-purple-300/30 dark:border-purple-800/60 flex flex-wrap items-center justify-between gap-3 text-purple-200">
                 {/* Brand Badge */}
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-white/60 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/60 dark:border-purple-700/60 text-slate-900 dark:text-purple-200 font-mono text-xs font-bold shadow-xs">
-                  <span className="text-purple-700 dark:text-purple-300">⊘</span>
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-purple-900/40 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/40 dark:border-purple-700/60 text-purple-200 font-mono text-xs font-bold shadow-xs">
+                  <span className="text-purple-300">⊘</span>
                   <span>Karan Verma · Flight Log Registry</span>
                 </div>
 
                 {/* Social / Engagement Icons (Bookmark, Heart, Share) */}
-                <div className="flex items-center gap-2 p-1 rounded-full bg-white/60 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/60 dark:border-purple-700/60 text-slate-900 dark:text-purple-200 shadow-xs">
+                <div className="flex items-center gap-2 p-1 rounded-full bg-purple-900/40 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/40 dark:border-purple-700/60 text-purple-200 shadow-xs">
                   <button
                     type="button"
                     onClick={() => setBookmarked(!bookmarked)}
                     className={`p-2 rounded-full transition-colors cursor-pointer ${
-                      bookmarked ? 'text-amber-700 bg-amber-200/80 dark:text-amber-300 dark:bg-amber-400/20' : 'text-purple-900 hover:text-purple-950 dark:text-purple-200 dark:hover:text-white'
+                      bookmarked ? 'text-amber-300 bg-amber-400/20' : 'text-purple-200 hover:text-white hover:bg-white/10'
                     }`}
                     title="Bookmark Milestone"
                   >
@@ -604,7 +587,7 @@ export const JourneySection: React.FC = () => {
                     type="button"
                     onClick={() => setLiked(!liked)}
                     className={`p-2 rounded-full transition-colors cursor-pointer ${
-                      liked ? 'text-rose-600 bg-rose-200/80 dark:text-rose-400 dark:bg-rose-400/20' : 'text-purple-900 hover:text-purple-950 dark:text-purple-200 dark:hover:text-white'
+                      liked ? 'text-rose-400 bg-rose-400/20' : 'text-purple-200 hover:text-white hover:bg-white/10'
                     }`}
                     title="Approve Record"
                   >
@@ -613,7 +596,7 @@ export const JourneySection: React.FC = () => {
 
                   <a
                     href="#contact"
-                    className="p-2 rounded-full text-purple-900 hover:text-purple-950 dark:text-purple-200 dark:hover:text-white transition-colors cursor-pointer"
+                    className="p-2 rounded-full text-purple-200 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
                     title="Transmit Message"
                   >
                     <Send className="w-4 h-4" />
