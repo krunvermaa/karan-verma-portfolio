@@ -20,8 +20,15 @@ Log any non-obvious technical/design choice, new dependency, deviation from the 
 - **Per-dependency info to fill before install:** need · size · maintenance · license · install scripts · network behavior.
 - **Status:** `TODO(karan)` approve.
 
-<!-- Template
-## ADR-NNN — <title>
-- **Date:**  - **Context:**  - **Decision:**  - **Consequences:**
-- **Dependency info (if any):** need · size · maintenance · license · network/install scripts
--->
+## ADR-003 — Portfolio Studio visual editor architecture
+- **Date:** 2026-10-18
+- **Context:** User requested a private, visual, drag-and-drop portfolio editor linked to the existing portfolio, located inside `PORTFOLIO/portfolio-studio/`. Must preserve the original website, reproduce exact appearance, support component-level copy/paste/duplicate, drag-and-drop reordering, structured CMS, undo/redo, autosave, and publishing without breaking git or the live site.
+- **Decision:**
+  - Create `portfolio-studio/` with clean React 19 + TypeScript + Tailwind CSS architecture.
+  - Native HTML5 Drag and Drop engine for zero-dependency, ultra-reliable reordering.
+  - In-memory & clipboard-aware component copier for cards, achievements, and sections with unique ID generation.
+  - Shared data contracts importing `src/types/portfolio.ts` and `src/data/portfolioData.ts`.
+  - Durable `localStorage` draft persistence with debounced autosave, 50-step undo/redo stack, and single-click export/sync publishing.
+  - Top toolbar with responsive viewport switching (Desktop 1280px, Tablet 768px, Mobile 375px), left multi-tab CMS & structure tree, central interactive canvas, and right inspector panel.
+- **Consequences:** Original portfolio remains 100% operational on port 3000. Portfolio Studio runs alongside it, sharing types and data without code duplication or security risks.
+

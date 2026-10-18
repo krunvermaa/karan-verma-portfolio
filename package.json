@@ -8,9 +8,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "vite",
+    "studio": "vite --config portfolio-studio/vite.config.ts",
     "build": "vite build",
+    "build:studio": "vite build --config portfolio-studio/vite.config.ts",
     "preview": "vite preview",
-    "lint": "tsc --noEmit"
+    "lint": "tsc --noEmit",
+    "test:studio": "tsx --tsconfig portfolio-studio/tsconfig.json portfolio-studio/src/tests/acceptance.test.ts"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.3.3",
@@ -27,6 +30,7 @@
     "@types/react-dom": "^19.3.0",
     "autoprefixer": "^10.4.21",
     "tailwindcss": "^4.3.3",
+    "tsx": "^4.23.15",
     "typescript": "^7.0.2"
   }
 }
