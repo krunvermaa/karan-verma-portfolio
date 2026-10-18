@@ -156,35 +156,14 @@ Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Yea
           {/* Subtle Stage Lighting Highlight */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-rose-600/15 via-indigo-600/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
-          {/* Top-Left Authentic Dossier Stamp: নথিপত্র (Bengali: Records / Documents) */}
-          <div className="absolute top-5 left-5 sm:top-8 sm:left-8 flex items-center gap-2 text-white z-10">
-            <span className="font-serif font-black text-xl sm:text-2xl tracking-widest text-slate-100 drop-shadow-md">
-              নথিপত্র
-            </span>
-            <span className="text-[10px] font-mono font-bold tracking-widest text-slate-400 uppercase hidden xs:inline">
-              #SPECIMEN-2026
-            </span>
-          </div>
-
-          {/* Top-Right Four-Point Star Sparkle Emblem */}
-          <div className="absolute top-5 right-5 sm:top-8 sm:right-8 text-white z-10">
-            <span className="text-2xl sm:text-3xl text-slate-200 font-serif leading-none drop-shadow-sm">✦</span>
-          </div>
-
           {/* ======================================================================= */}
-          {/* TOP ROW: WHITE ID CARD (LEFT) + RETRO "HELLO!" POP STICKER (RIGHT) */}
+          {/* TOP ROW: THE ACCREDITED DEVELOPER PASS CARD */}
           {/* ======================================================================= */}
-          <div className="relative z-20 pt-8 sm:pt-10 flex flex-col lg:flex-row items-center lg:items-start xl:items-center justify-between gap-6 lg:gap-8">
-            {/* ------------------------------------------------------------------- */}
-            {/* 1. THE WHITE IDENTITY PASS CARD (Image Reference: Top-Left Card) */}
-            {/* ------------------------------------------------------------------- */}
-            <div className="relative w-full max-w-xl mx-auto lg:mx-0 rounded-2xl bg-[#FFFFFF] text-slate-950 p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-slate-300 transform rotate-0 lg:-rotate-1 hover:rotate-0 transition-transform duration-300">
-              {/* Corner Star Accent */}
-              <div className="absolute top-3 left-3 text-slate-950 font-serif text-sm">✦</div>
-
-              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-5 pt-1">
-                {/* Photo Specimen Box with Red Spraypaint Graffiti Signature */}
-                <div className="relative shrink-0 w-28 h-32 sm:w-36 sm:h-40 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md group">
+          <div className="relative z-20 pt-2 sm:pt-4">
+            <div className="relative w-full rounded-2xl bg-[#FFFFFF] text-slate-950 p-5 sm:p-7 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-slate-300 transition-all duration-300">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
+                {/* Photo Specimen Box */}
+                <div className="relative shrink-0 w-32 h-36 sm:w-40 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md group">
                   {/* Grayscale Developer Photo */}
                   <img
                     src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
@@ -193,31 +172,23 @@ Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Yea
                   />
                   {/* Subtle Grain Overlay */}
                   <div className="absolute inset-0 bg-black/10 mix-blend-overlay pointer-events-none" />
-
-                  {/* Red Graffiti Tag Signature Over the Photo */}
-                  <div className="absolute -bottom-1 -right-1 transform -rotate-6 pointer-events-none">
-                    <span className="font-serif italic font-black text-2xl sm:text-3xl text-[#E11D48] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tighter">
-                      Karan
-                    </span>
-                  </div>
                 </div>
 
-                {/* Card Right: Name, Holographic Foil, Bio & Metadata Table */}
-                <div className="flex-1 space-y-2.5 w-full min-w-0">
-                  {/* Name and Hologram Badge */}
-                  <div className="flex items-start justify-between gap-2 border-b border-slate-200 pb-2">
+                {/* Card Right: Name, Seal, Bio, Micro-Data & Direct Contacts */}
+                <div className="flex-1 space-y-3 w-full min-w-0">
+                  {/* Name and Seal */}
+                  <div className="flex items-start justify-between gap-3 border-b border-slate-200 pb-2.5">
                     <div className="min-w-0">
                       <h3 className="font-display font-black text-2xl sm:text-3xl tracking-tight leading-none text-slate-950 uppercase truncate">
-                        KARAN <br />
-                        <span className="tracking-wide">VERMA</span>
+                        KARAN VERMA
                       </h3>
-                      <p className="font-mono text-xs font-bold text-rose-700 uppercase tracking-wider pt-1 truncate">
-                        CS Engineer · MIT Ujjain '26
+                      <p className="font-mono text-xs font-bold text-rose-700 uppercase tracking-wider pt-1.5 truncate">
+                        CS Engineer · MIT Ujjain '26 · College Topper (8.54+ SGPA)
                       </p>
                     </div>
 
                     {/* Rainbow Holographic Square Seal */}
-                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl p-[2px] bg-gradient-to-tr from-cyan-400 via-pink-400 via-yellow-300 to-indigo-500 shadow-md shrink-0 transform rotate-3">
+                    <div className="w-11 h-11 sm:w-12 sm:h-12 rounded-xl p-[2px] bg-gradient-to-tr from-cyan-400 via-pink-400 via-yellow-300 to-indigo-500 shadow-md shrink-0 transform rotate-2">
                       <div className="w-full h-full rounded-[10px] bg-slate-950 flex flex-col items-center justify-center text-center p-1 text-white">
                         <Sparkles className="w-3 h-3 text-cyan-300 animate-pulse" />
                         <span className="font-mono text-[8px] font-black leading-none mt-0.5">KV</span>
@@ -232,103 +203,66 @@ Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Yea
                   </p>
 
                   {/* Micro-Data Table with High Contrast Text */}
-                  <div className="grid grid-cols-4 gap-1 pt-1.5 border-t border-slate-200 text-[10px] font-mono">
-                    <div className="border-r border-slate-200 pr-1">
+                  <div className="grid grid-cols-2 sm:grid-cols-4 gap-2 pt-2 border-t border-slate-200 text-[10px] font-mono">
+                    <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                       <span className="text-slate-600 block text-[9px] uppercase font-bold">Council VP</span>
-                      <span className="font-black text-slate-950 truncate block">2026-27</span>
+                      <span className="font-black text-slate-950 truncate block text-xs">2026-27</span>
                     </div>
-                    <div className="border-r border-slate-200 pr-1 pl-1">
+                    <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                       <span className="text-slate-600 block text-[9px] uppercase font-bold">IIC Council</span>
-                      <span className="font-black text-slate-950 truncate block">COORD.</span>
+                      <span className="font-black text-slate-950 truncate block text-xs">COORD.</span>
                     </div>
-                    <div className="border-r border-slate-200 pr-1 pl-1">
+                    <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                       <span className="text-slate-600 block text-[9px] uppercase font-bold">Mentorship</span>
-                      <span className="font-black text-emerald-700 truncate block">50+ GUIDED</span>
+                      <span className="font-black text-emerald-700 truncate block text-xs">50+ GUIDED</span>
                     </div>
-                    <div className="pl-1">
+                    <div className="bg-slate-50 p-2 rounded-lg border border-slate-200">
                       <span className="text-slate-600 block text-[9px] uppercase font-bold">Teaching</span>
-                      <span className="font-black text-amber-700 truncate block">3+ YRS EXP</span>
+                      <span className="font-black text-amber-700 truncate block text-xs">3+ YRS EXP</span>
                     </div>
                   </div>
 
-                  {/* Social Handles, Phone, Twitter & SVG QR Matrix */}
-                  <div className="pt-2 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 border-t border-slate-200 text-xs font-mono text-slate-800">
-                    <div className="space-y-1 min-w-0 pr-2 text-[11px] w-full xs:w-auto">
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
-                        <a
-                          href="tel:8799577917"
-                          className="inline-flex items-center gap-1 font-bold text-slate-950 hover:text-rose-600 transition-colors"
-                        >
-                          <Phone className="w-3 h-3 text-rose-600 shrink-0" />
-                          <span>+91 8799577917</span>
-                        </a>
-                        <span className="text-slate-300">·</span>
-                        <a
-                          href={PERSONAL_INFO.twitter}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-1 font-bold text-sky-700 hover:text-sky-900 transition-colors"
-                        >
-                          <Twitter className="w-3 h-3 text-sky-500 fill-current shrink-0" />
-                          <span>@krunverma</span>
-                        </a>
-                      </div>
-                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-slate-700">
-                        <a
-                          href={`mailto:${PERSONAL_INFO.email}`}
-                          className="truncate font-semibold hover:text-slate-950 transition-colors max-w-[170px] sm:max-w-none"
-                        >
-                          {PERSONAL_INFO.email}
-                        </a>
-                        <span className="text-slate-300">·</span>
-                        <a
-                          href={PERSONAL_INFO.github}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="truncate font-semibold hover:text-slate-950 transition-colors"
-                        >
-                          github.com/krunvermaa
-                        </a>
-                      </div>
+                  {/* Social Handles, Phone, Twitter & Links */}
+                  <div className="pt-2.5 flex flex-wrap items-center justify-between gap-2.5 border-t border-slate-200 text-xs font-mono text-slate-800">
+                    <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                      <a
+                        href="tel:8799577917"
+                        className="inline-flex items-center gap-1.5 font-bold text-slate-950 hover:text-rose-600 transition-colors"
+                      >
+                        <Phone className="w-3.5 h-3.5 text-rose-600 shrink-0" />
+                        <span>+91 8799577917</span>
+                      </a>
+                      <span className="text-slate-300">·</span>
+                      <a
+                        href={PERSONAL_INFO.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-bold text-sky-700 hover:text-sky-900 transition-colors"
+                      >
+                        <Twitter className="w-3.5 h-3.5 text-sky-500 fill-current shrink-0" />
+                        <span>@krunverma</span>
+                      </a>
+                      <span className="text-slate-300">·</span>
+                      <a
+                        href={`mailto:${PERSONAL_INFO.email}`}
+                        className="inline-flex items-center gap-1.5 font-semibold text-slate-700 hover:text-slate-950 transition-colors"
+                      >
+                        <Mail className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                        <span>{PERSONAL_INFO.email}</span>
+                      </a>
+                      <span className="text-slate-300">·</span>
+                      <a
+                        href={PERSONAL_INFO.github}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center gap-1.5 font-semibold text-slate-700 hover:text-slate-950 transition-colors"
+                      >
+                        <ExternalLink className="w-3.5 h-3.5 text-slate-500 shrink-0" />
+                        <span>github.com/krunvermaa</span>
+                      </a>
                     </div>
-
-                    {/* Miniature Pixel QR Code */}
-                    <div className="w-8 h-8 bg-slate-950 p-1 rounded-sm shrink-0 self-end xs:self-auto flex flex-col justify-between" title="Portfolio QR (+91 8799577917 / @krunverma)">
-                      <div className="flex justify-between">
-                        <div className="w-2 h-2 bg-white" />
-                        <div className="w-2 h-2 bg-white" />
-                      </div>
-                      <div className="flex justify-center">
-                        <div className="w-1.5 h-1.5 bg-white" />
-                      </div>
-                      <div className="flex justify-between">
-                        <div className="w-2 h-2 bg-white" />
-                        <div className="w-2 h-2 bg-white" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            {/* ------------------------------------------------------------------- */}
-            {/* 2. THE RETRO "HELLO!" POP ART STICKER WITH EYE (Top-Right) */}
-            {/* ------------------------------------------------------------------- */}
-            <div className="self-center lg:self-auto shrink-0 transform rotate-0 lg:rotate-3 hover:rotate-0 transition-transform duration-300 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]">
-              <div className="relative p-2 rounded-2xl bg-black border-2 border-white space-y-2">
-                {/* Speech Bubble Header: "HELLO!" */}
-                <div className="px-5 py-1.5 rounded-xl bg-[#00F0FF] border-2 border-black text-black font-display font-black text-2xl sm:text-3xl tracking-tight text-center uppercase shadow-sm">
-                  HELLO!
-                </div>
-
-                {/* Chromatic Pop Eye of Craft */}
-                <div className="w-24 h-14 sm:w-32 sm:h-20 rounded-full bg-white border-2 border-black p-1 flex items-center justify-center relative overflow-hidden shadow-inner mx-auto">
-                  {/* Rainbow Chromatic Iris */}
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-tr from-cyan-400 via-pink-500 to-amber-300 border-2 border-black flex items-center justify-center relative">
-                    {/* Black Pupil */}
-                    <div className="w-5 h-5 sm:w-6 sm:h-6 rounded-full bg-black flex items-center justify-center">
-                      {/* Specular White Catchlight */}
-                      <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full bg-white -mt-1 -ml-1" />
+                    <div className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                      #MIT-UJJAIN-CSE-TOPPER
                     </div>
                   </div>
                 </div>
@@ -534,55 +468,26 @@ Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Yea
                 </div>
               </div>
 
-              {/* Perforation Cutout Notch & Dashed Tear Line with Red Tag */}
-              <div className="relative my-6 -mx-5 sm:-mx-8 py-2">
-                {/* Perforation Circle Notches on Left & Right */}
-                <div className="absolute top-1/2 -left-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#FFF8F9] dark:bg-[#110609]" />
-                <div className="absolute top-1/2 -right-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#FFF8F9] dark:bg-[#110609]" />
-
-                {/* Dashed Line */}
-                <div className="w-full border-t-2 border-dashed border-slate-300" />
-
-                {/* Red Street Marker Script Tag ("Majestic") */}
-                <div className="absolute top-1/2 right-10 sm:right-12 -translate-y-1/2 transform -rotate-6 bg-white px-2">
-                  <span className="font-serif italic font-black text-xl sm:text-2xl text-[#E11D48]">
-                    Majestic
-                  </span>
-                </div>
-              </div>
+              {/* Clean Section Divider */}
+              <div className="my-6 border-t border-slate-200" />
 
               {/* ABOUT ME SECTION (Lower Half of White Sheet) */}
-              <div className="grid sm:grid-cols-12 gap-5 items-end">
-                {/* Left Narrative */}
-                <div className="sm:col-span-8 space-y-2">
-                  <h4 className="font-display font-black text-2xl tracking-tight text-[#E11D48] uppercase">
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-slate-100 pb-2">
+                  <h4 className="font-display font-black text-xl sm:text-2xl tracking-tight text-[#E11D48] uppercase">
                     ABOUT ME
                   </h4>
-                  <p className="text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
+                  <span className="text-[10px] font-mono font-bold text-slate-500 uppercase tracking-wider">
+                    Executive Profile & Vision
+                  </span>
+                </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
+                  <p>
                     I am a Computer Science & Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs 8.48, 8.57, and 8.54 - College Topper).
                   </p>
-                  <p className="text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
+                  <p>
                     Co-Founder and Lead Educator at PRO LEARN COACHING CLASSES (3+ years, 50+ students guided in foundational sciences & mathematics). Recognized for innovation through dual MSME Idea Hackathon 5.0 selections (₹30 Lakh combined grant-in-aid consideration). Active in institutional governance as Student Council VP and IIC Student Coordinator across 35+ anchored ceremonies and 20+ coordinated campus initiatives.
                   </p>
-                </div>
-
-                {/* Right Engraved Postal Stamp Specimen (Scalloped Edges) */}
-                <div className="sm:col-span-4 flex justify-start sm:justify-end pt-2 sm:pt-0">
-                  <div className="relative p-1.5 bg-black border-2 border-slate-800 shadow-md rounded-sm transform rotate-3">
-                    {/* Postage Scalloped Border Simulation */}
-                    <div className="w-24 h-28 bg-[#121622] border border-dashed border-slate-500 p-2 flex flex-col items-center justify-between text-center overflow-hidden">
-                      <div className="text-[8px] font-mono text-amber-400 font-black tracking-widest uppercase">
-                        INDIA POST
-                      </div>
-                      {/* Celestial Ray Icon */}
-                      <div className="w-12 h-12 rounded-full border border-rose-500 bg-gradient-to-tr from-rose-950 to-indigo-950 flex items-center justify-center">
-                        <Sparkles className="w-6 h-6 text-rose-300" />
-                      </div>
-                      <div className="text-[9px] font-mono text-slate-200 font-bold tracking-widest">
-                        2026-MIT
-                      </div>
-                    </div>
-                  </div>
                 </div>
               </div>
             </div>
@@ -636,20 +541,12 @@ Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Yea
                   </div>
                 </div>
 
-                {/* Wavy Distortion Optical Barcode Graphic at Bottom */}
-                <div className="pt-3 border-t border-white/40 space-y-1.5">
-                  <div className="h-10 w-full flex items-center justify-between gap-[2px]">
-                    {[4, 1, 3, 1, 5, 2, 1, 4, 1, 3, 2, 4, 1, 2, 5, 1, 3, 2, 4, 1, 3, 2, 4, 1].map((w, i) => (
-                      <div
-                        key={i}
-                        className="bg-black h-full rounded-xs transform skew-x-2"
-                        style={{ width: `${w * 1.5}px` }}
-                      />
-                    ))}
-                  </div>
-                  <div className="text-[10px] font-mono font-black tracking-widest text-white uppercase text-center bg-black/40 px-2 py-0.5 rounded">
-                    MIT-UJJAIN-CSE-TOPPER
-                  </div>
+                {/* Academic Standing & Credential Verification */}
+                <div className="pt-3 border-t border-white/30 flex items-center justify-between text-xs font-mono">
+                  <span className="text-rose-100 font-medium">Academic Standing</span>
+                  <span className="font-mono font-black tracking-widest text-white uppercase bg-black/35 px-2.5 py-1 rounded">
+                    #MIT-UJJAIN-CSE-TOPPER
+                  </span>
                 </div>
               </div>
 

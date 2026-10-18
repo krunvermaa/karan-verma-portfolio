@@ -43,7 +43,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact }) => {
 
           {/* 3.3 Professional Positioning */}
           <p className="font-mono text-[11px] min-[380px]:text-xs sm:text-sm md:text-base font-bold tracking-tight text-indigo-700 dark:text-indigo-400 uppercase px-2">
-            Computer Science Engineer · Software Developer · Educator
+            UI/UX Designer · Software Developer · Educator
           </p>
 
           {/* 3.4 Supporting Description */}
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact }) => {
         {/* 5. Capability Metadata */}
         <div className="pt-2 px-2">
           <span className="font-mono text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.26em] text-slate-600 dark:text-slate-400 uppercase font-semibold block text-center">
-            AI PLATFORMS · PYTHON · WEB · CAMPUS LEADERSHIP
+            LEADERSHIP · DESIGNING · AI ENGINEERING
           </span>
         </div>
       </div>
