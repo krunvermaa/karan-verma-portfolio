@@ -3,23 +3,22 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 012 — `iter/012-restore-stack-and-journey-prior-state`
-- **Goal:** Restore Stack section (`SkillsSection.tsx`) and Journey section (`JourneySection.tsx`) to their exact previous state from commit `9cdf15c` per user request, while preserving the Work Electric Cyan theme and About 2-column bento layout.
+- **Iteration:** 013 — `iter/013-restore-about-section-prior-state`
+- **Goal:** Restore About section (`AboutSection.tsx`) to its exact previous state from commit `9cdf15c` per user request, while preserving the Work Electric Cyan theme.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 Targeted Checkout | Restore SkillsSection.tsx and JourneySection.tsx from commit 9cdf15c | Passed |
-| S2 Scope Boundary | Confirm AboutSection.tsx and HangingCardsShowcase.tsx remain intact | Passed |
-| S3 Quality Gate | Run npm run lint (tsc --noEmit) and npm run build | Passed (0 errors, 937ms) |
-| S4 Deploy & Verify | Commit and push to origin main | In progress |
+| S1 Targeted Checkout | Restore AboutSection.tsx from commit 9cdf15c | Passed |
+| S2 Quality Gate | Run npm run lint (tsc --noEmit) and npm run build | Passed (0 errors, 435ms) |
+| S3 Deploy & Verify | Commit and push to origin main | In progress |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 012-1 | Restore Stack & Journey from 9cdf15c | Integrator | `src/sections/skills/SkillsSection.tsx`, `src/sections/journey/JourneySection.tsx` | done | Restored exact prior state |
-| 012-2 | Integration & Build Verification | QA & Integrator | whole repo | done | 0 errors verified, ready to push |
+| 013-1 | Restore AboutSection.tsx from 9cdf15c | Integrator | `src/sections/about/AboutSection.tsx` | done | Restored exact prior state |
+| 013-2 | Integration & Build Verification | QA & Integrator | whole repo | done | 0 errors verified, ready to push |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 
@@ -40,10 +39,11 @@ States: `todo` · `in-progress` · `blocked` · `review` · `done`
 | 009 | `iter/009-chromatic-identity-and-light-mode-a11y` | 2026-10-18 | `0ebce83` | `http://localhost:3000` |
 | 010 | `iter/010-journey-frosted-glassmorphism-restoration` | 2026-10-18 | `9cdf15c` | `http://localhost:3000` |
 | 011 | `iter/011-journey-spread-stack-redesign-about-grid-work-cyan` | 2026-10-18 | `d891734` | `http://localhost:3000` |
-| 012 | `iter/012-restore-stack-and-journey-prior-state` | 2026-10-18 | `HEAD` | `http://localhost:3000` |
+| 012 | `iter/012-restore-stack-and-journey-prior-state` | 2026-10-18 | `0b515ce` | `http://localhost:3000` |
+| 013 | `iter/013-restore-about-section-prior-state` | 2026-10-18 | `HEAD` | `http://localhost:3000` |
 
 ## Session handoff (if a session must end mid-iteration)
-- Last completed step: Restored Stack section and Journey section from commit 9cdf15c. Verified with lint and production build.
+- Last completed step: Restored AboutSection.tsx from commit 9cdf15c per user request. Verified with tsc and vite build.
 - Next step: Ready for user review.
 - Open risks: none
 
