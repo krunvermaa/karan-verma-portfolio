@@ -18,7 +18,9 @@ export interface Project {
   demoUrl: string;
   year: string;
   highlights: string[];
-  mockupType: 'telemedicine' | 'design-system' | 'os-simulator' | 'spatial-canvas' | 'metrics-dashboard';
+  mockupType: 'agri-market' | 'railway-nav' | 'python-pipeline' | 'web3-growth' | 'event-hub' | 'telemedicine' | 'design-system' | 'os-simulator' | 'spatial-canvas' | 'metrics-dashboard';
+  team?: string[];
+  announcement?: string;
 }
 
 export interface SkillCategory {
@@ -39,7 +41,7 @@ export interface JourneyMilestone {
   period: string;
   role: string;
   organization: string;
-  category: 'Experience' | 'Education' | 'Hackathon' | 'Open Source';
+  category: 'Experience' | 'Education' | 'Hackathon' | 'Leadership' | 'Achievement' | 'Open Source';
   description: string;
   achievements: string[];
   color: string;
@@ -58,6 +60,7 @@ export interface PersonalInfo {
   tagline: string;
   bio: string;
   email: string;
+  phone?: string;
   github: string;
   linkedin: string;
   twitter: string;
