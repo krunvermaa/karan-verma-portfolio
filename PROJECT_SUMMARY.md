@@ -1,9 +1,9 @@
-# Karan Verma — Full-Stack Developer & Product Designer Portfolio
+# Karan Verma — Computer Science Engineer & Software Developer Portfolio
 ## Complete Architectural & Section-by-Section Specification Summary
 
 > **Application**: Production Developer Portfolio & Interactive Systems Showcase  
-> **Developer**: Karan Verma (B.Tech Computer Science & Engineering, NIT Class of 2026)  
-> **Specialization**: Full-Stack Architecture, Real-Time Systems, Local-First Applications, Design Systems  
+> **Developer**: Karan Verma (B.Tech Computer Science & Engineering, Mahakal Institute of Technology, Ujjain)  
+> **Specialization**: AI Systems, Python Engineering, Data Pipelines, Campus Leadership, Prompt Engineering  
 > **Tech Stack**: React 19, TypeScript, Vite, Tailwind CSS, Lucide Icons  
 > **Design Influences**: Designer Daishu 3D Folders, MOOV Translucent Shells, James Laurent Vector Inspectors, Swiss Editorial Grid, Licencia Creativa
 

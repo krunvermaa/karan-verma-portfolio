@@ -50,3 +50,5 @@ coverage/
 
 # TypeScript
 *.tsbuildinfo
+.vercel
+karan-verma-personal-developer-portfolio-*/

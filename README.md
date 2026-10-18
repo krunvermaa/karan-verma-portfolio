@@ -80,16 +80,16 @@ A production personal developer portfolio built with strict adherence to **edito
 
 ## 🚀 Featured Case Studies
 
-1. **Saksham Health** — *Accessible Rural Telemedicine & Offline-First Triage Engine*  
-   - Offline-first PWA backed by IndexedDB and background sync queues. Adaptive audio-first WebRTC pipeline downscaling smoothly to maintain clarity at 28kbps.
-2. **Aura Design System** — *Enterprise Multi-Brand Design Token Engine & Component Matrix*  
-   - Zero-runtime CSS variable engine with WCAG AAA automated contrast audit pipelines across multiple brand themes.
-3. **ChronoSync DB** — *Distributed Log-Structured Merge Time-Series Storage Engine*  
-   - Custom LSM-Tree implementation with bloom filters, write-ahead logging (WAL), and memory-mapped segment compaction.
-4. **VocalMesh** — *Decentralized Offline Mesh Voice Relay for Crisis Zones*  
-   - WebRTC DataChannel mesh network routing Opus audio packets over multi-hop topologies with zero central infrastructure.
-5. **Hyperion Core** — *Ultra-Low-Latency Order Book & Trade Matching Engine*  
-   - In-memory lock-free FIFO matching engine processing sub-microsecond state transitions with deterministic execution.
+1. **Smart AI Agri Market Access Platform** — *Intelligent Agricultural Marketplace & Fair Market Access Engine*  
+   - Selected for ₹15 Lakh grant-in-aid consideration under MSME Idea Hackathon 5.0 (2025). AI-driven platform aggregating regional mandi rates, predicting crop price trends, and linking farmers directly to verified buyers.
+2. **AI Real-Time Railway Station Navigation Platform** — *Spatial AI Indoor Wayfinding & Multi-Platform Transit Guide*  
+   - Selected for ₹15 Lakh grant-in-aid consideration under MSME Idea Hackathon 5.0 (2025). Graph-based shortest path indoor routing with accessibility-first prioritization and live platform synchronization.
+3. **IndusAI Automation Pipeline** — *Production Python Scripting, Automated ETL & Quality Validation*  
+   - Engineered during a Python Developer internship at IndusAI Solutions (MSME-registered, Aug 2025). Built automated data processing pipelines, schema validation routines, and backend logic modules.
+4. **HACKTOUR IND Web3 Platform** — *Decentralized Community Architecture & Technical Campaign Ecosystem*  
+   - Content & Marketing internship at HACKTOUR IND (Web3 company, Jul–Nov 2025). Spearheaded digital content strategy, technical marketing initiatives, and developer community outreach.
+5. **MGI Campus Coordination Hub** — *Event Orchestration, Public Speaking Systems & Prompt Studio Operations*  
+   - Operational framework powering 20+ coordinated campus events, 35+ anchored ceremonies, and prompt engineering workshops in capacity as Student Council Vice President and Prompt Lead.
 
 ---
 
