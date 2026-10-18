@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { JourneyMilestone } from '../data/portfolioData';
+import { JourneyMilestone } from '@/types';
 import {
   Briefcase,
   Trophy,
@@ -13,8 +13,7 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
-  Award,
-  Users
+  Award
 } from 'lucide-react';
 
 const ENRICHED_JOURNEY: JourneyMilestone[] = [
@@ -145,7 +144,6 @@ export const JourneySection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
   const [liked, setLiked] = useState<boolean>(false);
   const [bookmarked, setBookmarked] = useState<boolean>(false);
-  const [filter, setFilter] = useState<'all' | 'council' | 'web3' | 'industry'>('all');
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
@@ -200,14 +198,6 @@ export const JourneySection: React.FC = () => {
     }
   };
 
-  const filteredMilestones = ENRICHED_JOURNEY.map((item, originalIdx) => ({ item, originalIdx })).filter(
-    ({ originalIdx }) => {
-      if (filter === 'council') return [0, 5, 6].includes(originalIdx);
-      if (filter === 'web3') return [1, 2].includes(originalIdx);
-      if (filter === 'industry') return [3, 4, 7].includes(originalIdx);
-      return true;
-    }
-  );
 
   return (
     <section
@@ -264,160 +254,6 @@ export const JourneySection: React.FC = () => {
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* PROMINENT STUDENT COUNCIL PROGRESSION STEPPER (CR ➔ Joint Sec ➔ VP) */}
-        {/* ========================================================================= */}
-        <div className="relative rounded-3xl bg-gradient-to-r from-purple-950/30 via-purple-900/20 to-purple-950/30 dark:from-purple-950/60 dark:via-purple-900/30 dark:to-purple-950/60 border-2 border-purple-400/40 p-4 sm:p-7 space-y-4 backdrop-blur-xl shadow-xl">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2.5 border-b border-purple-400/20 pb-3">
-            <div className="flex items-center gap-2">
-              <ShieldCheck className="w-5 h-5 text-[#CCFF00] shrink-0" />
-              <h3 className="font-mono text-xs sm:text-sm font-black text-purple-200 uppercase tracking-wider leading-snug">
-                Student Council Leadership Trajectory · Mahakal Institute of Technology
-              </h3>
-            </div>
-            <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-[#CCFF00]/10 border border-[#CCFF00]/30 font-mono text-[11px] sm:text-xs text-[#CCFF00] font-black tracking-wide w-fit">
-              <span>CR (24–25)</span>
-              <span className="text-purple-400">➔</span>
-              <span>Joint Sec (25–26)</span>
-              <span className="text-purple-400">➔</span>
-              <span>VP (26–27)</span>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-3.5">
-            {/* Step 1: CR 2024-25 */}
-            <button
-              type="button"
-              onClick={() => setActiveIdx(6)}
-              className={`text-left p-4 rounded-2xl border transition-all cursor-pointer ${
-                activeIdx === 6
-                  ? 'bg-purple-900/90 border-purple-400 shadow-lg ring-2 ring-purple-400/50 text-white scale-[1.01]'
-                  : 'bg-black/25 dark:bg-black/40 border-purple-800/40 hover:border-purple-500/60 text-slate-200'
-              }`}
-            >
-              <div className="flex items-center justify-between pb-1.5">
-                <span className="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono text-[10px] font-bold border border-purple-400/30">
-                  STEP 01 · 2024 — 2025
-                </span>
-                <span className="text-[11px] font-mono text-slate-400 font-bold">Completed</span>
-              </div>
-              <h4 className="font-display font-black text-base sm:text-lg text-white">
-                Class Representative (CR)
-              </h4>
-              <p className="text-xs text-slate-300 pt-1 font-sans leading-relaxed">
-                Elected by first-year CSE cohort. Academic liaison & college topper across Sem 1 (8.48) & Sem 2 (8.57).
-              </p>
-            </button>
-
-            {/* Step 2: Joint Sec 2025-26 */}
-            <button
-              type="button"
-              onClick={() => setActiveIdx(5)}
-              className={`text-left p-4 rounded-2xl border transition-all cursor-pointer ${
-                activeIdx === 5
-                  ? 'bg-purple-900/90 border-purple-400 shadow-lg ring-2 ring-purple-400/50 text-white scale-[1.01]'
-                  : 'bg-black/25 dark:bg-black/40 border-purple-800/40 hover:border-purple-500/60 text-slate-200'
-              }`}
-            >
-              <div className="flex items-center justify-between pb-1.5">
-                <span className="px-2.5 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono text-[10px] font-bold border border-purple-400/30">
-                  STEP 02 · 2025 — 2026
-                </span>
-                <span className="text-[11px] font-mono text-slate-400 font-bold">Completed</span>
-              </div>
-              <h4 className="font-display font-black text-base sm:text-lg text-white">
-                Joint Secretary
-              </h4>
-              <p className="text-xs text-slate-300 pt-1 font-sans leading-relaxed">
-                Elevated to Executive Council. Coordinated 20+ college events & founded MGI Prompt Studio (500+ trained).
-              </p>
-            </button>
-
-            {/* Step 3: VP 2026-27 */}
-            <button
-              type="button"
-              onClick={() => setActiveIdx(0)}
-              className={`text-left p-4 rounded-2xl border transition-all cursor-pointer ${
-                activeIdx === 0
-                  ? 'bg-purple-900/90 border-[#CCFF00] shadow-lg ring-2 ring-[#CCFF00]/60 text-white scale-[1.01]'
-                  : 'bg-black/25 dark:bg-black/40 border-purple-800/40 hover:border-purple-500/60 text-slate-200'
-              }`}
-            >
-              <div className="flex items-center justify-between pb-1.5">
-                <span className="px-2.5 py-0.5 rounded bg-[#CCFF00]/20 text-[#CCFF00] font-mono text-[10px] font-black border border-[#CCFF00]/40">
-                  CURRENT OFFICE · 2026 — 2027
-                </span>
-                <span className="text-[11px] font-mono text-[#CCFF00] font-bold flex items-center gap-1">
-                  <CheckCircle2 className="w-3.5 h-3.5" /> Active
-                </span>
-              </div>
-              <h4 className="font-display font-black text-base sm:text-lg text-white">
-                Vice President
-              </h4>
-              <p className="text-xs text-slate-300 pt-1 font-sans leading-relaxed">
-                Highest elected student office. Anchored 35+ ceremonies, institutional leadership & engineering summits.
-              </p>
-            </button>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* WEB3 HACKATHONS & COMMUNITY QUICK-ACCESS STRIP */}
-        {/* ========================================================================= */}
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-2xl bg-gradient-to-r from-pink-950/20 via-purple-950/30 to-purple-950/20 border border-pink-500/30 text-xs font-mono text-purple-200">
-          <div className="flex items-center gap-2 shrink-0">
-            <Trophy className="w-4 h-4 text-pink-400 shrink-0" />
-            <span className="font-bold text-white uppercase tracking-wider text-[11px] sm:text-xs">
-              Web3 Hackathons & Developer Communities:
-            </span>
-          </div>
-          <div className="flex flex-wrap items-center gap-1.5 sm:gap-2">
-            <button
-              type="button"
-              onClick={() => setActiveIdx(2)}
-              className={`px-2.5 py-1 rounded-lg border transition-all cursor-pointer font-bold text-[11px] sm:text-xs ${
-                activeIdx === 2
-                  ? 'bg-pink-500/30 border-pink-400 text-pink-200 ring-1 ring-pink-400/50 shadow-xs'
-                  : 'bg-pink-500/15 hover:bg-pink-500/30 border-pink-400/40 text-pink-300'
-              }`}
-            >
-              ✦ Arweave / Permaweb
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveIdx(2)}
-              className={`px-2.5 py-1 rounded-lg border transition-all cursor-pointer font-bold text-[11px] sm:text-xs ${
-                activeIdx === 2
-                  ? 'bg-pink-500/30 border-pink-400 text-pink-200 ring-1 ring-pink-400/50 shadow-xs'
-                  : 'bg-pink-500/15 hover:bg-pink-500/30 border-pink-400/40 text-pink-300'
-              }`}
-            >
-              ✦ Zcash India
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveIdx(2)}
-              className={`px-2.5 py-1 rounded-lg border transition-all cursor-pointer font-bold text-[11px] sm:text-xs ${
-                activeIdx === 2
-                  ? 'bg-pink-500/30 border-pink-400 text-pink-200 ring-1 ring-pink-400/50 shadow-xs'
-                  : 'bg-pink-500/15 hover:bg-pink-500/30 border-pink-400/40 text-pink-300'
-              }`}
-            >
-              ✦ Avalanche City Connect
-            </button>
-            <button
-              type="button"
-              onClick={() => setActiveIdx(1)}
-              className={`px-2.5 py-1 rounded-lg border transition-all cursor-pointer font-bold text-[11px] sm:text-xs ${
-                activeIdx === 1
-                  ? 'bg-amber-500/30 border-amber-400 text-amber-200 ring-1 ring-amber-400/50 shadow-xs'
-                  : 'bg-amber-500/15 hover:bg-amber-500/30 border-amber-400/40 text-amber-300'
-              }`}
-            >
-              ✦ 36h National Hackathons
-            </button>
-          </div>
-        </div>
 
         {/* ========================================================================= */}
         {/* CENTERPIECE: THE 3D FROSTED PURPLE GLASS POCKET FOLDER & FANNING FLYERS */}
@@ -729,111 +565,13 @@ export const JourneySection: React.FC = () => {
           </div>
         </div>
 
-        {/* ========================================================================= */}
-        {/* BELOW FOLDER: CATEGORY-FILTERED ARCHIVE SPECIMENS */}
-        {/* ========================================================================= */}
-        <div className="space-y-4">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs font-mono text-slate-600 dark:text-purple-300 px-1">
-            <span className="font-bold uppercase tracking-wider text-[11px] sm:text-xs">
-              Archived Flight Specimens ({filteredMilestones.length} of {ENRICHED_JOURNEY.length}):
-            </span>
-
-            {/* Filter Pills */}
-            <div className="flex flex-wrap gap-1.5 sm:gap-2">
-              <button
-                type="button"
-                onClick={() => setFilter('all')}
-                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-colors cursor-pointer font-bold text-[11px] sm:text-xs ${
-                  filter === 'all'
-                    ? 'bg-purple-600 text-white shadow-xs'
-                    : 'bg-purple-100 dark:bg-purple-950/40 text-purple-900 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-900/60'
-                }`}
-              >
-                All (8)
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('council')}
-                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-colors cursor-pointer font-bold text-[11px] sm:text-xs ${
-                  filter === 'council'
-                    ? 'bg-purple-600 text-white shadow-xs'
-                    : 'bg-purple-100 dark:bg-purple-950/40 text-purple-900 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-900/60'
-                }`}
-              >
-                Council Trajectory (3)
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('web3')}
-                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-colors cursor-pointer font-bold text-[11px] sm:text-xs ${
-                  filter === 'web3'
-                    ? 'bg-purple-600 text-white shadow-xs'
-                    : 'bg-purple-100 dark:bg-purple-950/40 text-purple-900 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-900/60'
-                }`}
-              >
-                Web3 & Hackathons (2)
-              </button>
-              <button
-                type="button"
-                onClick={() => setFilter('industry')}
-                className={`px-2.5 sm:px-3 py-1 rounded-lg transition-colors cursor-pointer font-bold text-[11px] sm:text-xs ${
-                  filter === 'industry'
-                    ? 'bg-purple-600 text-white shadow-xs'
-                    : 'bg-purple-100 dark:bg-purple-950/40 text-purple-900 dark:text-purple-300 hover:bg-purple-200 dark:hover:bg-purple-900/60'
-                }`}
-              >
-                Industry & Grants (3)
-              </button>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-3.5">
-            {filteredMilestones.map(({ item, originalIdx }) => {
-              const isSelected = activeIdx === originalIdx;
-              return (
-                <div
-                  key={originalIdx}
-                  onClick={() => setActiveIdx(originalIdx)}
-                  className={`p-3.5 sm:p-4 rounded-2xl transition-all duration-300 cursor-pointer border ${
-                    isSelected
-                      ? 'bg-purple-900 text-white border-purple-400 shadow-lg scale-102 ring-2 ring-purple-400/50'
-                      : 'bg-white dark:bg-purple-950/30 hover:bg-purple-50 dark:hover:bg-purple-900/30 border-purple-200 dark:border-purple-900/60 text-slate-800 dark:text-slate-200'
-                  }`}
-                >
-                  <div className="flex items-center justify-between pb-2">
-                    <span className="font-mono text-xs font-black text-purple-600 dark:text-purple-300">
-                      {item.year}
-                    </span>
-                    <span
-                      className={`w-2 h-2 rounded-full ${
-                        isSelected ? 'bg-[#CCFF00] animate-pulse' : 'bg-slate-400 dark:bg-slate-600'
-                      }`}
-                    />
-                  </div>
-
-                  <h4 className="font-display font-bold text-sm leading-snug truncate">
-                    {item.role}
-                  </h4>
-                  <p className="text-[11px] font-mono text-slate-600 dark:text-slate-300 truncate pt-0.5">
-                    {item.organization}
-                  </p>
-                  <div className="pt-2">
-                    <span className="px-2 py-0.5 rounded-full bg-purple-500/10 dark:bg-purple-500/20 text-purple-700 dark:text-purple-300 font-mono text-[9px] font-bold uppercase">
-                      {item.category}
-                    </span>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
 
         {/* ========================================================================= */}
-        {/* BOTTOM METADATA & COLOR SWATCHES BAR */}
+        {/* BOTTOM METADATA BAR */}
         {/* ========================================================================= */}
-        <div className="pt-6 border-t border-slate-200 dark:border-purple-900/60 flex flex-col md:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-600 dark:text-purple-300">
+        <div className="pt-6 border-t border-slate-200 dark:border-purple-900/60 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-600 dark:text-purple-300">
           {/* Left: AI Image Generator / Recorder Info */}
-          <div className="text-center md:text-left space-y-0.5">
+          <div className="text-center sm:text-left space-y-0.5">
             <span className="block text-[10px] text-slate-600 dark:text-slate-300 uppercase tracking-widest font-bold">
               FLIGHT RECORDER SPEC:
             </span>
@@ -842,17 +580,8 @@ export const JourneySection: React.FC = () => {
             </span>
           </div>
 
-          {/* Center: Color Palette Swatch Pill */}
-          <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-950 text-white shadow-md border border-slate-800">
-            <div className="w-3.5 h-3.5 rounded-full bg-[#181126] border border-white/20" title="Dark Purple" />
-            <div className="w-3.5 h-3.5 rounded-full bg-[#A855F7] border border-white/20" title="Electric Violet" />
-            <div className="w-3.5 h-3.5 rounded-full bg-[#CCFF00] border border-white/20" title="Lime Accent" />
-            <div className="w-3.5 h-3.5 rounded-full bg-[#FFFFFF] border border-white/20" title="Light White" />
-            <span className="text-[10px] font-bold text-slate-300 pl-1 uppercase">AURA PALETTE</span>
-          </div>
-
           {/* Right: Typeface Spec */}
-          <div className="text-center md:text-right space-y-0.5">
+          <div className="text-center sm:text-right space-y-0.5">
             <span className="block text-[10px] text-slate-600 dark:text-slate-300 uppercase tracking-widest font-bold">
               TYPEFACE SPEC:
             </span>

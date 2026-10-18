@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import { PERSONAL_INFO } from '@/data/portfolioData';
 import { Mail, Github, Linkedin, Copy, Check, Send, Clock, Plus, Minus, Sparkles, ShieldCheck, Phone } from 'lucide-react';
 
 interface CollaborationOption {

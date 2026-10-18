@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { SKILL_CATEGORIES } from '../data/portfolioData';
+import { SKILL_CATEGORIES } from '@/data/portfolioData';
 import { Terminal, Cpu, Layers, Code, Sparkles, Filter, Check, Eye, Hash, ShieldCheck, ArrowRight, CornerDownRight } from 'lucide-react';
 
 interface SkillsSectionProps {

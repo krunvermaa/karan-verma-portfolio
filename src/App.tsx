@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import { Project, PROJECTS } from './data/portfolioData';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { HangingCardsShowcase } from './components/HangingCardsShowcase';
-import { MoovFolderDeepDive } from './components/MoovFolderDeepDive';
-import { SkillsSection } from './components/SkillsSection';
-import { AboutSection } from './components/AboutSection';
-import { JourneySection } from './components/JourneySection';
-import { ResumeSection } from './components/ResumeSection';
-import { ContactSection } from './components/ContactSection';
-import { Footer } from './components/Footer';
-import { CaseStudyModal } from './components/CaseStudyModal';
+import { Project, PROJECTS } from '@/data/portfolioData';
+import { Navbar, Footer } from '@/components/layout';
+import { CaseStudyModal } from '@/components/modals';
+import {
+  Hero,
+  HangingCardsShowcase,
+  AboutSection,
+  SkillsSection,
+  JourneySection,
+  ResumeSection,
+  ContactSection,
+} from '@/sections';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -99,32 +99,28 @@ export default function App() {
 
       {/* Main Content Flow */}
       <main className="w-full max-w-full overflow-x-hidden">
-        {/* 01. Hero Section: Designer Daishu Folder Fan + Astro Typography */}
+        {/* 01. Hero Section: Clean Positioning & Typography */}
         <Hero
           onExploreWork={() => handleNavigate('work')}
           onContact={() => handleNavigate('contact')}
-          onSelectProject={handleOpenCaseStudy}
         />
 
         {/* 02. The Astro Hanging Clothesline Showcase: Suspended Curve & Clothespin Cards */}
         <HangingCardsShowcase onSelectProject={handleOpenCaseStudy} />
 
-        {/* 03. The MOOV Large Floating Folder Deep-Dive with Sheets Peeking Out */}
-        <MoovFolderDeepDive onOpenCaseStudy={handleOpenCaseStudy} />
-
-        {/* 04. About & Operating Philosophy */}
+        {/* 03. About & Operating Philosophy */}
         <AboutSection />
 
-        {/* 05. Technical Stack & Matrix */}
+        {/* 04. Technical Stack & Matrix */}
         <SkillsSection onSelectTechFilter={() => handleNavigate('work')} />
 
-        {/* 06. Journey & Milestones */}
+        {/* 05. Journey & Milestones */}
         <JourneySection />
 
-        {/* 07. Resume Dossier */}
+        {/* 06. Resume Dossier */}
         <ResumeSection />
 
-        {/* 08. Contact Section & Live Clock */}
+        {/* 07. Contact Section & Live Clock */}
         <ContactSection />
       </main>
 

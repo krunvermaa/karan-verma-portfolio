@@ -1,5 +1,5 @@
 import React from 'react';
-import { Project } from '../data/portfolioData';
+import { Project } from '@/types';
 
 interface ProjectMockupProps {
   project: Project;

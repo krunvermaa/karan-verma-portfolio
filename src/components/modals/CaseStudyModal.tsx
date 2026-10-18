@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { Project } from '../data/portfolioData';
-import { ProjectMockup } from './ProjectMockup';
+import { Project } from '@/types';
+import { ProjectMockup } from '@/sections/work';
 import { X, ExternalLink, Github, CheckCircle2, ArrowRight, Layers, Cpu, ShieldAlert, TrendingUp, Award, Users } from 'lucide-react';
 
 interface CaseStudyModalProps {

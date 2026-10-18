@@ -1,5 +1,5 @@
 import React from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import { PERSONAL_INFO } from '@/data/portfolioData';
 import { ArrowUp, Github, Linkedin, Heart } from 'lucide-react';
 
 interface FooterProps {

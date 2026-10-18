@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { Project, PROJECTS } from '../data/portfolioData';
+import { Project, PROJECTS } from '@/data/portfolioData';
 import { ProjectMockup } from './ProjectMockup';
 import { ArrowUpRight, Sparkles, ChevronLeft, ChevronRight } from 'lucide-react';
 
@@ -9,7 +9,12 @@ interface HangingCardsShowcaseProps {
 
 export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSelectProject }) => {
   const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [isDesktop, setIsDesktop] = useState<boolean>(false);
+  const [isDesktop, setIsDesktop] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      return window.innerWidth >= 1024;
+    }
+    return false;
+  });
   const scrollContainerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,8 +26,8 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
     return () => window.removeEventListener('resize', checkWidth);
   }, []);
 
-  // Card tilts following the Astro clothesline curve on desktop
-  const tiltAngles = [-6, -3, 0, 3, 6];
+  // Card tilts following the Astro clothesline curve on desktop: refined subtle angles
+  const tiltAngles = [-4.5, -2, 0, 2, 4.5];
   const verticalOffsets = [10, 22, 28, 22, 10]; // Drooping curve offset
 
   const handleScroll = (direction: 'left' | 'right') => {
@@ -36,7 +41,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
   };
 
   return (
-    <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300">
+    <section id="work" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300">
       {/* Background ambient lighting - Fresh emerald & mint aura */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-emerald-300/35 dark:from-emerald-900/30 via-teal-200/20 dark:via-teal-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-emerald-200/25 dark:bg-emerald-950/15 rounded-full blur-3xl pointer-events-none" />
@@ -85,7 +90,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
         {/* The Hanging Clothesline Curve & Cards */}
         <div
           ref={scrollContainerRef}
-          className="relative pt-6 sm:pt-8 pb-8 sm:pb-10 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth"
+          className="relative pt-6 sm:pt-8 pb-10 sm:pb-12 overflow-x-auto lg:overflow-visible scrollbar-none snap-x snap-mandatory scroll-smooth"
         >
           {/* SVG Clothesline Wire Curve (ASTRO Reference) - visible on lg screens */}
           <div className="hidden lg:block absolute top-10 left-0 right-0 h-24 pointer-events-none z-0">
@@ -95,18 +100,18 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
               viewBox="0 0 1200 80"
             >
               <path
-                d="M 0,20 Q 600,85 1200,20"
+                d="M 0,22 Q 600,85 1200,22"
                 strokeWidth="2"
                 strokeDasharray="5 3"
               />
             </svg>
           </div>
 
-          {/* Mobile/Tablet wire bar */}
-          <div className="lg:hidden absolute top-10 left-0 right-0 h-0.5 border-t-2 border-dashed border-slate-300 dark:border-slate-700 pointer-events-none z-0" />
+          {/* Cards Array Suspended Along the Wire: Flexible on mobile, 5-col on desktop with generous end clearance */}
+          <div className="flex lg:grid lg:grid-cols-5 gap-3 sm:gap-4 lg:gap-3.5 xl:gap-5 relative z-10 items-start min-w-max lg:min-w-0 px-6 sm:px-8 lg:px-8 xl:px-12 py-3 sm:py-4">
+            {/* Mobile/Tablet wire bar running behind all clothespins across the entire scrollable row */}
+            <div className="lg:hidden absolute top-7 left-0 right-0 h-0.5 border-t-2 border-dashed border-slate-300 dark:border-slate-700 pointer-events-none z-0" />
 
-          {/* Cards Array Suspended Along the Wire: Flexible on mobile, 5-col on desktop */}
-          <div className="flex lg:grid lg:grid-cols-5 gap-4 sm:gap-5 relative z-10 items-start min-w-max lg:min-w-0 px-4 lg:px-0 py-2">
             {PROJECTS.map((project, idx) => {
               // On mobile & tablet, keep rotation at 0 to avoid overlapping or clipping bounding boxes during swipe
               const tilt = isDesktop ? tiltAngles[idx % tiltAngles.length] : 0;
@@ -118,12 +123,13 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
                   key={project.id}
                   style={{
                     transform: `translateY(${offset}px) rotate(${isHovered ? 0 : tilt}deg) scale(${isHovered ? 1.02 : 1})`,
+                    transformOrigin: 'top center',
                     transition: 'all 0.35s cubic-bezier(0.16, 1, 0.3, 1)',
                   }}
                   onMouseEnter={() => setHoveredId(project.id)}
                   onMouseLeave={() => setHoveredId(null)}
                   onClick={() => onSelectProject(project)}
-                  className="cursor-pointer group relative flex flex-col items-center w-[255px] min-[360px]:w-[268px] sm:w-72 lg:w-auto shrink-0 lg:shrink touch-manipulation snap-center"
+                  className="cursor-pointer group relative flex flex-col items-center w-[255px] min-[360px]:w-[268px] sm:w-72 lg:w-full shrink-0 lg:shrink touch-manipulation snap-center"
                 >
                   {/* The Green Clothesline Clip (ASTRO Reference) */}
                   <div className="w-4 h-7 rounded-xs bg-emerald-600 dark:bg-emerald-500 border border-emerald-700 dark:border-emerald-400 shadow-sm flex flex-col items-center justify-between py-0.5 z-20 -mb-2.5 transition-transform group-hover:scale-110">
@@ -132,7 +138,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
                   </div>
 
                   {/* The Hanging Card Box */}
-                  <div className="w-full bg-white dark:bg-[#131722] rounded-2xl p-4 border border-slate-200 dark:border-slate-800 shadow-lg dark:shadow-2xl group-hover:shadow-2xl transition-all duration-300 flex flex-col justify-between space-y-3">
+                  <div className="w-full bg-white dark:bg-[#131722] rounded-2xl p-3.5 sm:p-4 border border-slate-200 dark:border-slate-800 shadow-md sm:shadow-lg dark:shadow-2xl group-hover:shadow-2xl transition-all duration-300 flex flex-col justify-between space-y-3">
                     {/* Visual Preview Frame */}
                     <div className="w-full h-32 rounded-xl overflow-hidden bg-slate-50 dark:bg-slate-900/80 border border-slate-100 dark:border-slate-800 relative">
                       <ProjectMockup project={project} />
@@ -153,11 +159,11 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
                     </div>
 
                     {/* Card Footer */}
-                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-medium text-slate-700 dark:text-slate-300 min-h-[32px]">
-                      <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 truncate max-w-[120px]">
+                    <div className="pt-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[11px] font-medium text-slate-700 dark:text-slate-300 min-h-[32px] gap-1.5">
+                      <span className="font-mono text-[10px] text-slate-500 dark:text-slate-400 truncate max-w-[85px] min-[360px]:max-w-[100px] sm:max-w-[120px] lg:max-w-[85px] xl:max-w-[110px]">
                         {project.technologies[0]}
                       </span>
-                      <span className="inline-flex items-center gap-1 text-slate-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-semibold transition shrink-0">
+                      <span className="inline-flex items-center gap-1 text-slate-950 dark:text-white group-hover:text-emerald-600 dark:group-hover:text-emerald-400 font-semibold transition shrink-0 text-xs">
                         <span>Inspect</span>
                         <ArrowUpRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                       </span>

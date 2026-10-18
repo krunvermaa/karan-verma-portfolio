@@ -1,5 +1,5 @@
 import React from 'react';
-import { PERSONAL_INFO, PHILOSOPHY_PRINCIPLES } from '../data/portfolioData';
+import { PERSONAL_INFO, PHILOSOPHY_PRINCIPLES } from '@/data/portfolioData';
 import { DeveloperLicenseBadge } from './DeveloperLicenseBadge';
 import { GraduationCap, Compass, ShieldCheck, Globe } from 'lucide-react';
 

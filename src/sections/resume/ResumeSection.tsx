@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
+import { PERSONAL_INFO, PROJECTS } from '@/data/portfolioData';
 import { Download, Printer, Copy, Check, Sparkles, ArrowRight, ExternalLink, Phone, Twitter, Mail, Users, Award } from 'lucide-react';
 
 export const ResumeSection: React.FC = () => {

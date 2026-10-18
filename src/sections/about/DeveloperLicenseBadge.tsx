@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { PERSONAL_INFO } from '../data/portfolioData';
+import { PERSONAL_INFO } from '@/data/portfolioData';
 import { Github, Linkedin, Twitter, Award, ShieldCheck } from 'lucide-react';
 
 export const DeveloperLicenseBadge: React.FC = () => {
