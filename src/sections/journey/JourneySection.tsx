@@ -202,7 +202,7 @@ export const JourneySection: React.FC = () => {
   return (
     <section
       id="journey"
-      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FBFBFE] dark:bg-[#0B0715] text-slate-900 dark:text-white relative overflow-hidden select-none transition-colors duration-300"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FBFBFE] dark:bg-[#0B0715] text-slate-900 dark:text-white relative overflow-hidden transition-colors duration-300"
     >
       {/* ========================================================================= */}
       {/* LIGHT WHITE & VIBRANT PURPLE AMBIENT LIGHTING GLOWS */}
@@ -294,7 +294,7 @@ export const JourneySection: React.FC = () => {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              className="relative w-full rounded-3xl bg-[#181126] text-white border-2 border-purple-400/90 shadow-2xl shadow-purple-950/80 p-5 space-y-3 transition-all duration-300 select-none"
+              className="relative w-full rounded-3xl bg-[#181126] text-white border-2 border-purple-400/90 shadow-2xl shadow-purple-950/80 p-5 space-y-3 transition-all duration-300"
             >
               {/* Card Header Stamp */}
               <div className="flex items-center justify-between border-b border-purple-900/80 pb-3">
@@ -377,7 +377,7 @@ export const JourneySection: React.FC = () => {
                     transform: `translateX(${xOffset}px) translateY(${isActive ? -54 : 0}px) rotate(${isActive ? 0 : rotation}deg)`,
                     zIndex: isActive ? 25 : 10 - Math.abs(Math.round(centerIdx - idx)),
                   }}
-                  className={`absolute bottom-0 w-72 md:w-80 h-76 md:h-80 rounded-3xl p-5 md:p-6 shadow-2xl transition-all duration-500 cursor-pointer border select-none ${
+                  className={`absolute bottom-0 w-72 md:w-80 h-76 md:h-80 rounded-3xl p-5 md:p-6 shadow-2xl transition-all duration-500 cursor-pointer border ${
                     isActive
                       ? 'bg-[#181126] text-white border-purple-400/90 shadow-purple-900/60 scale-105 ring-2 ring-purple-400/40'
                       : 'bg-[#120B1E] text-slate-300 border-purple-900/60 opacity-80 hover:opacity-100 hover:scale-102'

@@ -6,7 +6,7 @@ export const DeveloperLicenseBadge: React.FC = () => {
   const [stampVerified, setStampVerified] = useState(true);
 
   return (
-    <div className="relative w-full max-w-xl mx-auto pt-7 sm:pt-8 my-1 sm:my-3 select-none perspective-1000">
+    <div className="relative w-full max-w-xl mx-auto pt-7 sm:pt-8 my-1 sm:my-3 perspective-1000">
       {/* Metal Binder Clip at Top (Licencia Creativa Reference) */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">
         {/* Metal Wire Loop */}
@@ -26,7 +26,7 @@ export const DeveloperLicenseBadge: React.FC = () => {
 
           {/* Top Row of Stars (Reference) */}
           <div className="flex items-center justify-between border-b border-amber-900/15 dark:border-slate-800 pb-2.5 sm:pb-3 mb-3.5 sm:mb-4 text-rose-700 dark:text-rose-400 text-xs gap-2">
-            <div className="flex items-center gap-1 sm:gap-1.5 text-xs select-none">
+            <div className="flex items-center gap-1 sm:gap-1.5 text-xs">
               <span>★</span>
               <span>★</span>
               <span>★</span>

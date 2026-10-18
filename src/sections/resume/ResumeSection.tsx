@@ -93,7 +93,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
   return (
     <section
       id="resume"
-      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F9] dark:bg-[#110609] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 select-none transition-colors duration-300 relative overflow-hidden"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F9] dark:bg-[#110609] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300 relative overflow-hidden"
     >
       {/* Subtle crimson/rose studio ambient glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-rose-200/35 dark:from-rose-950/30 via-red-100/15 dark:via-rose-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
@@ -151,7 +151,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-rose-600/15 via-indigo-600/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 
           {/* Top-Left Authentic Dossier Stamp: নথিপত্র (Bengali: Records / Documents) */}
-          <div className="absolute top-5 left-5 sm:top-8 sm:left-8 flex items-center gap-2 text-white select-none z-10">
+          <div className="absolute top-5 left-5 sm:top-8 sm:left-8 flex items-center gap-2 text-white z-10">
             <span className="font-serif font-black text-xl sm:text-2xl tracking-widest text-slate-100 drop-shadow-md">
               নথিপত্র
             </span>
@@ -161,7 +161,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
           </div>
 
           {/* Top-Right Four-Point Star Sparkle Emblem */}
-          <div className="absolute top-5 right-5 sm:top-8 sm:right-8 text-white select-none z-10">
+          <div className="absolute top-5 right-5 sm:top-8 sm:right-8 text-white z-10">
             <span className="text-2xl sm:text-3xl text-slate-200 font-serif leading-none drop-shadow-sm">✦</span>
           </div>
 
@@ -189,7 +189,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                   <div className="absolute inset-0 bg-black/10 mix-blend-overlay pointer-events-none" />
 
                   {/* Red Graffiti Tag Signature Over the Photo */}
-                  <div className="absolute -bottom-1 -right-1 transform -rotate-6 select-none pointer-events-none">
+                  <div className="absolute -bottom-1 -right-1 transform -rotate-6 pointer-events-none">
                     <span className="font-serif italic font-black text-2xl sm:text-3xl text-[#E11D48] drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)] tracking-tighter">
                       Karan
                     </span>
@@ -368,7 +368,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                 {/* Desktop Red Vertical Giant Stencil Banner (Visible only on lg:) */}
                 <div className="hidden lg:flex shrink-0 items-center justify-center border-r border-slate-200 pr-3 sm:pr-4">
                   <div
-                    className="font-display font-black text-3xl sm:text-4xl text-[#E11D48] tracking-widest uppercase select-none"
+                    className="font-display font-black text-3xl sm:text-4xl text-[#E11D48] tracking-widest uppercase"
                     style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
                   >
                     EXPERIENCE
@@ -462,7 +462,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                 <div className="w-full border-t-2 border-dashed border-slate-300" />
 
                 {/* Red Street Marker Script Tag ("Majestic") */}
-                <div className="absolute top-1/2 right-10 sm:right-12 -translate-y-1/2 transform -rotate-6 select-none bg-white px-2">
+                <div className="absolute top-1/2 right-10 sm:right-12 -translate-y-1/2 transform -rotate-6 bg-white px-2">
                   <span className="font-serif italic font-black text-xl sm:text-2xl text-[#E11D48]">
                     Majestic
                   </span>

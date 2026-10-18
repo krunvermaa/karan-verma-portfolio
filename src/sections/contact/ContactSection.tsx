@@ -136,7 +136,7 @@ export const ContactSection: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden select-none bg-[#FAF7FE] dark:bg-[#0D0717] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
+    <section id="contact" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden bg-[#FAF7FE] dark:bg-[#0D0717] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 transition-colors duration-300">
       {/* Subtle Electric Violet & Fuchsia Radar Glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-violet-300/35 dark:from-violet-900/30 via-fuchsia-200/20 dark:via-fuchsia-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-[650px] h-[400px] bg-indigo-200/25 dark:bg-purple-950/20 rounded-full blur-3xl pointer-events-none" />

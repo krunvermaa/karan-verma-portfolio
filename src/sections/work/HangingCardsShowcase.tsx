@@ -41,7 +41,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
   };
 
   return (
-    <section id="work" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300">
+    <section id="work" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300">
       {/* Background ambient lighting - Fresh emerald & mint aura */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-emerald-300/35 dark:from-emerald-900/30 via-teal-200/20 dark:via-teal-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-emerald-200/25 dark:bg-emerald-950/15 rounded-full blur-3xl pointer-events-none" />

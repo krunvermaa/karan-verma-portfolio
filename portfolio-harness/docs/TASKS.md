@@ -3,28 +3,27 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 005 — `iter/005-ui-whitespace-and-padding-harmony`
-- **Goal:** Fix UI issues, glitches, and excessive/inconsistent whitespace across all sections, harmonizing padding and mobile responsiveness.
+- **Iteration:** 006 — `iter/006-enable-native-text-selection`
+- **Goal:** Enable native selectable and copyable text across all sections (Work, About, Skills, Journey, Resume, Contact) by removing select-none constraints from section roots and cards.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 overflow & root layout | Prevent horizontal jitter & scroll with overflow-x containment in index.css & App.tsx | Passed |
-| S2 vertical cadence | Standardize section paddings across Hero, HangingCards, Moov, About, Skills, Journey, Resume, Contact, Footer | Passed |
-| S3 glitch elimination | Remove protruding ambient glow translate-y-72, tighten fan & clothesline containers, fix modal reset | Passed |
-| S4 build check | Ensure TypeScript lint & Vite production build succeed cleanly | Passed (0 errors, 451ms) |
-| S5 live smoke | Validate dev server on port 3000 and live Vercel production deployment | Passed (HTTP 200) |
+| S1 Unit & Component checks | Remove select-none in disjoint section components | Passed |
+| S2 Integration | Verify all 6 section components compile cleanly together | Passed |
+| S3 Typecheck & Build | Run npm run lint (tsc --noEmit) and npm run build | Passed (0 errors, 609ms) |
+| S4 Visual & Selection Gate | Black-box verification that text can be highlighted & copied across all sections | Passed |
+| S5 Push & Deploy | Push verified changes to GitHub main branch | Passed |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 005-1 | Root overflow-x containment & antialiasing | UI Engineer | `src/index.css`, `src/App.tsx` | done | Prevent trackpad jitter |
-| 005-2 | Harmonize vertical rhythm across all 8 sections | UI Engineer | `src/components/*.tsx` | done | Consistent responsive py |
-| 005-3 | Eliminate MoovFolderDeepDive glow bleed | UI Engineer | `src/components/MoovFolderDeepDive.tsx` | done | Clean bounds |
-| 005-4 | Tighten Fan stage & clothesline scroll heights | UI Engineer | `src/components/FrostedFolderFan.tsx`, `HangingCardsShowcase.tsx` | done | No dead space |
-| 005-5 | Polish CaseStudyModal body padding & body style reset | UI Engineer | `src/components/CaseStudyModal.tsx` | done | Clean cleanup |
-| 005-6 | Build, test & verify across ports and Vercel | QA & Integrator | whole repo | done | 0 errors |
+| 006-1 | Work section text selection | Work Specialist | `src/sections/work/HangingCardsShowcase.tsx`, `src/sections/work/ProjectMockup.tsx` | done | Removed select-none on section & mockups |
+| 006-2 | About section text selection | About Specialist | `src/sections/about/DeveloperLicenseBadge.tsx` | done | Removed select-none on license badge |
+| 006-3 | Skills & Journey text selection | Skills & Journey Specialist | `src/sections/skills/SkillsSection.tsx`, `src/sections/journey/JourneySection.tsx` | done | Removed select-none on section roots & cards |
+| 006-4 | Resume & Contact text selection | Resume & Contact Specialist | `src/sections/resume/ResumeSection.tsx`, `src/sections/contact/ContactSection.tsx` | done | Removed select-none on section roots & stamps |
+| 006-5 | Build verification & release gate | QA & Integrator | whole repo | done | 0 errors verified, pushed to main |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 

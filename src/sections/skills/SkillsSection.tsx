@@ -76,7 +76,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
   return (
     <section
       id="skills"
-      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEFDF6] dark:bg-[#121108] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEFDF6] dark:bg-[#121108] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300"
     >
       {/* ========================================================================= */}
       {/* STUDIO SPOTLIGHT & GRAPH PAPER PINBOARD WALL (Warm Canary/Amber Tint) */}

@@ -12,7 +12,7 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ project }) => {
   // 1. Smart AI Agri Market Access Platform (MSME Idea Hackathon 5.0)
   if (mockupType === 'agri-market') {
     return (
-      <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono select-none overflow-hidden relative transition-colors">
+      <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono overflow-hidden relative transition-colors">
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
         {/* Top bar */}
@@ -87,7 +87,7 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ project }) => {
   // 2. AI Real-Time Railway Station Navigation Platform (MSME Idea Hackathon 5.0)
   if (mockupType === 'railway-nav') {
     return (
-      <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono select-none overflow-hidden relative transition-colors">
+      <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono overflow-hidden relative transition-colors">
         <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
         {/* Header */}
@@ -161,7 +161,7 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ project }) => {
   // 3. IndusAI Automation & Python Pipeline
   if (mockupType === 'python-pipeline') {
     return (
-      <div className="w-full h-full min-h-[260px] bg-[#1E293B] dark:bg-[#0F172A] text-slate-200 rounded-xl p-4 flex flex-col justify-between border border-slate-700 dark:border-slate-800 text-xs font-mono select-none overflow-hidden relative transition-colors">
+      <div className="w-full h-full min-h-[260px] bg-[#1E293B] dark:bg-[#0F172A] text-slate-200 rounded-xl p-4 flex flex-col justify-between border border-slate-700 dark:border-slate-800 text-xs font-mono overflow-hidden relative transition-colors">
         {/* Terminal top bar */}
         <div className="flex items-center justify-between border-b border-slate-700 dark:border-slate-800 pb-2">
           <div className="flex items-center gap-1.5">
@@ -220,7 +220,7 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ project }) => {
   // 4. HACKTOUR IND Web3 Growth Platform
   if (mockupType === 'web3-growth') {
     return (
-      <div className="w-full h-full min-h-[260px] bg-slate-900 dark:bg-[#0B0F19] text-slate-100 rounded-xl p-4 flex flex-col justify-between border border-slate-800 text-xs font-mono select-none overflow-hidden relative transition-colors">
+      <div className="w-full h-full min-h-[260px] bg-slate-900 dark:bg-[#0B0F19] text-slate-100 rounded-xl p-4 flex flex-col justify-between border border-slate-800 text-xs font-mono overflow-hidden relative transition-colors">
         <div className="absolute inset-0 bg-grid-pattern opacity-25 pointer-events-none" />
 
         {/* Top Header */}
@@ -315,7 +315,7 @@ export const ProjectMockup: React.FC<ProjectMockupProps> = ({ project }) => {
 
   // 5. MGI Campus Coordination & Event Portal (Student Council & Prompt Lead)
   return (
-    <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono select-none overflow-hidden relative transition-colors">
+    <div className="w-full h-full min-h-[260px] bg-slate-50 dark:bg-slate-900/95 rounded-xl p-4 flex flex-col justify-between border border-slate-300 dark:border-slate-800 text-xs font-mono overflow-hidden relative transition-colors">
       <div className="absolute inset-0 bg-grid-pattern opacity-40 pointer-events-none" />
 
       {/* Header */}
