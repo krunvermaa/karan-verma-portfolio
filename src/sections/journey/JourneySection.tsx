@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { JourneyMilestone } from '@/types';
+import { JOURNEY } from '@/data/portfolioData';
 import {
   Briefcase,
   Trophy,
@@ -13,132 +14,10 @@ import {
   ChevronLeft,
   ChevronRight,
   ShieldCheck,
-  Award
+  Award,
+  BookOpen,
+  Lightbulb,
 } from 'lucide-react';
-
-const ENRICHED_JOURNEY: JourneyMilestone[] = [
-  {
-    year: '2026—27',
-    period: 'Current Office',
-    role: 'Vice President, Student Council',
-    organization: 'Mahakal Institute of Technology, Ujjain',
-    category: 'Leadership',
-    description: 'Elected Vice President of the Student Council following progressive service as Joint Secretary (2025–26) and Class Representative (2024–25). Leading institute-wide student governance, inter-club technical initiatives, and student advocacy.',
-    achievements: [
-      'Student Council Progression: Class Representative (24-25) → Joint Secretary (25-26) → Vice President (26-27)',
-      'Heading student council governance across academic and extracurricular operations',
-      'Anchored 35+ college ceremonies, building high-stakes institutional communication',
-      'Coordinating campus-wide engineering symposiums and national hackathon delegations',
-    ],
-    color: '#8B5CF6',
-  },
-  {
-    year: '2026',
-    period: 'National Hackathons',
-    role: '36-Hour National Hackathon Competitor',
-    organization: 'HACKWAVE 3.0 · AGNITIA · .EXECUTE · ALGORUSH',
-    category: 'Hackathon',
-    description: 'Actively competed across prominent 36-hour national level hackathons in Madhya Pradesh, solving complex technical challenges under intense time constraints.',
-    achievements: [
-      'HACKWAVE 3.0: 36-hour national level hackathon at CDGI, Indore (Oct 2026)',
-      'AGNITIA 2026: 36-hour national hackathon at PIEMR, Indore (Oct 2026)',
-      '.EXECUTE: 36-hour national hackathon at NMIMS, Indore (Mar 2026)',
-      'ALGORUSH: Bug fixing & code analysis competition at NMIMS, Indore (Mar 2026)',
-      'Smart India Hackathon (SIH): Selected and competed in internal institutional rounds twice',
-    ],
-    color: '#F59E0B',
-  },
-  {
-    year: '2025',
-    period: 'Web3 & Community',
-    role: 'Web3 Contributor & Technical Marketing Intern',
-    organization: 'HACKTOUR IND · Arweave · Zcash · Avalanche',
-    category: 'Hackathon',
-    description: 'Content & Marketing Internship at HACKTOUR IND (Web3 company). Active contributor (@HackTourIND / @krunverma) across Web3 hackathons, developer meetups, and ecosystem initiatives.',
-    achievements: [
-      'Arweave / Permaweb Buildstation: Active participant in Agents of the Permaweb Hackathon',
-      'Zcash India Meetups: Engaged in privacy-focused Web3 developer meetups and builder sessions',
-      'Avalanche City Connect (Jaipur): Developer networking and Web3 ecosystem engagement',
-      'Authored educational developer guides, technical breakdowns, and community growth funnels',
-    ],
-    color: '#EC4899',
-  },
-  {
-    year: '2025',
-    period: 'Jul — Aug 2025',
-    role: 'Python Developer Intern',
-    organization: 'IndusAI Solutions (MSME-registered)',
-    category: 'Experience',
-    description: 'Completed a 3-week production Python Developer internship at IndusAI Solutions (MSME-registered), earning official completion certification issued in August 2025.',
-    achievements: [
-      'Engineered automated Python data processing routines and backend validation logic',
-      'Constructed modular data processing scripts with robust exception handling',
-      'Earned MSME-registered internship completion certificate (Aug 2025)',
-      'Achieved 99.9% data pipeline uptime across production validation jobs',
-    ],
-    color: '#10B981',
-  },
-  {
-    year: '2025',
-    period: 'National Selection',
-    role: 'Dual Grant-in-Aid Selection (₹30 Lakh Combined)',
-    organization: 'MSME Idea Hackathon 5.0 (2025)',
-    category: 'Achievement',
-    description: 'Two independent technological innovations selected for grant-in-aid consideration under MSME Idea Hackathon 5.0, with ₹15 Lakh indicated for each idea (₹30 Lakh combined).',
-    achievements: [
-      'Smart AI Based Agri Market Access Platform: ₹15 Lakh grant-in-aid indicated',
-      'AI Based Real Time Navigation Platform for Railway Stations: ₹15 Lakh grant-in-aid indicated',
-      'Team Members: Sourav Chaudhary, Sneha Patidar, Sneha Sharma, Karan Verma',
-      'Confirmed via official MIT Group of Institutes Ujjain announcement',
-    ],
-    color: '#6366F1',
-  },
-  {
-    year: '2025—26',
-    period: 'Council Step 2',
-    role: 'Joint Secretary & Prompt Engineering Lead',
-    organization: 'Student Council & MGI Coding Club',
-    category: 'Leadership',
-    description: 'Elected Joint Secretary of the Student Council (promoted from Class Representative) while serving as Prompt Engineering Lead at MGI Coding Club.',
-    achievements: [
-      'Student Council Progression: Ascended from CR (2024–25) to Joint Secretary (2025–26)',
-      'Organized and coordinated 20+ college events across multiple campus clubs',
-      'Conducted prompt engineering and generative AI workshops for 500+ students',
-      'Mentored junior students in technical communication and event management',
-    ],
-    color: '#0EA5E9',
-  },
-  {
-    year: '2024—25',
-    period: 'Council Step 1',
-    role: 'Class Representative (CR) & Department Topper',
-    organization: 'Mahakal Institute of Technology, Ujjain',
-    category: 'Leadership',
-    description: 'Elected Class Representative by first-year peers while sustaining college-topping academic performance across consecutive university semesters.',
-    achievements: [
-      'Student Council Progression: Elected Class Representative (2024–25), initiating 3-year council trajectory',
-      'Semester 1: SGPA 8.48 (College Topper)',
-      'Semester 2: SGPA 8.57 (College Topper)',
-      'Semester 3: SGPA 8.54 (Runner-up)',
-      'Served as primary academic liaison between faculty and 120+ CSE students',
-    ],
-    color: '#14B8A6',
-  },
-  {
-    year: '2023—24',
-    period: 'Academic Record',
-    role: 'Academic Honors & National CEO Challenge',
-    organization: 'CBSE & Masters’ Union The CEO Challenge',
-    category: 'Education',
-    description: 'Excelled in secondary education and national level case competitions before commencing undergraduate computer science engineering studies.',
-    achievements: [
-      'Masters’ Union The CEO Challenge (Jan 2023): Secured 12th position across India in Round 1; advanced to Round 2',
-      'Higher Secondary Certificate (Class XII) | CBSE (2023–24): 93%',
-      'Secondary School Certificate (Class X) | GSEB (2021–22): 88.7%',
-    ],
-    color: '#F43F5E',
-  },
-];
 
 export const JourneySection: React.FC = () => {
   const [activeIdx, setActiveIdx] = useState<number>(0);
@@ -147,14 +26,14 @@ export const JourneySection: React.FC = () => {
   const [touchStartX, setTouchStartX] = useState<number | null>(null);
   const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
-  const activeMilestone = ENRICHED_JOURNEY[activeIdx] || ENRICHED_JOURNEY[0];
+  const activeMilestone: JourneyMilestone = JOURNEY[activeIdx] || JOURNEY[0];
 
   const handlePrev = () => {
-    setActiveIdx((prev) => (prev === 0 ? ENRICHED_JOURNEY.length - 1 : prev - 1));
+    setActiveIdx((prev) => (prev === 0 ? JOURNEY.length - 1 : prev - 1));
   };
 
   const handleNext = () => {
-    setActiveIdx((prev) => (prev === ENRICHED_JOURNEY.length - 1 ? 0 : prev + 1));
+    setActiveIdx((prev) => (prev === JOURNEY.length - 1 ? 0 : prev + 1));
   };
 
   const minSwipeDistance = 40;
@@ -180,6 +59,13 @@ export const JourneySection: React.FC = () => {
     }
   };
 
+  // Helper identifiers for highlighted milestones
+  const isProLearn = (m: JourneyMilestone) =>
+    m.organization.includes('PRO LEARN') || m.role.includes('Educator');
+
+  const isIIC = (m: JourneyMilestone) =>
+    m.organization.includes('Institution\'s Innovation Council') || m.organization.includes('IIC');
+
   const getCategoryIcon = (category: JourneyMilestone['category']) => {
     switch (category) {
       case 'Experience':
@@ -198,6 +84,15 @@ export const JourneySection: React.FC = () => {
     }
   };
 
+  const getMilestoneIcon = (milestone: JourneyMilestone) => {
+    if (isProLearn(milestone)) {
+      return <BookOpen className="w-3.5 h-3.5" />;
+    }
+    if (isIIC(milestone)) {
+      return <Lightbulb className="w-3.5 h-3.5" />;
+    }
+    return getCategoryIcon(milestone.category);
+  };
 
   return (
     <section
@@ -228,7 +123,7 @@ export const JourneySection: React.FC = () => {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 lg:space-y-14 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12 relative z-10">
         {/* ========================================================================= */}
         {/* CONSISTENT SECTION HEADER (Matching Sections 01, 03, 05, 06) */}
         {/* ========================================================================= */}
@@ -243,17 +138,87 @@ export const JourneySection: React.FC = () => {
               Flight Log & Milestones.
             </h2>
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 max-w-xl font-sans font-medium transition-colors">
-              Chronological field records of elected student council progression, Web3 hackathons, and production engineering architectures.
+              Chronological field records of elected student council progression, PRO LEARN coaching leadership, IIC startup incubation, Web3 hackathons, and production engineering architectures.
             </p>
           </div>
 
           {/* Quick Annotation / Badge Tag */}
           <div className="hidden sm:flex items-center gap-2 px-4 py-2 rounded-xl bg-purple-50 dark:bg-purple-950/40 border border-purple-300 dark:border-purple-800 text-purple-900 dark:text-purple-300 font-mono text-xs font-bold shadow-xs">
             <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
-            <span>2022 — 2026 CHRONOLOGY · VERIFIED</span>
+            <span>2023 — 2027 CHRONOLOGY · 10 VERIFIED RECORDS</span>
           </div>
         </div>
 
+        {/* ========================================================================= */}
+        {/* YEAR INDEX SELECTORS (Quick Jump Timeline Pills with Milestone Badges) */}
+        {/* ========================================================================= */}
+        <div className="space-y-2.5">
+          <div className="flex items-center justify-between text-xs font-mono text-slate-600 dark:text-purple-300 font-bold px-1">
+            <div className="flex items-center gap-2">
+              <Sparkles className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400" />
+              <span className="uppercase tracking-wider">CHRONOLOGICAL YEAR INDEX SELECTOR ({JOURNEY.length} MILESTONES)</span>
+            </div>
+            <span className="hidden sm:inline text-[11px] text-slate-500 dark:text-purple-400/80 font-medium">
+              Click any year to jump directly · Highlights: PRO LEARN & IIC Incubation
+            </span>
+          </div>
+
+          {/* Scrollable Year Index Selector Strip */}
+          <div className="flex items-center gap-2 overflow-x-auto pb-2 pt-1 px-1 scrollbar-thin scrollbar-thumb-purple-400/20">
+            {JOURNEY.map((item, idx) => {
+              const isSelected = activeIdx === idx;
+              const isItemProLearn = isProLearn(item);
+              const isItemIIC = isIIC(item);
+
+              // Compact descriptive label for year selector pills
+              const shortTag = isItemProLearn
+                ? 'Pro Learn ★'
+                : isItemIIC
+                ? 'IIC Office ★'
+                : item.role.length > 22
+                ? item.role.slice(0, 20) + '…'
+                : item.role;
+
+              return (
+                <button
+                  key={idx}
+                  type="button"
+                  onClick={() => setActiveIdx(idx)}
+                  aria-label={`Select milestone ${idx + 1}: ${item.year} - ${item.role}`}
+                  className={`shrink-0 flex items-center gap-1.5 px-3 py-1.5 rounded-xl font-mono text-xs font-bold transition-all duration-200 cursor-pointer border ${
+                    isSelected
+                      ? isItemProLearn
+                        ? 'bg-emerald-500 text-slate-950 border-emerald-400 shadow-[0_0_12px_rgba(16,185,129,0.5)] font-black'
+                        : isItemIIC
+                        ? 'bg-amber-400 text-slate-950 border-amber-300 shadow-[0_0_12px_rgba(245,158,11,0.5)] font-black'
+                        : 'bg-[#CCFF00] text-slate-950 border-[#CCFF00] shadow-[0_0_12px_rgba(204,255,0,0.5)] font-black'
+                      : isItemProLearn
+                      ? 'bg-emerald-950/40 hover:bg-emerald-900/60 border-emerald-500/50 text-emerald-300 hover:text-emerald-100'
+                      : isItemIIC
+                      ? 'bg-amber-950/40 hover:bg-amber-900/60 border-amber-500/50 text-amber-300 hover:text-amber-100'
+                      : 'bg-white/80 dark:bg-purple-950/30 hover:bg-purple-100 dark:hover:bg-purple-900/40 border-slate-300 dark:border-purple-800/60 text-slate-700 dark:text-purple-200 hover:text-slate-950 dark:hover:text-white'
+                  }`}
+                >
+                  {/* Status Indicator Dot */}
+                  <span
+                    className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                      isSelected
+                        ? 'bg-slate-950'
+                        : isItemProLearn
+                        ? 'bg-emerald-400 animate-pulse'
+                        : isItemIIC
+                        ? 'bg-amber-400 animate-pulse'
+                        : 'bg-purple-400/50'
+                    }`}
+                  />
+                  <span className="tracking-tight">{item.year}</span>
+                  <span className="opacity-40">·</span>
+                  <span className="text-[11px] font-sans font-semibold tracking-normal">{shortTag}</span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
 
         {/* ========================================================================= */}
         {/* CENTERPIECE: THE 3D FROSTED PURPLE GLASS POCKET FOLDER & FANNING FLYERS */}
@@ -267,7 +232,7 @@ export const JourneySection: React.FC = () => {
             <div className="flex items-center justify-between px-1 text-xs font-mono text-purple-300">
               <div className="flex items-center gap-1.5 font-bold">
                 <span className="w-2 h-2 rounded-full bg-[#CCFF00] animate-pulse" />
-                <span>MILESTONE CARD {activeIdx + 1} OF {ENRICHED_JOURNEY.length}</span>
+                <span>MILESTONE CARD {activeIdx + 1} OF {JOURNEY.length}</span>
               </div>
               <div className="flex items-center gap-1.5">
                 <button
@@ -294,29 +259,79 @@ export const JourneySection: React.FC = () => {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              className="relative w-full rounded-3xl bg-[#181126] text-white border-2 border-purple-400/90 shadow-2xl shadow-purple-950/80 p-5 space-y-3 transition-all duration-300"
+              className={`relative w-full rounded-3xl text-white border-2 p-5 space-y-3 transition-all duration-300 ${
+                isProLearn(activeMilestone)
+                  ? 'bg-[#0c1f19] border-emerald-400/90 shadow-2xl shadow-emerald-950/80 ring-1 ring-emerald-400/30'
+                  : isIIC(activeMilestone)
+                  ? 'bg-[#211508] border-amber-400/90 shadow-2xl shadow-amber-950/80 ring-1 ring-amber-400/30'
+                  : 'bg-[#181126] border-purple-400/90 shadow-2xl shadow-purple-950/80'
+              }`}
             >
               {/* Card Header Stamp */}
               <div className="flex items-center justify-between border-b border-purple-900/80 pb-3">
                 <div className="flex items-baseline gap-2">
-                  <span className="font-mono text-2xl font-black text-purple-300">
+                  <span
+                    className={`font-mono text-2xl font-black ${
+                      isProLearn(activeMilestone)
+                        ? 'text-emerald-300'
+                        : isIIC(activeMilestone)
+                        ? 'text-amber-300'
+                        : 'text-purple-300'
+                    }`}
+                  >
                     {activeMilestone.year}
                   </span>
                   <span className="text-[10px] font-mono text-purple-400 font-bold">
                     {activeMilestone.period}
                   </span>
                 </div>
-                <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 font-mono text-[10px] font-bold uppercase">
-                  {activeMilestone.category}
-                </span>
+                <div className="flex items-center gap-1.5 flex-wrap justify-end">
+                  {isProLearn(activeMilestone) && (
+                    <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono text-[9px] font-black uppercase flex items-center gap-1">
+                      <BookOpen className="w-2.5 h-2.5" />
+                      <span>Co-Founder</span>
+                    </span>
+                  )}
+                  {isIIC(activeMilestone) && (
+                    <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40 font-mono text-[9px] font-black uppercase flex items-center gap-1">
+                      <Lightbulb className="w-2.5 h-2.5" />
+                      <span>IIC Lead</span>
+                    </span>
+                  )}
+                  <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 font-mono text-[10px] font-bold uppercase">
+                    {activeMilestone.category}
+                  </span>
+                </div>
               </div>
+
+              {/* Special Highlight Callout for Pro Learn & IIC */}
+              {isProLearn(activeMilestone) && (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-950/60 border border-emerald-500/40 text-emerald-300 font-mono text-[11px] font-bold">
+                  <Sparkles className="w-3 h-3 text-emerald-400 animate-pulse shrink-0" />
+                  <span>3+ Years Teaching · Guided 50+ Students</span>
+                </div>
+              )}
+              {isIIC(activeMilestone) && (
+                <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-950/60 border border-amber-500/40 text-amber-300 font-mono text-[11px] font-bold">
+                  <Sparkles className="w-3 h-3 text-amber-400 animate-pulse shrink-0" />
+                  <span>Student Coordinator · Startup Incubation & Innovation Drives</span>
+                </div>
+              )}
 
               {/* Card Content */}
               <div className="space-y-1">
                 <h3 className="font-display font-black text-base sm:text-lg text-white leading-tight">
                   {activeMilestone.role}
                 </h3>
-                <p className="text-xs font-semibold text-purple-300/90 font-sans">
+                <p
+                  className={`text-xs font-semibold font-sans ${
+                    isProLearn(activeMilestone)
+                      ? 'text-emerald-200'
+                      : isIIC(activeMilestone)
+                      ? 'text-amber-200'
+                      : 'text-purple-300/90'
+                  }`}
+                >
                   {activeMilestone.organization}
                 </p>
                 <p className="text-xs text-slate-300 font-sans leading-relaxed line-clamp-3 pt-1">
@@ -327,28 +342,46 @@ export const JourneySection: React.FC = () => {
               {/* Bottom Verification Badge */}
               <div className="flex items-center justify-between pt-2 border-t border-purple-900/80">
                 <span className="text-[10px] font-mono text-slate-400">
-                  STAMP #{activeMilestone.year}-0{activeIdx + 1}
+                  STAMP #{activeMilestone.year}-{activeIdx < 9 ? '0' : ''}{activeIdx + 1}
                 </span>
-                <div className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 font-bold">
+                <div
+                  className={`flex items-center gap-1 text-[10px] font-mono font-bold ${
+                    isProLearn(activeMilestone)
+                      ? 'text-emerald-400'
+                      : isIIC(activeMilestone)
+                      ? 'text-amber-400'
+                      : 'text-emerald-400'
+                  }`}
+                >
                   <CheckCircle2 className="w-3 h-3" />
                   <span>VERIFIED RECORD</span>
                 </div>
               </div>
             </div>
 
-            {/* Pagination Dots for Quick Jump across 8 Milestones */}
+            {/* Pagination Dots for Quick Jump across All 10 Milestones */}
             <div className="flex items-center justify-center gap-1.5 pt-1">
-              {ENRICHED_JOURNEY.map((item, idx) => {
+              {JOURNEY.map((item, idx) => {
                 const isSelected = activeIdx === idx;
+                const isItemPro = isProLearn(item);
+                const isItemCouncil = isIIC(item);
                 return (
                   <button
                     key={idx}
                     type="button"
                     onClick={() => setActiveIdx(idx)}
-                    aria-label={`Jump to milestone ${idx + 1}: ${item.year}`}
+                    aria-label={`Jump to milestone ${idx + 1}: ${item.year} - ${item.role}`}
                     className={`h-2 rounded-full transition-all duration-300 cursor-pointer ${
                       isSelected
-                        ? 'w-7 bg-[#CCFF00] shadow-[0_0_8px_rgba(204,255,0,0.6)]'
+                        ? isItemPro
+                          ? 'w-7 bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]'
+                          : isItemCouncil
+                          ? 'w-7 bg-amber-400 shadow-[0_0_8px_rgba(251,191,36,0.8)]'
+                          : 'w-7 bg-[#CCFF00] shadow-[0_0_8px_rgba(204,255,0,0.6)]'
+                        : isItemPro
+                        ? 'w-2 bg-emerald-400/60 hover:bg-emerald-300'
+                        : isItemCouncil
+                        ? 'w-2 bg-amber-400/60 hover:bg-amber-300'
                         : 'w-2 bg-purple-400/30 hover:bg-purple-300/60'
                     }`}
                     title={`${item.year} - ${item.role}`}
@@ -362,12 +395,14 @@ export const JourneySection: React.FC = () => {
           {/* TABLET & DESKTOP: FANNING FLYERS / CARDS PEEKING OUT OF THE FOLDER (>=640px) */}
           {/* --------------------------------------------------------------------- */}
           <div className="hidden sm:flex relative w-full h-[330px] md:h-[360px] items-end justify-center perspective-1000 -mb-12 md:-mb-14 z-10">
-            {ENRICHED_JOURNEY.map((item, idx) => {
+            {JOURNEY.map((item, idx) => {
               const isActive = activeIdx === idx;
-              const totalCards = ENRICHED_JOURNEY.length;
+              const isItemPro = isProLearn(item);
+              const isItemCouncil = isIIC(item);
+              const totalCards = JOURNEY.length;
               const centerIdx = (totalCards - 1) / 2;
-              const xOffset = (idx - centerIdx) * 30;
-              const rotation = (idx - centerIdx) * 2.8;
+              const xOffset = (idx - centerIdx) * 26;
+              const rotation = (idx - centerIdx) * 2.2;
 
               return (
                 <div
@@ -375,22 +410,52 @@ export const JourneySection: React.FC = () => {
                   onClick={() => setActiveIdx(idx)}
                   style={{
                     transform: `translateX(${xOffset}px) translateY(${isActive ? -54 : 0}px) rotate(${isActive ? 0 : rotation}deg)`,
-                    zIndex: isActive ? 25 : 10 - Math.abs(Math.round(centerIdx - idx)),
+                    zIndex: isActive ? 40 : 20 - Math.abs(Math.round(centerIdx - idx)),
                   }}
                   className={`absolute bottom-0 w-72 md:w-80 h-76 md:h-80 rounded-3xl p-5 md:p-6 shadow-2xl transition-all duration-500 cursor-pointer border ${
                     isActive
-                      ? 'bg-[#181126] text-white border-purple-400/90 shadow-purple-900/60 scale-105 ring-2 ring-purple-400/40'
+                      ? isItemPro
+                        ? 'bg-[#0c1f19] text-white border-emerald-400/90 shadow-emerald-900/60 scale-105 ring-2 ring-emerald-400/50'
+                        : isItemCouncil
+                        ? 'bg-[#211508] text-white border-amber-400/90 shadow-amber-900/60 scale-105 ring-2 ring-amber-400/50'
+                        : 'bg-[#181126] text-white border-purple-400/90 shadow-purple-900/60 scale-105 ring-2 ring-purple-400/40'
+                      : isItemPro
+                      ? 'bg-[#0a1713] text-emerald-100 border-emerald-700/60 opacity-85 hover:opacity-100 hover:scale-102 hover:border-emerald-400/80'
+                      : isItemCouncil
+                      ? 'bg-[#170e06] text-amber-100 border-amber-700/60 opacity-85 hover:opacity-100 hover:scale-102 hover:border-amber-400/80'
                       : 'bg-[#120B1E] text-slate-300 border-purple-900/60 opacity-80 hover:opacity-100 hover:scale-102'
                   }`}
                 >
                   {/* Card Header Stamp */}
                   <div className="flex items-center justify-between border-b border-purple-900/80 pb-3">
-                    <span className="font-mono text-2xl font-black text-purple-300">
+                    <span
+                      className={`font-mono text-2xl font-black ${
+                        isItemPro
+                          ? 'text-emerald-300'
+                          : isItemCouncil
+                          ? 'text-amber-300'
+                          : 'text-purple-300'
+                      }`}
+                    >
                       {item.year}
                     </span>
-                    <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 font-mono text-[10px] font-bold uppercase">
-                      {item.category}
-                    </span>
+                    <div className="flex items-center gap-1.5">
+                      {isItemPro && (
+                        <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 border border-emerald-400/40 font-mono text-[9px] font-bold flex items-center gap-1">
+                          <BookOpen className="w-2.5 h-2.5" />
+                          <span>CO-FOUNDER</span>
+                        </span>
+                      )}
+                      {isItemCouncil && (
+                        <span className="px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300 border border-amber-400/40 font-mono text-[9px] font-bold flex items-center gap-1">
+                          <Lightbulb className="w-2.5 h-2.5" />
+                          <span>IIC LEAD</span>
+                        </span>
+                      )}
+                      <span className="px-2.5 py-1 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 font-mono text-[10px] font-bold uppercase">
+                        {item.category}
+                      </span>
+                    </div>
                   </div>
 
                   {/* Card Content */}
@@ -398,7 +463,15 @@ export const JourneySection: React.FC = () => {
                     <h3 className="font-display font-black text-base md:text-lg text-white leading-tight">
                       {item.role}
                     </h3>
-                    <p className="text-xs font-semibold text-purple-300/90 font-sans truncate">
+                    <p
+                      className={`text-xs font-semibold font-sans truncate ${
+                        isItemPro
+                          ? 'text-emerald-200'
+                          : isItemCouncil
+                          ? 'text-amber-200'
+                          : 'text-purple-300/90'
+                      }`}
+                    >
                       {item.organization}
                     </p>
                     <p className="text-[11px] md:text-xs text-slate-300 font-sans leading-relaxed line-clamp-3">
@@ -409,9 +482,17 @@ export const JourneySection: React.FC = () => {
                   {/* Bottom Verification Badge */}
                   <div className="absolute bottom-4 left-5 right-5 flex items-center justify-between pt-2 border-t border-purple-900/80">
                     <span className="text-[10px] font-mono text-slate-400">
-                      STAMP #{item.year}-0{idx + 1}
+                      STAMP #{item.year}-{idx < 9 ? '0' : ''}{idx + 1}
                     </span>
-                    <div className="flex items-center gap-1 text-[10px] font-mono text-emerald-400 font-bold">
+                    <div
+                      className={`flex items-center gap-1 text-[10px] font-mono font-bold ${
+                        isItemPro
+                          ? 'text-emerald-400'
+                          : isItemCouncil
+                          ? 'text-amber-400'
+                          : 'text-emerald-400'
+                      }`}
+                    >
                       <CheckCircle2 className="w-3 h-3" />
                       <span>VERIFIED</span>
                     </div>
@@ -440,15 +521,23 @@ export const JourneySection: React.FC = () => {
               {/* Top Navigation & Status Bar */}
               <div className="flex flex-wrap items-center justify-between gap-3 border-b border-purple-400/20 pb-4 text-white">
                 <div className="flex items-center gap-2.5">
-                  <div className="w-8 h-8 rounded-xl bg-purple-500 text-white flex items-center justify-center shadow-md shrink-0">
-                    {getCategoryIcon(activeMilestone.category)}
+                  <div
+                    className={`w-8 h-8 rounded-xl text-white flex items-center justify-center shadow-md shrink-0 transition-colors ${
+                      isProLearn(activeMilestone)
+                        ? 'bg-emerald-600'
+                        : isIIC(activeMilestone)
+                        ? 'bg-amber-600'
+                        : 'bg-purple-500'
+                    }`}
+                  >
+                    {getMilestoneIcon(activeMilestone)}
                   </div>
                   <div>
                     <span className="font-mono text-xs font-bold text-purple-200 uppercase tracking-wider block">
                       Active Boarding Pass
                     </span>
                     <span className="font-display font-bold text-xs sm:text-sm text-white">
-                      Record {activeIdx + 1} of {ENRICHED_JOURNEY.length} · Class of {activeMilestone.year}
+                      Record {activeIdx + 1} of {JOURNEY.length} · Class of {activeMilestone.year}
                     </span>
                   </div>
                 </div>
@@ -487,12 +576,32 @@ export const JourneySection: React.FC = () => {
                     <span className="px-3 py-1 rounded-full bg-[#CCFF00] text-slate-950 font-mono text-xs font-black">
                       {activeMilestone.category.toUpperCase()}
                     </span>
+                    {isProLearn(activeMilestone) && (
+                      <span className="px-3 py-1 rounded-full bg-emerald-500/30 border border-emerald-400/60 text-emerald-300 font-mono text-xs font-bold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-emerald-300 animate-pulse" />
+                        <span>CO-FOUNDER & EDUCATOR · 3+ YRS · 50+ STUDENTS</span>
+                      </span>
+                    )}
+                    {isIIC(activeMilestone) && (
+                      <span className="px-3 py-1 rounded-full bg-amber-500/30 border border-amber-400/60 text-amber-300 font-mono text-xs font-bold flex items-center gap-1.5">
+                        <Sparkles className="w-3 h-3 text-amber-300 animate-pulse" />
+                        <span>IIC & INCUBATION COORDINATOR</span>
+                      </span>
+                    )}
                   </div>
 
                   <h3 className="text-xl sm:text-3xl font-display font-black text-white tracking-tight pt-1">
                     {activeMilestone.role}
                   </h3>
-                  <div className="text-xs sm:text-sm font-semibold text-purple-200 font-sans">
+                  <div
+                    className={`text-xs sm:text-sm font-semibold font-sans ${
+                      isProLearn(activeMilestone)
+                        ? 'text-emerald-200'
+                        : isIIC(activeMilestone)
+                        ? 'text-amber-200'
+                        : 'text-purple-200'
+                    }`}
+                  >
                     {activeMilestone.organization}
                   </div>
                 </div>
@@ -507,15 +616,33 @@ export const JourneySection: React.FC = () => {
                     Verified Outcomes:
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {activeMilestone.achievements.map((ach: string, aIdx: number) => (
-                      <div
-                        key={aIdx}
-                        className="flex items-start gap-2.5 p-3 rounded-2xl bg-black/20 backdrop-blur-md border border-purple-400/20 text-xs sm:text-sm font-medium text-white"
-                      >
-                        <CheckCircle2 className="w-4 h-4 text-[#CCFF00] shrink-0 mt-0.5" />
-                        <span>{ach}</span>
-                      </div>
-                    ))}
+                    {activeMilestone.achievements.map((ach: string, aIdx: number) => {
+                      const isPro = isProLearn(activeMilestone);
+                      const isCouncil = isIIC(activeMilestone);
+                      return (
+                        <div
+                          key={aIdx}
+                          className={`flex items-start gap-2.5 p-3 rounded-2xl bg-black/20 backdrop-blur-md border text-xs sm:text-sm font-medium text-white transition-colors ${
+                            isPro
+                              ? 'border-emerald-500/30'
+                              : isCouncil
+                              ? 'border-amber-500/30'
+                              : 'border-purple-400/20'
+                          }`}
+                        >
+                          <CheckCircle2
+                            className={`w-4 h-4 shrink-0 mt-0.5 ${
+                              isPro
+                                ? 'text-emerald-400'
+                                : isCouncil
+                                ? 'text-amber-400'
+                                : 'text-[#CCFF00]'
+                            }`}
+                          />
+                          <span>{ach}</span>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
               </div>
@@ -565,7 +692,6 @@ export const JourneySection: React.FC = () => {
           </div>
         </div>
 
-
         {/* ========================================================================= */}
         {/* BOTTOM METADATA BAR */}
         {/* ========================================================================= */}
@@ -576,7 +702,7 @@ export const JourneySection: React.FC = () => {
               FLIGHT RECORDER SPEC:
             </span>
             <span className="font-bold text-slate-900 dark:text-white">
-              Verified by Academic, Government & Field Records
+              2023 — 2027 Chronology · 10 Verified Field Records
             </span>
           </div>
 

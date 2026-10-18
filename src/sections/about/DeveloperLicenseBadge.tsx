@@ -136,14 +136,21 @@ export const DeveloperLicenseBadge: React.FC = () => {
 
             {/* Right: Large Role Title & Rubber Seal */}
             <div className="sm:col-span-8 w-full space-y-2 relative sm:pl-2 text-center sm:text-left flex flex-col items-center sm:items-start">
-              <div className="space-y-0.5 w-full">
+              <div className="space-y-1 w-full">
                 <div className="text-[10px] font-mono uppercase tracking-widest text-slate-700 dark:text-slate-300 font-bold">
-                  OFFICIAL CAPACITY
+                  OFFICIAL CAPACITY & AUTHORIZED ROLES
                 </div>
                 <h4 className="text-base sm:text-xl md:text-2xl font-display font-black tracking-tight text-slate-950 dark:text-white uppercase leading-tight">
                   CS ENGINEER & <br className="hidden sm:inline" />
                   SOFTWARE DEVELOPER
                 </h4>
+                <div className="text-[9px] sm:text-[10px] font-mono font-bold text-slate-800 dark:text-slate-200 flex flex-wrap items-center gap-x-1.5 gap-y-0.5 justify-center sm:justify-start pt-0.5">
+                  <span className="text-indigo-600 dark:text-indigo-400">STUDENT COUNCIL VP</span>
+                  <span className="text-slate-400">·</span>
+                  <span className="text-purple-600 dark:text-purple-400">IIC STUDENT COORDINATOR</span>
+                  <span className="text-slate-400">·</span>
+                  <span className="text-amber-600 dark:text-amber-400">CO-FOUNDER · PRO LEARN COACHING</span>
+                </div>
               </div>
 
               {/* Rubber Stamp (Licencia Reference) */}
@@ -159,6 +166,26 @@ export const DeveloperLicenseBadge: React.FC = () => {
                 <span className="hidden sm:inline">MSME 5.0 RECOGNIZED · COLLEGE TOPPER</span>
                 <span className="sm:hidden">MSME 5.0 · COLLEGE TOPPER</span>
               </div>
+            </div>
+          </div>
+
+          {/* Stat Counters / Highlights Ribbon */}
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-1.5 py-2 my-1 border-b border-amber-900/15 dark:border-slate-800 text-center font-mono text-[9px]">
+            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
+              <div className="font-extrabold text-amber-700 dark:text-amber-300 text-[11px] sm:text-xs">50+ GUIDED</div>
+              <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Students Mentored</div>
+            </div>
+            <div className="p-1.5 rounded-lg bg-amber-500/10 border border-amber-500/20">
+              <div className="font-extrabold text-amber-700 dark:text-amber-300 text-[11px] sm:text-xs">3+ YRS</div>
+              <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Teaching Experience</div>
+            </div>
+            <div className="p-1.5 rounded-lg bg-indigo-500/10 border border-indigo-500/20">
+              <div className="font-extrabold text-indigo-700 dark:text-indigo-300 text-[11px] sm:text-xs">₹30 LAKH</div>
+              <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">MSME 5.0 Grant</div>
+            </div>
+            <div className="p-1.5 rounded-lg bg-purple-500/10 border border-purple-500/20">
+              <div className="font-extrabold text-purple-700 dark:text-purple-300 text-[11px] sm:text-xs">35+ EVENTS</div>
+              <div className="text-[8px] text-slate-600 dark:text-slate-400 font-semibold uppercase">Anchored & Led</div>
             </div>
           </div>
 
@@ -182,12 +209,15 @@ export const DeveloperLicenseBadge: React.FC = () => {
               </div>
 
               {/* Expertise Text Rows */}
-              <div className="sm:col-span-8 font-mono text-[9px] text-slate-800 dark:text-slate-200 leading-tight space-y-0.5 text-center sm:text-left">
+              <div className="sm:col-span-8 font-mono text-[9px] text-slate-800 dark:text-slate-200 leading-tight space-y-1 text-center sm:text-left">
                 <div>
                   <strong className="text-slate-950 dark:text-white">Expertise:</strong> Python (IndusAI) · C / C++ · SQL · React 19 · Prompt Eng · GitHub
                 </div>
-                <div className="text-slate-600 dark:text-slate-400">
-                  MSME Idea 5.0 (₹30L Grant-in-aid) · Student Council VP (2026–27) · 35+ Events
+                <div>
+                  <strong className="text-slate-950 dark:text-white">Credentials:</strong> Student Council VP (2026–27) · IIC Student Coordinator · Co-Founder @ Pro Learn Coaching
+                </div>
+                <div className="text-slate-600 dark:text-slate-400 font-bold uppercase tracking-wide">
+                  50+ STUDENTS GUIDED · 3+ YRS TEACHING · 35+ EVENTS ANCHORED
                 </div>
               </div>
             </div>

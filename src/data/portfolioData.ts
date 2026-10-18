@@ -3,9 +3,9 @@ import type { Project, SkillCategory, JourneyMilestone } from '../types';
 
 export const PERSONAL_INFO = {
   name: 'Karan Verma',
-  title: 'Computer Science Engineer & Software Developer',
-  tagline: 'Engineering intelligent AI platforms, robust Python systems, and high-impact campus initiatives.',
-  bio: 'Computer Science and Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs 8.48, 8.57, and 8.54 - College Topper) and internship experiences at IndusAI Solutions and HACKTOUR IND. Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for ₹30 Lakh combined grant-in-aid consideration. Student Council Vice President, Prompt Engineering Lead at MGI Coding Club, and active contributor in Web3 developer ecosystems across 35+ campus events.',
+  title: 'Computer Science Engineer, Software Developer & Educator',
+  tagline: 'Engineering intelligent AI platforms, guiding 50+ students as an educator, and leading high-impact campus initiatives.',
+  bio: '19-year-old Computer Science and Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs 8.48, 8.57, and 8.54 - College Topper) and internship experiences at IndusAI Solutions and HACKTOUR IND. Co-Founder and Educator at PRO LEARN COACHING CLASSES with 3+ years of teaching experience, having guided over 50 students. Recognized for innovation through dual MSME Idea Hackathon 5.0 selections (₹30 Lakh combined grant-in-aid consideration). Student Council Vice President, Student Coordinator at Institution\'s Innovation Council (IIC) & Business Incubation Centre, Prompt Engineering Lead at MGI Coding Club, and creator & video editor across digital platforms.',
   email: 'karan.verma.gj@gmail.com',
   phone: '8799577917',
   github: 'https://github.com/krunvermaa',
@@ -14,7 +14,7 @@ export const PERSONAL_INFO = {
   twitterHandle: '@krunverma',
   location: 'Dewas, Madhya Pradesh, India',
   status: 'Seeking software development & engineering team opportunities',
-  experienceYears: 'Undergraduate & Industry Intern',
+  experienceYears: '3+ Years Educator · Undergraduate & Intern',
   education: {
     degree: 'B.Tech in Computer Science & Engineering',
     institution: 'Mahakal Institute of Technology, Ujjain',
@@ -272,6 +272,9 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
       { name: 'Public Speaking & Anchoring', level: 'Veteran', experience: '35+ Events', focus: 'Live event anchoring, stage presence, audience engagement', tags: ['35+ Events', 'Stage Anchoring', 'Keynotes'] },
       { name: 'Team & Event Coordination', level: 'Extensive', experience: '20+ Events', focus: 'Inter-club logistics, student team leadership, scheduling', tags: ['20+ Events', 'Logistics', 'Operations'] },
       { name: 'Student Council Leadership', level: 'Vice President', experience: 'MIT Ujjain', focus: 'Student advocacy, institutional governance, administration', tags: ['VP Council', 'Joint Sec', 'CR'] },
+      { name: 'Teaching & Mentorship', level: '3+ Years Experience', experience: 'PRO LEARN COACHING CLASSES', focus: 'Pedagogy, mentoring 50+ students, curriculum design, STEM foundation', tags: ['50+ Students', '3+ Years', 'Curriculum Design', 'Pedagogy'] },
+      { name: 'Institution\'s Innovation Council (IIC)', level: 'Student Coordinator', experience: 'MIT Ujjain', focus: 'Startup incubation, innovation quizzes, entrepreneurship drives, orientation sessions', tags: ['IIC Incubation', 'Entrepreneurship', 'Mentorship'] },
+      { name: 'Video Editing & Content Creation', level: 'Creator / Editor', experience: 'Digital Media', focus: 'Video editing, digital storytelling, visual narrative, community communication', tags: ['Video Editing', 'Visual Media', 'Storytelling'] },
       { name: 'Multilingual Communication', level: 'Multilingual', experience: 'Fluency', focus: 'Hindi (Native), English (Fluent), Gujarati, Punjabi', tags: ['Hindi', 'English', 'Gujarati', 'Punjabi'] },
     ],
   },
@@ -365,6 +368,20 @@ export const JOURNEY: JourneyMilestone[] = [
     color: '#0EA5E9',
   },
   {
+    year: '2025—26',
+    period: 'Innovation Office',
+    role: 'Student Coordinator',
+    organization: 'Institution\'s Innovation Council (IIC) & Business Incubation Centre, MIT Ujjain',
+    category: 'Leadership',
+    description: 'Serving as Student Coordinator for the Institution\'s Innovation Council (IIC) and Business Incubation Centre at MIT Ujjain, spearheading entrepreneurship drives, student orientation sessions, and interactive innovation quizzes.',
+    achievements: [
+      'Organized interactive tech and innovation quizzes during institute orientation sessions',
+      'Facilitated startup incubation workshops connecting aspiring student innovators with mentors',
+      'Bridged academic coursework with practical entrepreneurial problem solving',
+    ],
+    color: '#D97706',
+  },
+  {
     year: '2024—25',
     period: 'Academic Record',
     role: 'B.Tech CSE Inception & Department Topper',
@@ -378,6 +395,20 @@ export const JOURNEY: JourneyMilestone[] = [
       'Elected Class Representative, Student Council (2024–25)',
     ],
     color: '#14B8A6',
+  },
+  {
+    year: '2023—Present',
+    period: 'Co-Founder & Lead Educator',
+    role: 'Co-Founder & Educator',
+    organization: 'PRO LEARN COACHING CLASSES',
+    category: 'Leadership',
+    description: 'Co-founded PRO LEARN COACHING CLASSES, delivering dedicated education and academic guidance to over 50 students across foundational sciences, mathematics, and computing.',
+    achievements: [
+      'Guided and mentored 50+ students with tailored learning strategies and continuous progress tracking',
+      'Designed structured study curriculums for academic excellence and conceptual mastery',
+      '3+ years of proven teaching experience fostering analytical thinking in young learners',
+    ],
+    color: '#059669',
   },
   {
     year: '2023—24',

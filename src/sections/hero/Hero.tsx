@@ -25,26 +25,30 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact }) => {
             KARAN VERMA
           </span>
           <span className="font-mono text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.22em] text-slate-600 dark:text-slate-400 uppercase font-semibold">
-            SELECTED WORKS / 2025–26
+            A 19-YEAR-OLD BELIEVER & BUILDER
           </span>
         </div>
 
         {/* 3.2 Main Hero Headline */}
         <div className="space-y-3 sm:space-y-4 max-w-4xl mx-auto px-1 sm:px-4">
           <h1 className="text-[1.85rem] min-[360px]:text-[2.2rem] min-[420px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] font-display font-black tracking-tight text-slate-950 dark:text-white leading-[1.08] sm:leading-[1.02] md:leading-[0.98] uppercase break-words">
-            <span className="block">I BUILD SOFTWARE</span>
-            <span className="block text-slate-800 dark:text-slate-200">THAT FEELS AS GOOD</span>
-            <span className="block text-slate-950 dark:text-white">AS IT WORKS.</span>
+            <span className="block">I BUILD SOLUTIONS</span>
+            <span className="block text-slate-800 dark:text-slate-200">
+              THAT FEEL AS GOOD
+            </span>
+            <span className="block text-slate-950 dark:text-white">
+              AS THEY WORK.
+            </span>
           </h1>
 
           {/* 3.3 Professional Positioning */}
           <p className="font-mono text-[11px] min-[380px]:text-xs sm:text-sm md:text-base font-bold tracking-tight text-indigo-700 dark:text-indigo-400 uppercase px-2">
-            Computer Science Engineer · Software Developer · MSME Fellow
+            Computer Science Engineer · Software Developer · Educator
           </p>
 
           {/* 3.4 Supporting Description */}
-          <p className="max-w-xl mx-auto text-xs min-[380px]:text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 font-sans leading-relaxed font-normal px-2">
-            Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. College topper with dual MSME 5.0 selections (₹30L combined) and active leadership across 35+ campus events.
+          <p className="max-w-2xl mx-auto text-xs min-[380px]:text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 font-sans leading-relaxed font-normal px-2">
+            Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. Dual MSME 5.0 selections (₹30L combined), Co-Founder at Pro Learn Coaching Classes (50+ students guided over 3 years), and active campus leadership across 35+ events.
           </p>
         </div>
 

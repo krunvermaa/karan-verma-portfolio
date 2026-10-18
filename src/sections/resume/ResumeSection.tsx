@@ -8,7 +8,7 @@ export const ResumeSection: React.FC = () => {
   // Generates clean markdown resume text for download
   const handleDownloadMarkdown = () => {
     const markdownContent = `# KARAN VERMA
-Computer Science and Engineering Undergraduate
+Computer Science and Engineering Undergraduate & Educator
 Phone: ${PERSONAL_INFO.phone || '8799577917'}
 Email: ${PERSONAL_INFO.email}
 Twitter/X: ${PERSONAL_INFO.twitterHandle || '@krunverma'} (${PERSONAL_INFO.twitter})
@@ -18,7 +18,7 @@ Location: ${PERSONAL_INFO.location}
 Credential ID: #MIT-UJJAIN-CSE-TOPPER
 
 ## PROFESSIONAL SUMMARY
-Computer Science and Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic performance (SGPAs of 8.48, 8.57, and 8.54 - College Topper) and internship experiences. Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for grant-in-aid consideration (₹30 Lakh combined), alongside participation in national level hackathons. Brings a combination of technical problem solving, analytical thinking, and leadership experience through student council responsibilities and campus initiatives.
+Computer Science and Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs of 8.48, 8.57, and 8.54 - College Topper) and internship experiences at IndusAI Solutions and HACKTOUR IND. Co-Founder and Lead Educator at PRO LEARN COACHING CLASSES with 3+ years of teaching experience, having guided over 50 students in foundational sciences and mathematics. Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for grant-in-aid consideration (₹30 Lakh combined), alongside participation in national level hackathons. Vice President of the Student Council, Student Coordinator at Institution's Innovation Council (IIC) & Incubation Centre, and creator/video editor across digital media. Combines technical problem solving with institutional leadership and public communication.
 
 ## EDUCATION
 - B.Tech in Computer Science and Engineering | Mahakal Institute of Technology, Ujjain (Ongoing)
@@ -26,7 +26,9 @@ Computer Science and Engineering undergraduate at Mahakal Institute of Technolog
 - Higher Secondary Certificate (Class XII) | CBSE (2023-24): 93%
 - Secondary School Certificate (Class X) | GSEB (2021-22): 88.7%
 
-## INTERNSHIP EXPERIENCE
+## EXPERIENCE & LEADERSHIP
+- Co-Founder & Lead Educator · PRO LEARN COACHING CLASSES (2023 — Present · 3+ Years)
+  Founded coaching institute, guided 50+ students in foundational sciences & mathematics, structured personalized academic roadmaps.
 - Python Developer Intern · IndusAI Solutions (Jul 2025 – Aug 2025)
   Completed a 3-week Python Developer internship at IndusAI Solutions (MSME-registered); internship completion certificate issued Aug 2025. Built automated data pipelines and validation scripts.
 - Content & Marketing Intern · HACKTOUR IND (Web3 company, Jul 2025 – Nov 2025)
@@ -39,8 +41,10 @@ Computer Science and Engineering undergraduate at Mahakal Institute of Technolog
   Confirmed via official MIT Group of Institutes Ujjain announcement.
 - Masters’ Union The CEO Challenge (Jan 2023): 12th position in India in Round 1; advanced to Round 2.
 
-## LEADERSHIP & CAMPUS EXPERIENCE
+## CAMPUS GOVERNANCE & LEADERSHIP
 - Vice President, Student Council | Mahakal Institute of Technology, Ujjain (2026-27, Current)
+- Student Coordinator | Institution's Innovation Council (IIC) & Incubation Centre (2025 — 2026)
+  Spearheaded startup incubation drives, orientation sessions, and innovation quizzes across institute batches.
 - Joint Secretary, Student Council | Mahakal Institute of Technology, Ujjain (2025-26)
 - Class Representative, Student Council | Mahakal Institute of Technology, Ujjain (2024-25)
 - Prompt Engineering Lead | MGI Coding Club (2025-26)
@@ -57,10 +61,12 @@ Computer Science and Engineering undergraduate at Mahakal Institute of Technolog
 - Zcash India Meetups & Community | Active Web3 Contributor
 - Avalanche City Connect (Jaipur) | Web3 Ecosystem Delegate
 
-## TECHNICAL SKILLS
+## TECHNICAL SKILLS & CREATIVE MEDIA
 - Programming: Python (Internship experience), C (Basic), C++ (Basic), SQL (Currently Learning)
 - Web Development: React 19, TypeScript, Tailwind CSS, Modern Web Architecture
 - AI & Tools: Prompt Engineering, GitHub, VS Code
+- Leadership & Mentorship: Teaching & Mentorship (50+ Students), Academic Roadmaps, Student Council VP
+- Creative & Media: Video Editing & Creator Media, Public Speaking (35+ Ceremonies Anchored)
 - Languages: Hindi, English, Gujarati, Punjabi
 `;
 
@@ -80,11 +86,11 @@ Computer Science and Engineering undergraduate at Mahakal Institute of Technolog
   };
 
   const handleCopySummary = () => {
-    const summary = `Karan Verma — Computer Science & Engineering Undergraduate
+    const summary = `Karan Verma — Computer Science & Engineering Undergraduate & Educator
 Mahakal Institute of Technology, Ujjain | SGPA: 8.48, 8.57, 8.54 (College Topper)
 Phone: ${PERSONAL_INFO.phone || '+91 8799577917'} | Email: ${PERSONAL_INFO.email} | Twitter/X: ${PERSONAL_INFO.twitterHandle || '@krunverma'} (${PERSONAL_INFO.twitter}) | GitHub: ${PERSONAL_INFO.github} | LinkedIn: ${PERSONAL_INFO.linkedin}
 MSME Idea Hackathon 5.0 (Two Ideas Selected for ₹30L Grant-in-aid Consideration — Team: Sourav Chaudhary, Sneha Patidar, Sneha Sharma, Karan Verma)
-Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Python Intern (IndusAI Solutions) | Web3 Contributor (HACKTOUR IND: Arweave, Zcash, Avalanche) | 35+ Events Anchored`;
+Co-Founder & Lead Educator (PRO LEARN COACHING CLASSES, 2023—Present · 3+ Years, 50+ Students Guided) | Student Coordinator (Institution's Innovation Council IIC & Incubation Centre 2025—2026) | Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Python Intern (IndusAI Solutions) | Web3 Contributor (HACKTOUR IND) | Video Editing & Creator Media | 35+ Events Anchored`;
     navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -111,7 +117,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
               Curriculum Vitae.
             </h2>
             <p className="text-sm sm:text-base text-slate-700 dark:text-slate-300 max-w-xl font-sans font-medium">
-              Tactile publication collage featuring an accredited developer pass, crimson education credential, work experience sheet, and holographic foil skill pack.
+              Tactile publication collage featuring an accredited developer pass, crimson education credential, work experience sheet with teaching & campus leadership, and holographic foil skill pack.
             </p>
           </div>
 
@@ -222,22 +228,26 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
 
                   {/* Bio statement */}
                   <p className="text-xs sm:text-[13px] text-slate-800 font-sans font-medium leading-relaxed">
-                    Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. College topper with dual MSME 5.0 grant selections (₹30L combined).
+                    Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. College topper with dual MSME 5.0 grant selections (₹30L combined), Co-Founder & Educator at PRO LEARN COACHING (50+ students guided).
                   </p>
 
                   {/* Micro-Data Table with High Contrast Text */}
-                  <div className="grid grid-cols-3 gap-1 pt-1.5 border-t border-slate-200 text-[10px] font-mono">
+                  <div className="grid grid-cols-4 gap-1 pt-1.5 border-t border-slate-200 text-[10px] font-mono">
                     <div className="border-r border-slate-200 pr-1">
-                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Gender</span>
-                      <span className="font-black text-slate-950">MALE</span>
+                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Council VP</span>
+                      <span className="font-black text-slate-950 truncate block">2026-27</span>
                     </div>
                     <div className="border-r border-slate-200 pr-1 pl-1">
-                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Status</span>
-                      <span className="font-black text-slate-950">B.TECH CSE</span>
+                      <span className="text-slate-600 block text-[9px] uppercase font-bold">IIC Council</span>
+                      <span className="font-black text-slate-950 truncate block">COORD.</span>
+                    </div>
+                    <div className="border-r border-slate-200 pr-1 pl-1">
+                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Mentorship</span>
+                      <span className="font-black text-emerald-700 truncate block">50+ GUIDED</span>
                     </div>
                     <div className="pl-1">
-                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Nationality</span>
-                      <span className="font-black text-slate-950">INDIAN</span>
+                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Teaching</span>
+                      <span className="font-black text-amber-700 truncate block">3+ YRS EXP</span>
                     </div>
                   </div>
 
@@ -326,19 +336,43 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
             </div>
           </div>
 
+          {/* Metadata Credentials Bar */}
+          <div className="relative z-20 mt-6 px-4 py-2.5 rounded-2xl bg-slate-900/90 border border-slate-800 flex flex-wrap items-center justify-between gap-3 text-xs font-mono shadow-xl">
+            <div className="flex flex-wrap items-center gap-x-3 gap-y-1.5 text-[11px]">
+              <span className="text-emerald-400 font-bold flex items-center gap-1.5">
+                <Check className="w-3.5 h-3.5" /> Topper (8.54+ SGPA)
+              </span>
+              <span className="text-slate-700 hidden sm:inline">|</span>
+              <span className="text-amber-400 font-bold flex items-center gap-1.5">
+                <Users className="w-3.5 h-3.5 text-amber-400" /> Co-Founder & Lead Educator · Pro Learn (50+ Students Guided · 3+ Yrs)
+              </span>
+              <span className="text-slate-700 hidden sm:inline">|</span>
+              <span className="text-purple-400 font-bold flex items-center gap-1.5">
+                <Award className="w-3.5 h-3.5 text-purple-400" /> Student Council VP & IIC Coordinator
+              </span>
+              <span className="text-slate-700 hidden sm:inline">|</span>
+              <span className="text-rose-400 font-bold flex items-center gap-1.5">
+                <Sparkles className="w-3.5 h-3.5 text-rose-400" /> Video Editing & Creator Media
+              </span>
+            </div>
+            <div className="text-[10px] text-slate-400 uppercase tracking-wider font-bold">
+              #COLLATERAL-DOSSIER
+            </div>
+          </div>
+
           {/* ======================================================================= */}
           {/* MIDDLE & LOWER COLLAGE: WHITE WORK SHEET + RED EDUCATION + BLACK FOIL */}
           {/* ======================================================================= */}
-          <div className="relative z-20 mt-8 sm:mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="relative z-20 mt-8 sm:mt-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
             {/* ------------------------------------------------------------------- */}
             {/* 3. CENTER-LEFT: THE WHITE PERFORATED WORK EXPERIENCE SHEET */}
             {/* ------------------------------------------------------------------- */}
             <div className="lg:col-span-7 relative rounded-2xl bg-[#FFFFFF] text-slate-950 p-5 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-slate-300 transform rotate-0 lg:-rotate-1 hover:rotate-0 transition-transform duration-300">
-              {/* Top Calligraphic Script: "Work Experience" with Direct Contact Row */}
+              {/* Top Calligraphic Script: "Work Experience & Leadership" with Direct Contact Row */}
               <div className="pb-3 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
                 <div>
                   <div className="font-serif italic font-black text-2xl sm:text-3xl text-slate-950 tracking-tight">
-                    Work Experience
+                    Work Experience & Leadership
                   </div>
                   <div className="flex items-center gap-2 pt-0.5 text-xs font-mono text-slate-600">
                     <a href="tel:8799577917" className="hover:text-slate-950 font-bold flex items-center gap-1">
@@ -353,13 +387,13 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                   </div>
                 </div>
                 <div className="font-mono text-xs font-bold text-slate-600 self-start sm:self-auto">
-                  2022 — 2026
+                  2023 — Present
                 </div>
               </div>
 
               {/* Horizontal Banner for Mobile and Tablet (< 1024px) */}
               <div className="lg:hidden font-display font-black text-lg text-[#E11D48] tracking-widest uppercase pt-3 pb-1 border-b border-slate-100 flex items-center gap-2">
-                <span>EXPERIENCE</span>
+                <span>EXPERIENCE & LEADERSHIP</span>
                 <span className="text-slate-400 text-xs font-mono font-normal">/ Production Records</span>
               </div>
 
@@ -376,10 +410,34 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                 </div>
 
                 {/* Experience Roles Timeline */}
-                <div className="flex-1 space-y-5 sm:space-y-6 min-w-0">
-                  {/* Role 1: 2025 */}
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
+                <div className="flex-1 space-y-4 sm:space-y-5 min-w-0">
+                  {/* Role 1: PRO LEARN COACHING CLASSES */}
+                  <div className="space-y-1 border-b border-slate-100 pb-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
+                        PRO LEARN COACHING CLASSES
+                      </h4>
+                      <span className="font-mono text-xs font-bold text-amber-800 bg-amber-50 px-2 py-0.5 rounded border border-amber-200 shrink-0">
+                        2023 — Present · 3+ Years
+                      </span>
+                    </div>
+                    <div className="font-mono text-xs font-bold text-indigo-700">
+                      Co-Founder & Lead Educator
+                    </div>
+                    <p className="text-xs font-sans text-slate-700 font-medium leading-relaxed">
+                      Founded coaching institute, guided 50+ students in foundational sciences & mathematics, structured personalized academic roadmaps.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5 text-xs font-sans text-slate-800 font-medium">
+                      <span>✓ Founded Coaching Institute</span>
+                      <span>✓ Guided 50+ Students</span>
+                      <span>✓ Foundational Sciences & Math</span>
+                      <span>✓ Personalized Academic Roadmaps</span>
+                    </div>
+                  </div>
+
+                  {/* Role 2: IndusAI Solutions */}
+                  <div className="space-y-1 border-b border-slate-100 pb-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
                         IndusAI Solutions
                       </h4>
@@ -390,7 +448,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                     <div className="font-mono text-xs font-bold text-indigo-700">
                       Python Developer Intern (MSME-registered)
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5 text-xs font-sans text-slate-800 font-medium">
                       <span>✓ Automated Python ETL</span>
                       <span>✓ Data Validation Scripts</span>
                       <span>✓ MSME Certificate Aug 2025</span>
@@ -398,9 +456,9 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                     </div>
                   </div>
 
-                  {/* Role 2: 2025 */}
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
+                  {/* Role 3: HACKTOUR IND (Web3 company) */}
+                  <div className="space-y-1 border-b border-slate-100 pb-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
                         HACKTOUR IND (Web3 company)
                       </h4>
@@ -421,7 +479,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                         <span>Contributor @HackTourIND (@krunverma)</span>
                       </a>
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5 text-xs font-sans text-slate-800 font-medium">
                       <span>✓ Arweave / Permaweb Buildstation</span>
                       <span>✓ Zcash India Meetups & Community</span>
                       <span>✓ Avalanche City Connect (Jaipur)</span>
@@ -429,20 +487,44 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                     </div>
                   </div>
 
-                  {/* Role 3: 2024-2027 */}
+                  {/* Role 4: Campus Governance / Leadership: IIC & Incubation Centre */}
+                  <div className="space-y-1 border-b border-slate-100 pb-3.5">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
+                      <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
+                        Institution's Innovation Council (IIC) & Incubation Centre
+                      </h4>
+                      <span className="font-mono text-xs font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 shrink-0">
+                        2025 — 2026
+                      </span>
+                    </div>
+                    <div className="font-mono text-xs font-bold text-indigo-700">
+                      Student Coordinator (2025 — 2026) · Campus Governance / Leadership
+                    </div>
+                    <p className="text-xs font-sans text-slate-700 font-medium leading-relaxed">
+                      Spearheaded startup incubation drives, orientation sessions, and innovation quizzes across institute batches.
+                    </p>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5 text-xs font-sans text-slate-800 font-medium">
+                      <span>✓ Startup Incubation Drives</span>
+                      <span>✓ Orientation Sessions</span>
+                      <span>✓ Multi-Batch Innovation Quizzes</span>
+                      <span>✓ Entrepreneurship Ecosystem</span>
+                    </div>
+                  </div>
+
+                  {/* Role 5: Campus Governance / Leadership: Student Council */}
                   <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
+                    <div className="flex flex-wrap items-center justify-between gap-2">
                       <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
                         Student Council & MGI Coding Club
                       </h4>
-                      <span className="font-mono text-xs font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 shrink-0">
+                      <span className="font-mono text-xs font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 shrink-0">
                         2024 — Present
                       </span>
                     </div>
                     <div className="font-mono text-xs font-bold text-indigo-700">
-                      VP (2026-27) · Joint Sec (2025-26) · CR (2024-25)
+                      VP (2026-27) · Joint Sec (2025-26) · CR (2024-25) · Prompt Eng Lead
                     </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-0.5 pt-0.5 text-xs font-sans text-slate-800 font-medium">
                       <span>✓ Council VP (26-27)</span>
                       <span>✓ Joint Secretary (25-26)</span>
                       <span>✓ Class Rep (24-25)</span>
@@ -480,7 +562,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                     I am a Computer Science & Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs 8.48, 8.57, and 8.54 - College Topper).
                   </p>
                   <p className="text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
-                    Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for ₹30 Lakh combined grant-in-aid consideration. Combining technical problem solving with campus leadership across 35+ anchored events and 20+ coordinated campus initiatives.
+                    Co-Founder and Lead Educator at PRO LEARN COACHING CLASSES (3+ years, 50+ students guided in foundational sciences & mathematics). Recognized for innovation through dual MSME Idea Hackathon 5.0 selections (₹30 Lakh combined grant-in-aid consideration). Active in institutional governance as Student Council VP and IIC Student Coordinator across 35+ anchored ceremonies and 20+ coordinated campus initiatives.
                   </p>
                 </div>
 
@@ -584,29 +666,29 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                   </div>
                 </div>
 
-                {/* Two Columns: ABILITIES & SOFT SKILLS */}
+                {/* Two Columns: TECHNICAL & PEDAGOGY / LEADERSHIP */}
                 <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs font-sans pr-14 border-b border-slate-800 pb-4">
                   <div className="space-y-1.5">
                     <div className="font-mono text-[10px] font-black uppercase tracking-wider text-slate-300">
-                      ABILITIES
+                      TECHNICAL & AI
                     </div>
                     <div className="space-y-0.5 text-xs text-white font-medium">
-                      <div>Python Pipelines</div>
+                      <div>Python Data Pipelines</div>
                       <div>Prompt Engineering</div>
                       <div>C / C++ Fundamentals</div>
-                      <div>SQL & Data Queries</div>
+                      <div>SQL & React Architecture</div>
                     </div>
                   </div>
 
                   <div className="space-y-1.5">
                     <div className="font-mono text-[10px] font-black uppercase tracking-wider text-slate-300">
-                      SOFT SKILLS
+                      LEADERSHIP & PEDAGOGY
                     </div>
                     <div className="space-y-0.5 text-xs text-white font-medium">
-                      <div>Public Speaking (35+)</div>
-                      <div>Event Coordination (20+)</div>
-                      <div>Analytical Reasoning</div>
-                      <div>Student Council VP</div>
+                      <div>Teaching & Mentorship (50+)</div>
+                      <div>Video Editing & Creator Media</div>
+                      <div>Student Council VP (26-27)</div>
+                      <div>Public Speaking & Anchoring (35+)</div>
                     </div>
                   </div>
                 </div>
@@ -618,6 +700,39 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
                   </h3>
                   <div className="text-[10px] font-mono text-slate-400 uppercase tracking-widest font-bold">
                     VERIFIED PRODUCTION TOOLKIT
+                  </div>
+                </div>
+
+                {/* DOMAINS & METADATA BAR / TAGS */}
+                <div className="space-y-2 pt-1 border-t border-slate-800">
+                  <div className="font-mono text-[10px] font-bold text-slate-300 uppercase tracking-wider flex items-center justify-between">
+                    <span>SPECIALIZATIONS & CREATOR TAGS</span>
+                    <span className="text-amber-400 font-mono text-[9px] font-bold">50+ GUIDED · 3+ YRS</span>
+                  </div>
+                  <div className="flex flex-wrap gap-1.5">
+                    {[
+                      'Teaching & Mentorship (50+ Students)',
+                      'Video Editing & Creator Media',
+                      'IIC Startup Incubation',
+                      'Student Governance',
+                      '35+ Ceremonies Anchored',
+                      'STEM Curriculum Design',
+                    ].map((tag, idx) => (
+                      <span
+                        key={idx}
+                        className={`px-2.5 py-1 rounded font-mono text-xs font-semibold border ${
+                          tag.includes('Teaching')
+                            ? 'bg-amber-950/70 border-amber-500/50 text-amber-200'
+                            : tag.includes('Video')
+                            ? 'bg-rose-950/70 border-rose-500/50 text-rose-200'
+                            : tag.includes('IIC')
+                            ? 'bg-purple-950/70 border-purple-500/50 text-purple-200'
+                            : 'bg-slate-900 border-slate-700 text-slate-200'
+                        }`}
+                      >
+                        {tag}
+                      </span>
+                    ))}
                   </div>
                 </div>
 

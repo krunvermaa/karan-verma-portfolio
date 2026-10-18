@@ -1,7 +1,7 @@
 import React from 'react';
 import { PERSONAL_INFO, PHILOSOPHY_PRINCIPLES } from '@/data/portfolioData';
 import { DeveloperLicenseBadge } from './DeveloperLicenseBadge';
-import { GraduationCap, Compass, ShieldCheck, Globe } from 'lucide-react';
+import { GraduationCap, Compass, ShieldCheck, Globe, BookOpen, Sparkles } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
@@ -35,11 +35,15 @@ export const AboutSection: React.FC = () => {
           {/* Right Column: Bio Narrative, Education, Leadership & Community */}
           <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed font-sans text-sm sm:text-base w-full min-w-0">
             <p className="text-lg text-slate-950 dark:text-white font-medium leading-relaxed transition-colors">
-              I am a computer science engineering student, software developer, and student leader dedicated to building high-impact technology solutions.
+              I am a computer science engineering student, software developer, educator, and student leader dedicated to building high-impact technology solutions, empowering student communities, and fostering campus innovation.
             </p>
 
             <p>
-              Pursuing my B.Tech in Computer Science & Engineering at Mahakal Institute of Technology, Ujjain, I maintain consistent academic excellence as College Topper (SGPAs 8.48, 8.57, 8.54). My work spans production Python development at IndusAI Solutions, Web3 strategy & technical content at HackTourIND, and two innovations selected for ₹30 Lakh combined grant-in-aid consideration under MSME Idea Hackathon 5.0.
+              Pursuing my B.Tech in Computer Science & Engineering at Mahakal Institute of Technology, Ujjain, I maintain consistent academic excellence as College Topper (SGPAs 8.48, 8.57, 8.54). My technical work spans production Python development at IndusAI Solutions, Web3 strategy & technical content at HackTourIND, and two innovations selected for ₹30 Lakh combined grant-in-aid consideration under MSME Idea Hackathon 5.0.
+            </p>
+
+            <p>
+              Beyond systems code, I am the Co-Founder & Educator at <strong className="text-slate-950 dark:text-white">Pro Learn Coaching Classes</strong> (with 3+ years of teaching experience guiding 50+ students in foundational academic excellence) and serve as Student Coordinator at the <strong className="text-slate-950 dark:text-white">Institution's Innovation Council (IIC) & Business Incubation Centre</strong>, MIT Ujjain. I am also an active creator, video editor, and digital media storyteller bridging complex technical concepts with visual media.
             </p>
 
             {/* Education Specimen Box */}
@@ -143,6 +147,70 @@ export const AboutSection: React.FC = () => {
               <div className="text-xs text-slate-600 dark:text-slate-400 font-sans pt-1 border-t border-slate-200 dark:border-slate-800 flex flex-wrap items-center gap-x-4 gap-y-1">
                 <span>• Spearheaded 20+ coordinated campus events</span>
                 <span>• Anchored 35+ institutional ceremonies & hackathons</span>
+                <span>• Student Coordinator @ IIC & Incubation Centre</span>
+              </div>
+            </div>
+
+            {/* Educator & Founder Dimension Box */}
+            <div className="p-4 sm:p-6 rounded-2xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs space-y-3.5 transition-colors">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+                <div className="flex items-center gap-3 min-w-0">
+                  <div className="p-2.5 rounded-xl bg-amber-50 dark:bg-amber-950/70 text-amber-700 dark:text-amber-400 border border-amber-200 dark:border-amber-900/60 font-bold shrink-0">
+                    <BookOpen className="w-5 h-5" />
+                  </div>
+                  <div className="min-w-0">
+                    <h4 className="font-display font-bold text-slate-950 dark:text-white text-sm sm:text-base">
+                      Educator, Founder & Campus Innovation
+                    </h4>
+                    <p className="text-xs text-slate-600 dark:text-slate-400 font-mono font-medium">
+                      Pro Learn Coaching Classes · IIC & Incubation Centre
+                    </p>
+                  </div>
+                </div>
+
+                <span className="text-[11px] font-mono text-amber-800 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/70 px-2.5 py-1 rounded-md border border-amber-300 dark:border-amber-800 font-bold self-start sm:self-auto shrink-0">
+                  Founder & Educator
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 font-mono text-xs">
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-2">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-amber-700 dark:text-amber-400 uppercase tracking-wider font-bold">Co-Founder & Educator</span>
+                      <span className="text-[9px] px-1.5 py-0.5 bg-amber-100 dark:bg-amber-950/80 text-amber-800 dark:text-amber-300 rounded font-sans font-semibold">3+ Yrs</span>
+                    </div>
+                    <div className="font-display font-bold text-slate-950 dark:text-white text-xs sm:text-sm mt-1 leading-snug">
+                      Pro Learn Coaching Classes
+                    </div>
+                  </div>
+                  <p className="text-[11px] font-sans text-slate-600 dark:text-slate-400 leading-snug">
+                    Mentored <strong className="text-slate-900 dark:text-slate-200">50+ students</strong> over 3+ years in foundational subjects, emphasizing concept clarity, analytical reasoning, and academic confidence.
+                  </p>
+                </div>
+
+                <div className="p-3.5 rounded-xl bg-slate-50 dark:bg-slate-900/60 border border-slate-200 dark:border-slate-800 flex flex-col justify-between space-y-2">
+                  <div>
+                    <div className="flex items-center justify-between">
+                      <span className="text-[10px] text-indigo-700 dark:text-indigo-400 uppercase tracking-wider font-bold">Student Coordinator</span>
+                      <span className="text-[9px] px-1.5 py-0.5 bg-indigo-100 dark:bg-indigo-950/80 text-indigo-800 dark:text-indigo-300 rounded font-sans font-semibold">Innovation</span>
+                    </div>
+                    <div className="font-display font-bold text-slate-950 dark:text-white text-xs sm:text-sm mt-1 leading-snug">
+                      IIC & Incubation Centre
+                    </div>
+                  </div>
+                  <p className="text-[11px] font-sans text-slate-600 dark:text-slate-400 leading-snug">
+                    Coordinating startup initiatives, hackathons, and entrepreneurship outreach at Institution's Innovation Council & Business Incubation Centre, MIT Ujjain.
+                  </p>
+                </div>
+              </div>
+
+              {/* Creator & Storyteller callout */}
+              <div className="p-3 rounded-xl bg-purple-50/60 dark:bg-purple-950/40 border border-purple-200/80 dark:border-purple-900/60 flex items-start gap-2.5 text-xs text-slate-700 dark:text-slate-300 font-sans">
+                <Sparkles className="w-4 h-4 text-purple-600 dark:text-purple-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-semibold text-slate-950 dark:text-white">Creator & Digital Media Storyteller:</span> Video editor and technical communicator crafting engaging narratives, motion edits, and educational media for tech ecosystems.
+                </div>
               </div>
             </div>
 
@@ -191,12 +259,24 @@ export const AboutSection: React.FC = () => {
             </div>
 
             {/* Quick Metrics */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 sm:gap-3 pt-2">
               <div className="p-3 sm:p-3.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs transition-colors text-left flex flex-col justify-between">
                 <div className="text-xl sm:text-2xl font-display font-black text-slate-950 dark:text-white tabular-nums tracking-tight">
                   ₹30 Lakh
                 </div>
                 <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">MSME 5.0 Grant Consideration</div>
+              </div>
+              <div className="p-3 sm:p-3.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs transition-colors text-left flex flex-col justify-between">
+                <div className="text-xl sm:text-2xl font-display font-black text-emerald-600 dark:text-emerald-400 tabular-nums tracking-tight">
+                  50+
+                </div>
+                <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">Students Guided (Pro Learn)</div>
+              </div>
+              <div className="p-3 sm:p-3.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs transition-colors text-left flex flex-col justify-between">
+                <div className="text-xl sm:text-2xl font-display font-black text-amber-600 dark:text-amber-400 tabular-nums tracking-tight">
+                  3+ Yrs
+                </div>
+                <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">Teaching & Mentorship</div>
               </div>
               <div className="p-3 sm:p-3.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs transition-colors text-left flex flex-col justify-between">
                 <div className="text-xl sm:text-2xl font-display font-black text-slate-950 dark:text-white tabular-nums tracking-tight">
@@ -211,10 +291,10 @@ export const AboutSection: React.FC = () => {
                 <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">Events Coordinated</div>
               </div>
               <div className="p-3 sm:p-3.5 rounded-xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xs transition-colors text-left flex flex-col justify-between">
-                <div className="text-xl sm:text-2xl font-display font-black text-slate-950 dark:text-white tabular-nums tracking-tight">
+                <div className="text-xl sm:text-2xl font-display font-black text-indigo-600 dark:text-indigo-400 tabular-nums tracking-tight">
                   8.54+
                 </div>
-                <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">Consistent SGPA Average</div>
+                <div className="text-[9.5px] sm:text-[10px] text-slate-600 dark:text-slate-400 font-semibold leading-tight mt-1">Consistent SGPA (Topper)</div>
               </div>
             </div>
           </div>

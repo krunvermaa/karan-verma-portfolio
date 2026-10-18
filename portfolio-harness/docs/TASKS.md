@@ -3,27 +3,29 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 006 — `iter/006-enable-native-text-selection`
-- **Goal:** Enable native selectable and copyable text across all sections (Work, About, Skills, Journey, Resume, Contact) by removing select-none constraints from section roots and cards.
+- **Iteration:** 007 — `iter/007-credentials-and-educator-enrichment`
+- **Goal:** Integrate verified real-world credentials across all sections: Pro Learn Coaching Classes (Co-Founder & Educator, 3+ years teaching, 50+ students guided), Institution's Innovation Council (IIC) Student Coordinator, Video Editing/Creator dimension, and Hero 19-year-old believer positioning.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 Unit & Component checks | Remove select-none in disjoint section components | Passed |
-| S2 Integration | Verify all 6 section components compile cleanly together | Passed |
-| S3 Typecheck & Build | Run npm run lint (tsc --noEmit) and npm run build | Passed (0 errors, 609ms) |
-| S4 Visual & Selection Gate | Black-box verification that text can be highlighted & copied across all sections | Passed |
+| S1 Unit & Component checks | Update portfolioData, Hero, About, Skills, Journey, Resume with disjoint agents | Passed |
+| S2 Integration | Verify all 7 files compile together without type or import errors | Passed |
+| S3 Typecheck & Build | Run npm run lint (tsc --noEmit) and npm run build | Passed (0 errors, 308ms) |
+| S4 Visual & Selection Gate | Confirm text selectability preserved (0 select-none in sections) | Passed |
 | S5 Push & Deploy | Push verified changes to GitHub main branch | Passed |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 006-1 | Work section text selection | Work Specialist | `src/sections/work/HangingCardsShowcase.tsx`, `src/sections/work/ProjectMockup.tsx` | done | Removed select-none on section & mockups |
-| 006-2 | About section text selection | About Specialist | `src/sections/about/DeveloperLicenseBadge.tsx` | done | Removed select-none on license badge |
-| 006-3 | Skills & Journey text selection | Skills & Journey Specialist | `src/sections/skills/SkillsSection.tsx`, `src/sections/journey/JourneySection.tsx` | done | Removed select-none on section roots & cards |
-| 006-4 | Resume & Contact text selection | Resume & Contact Specialist | `src/sections/resume/ResumeSection.tsx`, `src/sections/contact/ContactSection.tsx` | done | Removed select-none on section roots & stamps |
-| 006-5 | Build verification & release gate | QA & Integrator | whole repo | done | 0 errors verified, pushed to main |
+| 007-1 | Master Data Architect | Data Architect | `src/data/portfolioData.ts` | done | Added Pro Learn, IIC, Educator & Creator records |
+| 007-2 | Hero positioning & metrics | Hero Specialist | `src/sections/hero/Hero.tsx` | done | 19-Year-Old Believer, Educator & updated bio |
+| 007-3 | About & Credentials badge | About Specialist | `src/sections/about/AboutSection.tsx`, `DeveloperLicenseBadge.tsx` | done | Pro Learn & IIC badge integration |
+| 007-4 | Skills matrix & creative tags | Skills Specialist | `src/sections/skills/SkillsSection.tsx` | done | Added Pedagogy, IIC & Video Editing post-its |
+| 007-5 | Interactive Journey milestones | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | Added Pro Learn & IIC milestones to carousel |
+| 007-6 | Tactile Resume dossier & CV | Resume Specialist | `src/sections/resume/ResumeSection.tsx` | done | Added experience timeline & updated markdown export |
+| 007-7 | Integration quality gate | QA & Integrator | whole repo | done | 0 errors verified, pushed to main |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 
@@ -38,9 +40,11 @@ States: `todo` · `in-progress` · `blocked` · `review` · `done`
 | 003 | `iter/003-visual-portfolio-editor-direct-live` | 2026-10-18 | `HEAD` | `http://localhost:3001` |
 | 004 | `iter/004-decommission-editor` | 2026-10-18 | `718b8ea` | `http://localhost:3000` |
 | 005 | `iter/005-ui-whitespace-and-padding-harmony` | 2026-10-18 | `HEAD` | `http://localhost:3000` |
+| 006 | `iter/006-enable-native-text-selection` | 2026-10-18 | `0bdd1e7` | `http://localhost:3000` |
+| 007 | `iter/007-credentials-and-educator-enrichment` | 2026-10-18 | `HEAD` | `http://localhost:3000` |
 
 ## Session handoff (if a session must end mid-iteration)
-- Last completed step: Standardized all section paddings, eliminated vertical voids, prevented horizontal scroll/jitter, fixed MoovFolderDeepDive ambient shadow bleed, tightened FrostedFolderFan stage, improved touch targets in Navbar, and verified clean TypeScript lint and production build.
+- Last completed step: Integrated Pro Learn Coaching Classes (Co-Founder & Educator, 3+ years teaching, 50+ students guided), Institution's Innovation Council (IIC) & Incubation Centre Student Coordinator, Creator & Video Editing dimension, and Hero 19-year-old believer positioning across all active sections. Verified with TypeScript lint and production build.
 - Next step: Ready for user review.
 - Open risks: none
 
