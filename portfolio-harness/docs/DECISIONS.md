@@ -30,5 +30,16 @@ Log any non-obvious technical/design choice, new dependency, deviation from the 
   - Shared data contracts importing `src/types/portfolio.ts` and `src/data/portfolioData.ts`.
   - Durable `localStorage` draft persistence with debounced autosave, 50-step undo/redo stack, and single-click export/sync publishing.
   - Top toolbar with responsive viewport switching (Desktop 1280px, Tablet 768px, Mobile 375px), left multi-tab CMS & structure tree, central interactive canvas, and right inspector panel.
-- **Consequences:** Original portfolio remains 100% operational on port 3000. Portfolio Studio runs alongside it, sharing types and data without code duplication or security risks.
+## ADR-004 — Direct-portfolio visual editor with light theme and one-click live Vercel publishing
+- **Date:** 2026-10-18
+- **Context:** User requested a clean, light-theme visual editor (`editor/`) that directly renders the actual existing portfolio components rather than an isolated recreation, with native drag-and-drop, inline title editing, contextual action rings (Copy, Duplicate, Delete), and a 1-click live publish pipeline that syncs `src/data/portfolioData.ts` and pushes to git (`main`) to automatically trigger Vercel production deployment (`https://karan-verma-portfolio.vercel.app`).
+- **Decision:**
+  - Create `editor/` directory running on port 3001 using Vite + React 19 + Tailwind CSS + Lucide icons.
+  - Light-theme modern interface (`#FFFFFF`, `#F8FAFC`, `#E2E8F0`, slate-900 typography, crisp borders).
+  - Direct import and rendering of existing portfolio components (`Hero`, `HangingCardsShowcase`, `MoovFolderDeepDive`, `AboutSection`, `SkillsSection`, `JourneySection`, `ResumeSection`, `ContactSection`, `Navbar`, `Footer`) wrapped with selection rings, drag handles, and floating action bars.
+  - Native HTML5 Drag and Drop reordering for cards, achievements, milestones, and sections.
+  - Component Copy, Cut, Paste, and Duplicate with cryptographically unique IDs (`generateId`).
+  - 50-step undo/redo stack (`HistoryManager`), localStorage autosave debouncing, and JSON snapshot backup/restore.
+  - Vite server middleware plugin (`livePublishPlugin`) on `POST /api/publish` that creates `.backup.ts`, updates `src/data/portfolioData.ts`, and automatically executes `git add`, `git commit`, and `git push origin main` to deploy live to Vercel without manual terminal commands.
+- **Consequences:** Karan has a permanent, user-friendly visual editor at `http://localhost:3001` that directly edits and live-publishes his real portfolio with 1-click zero friction.
 
