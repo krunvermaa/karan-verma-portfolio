@@ -43,3 +43,15 @@ Log any non-obvious technical/design choice, new dependency, deviation from the 
   - Vite server middleware plugin (`livePublishPlugin`) on `POST /api/publish` that creates `.backup.ts`, updates `src/data/portfolioData.ts`, and automatically executes `git add`, `git commit`, and `git push origin main` to deploy live to Vercel without manual terminal commands.
 - **Consequences:** Karan has a permanent, user-friendly visual editor at `http://localhost:3001` that directly edits and live-publishes his real portfolio with 1-click zero friction.
 
+## ADR-005 — Decommission and permanently delete the editor
+- **Date:** 2026-10-18
+- **Context:** User explicitly requested to permanently delete the editor ("delete the editor permanently").
+- **Decision:**
+  - Terminate background dev process on port 3001.
+  - Delete `editor/` directory completely.
+  - Remove editor build/test/dev scripts from `package.json`.
+  - Clean up `.gitignore` entries.
+  - Restore pure, lean portfolio repository structure.
+- **Consequences:** Codebase returns to a clean, focused single-app developer portfolio website without unused tooling or overhead.
+
+
