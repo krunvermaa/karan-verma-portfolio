@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Project, PROJECTS } from './data/portfolioData';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
-import { HangingCardsShowcase } from './components/HangingCardsShowcase';
 import { MoovFolderDeepDive } from './components/MoovFolderDeepDive';
 import { SkillsSection } from './components/SkillsSection';
 import { AboutSection } from './components/AboutSection';
@@ -99,17 +98,14 @@ export default function App() {
 
       {/* Main Content Flow */}
       <main>
-        {/* 01. Hero Section: Designer Daishu Folder Fan + Astro Typography */}
+        {/* 01. Hero Section: Editorial Typography & Actions */}
         <Hero
           onExploreWork={() => handleNavigate('work')}
           onContact={() => handleNavigate('contact')}
           onSelectProject={handleOpenCaseStudy}
         />
 
-        {/* 02. The Astro Hanging Clothesline Showcase: Suspended Curve & Clothespin Cards */}
-        <HangingCardsShowcase onSelectProject={handleOpenCaseStudy} />
-
-        {/* 03. The MOOV Large Floating Folder Deep-Dive with Sheets Peeking Out */}
+        {/* 02. The MOOV Large Floating Folder Deep-Dive with Sheets Peeking Out */}
         <MoovFolderDeepDive onOpenCaseStudy={handleOpenCaseStudy} />
 
         {/* 04. About & Operating Philosophy */}
