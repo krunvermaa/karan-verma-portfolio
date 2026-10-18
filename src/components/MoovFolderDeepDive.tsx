@@ -54,8 +54,8 @@ export const MoovFolderDeepDive: React.FC<MoovFolderDeepDiveProps> = ({ onOpenCa
   const theme = folderThemeMap[currentProject.id] || folderThemeMap['agri-market-platform'];
 
   return (
-    <section id="work" className="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-canvas text-theme-primary relative select-none transition-colors duration-300">
-      <div className="max-w-6xl mx-auto space-y-10 sm:space-y-12">
+    <section id="work" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-canvas text-theme-primary relative select-none transition-colors duration-300">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
         {/* Editorial Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
           <div className="space-y-2">
@@ -96,9 +96,9 @@ export const MoovFolderDeepDive: React.FC<MoovFolderDeepDiveProps> = ({ onOpenCa
         </div>
 
         {/* The Giant MOOV Floating Folder Centerpiece */}
-        <div className="relative pt-8 sm:pt-12 pb-12 sm:pb-16 flex flex-col items-center">
-          {/* Ambient Diffused Shadow (MOOV Reference) */}
-          <div className="w-4/5 max-w-2xl h-16 bg-slate-400/20 dark:bg-indigo-950/40 blur-3xl rounded-full translate-y-72 pointer-events-none" />
+        <div className="relative pt-6 sm:pt-8 pb-4 sm:pb-8 flex flex-col items-center">
+          {/* Ambient Diffused Shadow (MOOV Reference) positioned directly beneath folder */}
+          <div className="absolute bottom-4 left-1/2 -translate-x-1/2 w-4/5 max-w-2xl h-16 bg-slate-400/20 dark:bg-indigo-950/40 blur-3xl rounded-full pointer-events-none" />
 
           {/* Folder Shell with 3D Depth */}
           <div className="relative w-full max-w-4xl transition-all duration-500">

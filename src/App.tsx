@@ -87,7 +87,7 @@ export default function App() {
   };
 
   return (
-    <div className="relative min-h-screen bg-canvas text-theme-primary font-sans selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-950 transition-colors duration-300">
+    <div className="relative min-h-screen w-full max-w-full overflow-x-hidden bg-canvas text-theme-primary font-sans selection:bg-slate-900 selection:text-white dark:selection:bg-white dark:selection:text-slate-950 transition-colors duration-300">
       {/* Top Floating Navbar (Apple-inspired glass pill with Day/Night toggle) */}
       <Navbar
         activeSection={activeSection}
@@ -98,7 +98,7 @@ export default function App() {
       />
 
       {/* Main Content Flow */}
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
         {/* 01. Hero Section: Designer Daishu Folder Fan + Astro Typography */}
         <Hero
           onExploreWork={() => handleNavigate('work')}

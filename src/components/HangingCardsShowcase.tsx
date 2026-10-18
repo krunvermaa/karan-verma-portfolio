@@ -36,12 +36,12 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
   };
 
   return (
-    <section className="py-16 sm:py-20 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300">
+    <section className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#F6FCF8] dark:bg-[#06140E] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300">
       {/* Background ambient lighting - Fresh emerald & mint aura */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[500px] bg-gradient-to-b from-emerald-300/35 dark:from-emerald-900/30 via-teal-200/20 dark:via-teal-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-0 right-1/4 w-[600px] h-[300px] bg-emerald-200/25 dark:bg-emerald-950/15 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto space-y-8 sm:space-y-10 relative z-10">
+      <div className="max-w-7xl mx-auto space-y-6 sm:space-y-8 lg:space-y-10 relative z-10">
         {/* Section Header (Astro aesthetic) */}
         <div className="text-center space-y-3 sm:space-y-4 max-w-3xl mx-auto px-2">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/90 dark:bg-slate-900/90 border border-slate-200/90 dark:border-slate-800 shadow-2xs text-xs font-mono text-slate-700 dark:text-slate-300 backdrop-blur-md">
@@ -85,7 +85,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
         {/* The Hanging Clothesline Curve & Cards */}
         <div
           ref={scrollContainerRef}
-          className="relative pt-8 pb-12 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth"
+          className="relative pt-6 sm:pt-8 pb-8 sm:pb-10 overflow-x-auto scrollbar-none snap-x snap-mandatory scroll-smooth"
         >
           {/* SVG Clothesline Wire Curve (ASTRO Reference) - visible on lg screens */}
           <div className="hidden lg:block absolute top-10 left-0 right-0 h-24 pointer-events-none z-0">
@@ -170,7 +170,7 @@ export const HangingCardsShowcase: React.FC<HangingCardsShowcaseProps> = ({ onSe
         </div>
 
         {/* Bottom Technology Verification Strip */}
-        <div className="pt-6 sm:pt-8 border-t border-slate-300/80 dark:border-slate-800 flex flex-wrap items-center justify-around gap-4 sm:gap-6 text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-widest px-2">
+        <div className="pt-5 sm:pt-6 border-t border-slate-300/80 dark:border-slate-800 flex flex-wrap items-center justify-around gap-4 sm:gap-6 text-xs font-mono text-slate-600 dark:text-slate-400 uppercase tracking-widest px-2">
           <span>Python 3 & Automation</span>
           <span className="text-slate-300 dark:text-slate-700 hidden sm:inline">·</span>
           <span>FastAPI & Microservices</span>

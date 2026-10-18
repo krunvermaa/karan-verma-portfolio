@@ -28,7 +28,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
     }
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = '';
     };
   }, [project, onClose]);
 
@@ -91,7 +91,7 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         </div>
 
         {/* Content Body */}
-        <div className="p-4 sm:p-10 space-y-8 sm:space-y-10">
+        <div className="p-4 sm:p-8 md:p-10 space-y-6 sm:space-y-8">
           {/* Title & Tagline */}
           <div className="space-y-3">
             <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-indigo-700 dark:text-indigo-400">

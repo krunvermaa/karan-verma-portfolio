@@ -93,12 +93,12 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
   return (
     <section
       id="resume"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F9] dark:bg-[#110609] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 select-none transition-colors duration-300 relative overflow-hidden"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FFF8F9] dark:bg-[#110609] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 select-none transition-colors duration-300 relative overflow-hidden"
     >
       {/* Subtle crimson/rose studio ambient glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-rose-200/35 dark:from-rose-950/30 via-red-100/15 dark:via-rose-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-24 w-80 h-80 bg-rose-200/20 dark:bg-rose-950/15 rounded-full blur-3xl pointer-events-none" />
-      <div className="max-w-6xl mx-auto space-y-10 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 relative z-10">
         {/* Section Header & Actions Toolbar with High Contrast */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
           <div className="space-y-2">
@@ -146,7 +146,7 @@ Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Py
         {/* ========================================================================= */}
         {/* THE FARHAN SUZAT ARTISTIC COLLAGE CANVAS (High Contrast Stage) */}
         {/* ========================================================================= */}
-        <div className="relative mx-auto max-w-5xl rounded-3xl bg-[#080B10] text-slate-100 border-2 border-slate-700/80 dark:border-slate-700 shadow-2xl p-4 sm:p-8 md:p-12 overflow-hidden">
+        <div className="relative mx-auto max-w-5xl rounded-3xl bg-[#080B10] text-slate-100 border-2 border-slate-700/80 dark:border-slate-700 shadow-2xl p-3.5 sm:p-6 md:p-10 overflow-hidden">
           {/* Subtle Stage Lighting Highlight */}
           <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-gradient-to-b from-rose-600/15 via-indigo-600/10 to-transparent rounded-full blur-3xl pointer-events-none" />
 

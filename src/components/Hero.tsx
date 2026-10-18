@@ -13,15 +13,15 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
   return (
     <section
       id="home"
-      className="relative min-h-screen flex flex-col justify-between pt-28 sm:pt-32 pb-16 px-4 sm:px-6 lg:px-8 bg-[#F8FAFF] dark:bg-[#080B15] text-theme-primary overflow-hidden transition-colors duration-300"
+      className="relative min-h-screen flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-12 sm:pb-16 px-4 sm:px-6 lg:px-8 bg-[#F8FAFF] dark:bg-[#080B15] text-theme-primary overflow-hidden transition-colors duration-300"
     >
       {/* Subtle electric indigo ambient studio lighting tint */}
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-gradient-to-b from-indigo-300/35 dark:from-indigo-900/30 via-blue-200/20 dark:via-blue-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-24 w-80 h-80 bg-purple-200/25 dark:bg-purple-950/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 flex-1 flex flex-col justify-center items-center text-center space-y-6 sm:space-y-8 md:space-y-9">
+      <div className="max-w-6xl mx-auto w-full relative z-10 flex-1 flex flex-col justify-center items-center text-center space-y-4 sm:space-y-6 md:space-y-7">
         {/* 3.1 Identity / Editorial Label */}
-        <div className="flex flex-col items-center gap-1 pt-2">
+        <div className="flex flex-col items-center gap-1 pt-1">
           <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.28em] text-slate-900 dark:text-white uppercase">
             KARAN VERMA
           </span>
@@ -31,7 +31,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
         </div>
 
         {/* 3.2 Main Hero Headline */}
-        <div className="space-y-3 sm:space-y-5 max-w-4xl mx-auto px-1 sm:px-4">
+        <div className="space-y-2.5 sm:space-y-4 max-w-4xl mx-auto px-1 sm:px-4">
           <h1 className="text-[1.85rem] min-[360px]:text-[2.2rem] min-[420px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] font-display font-black tracking-tight text-slate-950 dark:text-white leading-[1.08] sm:leading-[1.02] md:leading-[0.98] uppercase break-words">
             <span className="block">I BUILD SOFTWARE</span>
             <span className="block text-slate-800 dark:text-slate-200">THAT FEELS AS GOOD</span>
@@ -73,14 +73,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
         </div>
 
         {/* 5. Capability Metadata */}
-        <div className="pt-1 px-2">
+        <div className="pt-0.5 px-2">
           <span className="font-mono text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.26em] text-slate-600 dark:text-slate-400 uppercase font-semibold block text-center">
             AI PLATFORMS · PYTHON · WEB · CAMPUS LEADERSHIP
           </span>
         </div>
 
         {/* 6. Interactive Project Centerpiece */}
-        <div className="w-full pt-2 sm:pt-6">
+        <div className="w-full pt-1 sm:pt-4">
           <FrostedFolderFan onSelectProject={onSelectProject} />
         </div>
       </div>

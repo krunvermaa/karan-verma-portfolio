@@ -5,14 +5,14 @@ import { GraduationCap, Compass, ShieldCheck, Globe } from 'lucide-react';
 
 export const AboutSection: React.FC = () => {
   return (
-    <section id="about" className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FFFDF9] dark:bg-[#120F0A] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300">
+    <section id="about" className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FFFDF9] dark:bg-[#120F0A] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300">
       {/* Subtle warm amber/antique paper studio ambient glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-amber-200/40 dark:from-amber-900/25 via-orange-100/20 dark:via-orange-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -left-20 w-80 h-80 bg-amber-200/25 dark:bg-amber-950/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto space-y-16 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 relative z-10">
         {/* Section Header */}
-        <div className="space-y-4 max-w-3xl">
+        <div className="space-y-3 sm:space-y-4 max-w-3xl">
           <div className="flex items-center gap-2 text-xs font-mono text-indigo-600 dark:text-indigo-400 font-semibold uppercase tracking-wider">
             <span>03 / CREDENTIALS & IDENTITY</span>
             <span>·</span>
@@ -33,7 +33,7 @@ export const AboutSection: React.FC = () => {
           </div>
 
           {/* Right Column: Bio Narrative, Education, Leadership & Community */}
-          <div className="lg:col-span-6 space-y-6 text-slate-700 dark:text-slate-300 leading-relaxed font-sans text-sm sm:text-base w-full min-w-0">
+          <div className="lg:col-span-6 space-y-4 sm:space-y-5 text-slate-700 dark:text-slate-300 leading-relaxed font-sans text-sm sm:text-base w-full min-w-0">
             <p className="text-lg text-slate-950 dark:text-white font-medium leading-relaxed transition-colors">
               I am a computer science engineering student, software developer, and student leader dedicated to building high-impact technology solutions.
             </p>

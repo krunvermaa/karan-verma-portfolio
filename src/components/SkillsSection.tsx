@@ -76,7 +76,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
   return (
     <section
       id="skills"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FEFDF6] dark:bg-[#121108] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEFDF6] dark:bg-[#121108] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden select-none transition-colors duration-300"
     >
       {/* ========================================================================= */}
       {/* STUDIO SPOTLIGHT & GRAPH PAPER PINBOARD WALL (Warm Canary/Amber Tint) */}
@@ -88,7 +88,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
       {/* Subtle Wall Grid Pattern */}
       <div className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06] bg-[linear-gradient(to_right,#000_1px,transparent_1px),linear-gradient(to_bottom,#000_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,#fff_1px,transparent_1px),linear-gradient(to_bottom,#fff_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto space-y-12 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12 relative z-10">
         {/* Section Header with Stencil & Hand-Drawn Notes */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-slate-200 dark:border-slate-800">
           <div className="space-y-2">
@@ -115,7 +115,7 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
         {/* ========================================================================= */}
         {/* MAIN STUDIO PINBOARD: STICKY NOTES (LEFT) + FOIL POUCH (RIGHT) */}
         {/* ========================================================================= */}
-        <div className="grid lg:grid-cols-12 gap-8 lg:gap-10 items-start">
+        <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-start">
           {/* --------------------------------------------------------------------- */}
           {/* LEFT COLUMN: THE TACTILE POST-IT STICKY NOTES WITH PUSH PINS (Image 1) */}
           {/* --------------------------------------------------------------------- */}

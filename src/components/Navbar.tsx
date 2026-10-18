@@ -129,14 +129,14 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           <button
             onClick={onContactClick}
-            className="px-3 py-1.5 text-xs font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-950 rounded-full"
+            className="px-3.5 py-1.5 text-xs font-semibold text-white bg-slate-900 dark:bg-white dark:text-slate-950 rounded-full cursor-pointer min-h-[36px] flex items-center justify-center"
           >
             Talk
           </button>
 
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="p-2 glass-pill rounded-full text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white focus:outline-none"
+            className="p-2 glass-pill rounded-full text-slate-700 dark:text-slate-200 hover:text-slate-900 dark:hover:text-white focus:outline-none cursor-pointer min-w-[36px] min-h-[36px] flex items-center justify-center"
             aria-label="Toggle mobile menu"
           >
             {mobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}

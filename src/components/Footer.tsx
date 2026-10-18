@@ -12,8 +12,8 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
   };
 
   return (
-    <footer className="py-16 px-4 sm:px-6 lg:px-8 bg-surface text-theme-primary border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
-      <div className="max-w-6xl mx-auto space-y-12">
+    <footer className="py-12 sm:py-16 px-4 sm:px-6 lg:px-8 bg-surface text-theme-primary border-t border-slate-200 dark:border-slate-800 transition-colors duration-300">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10">
         <div className="flex flex-col md:flex-row md:items-start lg:items-center justify-between gap-8">
           {/* Brand & Tagline */}
           <div className="space-y-2 max-w-sm">
@@ -79,7 +79,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
         </div>
 
         {/* Bottom Credits & Copyright */}
-        <div className="pt-8 border-t border-slate-200/60 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-slate-400 dark:text-slate-500">
+        <div className="pt-6 sm:pt-8 border-t border-slate-200/60 dark:border-slate-800 flex flex-col sm:flex-row sm:items-center justify-between gap-4 text-xs font-mono text-slate-400 dark:text-slate-500">
           <div className="text-center sm:text-left">
             © {new Date().getFullYear()} Karan Verma. All rights reserved.
           </div>

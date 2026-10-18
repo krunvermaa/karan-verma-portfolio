@@ -212,7 +212,7 @@ export const JourneySection: React.FC = () => {
   return (
     <section
       id="journey"
-      className="py-24 px-4 sm:px-6 lg:px-8 bg-[#FBFBFE] dark:bg-[#0B0715] text-slate-900 dark:text-white relative overflow-hidden select-none transition-colors duration-300"
+      className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FBFBFE] dark:bg-[#0B0715] text-slate-900 dark:text-white relative overflow-hidden select-none transition-colors duration-300"
     >
       {/* ========================================================================= */}
       {/* LIGHT WHITE & VIBRANT PURPLE AMBIENT LIGHTING GLOWS */}
@@ -238,7 +238,7 @@ export const JourneySection: React.FC = () => {
         </svg>
       </div>
 
-      <div className="max-w-6xl mx-auto space-y-12 sm:space-y-16 relative z-10">
+      <div className="max-w-6xl mx-auto space-y-8 sm:space-y-12 lg:space-y-14 relative z-10">
         {/* ========================================================================= */}
         {/* CONSISTENT SECTION HEADER (Matching Sections 01, 03, 05, 06) */}
         {/* ========================================================================= */}
@@ -422,7 +422,7 @@ export const JourneySection: React.FC = () => {
         {/* ========================================================================= */}
         {/* CENTERPIECE: THE 3D FROSTED PURPLE GLASS POCKET FOLDER & FANNING FLYERS */}
         {/* ========================================================================= */}
-        <div className="relative mx-auto max-w-4xl pt-6 sm:pt-14 pb-8">
+        <div className="relative mx-auto max-w-4xl pt-4 sm:pt-8 pb-6 sm:pb-8">
           {/* --------------------------------------------------------------------- */}
           {/* MOBILE VIEW: INTUITIVE CARD CAROUSEL & SWIPE SWITCHER (<640px) */}
           {/* --------------------------------------------------------------------- */}

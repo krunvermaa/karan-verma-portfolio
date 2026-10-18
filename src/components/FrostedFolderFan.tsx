@@ -78,9 +78,9 @@ export const FrostedFolderFan: React.FC<FrostedFolderFanProps> = ({ onSelectProj
   ];
 
   return (
-    <div className="w-full py-4 sm:py-6 select-none flex flex-col items-center overflow-hidden">
+    <div className="w-full py-2 sm:py-4 select-none flex flex-col items-center overflow-hidden">
       {/* 3D Fan Stage Container */}
-      <div className="relative w-full max-w-2xl h-80 min-[420px]:h-84 sm:h-96 flex items-center justify-center perspective-1000 my-1">
+      <div className="relative w-full max-w-2xl h-72 min-[380px]:h-78 min-[440px]:h-82 sm:h-90 flex items-center justify-center perspective-1000 my-1">
         {folderConfigs.map((cfg, idx) => {
           const project = PROJECTS.find((p) => p.id === cfg.id) || PROJECTS[idx];
           const isSelected = activeIdx === idx;
