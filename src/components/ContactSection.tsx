@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { PERSONAL_INFO } from '../data/portfolioData';
-import { Mail, Github, Linkedin, Copy, Check, Send, Clock, Plus, Minus, Sparkles, ShieldCheck } from 'lucide-react';
+import { Mail, Github, Linkedin, Copy, Check, Send, Clock, Plus, Minus, Sparkles, ShieldCheck, Phone } from 'lucide-react';
 
 interface CollaborationOption {
   id: string;
@@ -16,54 +16,55 @@ export const ContactSection: React.FC = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [submitted, setSubmitted] = useState(false);
   const [copied, setCopied] = useState(false);
+  const [phoneCopied, setPhoneCopied] = useState(false);
   const [currentTime, setCurrentTime] = useState<string>('');
 
   const collaborationOptions: CollaborationOption[] = [
     {
       id: 'work',
       label: 'for Work',
-      category: 'Full-Time / High-Impact Role',
-      defaultMessage: "Hi Karan, I'm reaching out regarding a full-stack engineering role on our team...",
+      category: 'Software Dev / Engineering Role',
+      defaultMessage: "Hi Karan, I'm reaching out regarding a software development / engineering opportunity on our team...",
       avatarBg: 'bg-slate-200 dark:bg-slate-800',
       avatarText: '💼',
     },
     {
       id: 'fun',
-      label: 'for Fun',
-      category: 'Creative Product / Hackathon',
-      defaultMessage: "Hey Karan, loved your portfolio! Let's build something wild and creative together...",
+      label: 'for Hackathons',
+      category: 'National Hackathons & Competitions',
+      defaultMessage: "Hey Karan, loved your MSME hackathon selections! Let's team up for an upcoming national hackathon...",
       avatarBg: 'bg-emerald-100 dark:bg-emerald-950/60',
-      avatarText: '🧝',
+      avatarText: '🏆',
     },
     {
       id: 'learning',
-      label: 'for Learning',
-      category: 'Architecture Review & Systems Chat',
-      defaultMessage: "Hi Karan, I wanted to discuss local-first architectures and your Wasm implementation...",
+      label: 'for AI & Systems',
+      category: 'Prompt Engineering & Python Pipelines',
+      defaultMessage: 'Hi Karan, I wanted to discuss your Python data automation work and prompt engineering strategies...',
       avatarBg: 'bg-indigo-100 dark:bg-indigo-950/60',
-      avatarText: '🧙‍♂️',
+      avatarText: '🤖',
     },
     {
       id: 'study',
-      label: 'for Study',
-      category: 'Mentorship & Campus Talks',
-      defaultMessage: 'Hi Karan, we would love to invite you to speak with student developers at our university...',
+      label: 'for Events & Talks',
+      category: 'Campus Speaking & Event Anchoring',
+      defaultMessage: 'Hi Karan, we would love to invite you to speak, anchor, or conduct a technical workshop with our students...',
       avatarBg: 'bg-rose-100 dark:bg-rose-950/60',
-      avatarText: '📚',
+      avatarText: '🎤',
     },
     {
       id: 'dont-know',
       label: "I Don't Know",
-      category: 'Exploratory Coffee Chat',
+      category: 'Exploratory Connection',
       defaultMessage: 'Hey Karan, no fixed agenda yet, just wanted to connect and say hello...',
       avatarBg: 'bg-amber-100 dark:bg-amber-950/60',
-      avatarText: '🕶️',
+      avatarText: '☕',
     },
     {
       id: 'routine',
-      label: 'Ahh... for Systems',
-      category: 'Sub-50ms Performance / Wasm',
-      defaultMessage: 'Hi Karan, we have a performance-critical bottleneck and would love your engineering perspective...',
+      label: 'for Innovation',
+      category: 'AgriTech & Transit Solutions',
+      defaultMessage: 'Hi Karan, saw your Agri Market Access and Railway Navigation platforms and would love to collaborate...',
       avatarBg: 'bg-purple-100 dark:bg-purple-950/60',
       avatarText: '⚡',
     },
@@ -99,6 +100,13 @@ export const ContactSection: React.FC = () => {
     navigator.clipboard.writeText(PERSONAL_INFO.email);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
+  };
+
+  const handleCopyPhone = () => {
+    const phoneToCopy = `+91 ${PERSONAL_INFO.phone || '8799577917'}`;
+    navigator.clipboard.writeText(phoneToCopy);
+    setPhoneCopied(true);
+    setTimeout(() => setPhoneCopied(false), 2500);
   };
 
   const handleOptionToggle = (opt: CollaborationOption) => {
@@ -159,6 +167,7 @@ export const ContactSection: React.FC = () => {
         </div>
 
         {/* ========================================================================= */}
+        {/* ========================================================================= */}
         {/* THE PLAYFUL APP DESIGN PILL SELECTOR (Reference: Playful App Design) */}
         {/* ========================================================================= */}
         <div className="grid lg:grid-cols-12 gap-10 items-start">
@@ -172,26 +181,26 @@ export const ContactSection: React.FC = () => {
                   <div
                     key={opt.id}
                     onClick={() => handleOptionToggle(opt)}
-                    className={`cursor-pointer group relative w-full min-h-[60px] sm:h-[68px] py-2 sm:py-0 rounded-full px-3.5 sm:px-5 flex items-center justify-between transition-all duration-300 ${
+                    className={`cursor-pointer group relative w-full min-h-[56px] sm:min-h-[68px] py-1.5 sm:py-0 rounded-full px-2.5 xs:px-3.5 sm:px-5 flex items-center justify-between transition-all duration-300 ${
                       isSelected
                         ? 'bg-white dark:bg-[#1A2130] border-2 border-indigo-600 dark:border-indigo-400 shadow-xl scale-[1.01] sm:scale-[1.02] z-20 text-slate-950 dark:text-white font-bold'
                         : 'bg-white dark:bg-[#121622] hover:bg-slate-50 dark:hover:bg-[#171D2B] border-2 border-dashed border-slate-300 dark:border-slate-700/80 hover:border-slate-400 dark:hover:border-slate-500 text-slate-800 dark:text-slate-200 shadow-xs'
                     }`}
                   >
                     {/* Left: Avatar Circle */}
-                    <div className="flex items-center gap-2.5 sm:gap-3.5 min-w-0 flex-1 pr-2">
+                    <div className="flex items-center gap-2 xs:gap-2.5 sm:gap-3.5 min-w-0 flex-1 pr-1.5 xs:pr-2">
                       <div
-                        className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 border border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center text-lg sm:text-2xl transition-transform group-hover:scale-110 ${opt.avatarBg}`}
+                        className={`w-9 h-9 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden shrink-0 border border-slate-300 dark:border-slate-700 shadow-sm flex items-center justify-center text-base xs:text-lg sm:text-2xl transition-transform group-hover:scale-110 ${opt.avatarBg}`}
                       >
                         {opt.avatarText}
                       </div>
 
                       {/* Center: Label Text */}
                       <div className="space-y-0.5 min-w-0 flex-1">
-                        <span className="font-display text-sm sm:text-base md:text-lg tracking-tight block text-slate-950 dark:text-white truncate">
+                        <span className="font-display text-xs xs:text-sm sm:text-base md:text-lg tracking-tight block text-slate-950 dark:text-white leading-snug">
                           {opt.label}
                         </span>
-                        <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400 block truncate font-medium">
+                        <span className="text-[9px] xs:text-[10px] sm:text-xs font-mono text-slate-600 dark:text-slate-400 block truncate font-medium">
                           {opt.category}
                         </span>
                       </div>
@@ -223,37 +232,106 @@ export const ContactSection: React.FC = () => {
 
           {/* Right Column: Transmission Desk, Live IST Clock, and Form */}
           <div className="lg:col-span-6 space-y-6">
-            {/* Quick Email & Live Clock Card */}
-            <div className="grid sm:grid-cols-2 gap-4">
+            {/* Direct Channels / Contact Desk Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
               {/* Direct Email Card */}
-              <div className="p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-3 transition-colors">
-                <div className="flex items-center justify-between text-xs font-mono text-slate-600 dark:text-slate-400">
-                  <span className="font-bold text-slate-800 dark:text-slate-200 uppercase">OFFICIAL EMAIL</span>
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
-                </div>
+              <div className="p-4 sm:p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-3 transition-colors flex flex-col justify-between">
+                <div className="space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-600 dark:text-slate-400">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 uppercase">OFFICIAL EMAIL</span>
+                    <span className="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse" />
+                  </div>
 
-                <div className="font-mono text-xs text-slate-950 dark:text-white font-bold truncate">
-                  {PERSONAL_INFO.email}
+                  <div className="font-mono text-xs text-slate-950 dark:text-white font-bold truncate">
+                    {PERSONAL_INFO.email}
+                  </div>
                 </div>
 
                 <button
+                  type="button"
                   onClick={handleCopyEmail}
-                  className="w-full py-2.5 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 text-xs font-bold shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer"
+                  className="w-full py-2.5 px-3 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 text-xs font-bold shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[42px]"
                 >
-                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600" /> : <Copy className="w-3.5 h-3.5" />}
+                  {copied ? <Check className="w-3.5 h-3.5 text-emerald-400 dark:text-emerald-600 shrink-0" /> : <Copy className="w-3.5 h-3.5 shrink-0" />}
                   <span>{copied ? 'Copied to Clipboard' : 'Copy Direct Email'}</span>
                 </button>
               </div>
 
-              {/* Live IST Clock Card */}
-              <div className="p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-2 font-mono transition-colors">
-                <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
-                  <span className="font-bold uppercase">LOCAL TIME (IST)</span>
-                  <Clock className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400" />
+              {/* Direct Phone / Call Card */}
+              <div className="p-4 sm:p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-3 transition-colors flex flex-col justify-between">
+                <div className="space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-600 dark:text-slate-400">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 uppercase">DIRECT PHONE</span>
+                    <Phone className="w-3.5 h-3.5 text-emerald-600 dark:text-emerald-400 shrink-0" />
+                  </div>
+
+                  <div className="font-mono text-xs text-slate-950 dark:text-white font-bold truncate">
+                    +91 {PERSONAL_INFO.phone || '8799577917'}
+                  </div>
                 </div>
 
-                <div className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tabular-nums">
-                  {currentTime || 'Loading Time...'}
+                <div className="grid grid-cols-2 gap-2">
+                  <a
+                    href={`tel:+91${PERSONAL_INFO.phone || '8799577917'}`}
+                    className="py-2.5 px-2 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[42px]"
+                  >
+                    <Phone className="w-3 h-3 shrink-0" />
+                    <span>Call</span>
+                  </a>
+                  <button
+                    type="button"
+                    onClick={handleCopyPhone}
+                    className="py-2.5 px-2 rounded-xl bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 text-xs font-bold shadow-xs transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[42px]"
+                  >
+                    {phoneCopied ? <Check className="w-3 h-3 text-emerald-400 dark:text-emerald-600 shrink-0" /> : <Copy className="w-3 h-3 shrink-0" />}
+                    <span>{phoneCopied ? 'Copied' : 'Copy'}</span>
+                  </button>
+                </div>
+              </div>
+
+              {/* Twitter / X Card */}
+              <div className="p-4 sm:p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-3 transition-colors flex flex-col justify-between">
+                <div className="space-y-1.5 min-w-0">
+                  <div className="flex items-center justify-between text-xs font-mono text-slate-600 dark:text-slate-400">
+                    <span className="font-bold text-slate-800 dark:text-slate-200 uppercase">TWITTER / X</span>
+                    <svg className="w-3.5 h-3.5 fill-current text-slate-700 dark:text-slate-300 shrink-0" viewBox="0 0 24 24">
+                      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                    </svg>
+                  </div>
+
+                  <div className="font-mono text-xs text-slate-950 dark:text-white font-bold truncate">
+                    {PERSONAL_INFO.twitterHandle || '@krunverma'}
+                  </div>
+
+                  <div className="text-[11px] text-slate-600 dark:text-slate-400 font-sans font-medium truncate">
+                    Contributor <span className="text-indigo-600 dark:text-indigo-400 font-semibold">@HackTourIND</span>
+                  </div>
+                </div>
+
+                <a
+                  href={PERSONAL_INFO.twitter || 'https://x.com/krunverma'}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-full py-2.5 px-3 rounded-xl bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 text-slate-900 dark:text-white text-xs font-bold border border-slate-300/80 dark:border-slate-700 transition flex items-center justify-center gap-1.5 cursor-pointer whitespace-nowrap min-h-[42px]"
+                >
+                  <svg className="w-3.5 h-3.5 fill-current shrink-0" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  <span>Connect on X</span>
+                </a>
+              </div>
+
+              {/* Live IST Clock Card */}
+              <div className="p-4 sm:p-5 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-lg space-y-3 font-mono transition-colors flex flex-col justify-between">
+                <div className="space-y-1">
+                  <div className="flex items-center justify-between text-xs text-slate-600 dark:text-slate-400">
+                    <span className="font-bold uppercase">LOCAL TIME (IST)</span>
+                    <Clock className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" />
+                  </div>
+
+                  <div className="text-xl sm:text-2xl font-black text-slate-950 dark:text-white tabular-nums">
+                    {currentTime || 'Loading Time...'}
+                  </div>
                 </div>
 
                 <div className="text-[11px] text-slate-600 dark:text-slate-400 font-sans font-medium">
@@ -263,7 +341,7 @@ export const ContactSection: React.FC = () => {
             </div>
 
             {/* Transmission Form */}
-            <div className="p-6 sm:p-8 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xl space-y-6 transition-colors">
+            <div className="p-5 sm:p-8 rounded-3xl bg-surface border border-slate-300 dark:border-slate-800 shadow-xl space-y-6 transition-colors">
               {submitted ? (
                 <div className="text-center py-10 space-y-4">
                   <div className="w-12 h-12 rounded-full bg-emerald-100 dark:bg-emerald-950/70 text-emerald-700 dark:text-emerald-300 mx-auto flex items-center justify-center shadow-sm">
@@ -281,25 +359,25 @@ export const ContactSection: React.FC = () => {
                       setSubmitted(false);
                       setFormData({ name: '', email: '', message: '' });
                     }}
-                    className="px-5 py-2.5 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition cursor-pointer"
+                    className="px-5 py-3 rounded-xl bg-slate-950 dark:bg-white text-white dark:text-slate-950 text-xs sm:text-sm font-bold hover:bg-slate-800 dark:hover:bg-slate-100 transition cursor-pointer min-h-[44px]"
                   >
                     Draft Another Note
                   </button>
                 </div>
               ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
+                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
                   <div className="flex items-center justify-between pb-2 border-b border-slate-200 dark:border-slate-800">
-                    <span className="font-display font-bold text-base text-slate-950 dark:text-white">
+                    <span className="font-display font-bold text-sm sm:text-base text-slate-950 dark:text-white">
                       Transmit a Message
                     </span>
-                    <span className="text-[10px] font-mono text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-300 dark:border-emerald-800 font-bold">
+                    <span className="text-[10px] sm:text-xs font-mono text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/70 px-2 py-0.5 rounded border border-emerald-300 dark:border-emerald-800 font-bold shrink-0">
                       &lt; 12H Response
                     </span>
                   </div>
 
-                  <div className="grid sm:grid-cols-2 gap-3">
-                    <div className="space-y-1">
-                      <label htmlFor="playful-name" className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+                    <div className="space-y-1.5">
+                      <label htmlFor="playful-name" className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 block">
                         Your Name <span className="text-rose-600">*</span>
                       </label>
                       <input
@@ -309,12 +387,12 @@ export const ContactSection: React.FC = () => {
                         value={formData.name}
                         onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                         placeholder="e.g. Maya Lin"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-xs sm:text-sm outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 font-sans"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-sm sm:text-base outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 font-sans min-h-[44px]"
                       />
                     </div>
 
-                    <div className="space-y-1">
-                      <label htmlFor="playful-email" className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                    <div className="space-y-1.5">
+                      <label htmlFor="playful-email" className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 block">
                         Your Email <span className="text-rose-600">*</span>
                       </label>
                       <input
@@ -324,18 +402,18 @@ export const ContactSection: React.FC = () => {
                         value={formData.email}
                         onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                         placeholder="maya@company.com"
-                        className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-xs sm:text-sm outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 font-sans"
+                        className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-sm sm:text-base outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 font-sans min-h-[44px]"
                       />
                     </div>
                   </div>
 
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between">
-                      <label htmlFor="playful-message" className="text-xs font-bold text-slate-800 dark:text-slate-200">
+                  <div className="space-y-1.5">
+                    <div className="flex flex-wrap items-center justify-between gap-1">
+                      <label htmlFor="playful-message" className="text-xs sm:text-sm font-bold text-slate-800 dark:text-slate-200 block">
                         Message Payload <span className="text-rose-600">*</span>
                       </label>
                       {selectedOptionId && (
-                        <span className="text-[10px] font-mono text-indigo-700 dark:text-indigo-400 font-bold">
+                        <span className="text-[10px] sm:text-xs font-mono text-indigo-700 dark:text-indigo-400 font-bold">
                           Scope: {collaborationOptions.find((o) => o.id === selectedOptionId)?.label}
                         </span>
                       )}
@@ -347,44 +425,56 @@ export const ContactSection: React.FC = () => {
                       value={formData.message}
                       onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                       placeholder="Tell me about what you are building, the scope, or the role..."
-                      className="w-full px-3.5 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-xs sm:text-sm outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-y font-sans leading-relaxed"
+                      className="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 focus:border-indigo-600 dark:focus:border-indigo-400 focus:ring-1 focus:ring-indigo-600 dark:focus:ring-indigo-400 text-sm sm:text-base outline-none transition bg-surface-subtle dark:bg-[#0E121B] text-slate-950 dark:text-white placeholder:text-slate-400 dark:placeholder:text-slate-500 resize-y font-sans leading-relaxed min-h-[110px]"
                     />
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 rounded-xl text-xs sm:text-sm font-bold shadow-md hover:shadow-lg transition-all cursor-pointer"
+                    className="w-full inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-slate-950 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-950 rounded-xl text-sm sm:text-base font-bold shadow-md hover:shadow-lg transition-all cursor-pointer min-h-[48px] active:scale-[0.99]"
                   >
                     <span>Transmit Message</span>
-                    <Send className="w-4 h-4" />
+                    <Send className="w-4 h-4 shrink-0" />
                   </button>
                 </form>
               )}
             </div>
 
             {/* Social Signal Links */}
-            <div className="flex items-center justify-center gap-4 text-xs font-mono text-slate-500 dark:text-slate-400">
+            <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 text-xs font-mono text-slate-500 dark:text-slate-400 pt-2">
               <a
                 href={PERSONAL_INFO.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5"
+                className="hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5 py-1 px-1 rounded"
               >
                 <Github className="w-3.5 h-3.5 text-slate-800 dark:text-slate-200" />
                 <span>GitHub</span>
               </a>
-              <span>·</span>
+              <span className="hidden xs:inline">·</span>
               <a
                 href={PERSONAL_INFO.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1.5"
+                className="hover:text-blue-600 dark:hover:text-blue-400 transition flex items-center gap-1.5 py-1 px-1 rounded"
               >
                 <Linkedin className="w-3.5 h-3.5 text-blue-600 dark:text-blue-400" />
                 <span>LinkedIn</span>
               </a>
-              <span>·</span>
-              <span>Available for Fall '26</span>
+              <span className="hidden xs:inline">·</span>
+              <a
+                href={PERSONAL_INFO.twitter || 'https://x.com/krunverma'}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-slate-900 dark:hover:text-white transition flex items-center gap-1.5 py-1 px-1 rounded"
+              >
+                <svg className="w-3.5 h-3.5 fill-current text-slate-800 dark:text-slate-200" viewBox="0 0 24 24">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                </svg>
+                <span>X ({PERSONAL_INFO.twitterHandle || '@krunverma'})</span>
+              </a>
+              <span className="hidden sm:inline">·</span>
+              <span className="w-full text-center sm:w-auto">Available for Software Engineering Roles</span>
             </div>
           </div>
         </div>

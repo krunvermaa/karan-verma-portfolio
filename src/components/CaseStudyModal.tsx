@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Project } from '../data/portfolioData';
 import { ProjectMockup } from './ProjectMockup';
-import { X, ExternalLink, Github, CheckCircle2, ArrowRight, Layers, Cpu, ShieldAlert, TrendingUp } from 'lucide-react';
+import { X, ExternalLink, Github, CheckCircle2, ArrowRight, Layers, Cpu, ShieldAlert, TrendingUp, Award, Users } from 'lucide-react';
 
 interface CaseStudyModalProps {
   project: Project | null;
@@ -93,9 +93,11 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
         {/* Content Body */}
         <div className="p-4 sm:p-10 space-y-8 sm:space-y-10">
           {/* Title & Tagline */}
-          <div className="space-y-2 sm:space-y-3">
-            <div className="text-xs font-mono font-bold text-indigo-700 dark:text-indigo-400">
-              {project.year} · Production Engineering
+          <div className="space-y-3">
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono font-bold text-indigo-700 dark:text-indigo-400">
+              <span>{project.year} · Production Engineering</span>
+              <span className="text-slate-300 dark:text-slate-700">·</span>
+              <span className="text-slate-700 dark:text-slate-300">{project.category}</span>
             </div>
             <h2 id="case-study-title" className="text-2xl sm:text-4xl font-display font-extrabold tracking-tight text-slate-950 dark:text-white">
               {project.title}
@@ -103,6 +105,36 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
             <p className="text-base sm:text-lg text-slate-700 dark:text-slate-200 leading-relaxed font-sans max-w-2xl font-medium">
               {project.tagline}
             </p>
+
+            {/* Official Announcement Credential Badge */}
+            {project.announcement && (
+              <div className="pt-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-3.5 sm:p-4 rounded-xl bg-gradient-to-r from-emerald-50 via-teal-50/50 to-emerald-50 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-emerald-950/40 border border-emerald-300/80 dark:border-emerald-700/60 shadow-xs">
+                  <div className="flex items-center gap-2.5">
+                    <div className="p-2 rounded-lg bg-emerald-600 dark:bg-emerald-500 text-white shadow-xs shrink-0">
+                      <Award className="w-4 h-4" />
+                    </div>
+                    <div>
+                      <div className="flex items-center gap-2">
+                        <span className="text-[10px] font-mono uppercase tracking-wider font-extrabold px-2 py-0.5 rounded bg-emerald-200/90 dark:bg-emerald-800/80 text-emerald-900 dark:text-emerald-100">
+                          Official Credential
+                        </span>
+                        <span className="flex h-2 w-2 relative">
+                          <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                          <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500" />
+                        </span>
+                      </div>
+                      <div className="text-xs sm:text-sm font-bold text-emerald-950 dark:text-emerald-100 mt-0.5">
+                        MIT Group of Institutes Ujjain Official Announcement
+                      </div>
+                    </div>
+                  </div>
+                  <div className="text-xs font-mono text-emerald-800 dark:text-emerald-300 font-semibold sm:text-right bg-emerald-100/60 dark:bg-emerald-900/40 px-2.5 py-1 rounded-md border border-emerald-200 dark:border-emerald-800/60">
+                    {project.announcement}
+                  </div>
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Interactive Mockup Preview */}
@@ -121,6 +153,63 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({
               </div>
             ))}
           </div>
+
+          {/* Team & Collaboration Card */}
+          {project.team && project.team.length > 0 && (
+            <div className="p-5 sm:p-6 rounded-xl border border-indigo-200/90 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50/70 via-white to-slate-50 dark:from-indigo-950/25 dark:via-[#131826] dark:to-slate-900/40 shadow-xs space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-2">
+                <div className="flex items-center gap-2 text-indigo-950 dark:text-indigo-200 font-bold text-sm sm:text-base">
+                  <Users className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+                  <span>Team & Collaboration</span>
+                </div>
+                <span className="text-[11px] font-mono font-semibold px-2.5 py-0.5 rounded-full bg-indigo-100 dark:bg-indigo-900/60 text-indigo-800 dark:text-indigo-300 border border-indigo-200 dark:border-indigo-800">
+                  {project.team.length} Core Contributors
+                </span>
+              </div>
+
+              <p className="text-xs sm:text-sm text-slate-700 dark:text-slate-300 font-sans leading-relaxed">
+                Selected for ₹15 Lakh grant-in-aid under MSME Idea Hackathon 5.0, engineered in collaboration with fellow student innovators:
+              </p>
+
+              <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+                {project.team.map((member, idx) => {
+                  const isKaran = member.toLowerCase().includes('karan');
+                  return (
+                    <div
+                      key={idx}
+                      className={`p-3 rounded-lg border transition-all flex items-center gap-2.5 ${
+                        isKaran
+                          ? 'bg-indigo-100/80 dark:bg-indigo-900/50 border-indigo-300 dark:border-indigo-700 shadow-xs ring-1 ring-indigo-400/30'
+                          : 'bg-white dark:bg-slate-900/80 border-slate-200 dark:border-slate-800 hover:border-slate-300 dark:hover:border-slate-700'
+                      }`}
+                    >
+                      <div
+                        className={`w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold font-mono shrink-0 ${
+                          isKaran
+                            ? 'bg-indigo-600 text-white dark:bg-indigo-500'
+                            : 'bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300'
+                        }`}
+                      >
+                        {member
+                          .split(' ')
+                          .map((n) => n[0])
+                          .join('')
+                          .slice(0, 2)}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="text-xs font-bold text-slate-950 dark:text-white truncate">
+                          {member}
+                        </div>
+                        <div className="text-[10px] font-mono text-slate-500 dark:text-slate-400">
+                          {isKaran ? 'Co-Developer (Portfolio)' : 'Team Member'}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          )}
 
           {/* Problem & Solution Grid */}
           <div className="grid md:grid-cols-2 gap-8">

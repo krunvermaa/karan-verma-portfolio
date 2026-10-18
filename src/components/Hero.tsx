@@ -19,42 +19,43 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
       <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[900px] h-[520px] bg-gradient-to-b from-indigo-300/35 dark:from-indigo-900/30 via-blue-200/20 dark:via-blue-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
       <div className="absolute bottom-10 -right-24 w-80 h-80 bg-purple-200/25 dark:bg-purple-950/20 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="max-w-6xl mx-auto w-full relative z-10 flex-1 flex flex-col justify-center items-center text-center space-y-7 sm:space-y-9">
+      <div className="max-w-6xl mx-auto w-full relative z-10 flex-1 flex flex-col justify-center items-center text-center space-y-6 sm:space-y-8 md:space-y-9">
         {/* 3.1 Identity / Editorial Label */}
         <div className="flex flex-col items-center gap-1 pt-2">
-          <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.28em] text-slate-900 dark:text-white uppercase">
+          <span className="font-mono text-xs sm:text-sm font-bold tracking-[0.2em] sm:tracking-[0.28em] text-slate-900 dark:text-white uppercase">
             KARAN VERMA
           </span>
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.22em] text-slate-600 dark:text-slate-400 uppercase font-semibold">
+          <span className="font-mono text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.22em] text-slate-600 dark:text-slate-400 uppercase font-semibold">
             SELECTED WORKS / 2025–26
           </span>
         </div>
 
         {/* 3.2 Main Hero Headline */}
-        <div className="space-y-4 sm:space-y-5 max-w-4xl mx-auto">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-[5.25rem] font-display font-black tracking-tight text-slate-950 dark:text-white leading-[1.02] sm:leading-[0.98] uppercase">
+        <div className="space-y-3 sm:space-y-5 max-w-4xl mx-auto px-1 sm:px-4">
+          <h1 className="text-[1.85rem] min-[360px]:text-[2.2rem] min-[420px]:text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-[5.25rem] font-display font-black tracking-tight text-slate-950 dark:text-white leading-[1.08] sm:leading-[1.02] md:leading-[0.98] uppercase break-words">
             <span className="block">I BUILD SOFTWARE</span>
             <span className="block text-slate-800 dark:text-slate-200">THAT FEELS AS GOOD</span>
             <span className="block text-slate-950 dark:text-white">AS IT WORKS.</span>
           </h1>
 
           {/* 3.3 Professional Positioning */}
-          <p className="font-mono text-xs sm:text-sm md:text-base font-bold tracking-tight text-indigo-700 dark:text-indigo-400 uppercase">
-            Full-Stack Developer · Product Designer · Builder
+          <p className="font-mono text-[11px] min-[380px]:text-xs sm:text-sm md:text-base font-bold tracking-tight text-indigo-700 dark:text-indigo-400 uppercase px-2">
+            Computer Science Engineer · Software Developer · MSME Fellow
           </p>
 
           {/* 3.4 Supporting Description */}
-          <p className="max-w-xl mx-auto text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 font-sans leading-relaxed font-normal">
-            I design and build digital products, interactive systems, and web experiences where engineering meets visual detail.
+          <p className="max-w-xl mx-auto text-xs min-[380px]:text-sm sm:text-base md:text-lg text-slate-600 dark:text-slate-400 font-sans leading-relaxed font-normal px-2">
+            Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. College topper with dual MSME 5.0 selections (₹30L combined) and active leadership across 35+ campus events.
           </p>
         </div>
 
         {/* 4. Primary Actions */}
-        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4 pt-1">
+        <div className="flex flex-col min-[480px]:flex-row items-stretch min-[480px]:items-center justify-center gap-3 sm:gap-4 pt-1 w-full max-w-xs min-[480px]:max-w-none px-4 min-[480px]:px-0">
           {/* Primary CTA */}
           <button
+            type="button"
             onClick={onExploreWork}
-            className="inline-flex items-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-mono text-xs sm:text-sm font-bold tracking-wider hover:bg-slate-800 dark:hover:bg-slate-100 shadow-md hover:shadow-xl transition-all duration-200 cursor-pointer group"
+            className="w-full min-[480px]:w-auto inline-flex items-center justify-center gap-2.5 px-6 sm:px-7 py-3 sm:py-3.5 rounded-full bg-slate-950 dark:bg-white text-white dark:text-slate-950 font-mono text-xs sm:text-sm font-bold tracking-wider hover:bg-slate-800 dark:hover:bg-slate-100 shadow-md hover:shadow-xl transition-all duration-200 cursor-pointer group min-h-[44px]"
           >
             <span>EXPLORE MY WORK</span>
             <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
@@ -62,8 +63,9 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
 
           {/* Secondary CTA */}
           <button
+            type="button"
             onClick={onContact}
-            className="inline-flex items-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs sm:text-sm font-bold tracking-wider border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/80 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer group"
+            className="w-full min-[480px]:w-auto inline-flex items-center justify-center gap-2 px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white dark:bg-slate-900 text-slate-900 dark:text-white font-mono text-xs sm:text-sm font-bold tracking-wider border border-slate-300 dark:border-slate-700 hover:border-slate-400 dark:hover:border-slate-600 hover:bg-slate-50 dark:hover:bg-slate-800/80 shadow-2xs hover:shadow-xs transition-all duration-200 cursor-pointer group min-h-[44px]"
           >
             <span>LET'S CONNECT</span>
             <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -71,14 +73,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWork, onContact, onSelectPr
         </div>
 
         {/* 5. Capability Metadata */}
-        <div className="pt-1">
-          <span className="font-mono text-[10px] sm:text-xs tracking-[0.26em] text-slate-600 dark:text-slate-400 uppercase font-semibold">
-            WEB · PRODUCT · SYSTEMS · DESIGN
+        <div className="pt-1 px-2">
+          <span className="font-mono text-[9px] min-[360px]:text-[10px] sm:text-xs tracking-[0.16em] sm:tracking-[0.26em] text-slate-600 dark:text-slate-400 uppercase font-semibold block text-center">
+            AI PLATFORMS · PYTHON · WEB · CAMPUS LEADERSHIP
           </span>
         </div>
 
         {/* 6. Interactive Project Centerpiece */}
-        <div className="w-full pt-4 sm:pt-6">
+        <div className="w-full pt-2 sm:pt-6">
           <FrostedFolderFan onSelectProject={onSelectProject} />
         </div>
       </div>

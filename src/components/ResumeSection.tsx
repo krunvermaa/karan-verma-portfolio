@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { PERSONAL_INFO, PROJECTS } from '../data/portfolioData';
-import { Download, Printer, Copy, Check, Sparkles, ArrowRight, ExternalLink } from 'lucide-react';
+import { Download, Printer, Copy, Check, Sparkles, ArrowRight, ExternalLink, Phone, Twitter, Mail, Users, Award } from 'lucide-react';
 
 export const ResumeSection: React.FC = () => {
   const [copied, setCopied] = useState(false);
@@ -8,46 +8,60 @@ export const ResumeSection: React.FC = () => {
   // Generates clean markdown resume text for download
   const handleDownloadMarkdown = () => {
     const markdownContent = `# KARAN VERMA
-Full-Stack Developer & Product Designer
+Computer Science and Engineering Undergraduate
+Phone: ${PERSONAL_INFO.phone || '8799577917'}
 Email: ${PERSONAL_INFO.email}
+Twitter/X: ${PERSONAL_INFO.twitterHandle || '@krunverma'} (${PERSONAL_INFO.twitter})
 GitHub: ${PERSONAL_INFO.github}
 LinkedIn: ${PERSONAL_INFO.linkedin}
 Location: ${PERSONAL_INFO.location}
-License ID: #0026-NIT-SYSTEMS
+Credential ID: #MIT-UJJAIN-CSE-TOPPER
+
+## PROFESSIONAL SUMMARY
+Computer Science and Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic performance (SGPAs of 8.48, 8.57, and 8.54 - College Topper) and internship experiences. Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for grant-in-aid consideration (₹30 Lakh combined), alongside participation in national level hackathons. Brings a combination of technical problem solving, analytical thinking, and leadership experience through student council responsibilities and campus initiatives.
 
 ## EDUCATION
-${PERSONAL_INFO.education.degree}
-${PERSONAL_INFO.education.institution} (${PERSONAL_INFO.education.period})
-Focus: ${PERSONAL_INFO.education.focus}
+- B.Tech in Computer Science and Engineering | Mahakal Institute of Technology, Ujjain (Ongoing)
+  SGPA: 8.48 (Semester 1, College Topper) | 8.57 (Semester 2, College Topper) | 8.54 (Semester 3, Runner-up)
+- Higher Secondary Certificate (Class XII) | CBSE (2023-24): 93%
+- Secondary School Certificate (Class X) | GSEB (2021-22): 88.7%
 
-## TECHNICAL COMPETENCIES
-- Languages: TypeScript, JavaScript, Go, Rust, Python, SQL
-- Frontend: React 19, Next.js, Tailwind CSS, Canvas API, Radix UI, Performance Optimization
-- Backend: Node.js, Express, PostgreSQL, WebSockets, WebRTC, Redis, CRDT
-- Tooling: Vite, Git, Docker, Linux, Figma Tokens, Vitest, Playwright
+## INTERNSHIP EXPERIENCE
+- Python Developer Intern · IndusAI Solutions (Jul 2025 – Aug 2025)
+  Completed a 3-week Python Developer internship at IndusAI Solutions (MSME-registered); internship completion certificate issued Aug 2025. Built automated data pipelines and validation scripts.
+- Content & Marketing Intern · HACKTOUR IND (Web3 company, Jul 2025 – Nov 2025)
+  Handled technical content, documentation, and digital marketing activities for Web3 ecosystems. Active participant and contributor across Arweave / Permaweb Buildstation (Agents of the Permaweb Hackathon), Zcash India meetups, and Avalanche City Connect. Contributor @HackTourIND (X: ${PERSONAL_INFO.twitterHandle || '@krunverma'}).
 
-## PRODUCTION EXPERIENCE
-- Lead Product Engineer · Aura Design System & Community (2025 — Present)
-  Authored open-source design token pipelines and accessible headless primitives used by over 1,200 developers. Maintained 100% WCAG AAA accessibility.
-- Software Engineering Intern · FinTech Analytics Hub (2024 Q3 — Q4)
-  Engineered real-time trade execution ticker handling 4,000 updates/sec. Slashed portal initial paint time by 48% via dynamic code splitting.
-- Systems Developer · NIT Campus Cloud & Labs (2023)
-  Engineered WebSocket broadcast pipelines and local-first offline CRDT sync engines.
+## SELECTED ACHIEVEMENTS & AWARDS
+- MSME Idea Hackathon 5.0 (2025): Two ideas selected for grant-in-aid consideration (₹15 Lakh indicated for each idea, ₹30 Lakh combined):
+  1. Smart AI Based Agri Market Access Platform (Team: Sourav Chaudhary, Sneha Patidar, Sneha Sharma, Karan Verma)
+  2. AI Based Real Time Navigation Platform for Railway Stations (Team: Sourav Chaudhary, Sneha Patidar, Sneha Sharma, Karan Verma)
+  Confirmed via official MIT Group of Institutes Ujjain announcement.
+- Masters’ Union The CEO Challenge (Jan 2023): 12th position in India in Round 1; advanced to Round 2.
 
-## VERIFIED PROJECTS
-${PROJECTS.map(
-  (p) => `### ${p.title} (${p.year})
-${p.tagline}
-- Stack: ${p.technologies.join(', ')}
-- Source: ${p.githubUrl}
-- Outcomes: ${p.outcomes.map((o) => `${o.label}: ${o.value}`).join(' | ')}
-`
-).join('\n')}
+## LEADERSHIP & CAMPUS EXPERIENCE
+- Vice President, Student Council | Mahakal Institute of Technology, Ujjain (2026-27, Current)
+- Joint Secretary, Student Council | Mahakal Institute of Technology, Ujjain (2025-26)
+- Class Representative, Student Council | Mahakal Institute of Technology, Ujjain (2024-25)
+- Prompt Engineering Lead | MGI Coding Club (2025-26)
+- Coordinated and organized 20+ college events across different campus clubs.
+- Anchored 35+ college ceremonies and events, building public speaking and stakeholder communication skills.
 
-## ENGINEERING ETHOS
-- Performance as an Aesthetic: Sub-50ms interaction feedback
-- Zero-AI Slop: Human-crafted architecture, robust schemas, editorial typography
-- Local-First Resilience: IndexedDB + CRDT offline synchronization
+## HACKATHONS & COMPETITIONS
+- HACKWAVE 3.0 | 36 hour national level hackathon, CDGI, Indore (Oct 2026)
+- AGNITIA 2026 | 36 hour national hackathon, PIEMR, Indore (Oct 2026)
+- .EXECUTE | 36 hour national level hackathon, NMIMS, Indore (Mar 2026)
+- ALGORUSH | Bug fixing competition, NMIMS, Indore (Mar 2026)
+- Smart India Hackathon (SIH) | Internal institutional hackathons (twice)
+- Arweave / Permaweb Buildstation | Agents of the Permaweb Hackathon
+- Zcash India Meetups & Community | Active Web3 Contributor
+- Avalanche City Connect (Jaipur) | Web3 Ecosystem Delegate
+
+## TECHNICAL SKILLS
+- Programming: Python (Internship experience), C (Basic), C++ (Basic), SQL (Currently Learning)
+- Web Development: React 19, TypeScript, Tailwind CSS, Modern Web Architecture
+- AI & Tools: Prompt Engineering, GitHub, VS Code
+- Languages: Hindi, English, Gujarati, Punjabi
 `;
 
     const blob = new Blob([markdownContent], { type: 'text/markdown;charset=utf-8;' });
@@ -66,10 +80,11 @@ ${p.tagline}
   };
 
   const handleCopySummary = () => {
-    const summary = `Karan Verma — Full-Stack Developer & Product Designer
-Email: ${PERSONAL_INFO.email} | GitHub: ${PERSONAL_INFO.github}
-B.Tech CSE (2022-2026) | National Institute of Technology
-Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems, Offline-First Web Applications.`;
+    const summary = `Karan Verma — Computer Science & Engineering Undergraduate
+Mahakal Institute of Technology, Ujjain | SGPA: 8.48, 8.57, 8.54 (College Topper)
+Phone: ${PERSONAL_INFO.phone || '+91 8799577917'} | Email: ${PERSONAL_INFO.email} | Twitter/X: ${PERSONAL_INFO.twitterHandle || '@krunverma'} (${PERSONAL_INFO.twitter}) | GitHub: ${PERSONAL_INFO.github} | LinkedIn: ${PERSONAL_INFO.linkedin}
+MSME Idea Hackathon 5.0 (Two Ideas Selected for ₹30L Grant-in-aid Consideration — Team: Sourav Chaudhary, Sneha Patidar, Sneha Sharma, Karan Verma)
+Vice President, Student Council (CR 24-25 → Joint Sec 25-26 → VP 26-27) | Python Intern (IndusAI Solutions) | Web3 Contributor (HACKTOUR IND: Arweave, Zcash, Avalanche) | 35+ Events Anchored`;
     navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
@@ -153,11 +168,11 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
           {/* ======================================================================= */}
           {/* TOP ROW: WHITE ID CARD (LEFT) + RETRO "HELLO!" POP STICKER (RIGHT) */}
           {/* ======================================================================= */}
-          <div className="relative z-20 pt-8 sm:pt-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="relative z-20 pt-8 sm:pt-10 flex flex-col lg:flex-row items-center lg:items-start xl:items-center justify-between gap-6 lg:gap-8">
             {/* ------------------------------------------------------------------- */}
             {/* 1. THE WHITE IDENTITY PASS CARD (Image Reference: Top-Left Card) */}
             {/* ------------------------------------------------------------------- */}
-            <div className="relative w-full max-w-xl rounded-2xl bg-[#FFFFFF] text-slate-950 p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-slate-300 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+            <div className="relative w-full max-w-xl mx-auto lg:mx-0 rounded-2xl bg-[#FFFFFF] text-slate-950 p-4 sm:p-6 shadow-[0_20px_50px_rgba(0,0,0,0.6)] border border-slate-300 transform rotate-0 lg:-rotate-1 hover:rotate-0 transition-transform duration-300">
               {/* Corner Star Accent */}
               <div className="absolute top-3 left-3 text-slate-950 font-serif text-sm">✦</div>
 
@@ -191,7 +206,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                         <span className="tracking-wide">VERMA</span>
                       </h3>
                       <p className="font-mono text-xs font-bold text-rose-700 uppercase tracking-wider pt-1 truncate">
-                        Full-Stack Engineer · NIT '26
+                        CS Engineer · MIT Ujjain '26
                       </p>
                     </div>
 
@@ -207,7 +222,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
 
                   {/* Bio statement */}
                   <p className="text-xs sm:text-[13px] text-slate-800 font-sans font-medium leading-relaxed">
-                    A computer science engineer and product designer crafting resilient systems and sub-50ms web experiences.
+                    Computer Science undergraduate at Mahakal Institute of Technology, Ujjain. College topper with dual MSME 5.0 grant selections (₹30L combined).
                   </p>
 
                   {/* Micro-Data Table with High Contrast Text */}
@@ -217,8 +232,8 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                       <span className="font-black text-slate-950">MALE</span>
                     </div>
                     <div className="border-r border-slate-200 pr-1 pl-1">
-                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Birth Year</span>
-                      <span className="font-black text-slate-950">2004</span>
+                      <span className="text-slate-600 block text-[9px] uppercase font-bold">Status</span>
+                      <span className="font-black text-slate-950">B.TECH CSE</span>
                     </div>
                     <div className="pl-1">
                       <span className="text-slate-600 block text-[9px] uppercase font-bold">Nationality</span>
@@ -226,15 +241,49 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                     </div>
                   </div>
 
-                  {/* Social Handles & SVG QR Matrix */}
-                  <div className="pt-2 flex items-center justify-between border-t border-slate-200 text-xs font-mono text-slate-800">
-                    <div className="space-y-0.5 min-w-0 pr-2">
-                      <div className="truncate font-bold text-slate-900">{PERSONAL_INFO.email}</div>
-                      <div className="truncate text-slate-700 font-semibold">github.com/karanverma</div>
+                  {/* Social Handles, Phone, Twitter & SVG QR Matrix */}
+                  <div className="pt-2 flex flex-col xs:flex-row items-start xs:items-center justify-between gap-2 border-t border-slate-200 text-xs font-mono text-slate-800">
+                    <div className="space-y-1 min-w-0 pr-2 text-[11px] w-full xs:w-auto">
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5">
+                        <a
+                          href="tel:8799577917"
+                          className="inline-flex items-center gap-1 font-bold text-slate-950 hover:text-rose-600 transition-colors"
+                        >
+                          <Phone className="w-3 h-3 text-rose-600 shrink-0" />
+                          <span>+91 8799577917</span>
+                        </a>
+                        <span className="text-slate-300">·</span>
+                        <a
+                          href={PERSONAL_INFO.twitter}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1 font-bold text-sky-700 hover:text-sky-900 transition-colors"
+                        >
+                          <Twitter className="w-3 h-3 text-sky-500 fill-current shrink-0" />
+                          <span>@krunverma</span>
+                        </a>
+                      </div>
+                      <div className="flex flex-wrap items-center gap-x-2 gap-y-0.5 text-slate-700">
+                        <a
+                          href={`mailto:${PERSONAL_INFO.email}`}
+                          className="truncate font-semibold hover:text-slate-950 transition-colors max-w-[170px] sm:max-w-none"
+                        >
+                          {PERSONAL_INFO.email}
+                        </a>
+                        <span className="text-slate-300">·</span>
+                        <a
+                          href={PERSONAL_INFO.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="truncate font-semibold hover:text-slate-950 transition-colors"
+                        >
+                          github.com/krunvermaa
+                        </a>
+                      </div>
                     </div>
 
                     {/* Miniature Pixel QR Code */}
-                    <div className="w-8 h-8 bg-slate-950 p-1 rounded-sm shrink-0 flex flex-col justify-between" title="Portfolio QR">
+                    <div className="w-8 h-8 bg-slate-950 p-1 rounded-sm shrink-0 self-end xs:self-auto flex flex-col justify-between" title="Portfolio QR (+91 8799577917 / @krunverma)">
                       <div className="flex justify-between">
                         <div className="w-2 h-2 bg-white" />
                         <div className="w-2 h-2 bg-white" />
@@ -255,7 +304,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
             {/* ------------------------------------------------------------------- */}
             {/* 2. THE RETRO "HELLO!" POP ART STICKER WITH EYE (Top-Right) */}
             {/* ------------------------------------------------------------------- */}
-            <div className="self-center md:self-auto shrink-0 transform rotate-3 hover:rotate-0 transition-transform duration-300 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]">
+            <div className="self-center lg:self-auto shrink-0 transform rotate-0 lg:rotate-3 hover:rotate-0 transition-transform duration-300 drop-shadow-[0_12px_24px_rgba(0,0,0,0.5)]">
               <div className="relative p-2 rounded-2xl bg-black border-2 border-white space-y-2">
                 {/* Speech Bubble Header: "HELLO!" */}
                 <div className="px-5 py-1.5 rounded-xl bg-[#00F0FF] border-2 border-black text-black font-display font-black text-2xl sm:text-3xl tracking-tight text-center uppercase shadow-sm">
@@ -284,27 +333,40 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
             {/* ------------------------------------------------------------------- */}
             {/* 3. CENTER-LEFT: THE WHITE PERFORATED WORK EXPERIENCE SHEET */}
             {/* ------------------------------------------------------------------- */}
-            <div className="lg:col-span-7 relative rounded-2xl bg-[#FFFFFF] text-slate-950 p-5 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-slate-300 transform -rotate-1 hover:rotate-0 transition-transform duration-300">
-              {/* Top Calligraphic Script: "Work Experience" with Street Brush Style */}
-              <div className="pb-4 border-b border-slate-200 flex items-center justify-between">
-                <div className="font-serif italic font-black text-2xl sm:text-3xl text-slate-950 tracking-tight">
-                  Work Experience
+            <div className="lg:col-span-7 relative rounded-2xl bg-[#FFFFFF] text-slate-950 p-5 sm:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border border-slate-300 transform rotate-0 lg:-rotate-1 hover:rotate-0 transition-transform duration-300">
+              {/* Top Calligraphic Script: "Work Experience" with Direct Contact Row */}
+              <div className="pb-3 border-b border-slate-200 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                <div>
+                  <div className="font-serif italic font-black text-2xl sm:text-3xl text-slate-950 tracking-tight">
+                    Work Experience
+                  </div>
+                  <div className="flex items-center gap-2 pt-0.5 text-xs font-mono text-slate-600">
+                    <a href="tel:8799577917" className="hover:text-slate-950 font-bold flex items-center gap-1">
+                      <Phone className="w-3 h-3 text-rose-600" />
+                      <span>+91 8799577917</span>
+                    </a>
+                    <span>·</span>
+                    <a href={PERSONAL_INFO.twitter} target="_blank" rel="noopener noreferrer" className="text-sky-700 hover:underline font-bold flex items-center gap-1">
+                      <Twitter className="w-3 h-3 text-sky-500 fill-current" />
+                      <span>@krunverma</span>
+                    </a>
+                  </div>
                 </div>
-                <div className="font-mono text-xs font-bold text-slate-600">
+                <div className="font-mono text-xs font-bold text-slate-600 self-start sm:self-auto">
                   2022 — 2026
                 </div>
               </div>
 
-              {/* Mobile Horizontal Banner for Small Screens (< 640px) */}
-              <div className="sm:hidden font-display font-black text-lg text-[#E11D48] tracking-widest uppercase pt-3 pb-1 border-b border-slate-100 flex items-center gap-2">
+              {/* Horizontal Banner for Mobile and Tablet (< 1024px) */}
+              <div className="lg:hidden font-display font-black text-lg text-[#E11D48] tracking-widest uppercase pt-3 pb-1 border-b border-slate-100 flex items-center gap-2">
                 <span>EXPERIENCE</span>
                 <span className="text-slate-400 text-xs font-mono font-normal">/ Production Records</span>
               </div>
 
-              {/* Body: Red Vertical "EXPERIENCE" Spine + Roles */}
-              <div className="flex gap-4 sm:gap-6 pt-4 sm:pt-5">
-                {/* Desktop Red Vertical Giant Stencil Banner */}
-                <div className="hidden sm:flex shrink-0 items-center justify-center border-r border-slate-200 pr-3 sm:pr-4">
+              {/* Body: Red Vertical "EXPERIENCE" Spine (Desktop lg: only) + Roles */}
+              <div className="flex gap-4 lg:gap-6 pt-4 sm:pt-5">
+                {/* Desktop Red Vertical Giant Stencil Banner (Visible only on lg:) */}
+                <div className="hidden lg:flex shrink-0 items-center justify-center border-r border-slate-200 pr-3 sm:pr-4">
                   <div
                     className="font-display font-black text-3xl sm:text-4xl text-[#E11D48] tracking-widest uppercase select-none"
                     style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
@@ -319,62 +381,72 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                   <div className="space-y-1">
                     <div className="flex items-center justify-between gap-2">
                       <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
-                        Aura Design System & Open Source
-                      </h4>
-                      <span className="font-mono text-xs font-bold text-indigo-800 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-200 shrink-0">
-                        2025
-                      </span>
-                    </div>
-                    <div className="font-mono text-xs font-bold text-indigo-700">
-                      Lead Product Engineer & Architect
-                    </div>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
-                      <span>✓ Design Tokens Pipeline</span>
-                      <span>✓ Headless Primitives</span>
-                      <span>✓ 100% WCAG AAA Compliant</span>
-                      <span>✓ 1,200+ Active Devs</span>
-                    </div>
-                  </div>
-
-                  {/* Role 2: 2024 */}
-                  <div className="space-y-1">
-                    <div className="flex items-center justify-between gap-2">
-                      <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
-                        FinTech Analytics Hub
+                        IndusAI Solutions
                       </h4>
                       <span className="font-mono text-xs font-bold text-emerald-800 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-200 shrink-0">
-                        2024
+                        Jul — Aug 2025
                       </span>
                     </div>
                     <div className="font-mono text-xs font-bold text-indigo-700">
-                      Software Engineering Intern
+                      Python Developer Intern (MSME-registered)
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
-                      <span>✓ Real-Time Trade Ticker</span>
-                      <span>✓ Sub-50ms Interaction</span>
-                      <span>✓ Dynamic Code Splitting</span>
-                      <span>✓ 4,000 updates/sec</span>
+                      <span>✓ Automated Python ETL</span>
+                      <span>✓ Data Validation Scripts</span>
+                      <span>✓ MSME Certificate Aug 2025</span>
+                      <span>✓ 99.9% Pipeline Uptime</span>
                     </div>
                   </div>
 
-                  {/* Role 3: 2023 */}
+                  {/* Role 2: 2025 */}
                   <div className="space-y-1">
                     <div className="flex items-center justify-between gap-2">
                       <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
-                        NIT Campus Cloud & Labs
+                        HACKTOUR IND (Web3 company)
                       </h4>
-                      <span className="font-mono text-xs font-bold text-slate-800 bg-slate-100 px-2 py-0.5 rounded border border-slate-300 shrink-0">
-                        2023
+                      <span className="font-mono text-xs font-bold text-pink-800 bg-pink-50 px-2 py-0.5 rounded border border-pink-200 shrink-0">
+                        Jul — Nov 2025
+                      </span>
+                    </div>
+                    <div className="flex flex-wrap items-center gap-1.5 font-mono text-xs font-bold text-indigo-700">
+                      <span>Content & Marketing Intern</span>
+                      <span className="text-slate-400">·</span>
+                      <a
+                        href={PERSONAL_INFO.twitter}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-pink-700 hover:text-pink-900 inline-flex items-center gap-1"
+                      >
+                        <Twitter className="w-3 h-3 text-pink-600 fill-current" />
+                        <span>Contributor @HackTourIND (@krunverma)</span>
+                      </a>
+                    </div>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
+                      <span>✓ Arweave / Permaweb Buildstation</span>
+                      <span>✓ Zcash India Meetups & Community</span>
+                      <span>✓ Avalanche City Connect (Jaipur)</span>
+                      <span>✓ Technical Developer Guides</span>
+                    </div>
+                  </div>
+
+                  {/* Role 3: 2024-2027 */}
+                  <div className="space-y-1">
+                    <div className="flex items-center justify-between gap-2">
+                      <h4 className="font-display font-black text-base sm:text-lg text-slate-950 tracking-tight">
+                        Student Council & MGI Coding Club
+                      </h4>
+                      <span className="font-mono text-xs font-bold text-purple-800 bg-purple-50 px-2 py-0.5 rounded border border-purple-200 shrink-0">
+                        2024 — Present
                       </span>
                     </div>
                     <div className="font-mono text-xs font-bold text-indigo-700">
-                      Systems Software Engineer
+                      VP (2026-27) · Joint Sec (2025-26) · CR (2024-25)
                     </div>
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-2 gap-y-1 pt-1 text-xs font-sans text-slate-800 font-medium">
-                      <span>✓ WebSocket Broadcast</span>
-                      <span>✓ Local-First CRDT Sync</span>
-                      <span>✓ Microservices Setup</span>
-                      <span>✓ Performance Profiling</span>
+                      <span>✓ Council VP (26-27)</span>
+                      <span>✓ Joint Secretary (25-26)</span>
+                      <span>✓ Class Rep (24-25)</span>
+                      <span>✓ 20+ Events · 35+ Ceremonies</span>
                     </div>
                   </div>
                 </div>
@@ -383,8 +455,8 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
               {/* Perforation Cutout Notch & Dashed Tear Line with Red Tag */}
               <div className="relative my-6 -mx-5 sm:-mx-8 py-2">
                 {/* Perforation Circle Notches on Left & Right */}
-                <div className="absolute top-1/2 -left-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#080B10]" />
-                <div className="absolute top-1/2 -right-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#080B10]" />
+                <div className="absolute top-1/2 -left-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#FFF8F9] dark:bg-[#110609]" />
+                <div className="absolute top-1/2 -right-3.5 -translate-y-1/2 w-7 h-7 rounded-full bg-[#FFF8F9] dark:bg-[#110609]" />
 
                 {/* Dashed Line */}
                 <div className="w-full border-t-2 border-dashed border-slate-300" />
@@ -405,10 +477,10 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                     ABOUT ME
                   </h4>
                   <p className="text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
-                    I am a full-stack engineer and product designer specializing in high-performance digital products, focusing on robust architecture and human craftsmanship.
+                    I am a Computer Science & Engineering undergraduate at Mahakal Institute of Technology, Ujjain, with consistent academic excellence (SGPAs 8.48, 8.57, and 8.54 - College Topper).
                   </p>
                   <p className="text-xs sm:text-[13px] text-slate-800 font-sans leading-relaxed font-medium">
-                    My work combines low-level systems speed with modern editorial elegance. I adapt to any constraint to deliver verified, zero-slop production software.
+                    Recognized for innovation through the selection of two ideas under MSME Idea Hackathon 5.0 for ₹30 Lakh combined grant-in-aid consideration. Combining technical problem solving with campus leadership across 35+ anchored events and 20+ coordinated campus initiatives.
                   </p>
                 </div>
 
@@ -425,7 +497,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                         <Sparkles className="w-6 h-6 text-rose-300" />
                       </div>
                       <div className="text-[9px] font-mono text-slate-200 font-bold tracking-widest">
-                        2026-NIT
+                        2026-MIT
                       </div>
                     </div>
                   </div>
@@ -440,7 +512,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
               {/* ----------------------------------------------------------------- */}
               {/* 4. THE CRIMSON RED EDUCATION CARD (Middle-Right) */}
               {/* ----------------------------------------------------------------- */}
-              <div className="relative rounded-2xl bg-[#CC141D] text-white p-6 sm:p-7 shadow-[0_20px_50px_rgba(204,20,29,0.4)] border border-rose-500 transform rotate-1 hover:rotate-0 transition-transform duration-300 space-y-5 overflow-hidden">
+              <div className="relative rounded-2xl bg-[#CC141D] text-white p-6 sm:p-7 shadow-[0_20px_50px_rgba(204,20,29,0.4)] border border-rose-500 transform rotate-0 lg:rotate-1 hover:rotate-0 transition-transform duration-300 space-y-5 overflow-hidden">
                 {/* Star Accent */}
                 <div className="absolute top-4 right-4 text-white font-serif text-lg">✦</div>
 
@@ -456,25 +528,28 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                 <div className="space-y-4 font-sans">
                   <div className="space-y-1">
                     <span className="font-mono text-xs font-bold text-white bg-black/25 px-2 py-0.5 rounded inline-block">
-                      2022 — 2026
+                      Ongoing · 2024 — Present
                     </span>
                     <div className="font-display font-black text-lg text-white leading-tight">
                       B.Tech in Computer Science & Engineering
                     </div>
                     <div className="text-xs text-rose-100 font-bold">
-                      National Institute of Technology (NIT)
+                      Mahakal Institute of Technology, Ujjain
+                    </div>
+                    <div className="text-[11px] text-rose-100/90 font-mono pt-1">
+                      SGPA: 8.48 (Sem 1, Topper) · 8.57 (Sem 2, Topper) · 8.54 (Sem 3, Runner-up)
                     </div>
                   </div>
 
                   <div className="space-y-1 border-t border-white/30 pt-3">
                     <span className="font-mono text-xs font-bold text-white bg-black/25 px-2 py-0.5 rounded inline-block">
-                      2020 — 2022
+                      2023 — 2024
                     </span>
                     <div className="font-display font-bold text-sm text-white">
-                      Senior Secondary School (PCM)
+                      Higher Secondary Certificate (Class XII) · CBSE
                     </div>
-                    <div className="text-xs text-rose-100 font-medium">
-                      Focus: Distributed Systems, HCI, Low-Latency Web Engines
+                    <div className="text-xs text-rose-100 font-bold">
+                      Percentage: 93% · GSEB Class X (2021-22): 88.7%
                     </div>
                   </div>
                 </div>
@@ -491,7 +566,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                     ))}
                   </div>
                   <div className="text-[10px] font-mono font-black tracking-widest text-white uppercase text-center bg-black/40 px-2 py-0.5 rounded">
-                    NIT-ENG-11800109-EDU
+                    MIT-UJJAIN-CSE-TOPPER
                   </div>
                 </div>
               </div>
@@ -499,7 +574,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
               {/* ----------------------------------------------------------------- */}
               {/* 5. THE GLOSSY BLACK FOIL VACUUM POUCH: "SKILLS" (Bottom-Right) */}
               {/* ----------------------------------------------------------------- */}
-              <div className="relative rounded-2xl bg-[#0B0E14] text-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-slate-700 space-y-5 overflow-hidden transform -rotate-1 hover:rotate-0 transition-transform duration-300">
+              <div className="relative rounded-2xl bg-[#0B0E14] text-white p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.8)] border border-slate-700 space-y-5 overflow-hidden transform rotate-0 lg:-rotate-1 hover:rotate-0 transition-transform duration-300">
                 {/* Iridescent Rainbow Circular Holographic Foil Emblem in Corner */}
                 <div className="absolute top-5 right-5 group/foil">
                   <div className="w-12 h-12 rounded-full p-[2px] bg-gradient-to-tr from-cyan-400 via-pink-400 via-yellow-300 to-indigo-500 shadow-lg transform group-hover/foil:rotate-45 transition-transform duration-500">
@@ -510,16 +585,16 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                 </div>
 
                 {/* Two Columns: ABILITIES & SOFT SKILLS */}
-                <div className="grid grid-cols-2 gap-4 text-xs font-sans pr-14 border-b border-slate-800 pb-4">
+                <div className="grid grid-cols-2 gap-3 sm:gap-4 text-xs font-sans pr-14 border-b border-slate-800 pb-4">
                   <div className="space-y-1.5">
                     <div className="font-mono text-[10px] font-black uppercase tracking-wider text-slate-300">
                       ABILITIES
                     </div>
                     <div className="space-y-0.5 text-xs text-white font-medium">
-                      <div>Full-Stack Arch</div>
-                      <div>Distributed Systems</div>
-                      <div>Local-First / CRDT</div>
-                      <div>Sub-50ms UI Engines</div>
+                      <div>Python Pipelines</div>
+                      <div>Prompt Engineering</div>
+                      <div>C / C++ Fundamentals</div>
+                      <div>SQL & Data Queries</div>
                     </div>
                   </div>
 
@@ -528,10 +603,10 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                       SOFT SKILLS
                     </div>
                     <div className="space-y-0.5 text-xs text-white font-medium">
-                      <div>Team Leadership</div>
-                      <div>System Architecture</div>
-                      <div>Zero-Bloat Discipline</div>
-                      <div>Autonomous Work</div>
+                      <div>Public Speaking (35+)</div>
+                      <div>Event Coordination (20+)</div>
+                      <div>Analytical Reasoning</div>
+                      <div>Student Council VP</div>
                     </div>
                   </div>
                 </div>
@@ -552,7 +627,7 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                     SOFTWARE & KERNELS
                   </div>
                   <div className="flex flex-wrap gap-1.5">
-                    {['TypeScript', 'React 19', 'Go', 'Rust', 'PostgreSQL', 'Next.js', 'Docker', 'WebSockets', 'Tailwind', 'Canvas 2D', 'Vitest'].map((item, idx) => (
+                    {['Python', 'C', 'C++', 'SQL', 'React 19', 'TypeScript', 'Tailwind', 'FastAPI', 'Git', 'GitHub', 'VS Code'].map((item, idx) => (
                       <span
                         key={idx}
                         className="px-2.5 py-1 rounded bg-slate-900 border border-slate-700 font-mono text-xs font-semibold text-white"
@@ -564,13 +639,174 @@ Specialization: React 19, TypeScript, Go, Rust/Wasm, WebSockets, Design Systems,
                 </div>
 
                 {/* LANGUAGE Row */}
-                <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-xs font-mono">
-                  <span className="text-[10px] font-bold text-slate-300 uppercase">LANGUAGE</span>
-                  <div className="flex items-center gap-2 text-xs font-bold text-white">
-                    <span>ENGLISH (FLUENT)</span>
+                <div className="pt-2 border-t border-slate-800 flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+                  <span className="text-[10px] font-bold text-slate-300 uppercase">LANGUAGES</span>
+                  <div className="flex flex-wrap items-center gap-1.5 text-xs font-bold text-white">
+                    <span>HINDI</span>
                     <span className="text-slate-500">·</span>
-                    <span>HINDI (NATIVE)</span>
+                    <span>ENGLISH</span>
+                    <span className="text-slate-500">·</span>
+                    <span>GUJARATI</span>
+                    <span className="text-slate-500">·</span>
+                    <span>PUNJABI</span>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* ======================================================================= */}
+          {/* 6. MSME IDEA HACKATHON 5.0 — ₹30 LAKH GRANT SELECTION PROJECT SPECIMENS */}
+          {/* ======================================================================= */}
+          <div className="relative z-20 mt-8 sm:mt-10 pt-6 border-t border-slate-800 space-y-5">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <div className="flex items-center gap-2.5 min-w-0">
+                <div className="shrink-0 w-8 h-8 rounded-xl bg-amber-500/20 border border-amber-400/40 flex items-center justify-center text-amber-300">
+                  <Award className="w-4 h-4" />
+                </div>
+                <div className="min-w-0">
+                  <h3 className="font-display font-black text-xl sm:text-2xl text-white tracking-tight uppercase leading-snug">
+                    MSME Idea Hackathon 5.0 — Dual Grant Selections
+                  </h3>
+                  <p className="text-xs font-mono text-slate-400">
+                    Selected for ₹30 Lakh Combined Grant-in-Aid Consideration · Ministry of MSME, Govt. of India
+                  </p>
+                </div>
+              </div>
+
+              {/* Contact Direct Line on MSME Card Header */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono shrink-0">
+                <a
+                  href="tel:8799577917"
+                  className="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-slate-500 text-slate-200 hover:text-white flex items-center gap-1.5 transition-colors"
+                >
+                  <Phone className="w-3 h-3 text-emerald-400 shrink-0" />
+                  <span>+91 8799577917</span>
+                </a>
+                <a
+                  href={PERSONAL_INFO.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-sky-500 text-sky-400 hover:text-sky-300 flex items-center gap-1.5 transition-colors"
+                >
+                  <Twitter className="w-3 h-3 text-sky-400 fill-current shrink-0" />
+                  <span>@krunverma</span>
+                </a>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+              {/* MSME Project 1 */}
+              <div className="relative rounded-2xl bg-[#0E131F] text-slate-100 p-5 sm:p-6 border border-emerald-500/30 hover:border-emerald-400/70 shadow-xl space-y-4 transition-all flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
+                    <div className="space-y-1.5 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-emerald-500/20 text-emerald-300 font-mono text-[10px] font-black uppercase tracking-wider border border-emerald-500/30">
+                          Selected: ₹15 Lakh Grant-in-Aid
+                        </span>
+                      </div>
+                      <h4 className="font-display font-black text-lg text-white leading-snug pt-1">
+                        Smart AI Based Agri Market Access Platform
+                      </h4>
+                      <p className="font-mono text-xs text-emerald-400 font-medium">
+                        AI & AgriTech / MSME Hackathon 5.0 (2025)
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-emerald-950/80 border border-emerald-500/40 flex items-center justify-center shrink-0 text-emerald-300 font-mono font-black text-xs">
+                      01
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                    Empowers regional farmers with real-time fair market mandi pricing, crop yield analytics, and direct linkages to institutional buyers—eliminating intermediary exploitation.
+                  </p>
+
+                  {/* Team Roster */}
+                  <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800/90 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                      <Users className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                      <span>Project Team Roster</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {['Sourav Chaudhary', 'Sneha Patidar', 'Sneha Sharma', 'Karan Verma'].map((member, mIdx) => (
+                        <span
+                          key={mIdx}
+                          className={`px-2 py-0.5 rounded text-xs font-mono font-medium ${
+                            member === 'Karan Verma'
+                              ? 'bg-rose-950 text-rose-300 border border-rose-500/60 font-bold'
+                              : 'bg-slate-800 text-slate-300 border border-slate-700'
+                          }`}
+                        >
+                          {member}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                  <span className="leading-tight">Official MIT Group of Institutes Announcement</span>
+                  <span className="text-emerald-400 font-bold flex items-center gap-1 shrink-0">
+                    <Check className="w-3 h-3" /> VERIFIED
+                  </span>
+                </div>
+              </div>
+
+              {/* MSME Project 2 */}
+              <div className="relative rounded-2xl bg-[#0E131F] text-slate-100 p-5 sm:p-6 border border-indigo-500/30 hover:border-indigo-400/70 shadow-xl space-y-4 transition-all flex flex-col justify-between">
+                <div className="space-y-4">
+                  <div className="flex items-start justify-between gap-3 border-b border-slate-800 pb-3">
+                    <div className="space-y-1.5 min-w-0">
+                      <div className="flex flex-wrap items-center gap-2">
+                        <span className="inline-block px-2.5 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300 font-mono text-[10px] font-black uppercase tracking-wider border border-indigo-500/30">
+                          Selected: ₹15 Lakh Grant-in-Aid
+                        </span>
+                      </div>
+                      <h4 className="font-display font-black text-lg text-white leading-snug pt-1">
+                        AI Based Real Time Navigation Platform for Railway Stations
+                      </h4>
+                      <p className="font-mono text-xs text-indigo-400 font-medium">
+                        Spatial AI & Urban Transit / MSME 5.0 (2025)
+                      </p>
+                    </div>
+                    <div className="w-10 h-10 rounded-xl bg-indigo-950/80 border border-indigo-500/40 flex items-center justify-center shrink-0 text-indigo-300 font-mono font-black text-xs">
+                      02
+                    </div>
+                  </div>
+
+                  <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                    Real-time indoor navigation system guiding passengers across complex railway junctions with turn-by-turn directions, dynamic platform shift alerts, and accessible ramp routes.
+                  </p>
+
+                  {/* Team Roster */}
+                  <div className="p-3 rounded-xl bg-slate-900/90 border border-slate-800/90 space-y-1.5">
+                    <div className="flex items-center gap-1.5 text-[10px] font-mono text-slate-400 font-bold uppercase tracking-wider">
+                      <Users className="w-3.5 h-3.5 text-indigo-400 shrink-0" />
+                      <span>Project Team Roster</span>
+                    </div>
+                    <div className="flex flex-wrap gap-1.5">
+                      {['Sourav Chaudhary', 'Sneha Patidar', 'Sneha Sharma', 'Karan Verma'].map((member, mIdx) => (
+                        <span
+                          key={mIdx}
+                          className={`px-2 py-0.5 rounded text-xs font-mono font-medium ${
+                            member === 'Karan Verma'
+                              ? 'bg-rose-950 text-rose-300 border border-rose-500/60 font-bold'
+                              : 'bg-slate-800 text-slate-300 border border-slate-700'
+                          }`}
+                        >
+                          {member}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex flex-wrap items-center justify-between gap-1 text-[10px] font-mono text-slate-400 pt-2 border-t border-slate-800/80">
+                  <span className="leading-tight">Official MIT Group of Institutes Announcement</span>
+                  <span className="text-indigo-400 font-bold flex items-center gap-1 shrink-0">
+                    <Check className="w-3 h-3" /> VERIFIED
+                  </span>
                 </div>
               </div>
             </div>
