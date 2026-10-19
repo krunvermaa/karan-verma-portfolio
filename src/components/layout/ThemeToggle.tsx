@@ -20,7 +20,7 @@ export const ThemeToggle: React.FC<ThemeToggleProps> = ({ theme, onToggle }) => 
       className="group relative flex items-center h-8 w-16 p-1 rounded-full bg-slate-200/80 dark:bg-slate-800/90 border border-slate-300/80 dark:border-slate-700/80 shadow-xs hover:shadow-sm backdrop-blur-md transition-all duration-300 cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
     >
       {/* Background Icons */}
-      <div className="w-full flex items-center justify-between px-1 text-slate-500 dark:text-slate-400 select-none pointer-events-none">
+      <div className="w-full flex items-center justify-between px-1 text-slate-500 dark:text-slate-400 pointer-events-none">
         <Sun className={`w-3.5 h-3.5 transition-colors duration-200 ${!isDark ? 'text-amber-500 font-bold' : 'opacity-40'}`} />
         <Moon className={`w-3.5 h-3.5 transition-colors duration-200 ${isDark ? 'text-indigo-400 font-bold' : 'opacity-40'}`} />
       </div>

@@ -3,29 +3,27 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 015 — `iter/015-unique-section-content-and-ambient-tints`
-- **Goal:** (1) Remove 4 Core Engineering Values boxes from About; (2) Add luminous background ambient light tints to About, Stack, and Resume matching Hero/Work/Contact; (3) Reshuffle and de-duplicate content across all sections so every section has a unique, non-overlapping narrative focus.
+- **Iteration:** 016 — `iter/016-journey-purple-glass-and-scroll-animations`
+- **Goal:** (1) Uniform authentic purple glassmorphism for all Journey cards with high-contrast black text in light mode; (2) Crazy, smooth, professional and aesthetic kinetic scroll animations & conduits between sections using Motion for React.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 7 Parallel Subagents | Run disjoint subagents for About, Stack, Resume, Hero, Journey, Work, Data | Passed ✅ |
-| S2 Values Removal & Tints | Verify 4 values boxes removed from About, ambient tints added to About, Stack, Resume | Passed ✅ |
-| S3 Narrative De-Duplication | Ensure each section presents unique content without repetitive boilerplate | Passed ✅ |
-| S4 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, commit, and push | Passed ✅ |
+| S1 Parallel Subagents | Deploy 6 specialized subagents for Journey, Scroll Engine, Transition Portals, and HUD | Passed ✅ |
+| S2 Journey Uniform Purple Glass & Black Text | Verify all 10 cards use uniform purple glass and light mode text is crisp black | Passed ✅ |
+| S3 Kinetic Scroll Animations | Verify smooth 60FPS scroll transitions, dynamic conduits between sections, and progress HUD | Passed ✅ |
+| S4 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, zero select-none, commit and push | Passed ✅ |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 015-1 | About Values Removal & Terracotta Tint | About Specialist | `src/sections/about/AboutSection.tsx` | done | 4 boxes removed, warm terracotta glows |
-| 015-2 | Stack Amber Ambient Tint & Tech Toolchain | Stack Specialist | `src/sections/skills/SkillsSection.tsx` | done | Golden honey glows, tech competencies |
-| 015-3 | Resume Rose Ambient Tint & Recruiter Dossier | Resume Specialist | `src/sections/resume/ResumeSection.tsx` | done | Rose/crimson glows, recruiter clearance |
-| 015-4 | Hero Executive Snapshot & Ambition | Hero Specialist | `src/sections/hero/Hero.tsx` | done | Clean executive builder hook & CTAs |
-| 015-5 | Journey Chronological Progression 2023-27 | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | Purple glass kept, 10 distinct flight records |
-| 015-6 | Work Systems & Software Deliverables | Work Specialist | `src/sections/work/HangingCardsShowcase.tsx` | done | Cyan theme kept, 5 software deliverables |
-| 015-7 | Single Source of Truth Optimization | Data Architect | `src/data/portfolioData.ts` | done | Global data contracts de-duplicated |
-| 015-8 | Integration & Build Verification | QA & Integrator | whole repo | done | 0 lint errors, 0 build errors, 0 select-none |
+| 016-1 | Journey Uniform Purple Glass & Light Mode Black Text | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | All 10 cards uniform purple glass, crisp black text in light mode |
+| 016-2 | Scroll Motion Reveal Section Engine | Motion Architect | `src/components/transitions/ScrollRevealSection.tsx` | done | 60FPS viewport-aware spring & cubic-bezier entrance |
+| 016-3 | Section Transition Portal Conduit | Visual Motion Designer | `src/components/transitions/SectionTransitionPortal.tsx` | done | Kinetic laser conduit & telemetry pill between sections |
+| 016-4 | Dynamic Scroll Progress & Radar HUD | HUD Specialist | `src/components/transitions/ScrollProgressHUD.tsx` | done | Specular laser progress bar & floating telemetry radar |
+| 016-5 | Transitions Index Module | Integration Specialist | `src/components/transitions/index.ts` | done | Component exports verified |
+| 016-6 | Kinetic Velocity Indicator | Motion Engineer | `src/components/transitions/SmoothScrollIndicator.tsx` | done | Aesthetic scroll velocity & floating navigation pill |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 
