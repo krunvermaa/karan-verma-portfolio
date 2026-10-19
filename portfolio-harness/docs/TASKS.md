@@ -3,24 +3,29 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 014 — `iter/014-journey-purple-glass-and-stack-sticky-spread`
-- **Goal:** (1) Restore authentic rich purple glassmorphism on Journey folder and remove background curved lines; (2) Redesign Stack section by removing the side card and background grid lines, spreading tactile sticky notes across the section.
+- **Iteration:** 015 — `iter/015-unique-section-content-and-ambient-tints`
+- **Goal:** (1) Remove 4 Core Engineering Values boxes from About; (2) Add luminous background ambient light tints to About, Stack, and Resume matching Hero/Work/Contact; (3) Reshuffle and de-duplicate content across all sections so every section has a unique, non-overlapping narrative focus.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 Disjoint Subagents | Run parallel subagents for Journey (20a14c2e) and Stack (b7c18655) | Passed |
-| S2 Journey Purple Glass & Lines | Verify purple glass on folder and background rays deleted | Passed |
-| S3 Stack Sticky Notes Spread | Verify side card removed, grid lines deleted, sticky notes spread across grid | Passed |
-| S4 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, commit, and push | Passed (0 errors, 396ms) |
+| S1 7 Parallel Subagents | Run disjoint subagents for About, Stack, Resume, Hero, Journey, Work, Data | Passed ✅ |
+| S2 Values Removal & Tints | Verify 4 values boxes removed from About, ambient tints added to About, Stack, Resume | Passed ✅ |
+| S3 Narrative De-Duplication | Ensure each section presents unique content without repetitive boilerplate | Passed ✅ |
+| S4 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, commit, and push | Passed ✅ |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 014-1 | Journey Purple Glass & Background Rays Removal | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | Purple glass on folder + background rays removed |
-| 014-2 | Stack Side Card Removal & Sticky Notes Spread | Stack Specialist | `src/sections/skills/SkillsSection.tsx` | done | Grid lines removed + full-width sticky notes spread |
-| 014-3 | Integration & Build Verification | QA & Integrator | whole repo | done | 0 errors verified, ready to push |
+| 015-1 | About Values Removal & Terracotta Tint | About Specialist | `src/sections/about/AboutSection.tsx` | done | 4 boxes removed, warm terracotta glows |
+| 015-2 | Stack Amber Ambient Tint & Tech Toolchain | Stack Specialist | `src/sections/skills/SkillsSection.tsx` | done | Golden honey glows, tech competencies |
+| 015-3 | Resume Rose Ambient Tint & Recruiter Dossier | Resume Specialist | `src/sections/resume/ResumeSection.tsx` | done | Rose/crimson glows, recruiter clearance |
+| 015-4 | Hero Executive Snapshot & Ambition | Hero Specialist | `src/sections/hero/Hero.tsx` | done | Clean executive builder hook & CTAs |
+| 015-5 | Journey Chronological Progression 2023-27 | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | Purple glass kept, 10 distinct flight records |
+| 015-6 | Work Systems & Software Deliverables | Work Specialist | `src/sections/work/HangingCardsShowcase.tsx` | done | Cyan theme kept, 5 software deliverables |
+| 015-7 | Single Source of Truth Optimization | Data Architect | `src/data/portfolioData.ts` | done | Global data contracts de-duplicated |
+| 015-8 | Integration & Build Verification | QA & Integrator | whole repo | done | 0 lint errors, 0 build errors, 0 select-none |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 
@@ -43,11 +48,12 @@ States: `todo` · `in-progress` · `blocked` · `review` · `done`
 | 011 | `iter/011-journey-spread-stack-redesign-about-grid-work-cyan` | 2026-10-18 | `d891734` | `http://localhost:3000` |
 | 012 | `iter/012-restore-stack-and-journey-prior-state` | 2026-10-18 | `0b515ce` | `http://localhost:3000` |
 | 013 | `iter/013-restore-about-section-prior-state` | 2026-10-18 | `ebddd6d` | `http://localhost:3000` |
-| 014 | `iter/014-journey-purple-glass-and-stack-sticky-spread` | 2026-10-18 | `HEAD` | `http://localhost:3000` |
+| 014 | `iter/014-journey-purple-glass-and-stack-sticky-spread` | 2026-10-18 | `50ba510` | `http://localhost:3000` |
+| 015 | `iter/015-unique-section-content-and-ambient-tints` | 2026-10-19 | `HEAD` | `http://localhost:3000` |
 
 ## Session handoff (if a session must end mid-iteration)
-- Last completed step: Restored rich purple glassmorphism on Journey folder and removed background lines; redesigned Stack section to spread tactile sticky notes across the section without side cards or grid lines.
-- Next step: Ready for user review.
+- Last completed step: Iteration 015 completed: ambient tints added to About, Stack, Resume; 4 values boxes removed from About; unique content across all sections.
+- Next step: All tasks complete. Ready for user feedback.
 - Open risks: none
 
 

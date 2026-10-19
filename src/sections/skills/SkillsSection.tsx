@@ -48,21 +48,21 @@ interface DomainDossier {
 const DOMAIN_DOSSIERS: DomainDossier[] = [
   {
     id: 'programming',
-    badge: 'CORE COMPILERS',
-    title: 'Programming Languages & Core',
+    badge: 'CORE & COMPILERS',
+    title: 'Programming Languages & Systems',
     icon: Terminal,
     description:
-      'Algorithmic problem-solving, memory structures, low-level pointers in C/C++, automated Python scripting, and relational data querying.',
+      'Low-level pointer arithmetic, memory management in C/C++, algorithmic data structures with STL, automated Python ETL scripting, and relational SQL queries.',
     skills: [
       { name: 'Python', level: 'Production Intern', tag: 'Automation & ETL' },
       { name: 'C', level: 'Fundamental', tag: 'Pointers & Memory' },
       { name: 'C++', level: 'Algorithmic', tag: 'OOP & STL' },
-      { name: 'SQL', level: 'Relational', tag: 'Queries & Joins' },
+      { name: 'SQL', level: 'Relational', tag: 'Joins & Schemas' },
     ],
     credential: {
-      org: 'IndusAI Solutions · MSME Reg.',
+      org: 'IndusAI Solutions · Backend Execution',
       highlight:
-        '3-week Python Developer internship building automated ETL data pipelines, schema validation, and backend logic modules.',
+        'Engineered automated ETL data extraction pipelines, dynamic schema validation, and zero-defect backend logic modules.',
     },
     style: {
       bg: 'bg-[#FEF9C3] dark:bg-[#2B2710]', // Canary Post-It
@@ -79,21 +79,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'web_dev',
-    badge: 'REACT 19 & TS',
-    title: 'Web Architecture & UI',
+    badge: 'REACT 19 & MODERN UI',
+    title: 'Web Architecture & Front-End',
     icon: Code,
     description:
-      'Modern reactive client applications, atomic component hierarchy, strict type contracts, and sub-50ms theme rendering engines.',
+      'Component hierarchies in React 19, strict TypeScript contracts, custom hooks, atomic state management, and responsive CSS token design systems.',
     skills: [
       { name: 'React 19', level: 'Production UI', tag: 'Hooks & State Machines' },
-      { name: 'TypeScript', level: 'Strict Types', tag: 'Contracts & Interfaces' },
-      { name: 'Tailwind CSS', level: 'Design Tokens', tag: 'Obsidian Glassmorphism' },
-      { name: 'Modern Web', level: 'Responsive UI', tag: 'Semantic HTML5 & CSS3' },
+      { name: 'TypeScript', level: 'Strict Types', tag: 'Contracts & Generics' },
+      { name: 'Tailwind CSS', level: 'Design Tokens', tag: 'Theme Engines' },
+      { name: 'Modern Web', level: 'DOM Efficiency', tag: 'HTML5 & Core Vitals' },
     ],
     credential: {
-      org: 'Production Portfolio & Client Apps',
+      org: 'Front-End Engineering Benchmark',
       highlight:
-        'Architected high-performance portfolio with obsidian glassmorphism, atomic hooks, and zero jank.',
+        'Architected high-performance web applications with sub-50ms theme rendering, modular state trees, and zero render jank.',
     },
     style: {
       bg: 'bg-[#E0F2FE] dark:bg-[#0C2D48]', // Sky Post-It
@@ -110,21 +110,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'ai_tools',
-    badge: 'PROMPT & AI TOOLS',
-    title: 'AI & Developer Tools',
+    badge: 'PROMPT & DEV TOOLCHAIN',
+    title: 'AI, Git & Defect Profiling',
     icon: Sparkles,
     description:
-      'LLM context orchestration, multi-shot chain-of-thought workflows, Git version control lifecycles, and rapid defect triage.',
+      'Systematic prompt design with multi-shot Chain-of-Thought, structured LLM outputs, trunk-based Git workflows, and competitive root-cause debugging.',
     skills: [
-      { name: 'Prompt Engineering', level: 'Lead Practitioner', tag: 'CoT & Multi-Shot' },
-      { name: 'GitHub & Git', level: 'Version Control', tag: 'Branching & CI/CD' },
-      { name: 'Analytical Reasoning', level: 'Hackathons', tag: 'Problem Triage' },
-      { name: 'Bug Fixing', level: 'Competition Tested', tag: 'Root Cause Triage' },
+      { name: 'Prompt Engineering', level: 'Specialist', tag: 'Chain-of-Thought & LLMs' },
+      { name: 'Git & GitHub', level: 'Trunk Workflow', tag: 'CI/CD & PR Reviews' },
+      { name: 'Problem Solving', level: 'Analytical', tag: 'Algorithmic Logic' },
+      { name: 'Bug Profiling', level: 'ALGORUSH Tested', tag: 'Root Cause Triage' },
     ],
     credential: {
-      org: 'MGI Coding Club & ALGORUSH (NMIMS)',
+      org: 'ALGORUSH (NMIMS) & MGI Coding Club',
       highlight:
-        'Lead prompt engineering workshops and triaged obfuscated defects under pressure in competitive hackathons.',
+        'Triaged obfuscated codebases and debugged algorithmic defects under hackathon pressure, plus conducted prompt engineering workshops.',
     },
     style: {
       bg: 'bg-[#DCFCE7] dark:bg-[#0E3321]', // Mint Post-It
@@ -141,21 +141,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'leadership',
-    badge: 'VP COUNCIL · MIT UJJAIN',
-    title: 'Leadership & Governance',
+    badge: 'STAGE ORATORY & GOVERNANCE',
+    title: 'Leadership & Stage Anchoring',
     icon: ShieldCheck,
     description:
-      'Institutional student governance, executive administration, high-stakes stage anchoring, and campus-scale operational logistics.',
+      'Large-scale stage presence across 35+ formal ceremonies and national VIP summits, executive student council administration, and multilingual technical moderation.',
     skills: [
-      { name: 'Student Council VP', level: 'Elected Executive', tag: 'Institutional Governance' },
-      { name: 'Public Speaking', level: 'Lead Anchor', tag: '35+ Ceremonies' },
-      { name: 'Team Coordination', level: 'Operations Lead', tag: '20+ Major Events' },
+      { name: 'Stage Anchoring', level: 'Lead Anchor', tag: '35+ Ceremonies' },
+      { name: 'Event Governance', level: 'Operations Lead', tag: '20+ Tech Events' },
+      { name: 'Technical Moderation', level: 'Executive', tag: 'VIP & Panel Hosting' },
       { name: 'Multilingual Comm.', level: '4 Languages', tag: 'Hindi, Eng, Guj, Pun' },
     ],
     credential: {
       org: 'Mahakal Institute of Technology, Ujjain',
       highlight:
-        'Elected Student Council VP (2026–27) after serving as Joint Secretary (2025–26) and Class Representative (2024–25).',
+        'Elected Student Council VP (2026–27); directed campus-wide technical convocations, VIP introductions, and cross-functional committee teams.',
     },
     style: {
       bg: 'bg-[#F3E8FF] dark:bg-[#2A1642]', // Lavender Post-It
@@ -172,21 +172,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'education',
-    badge: '50+ STUDENTS · PRO LEARN',
-    title: 'Teaching & Pedagogy',
+    badge: 'PEDAGOGY · 50+ LEARNERS',
+    title: 'Teaching & Code Diagnostics',
     icon: GraduationCap,
     description:
-      'Over 3 years mentoring students in programming fundamentals, mathematical logic, and computer engineering concepts.',
+      'Translating abstract computer science principles, memory models, and algorithmic paradigms into accessible mental models for junior engineers and STEM students.',
     skills: [
-      { name: 'Programming Pedagogy', level: 'Lead Educator', tag: '3+ Yrs Experience' },
-      { name: 'Curriculum Design', level: 'CS Foundation', tag: 'Algorithmic Mastery' },
-      { name: 'Student Mentorship', level: '1-on-1 Mentoring', tag: '50+ Students Guided' },
-      { name: 'Mathematical Logic', level: 'Instructor', tag: 'STEM Foundations' },
+      { name: '1-on-1 Diagnostics', level: 'Lead Mentor', tag: 'Code Review & Logic' },
+      { name: 'Programming Pedagogy', level: '3+ Yrs Practical', tag: 'CS Foundations' },
+      { name: 'Curriculum Strategy', level: 'Instructor', tag: 'Structured Drills' },
+      { name: 'STEM Breakdown', level: 'Pedagogical', tag: '50+ Learners Guided' },
     ],
     credential: {
       org: 'Pro Learn Coaching Classes',
       highlight:
-        'Mentored 50+ students over 3+ years at Pro Learn Coaching in programming fundamentals, problem solving, and computer science.',
+        'Trained 50+ students over 3+ years in Python/C basics, algorithmic thinking, and debugging drills with proven academic grade boosts.',
     },
     style: {
       bg: 'bg-[#FEF3C7] dark:bg-[#38260B]', // Warm Peach Post-It
@@ -203,21 +203,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'innovation',
-    badge: 'VP COUNCIL · IIC',
-    title: 'Innovation & Incubation',
+    badge: 'INCUBATION & TECH GRANTS',
+    title: 'Innovation & MVP Prototyping',
     icon: Target,
     description:
-      'Leading institutional innovation initiatives, startup incubation pipelines, hackathons, and dual ₹15L MSME Idea Hackathon 5.0 selections.',
+      'Scoping technical feasibility, building rapid hackathon prototypes, steering incubator cohort ideation, and drafting winning grant proposals under national schemes.',
     skills: [
-      { name: 'IIC Student Coordinator', level: 'MHRD / MIC Aligned', tag: 'Startup Incubation' },
-      { name: 'MSME Idea Hackathon', level: 'National Selection', tag: 'Dual ₹15L Proposals' },
-      { name: 'Hackathon Strategy', level: 'Competitor', tag: '36-Hour Sprints' },
-      { name: 'Startup Ideation', level: 'Facilitator', tag: 'Prototyping & Pitch' },
+      { name: 'IIC Coordination', level: 'MIC / MHRD Aligned', tag: 'Startup Incubation' },
+      { name: 'MSME Idea 5.0', level: 'National Selection', tag: 'Dual ₹15L Proposals' },
+      { name: 'Rapid Prototyping', level: 'Hackathon Sprint', tag: '36-Hr Feasibility' },
+      { name: 'Tech Feasibility', level: 'Evaluator', tag: 'Architecture Specs' },
     ],
     credential: {
-      org: "Institution's Innovation Council & MSME 5.0",
+      org: "Institution's Innovation Council & MSME",
       highlight:
-        'Dual ₹15 Lakh grant-in-aid selections under MSME Idea Hackathon 5.0 and IIC student coordination at MIT Ujjain.',
+        'Architected dual technical innovation proposals selected under MSME Idea Hackathon 5.0 with ₹15L support potential, leading campus tech outreach.',
     },
     style: {
       bg: 'bg-[#CFFAFE] dark:bg-[#083344]', // Cyan Post-It
@@ -234,21 +234,21 @@ const DOMAIN_DOSSIERS: DomainDossier[] = [
   },
   {
     id: 'creative',
-    badge: 'VIDEO & DIGITAL MEDIA',
-    title: 'Creative Media & Content',
+    badge: 'MEDIA & VISUAL PACING',
+    title: 'Digital Media & Technical Video',
     icon: Video,
     description:
-      'Video post-production, educational technical tutorials, motion narrative pacing, and technical community growth.',
+      'High-retention technical tutorial production, motion graphics timing, developer documentation videos, and narrative pacing for complex software concepts.',
     skills: [
-      { name: 'Video Editing & Motion', level: 'Creator & Editor', tag: 'Digital Storytelling' },
-      { name: 'Technical Explainers', level: 'Content Strategy', tag: 'High-Retention Guides' },
-      { name: 'Web3 Marketing & Media', level: 'Intern Contributor', tag: 'Ecosystem Campaigns' },
-      { name: 'Community Outreach', level: 'Communicator', tag: 'Multi-Channel Engagement' },
+      { name: 'Video Editing', level: 'Lead Editor', tag: 'Pacing & Timeline' },
+      { name: 'Motion Graphics', level: 'Visuals', tag: 'Explainer Animations' },
+      { name: 'Tech Walkthroughs', level: 'Content Design', tag: 'High-Retention Demos' },
+      { name: 'Web3 Media Outreach', level: '5-Mo Contributor', tag: 'Ecosystem Growth' },
     ],
     credential: {
-      org: 'HACKTOUR IND & Digital Media',
+      org: 'HACKTOUR IND & Technical Media Projects',
       highlight:
-        '5-month Web3 content & marketing internship plus technical video production for developer cohorts.',
+        'Delivered multimedia explainers, technical walkthroughs, and community engagement videos across a 5-month Web3 internship tenure.',
     },
     style: {
       bg: 'bg-[#FFE4E6] dark:bg-[#40121E]', // Rose Post-It
@@ -271,9 +271,10 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
       id="skills"
       className="py-14 sm:py-20 lg:py-24 px-4 sm:px-6 lg:px-8 bg-[#FEFDF6] dark:bg-[#121108] text-theme-primary border-t border-slate-200/80 dark:border-slate-800/80 relative overflow-hidden transition-colors duration-300"
     >
-      {/* Overhead Warm Spotlight Beam */}
-      <div className="absolute -top-16 left-1/2 -translate-x-1/2 w-[900px] h-[550px] bg-gradient-to-b from-amber-200/40 dark:from-amber-900/25 via-yellow-100/20 dark:via-yellow-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 -right-20 w-80 h-80 bg-amber-200/20 dark:bg-amber-950/15 rounded-full blur-3xl pointer-events-none" />
+      {/* Rich Multi-Layered Warm Amber & Golden Honey Atmospheric Ambient Light Tints */}
+      <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-[950px] h-[550px] bg-gradient-to-b from-amber-300/35 dark:from-amber-900/30 via-yellow-200/20 dark:via-yellow-950/15 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 -right-20 w-[700px] h-[350px] bg-gradient-to-tr from-amber-200/25 dark:from-orange-950/20 via-yellow-300/15 to-amber-400/20 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-1/3 -left-28 w-[450px] h-[250px] bg-amber-100/20 dark:bg-amber-900/15 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-6xl mx-auto space-y-8 sm:space-y-10 lg:space-y-12 relative z-10">
         {/* Section Header */}
@@ -288,22 +289,22 @@ export const SkillsSection: React.FC<SkillsSectionProps> = ({ onSelectTechFilter
               Skills & Capabilities.
             </h2>
             <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl font-sans transition-colors leading-relaxed">
-              Tactile dossiers documenting Karan&apos;s multi-faceted capability across software engineering, hands-on teaching at Pro Learn Coaching, and institutional innovation governance.
+              Tactile dossiers detailing concrete engineering toolchains, language internals, systems architecture, and live technical leadership competencies.
             </p>
 
             {/* Tri-Pillar Capability Badges */}
             <div className="flex flex-wrap items-center gap-2 pt-1">
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-sky-100/90 dark:bg-sky-950/70 border border-sky-300 dark:border-sky-800 text-sky-950 dark:text-sky-200 font-mono text-xs font-bold shadow-xs">
                 <Terminal className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400 shrink-0" />
-                <span>Software Engineer</span>
+                <span>Software Systems & Core</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-amber-100/90 dark:bg-amber-950/70 border border-amber-300 dark:border-amber-800 text-amber-950 dark:text-amber-200 font-mono text-xs font-bold shadow-xs">
                 <GraduationCap className="w-3.5 h-3.5 text-amber-600 dark:text-amber-400 shrink-0" />
-                <span>Educator · 50+ Students (Pro Learn)</span>
+                <span>Code Diagnostics & Pedagogy</span>
               </span>
               <span className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-purple-100/90 dark:bg-purple-950/70 border border-purple-300 dark:border-purple-800 text-purple-950 dark:text-purple-200 font-mono text-xs font-bold shadow-xs">
                 <ShieldCheck className="w-3.5 h-3.5 text-purple-600 dark:text-purple-400 shrink-0" />
-                <span>Innovation Lead · IIC Coordinator</span>
+                <span>Technical Leadership & IIC</span>
               </span>
             </div>
           </div>
