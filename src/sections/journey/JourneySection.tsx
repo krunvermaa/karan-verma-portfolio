@@ -409,7 +409,7 @@ export const JourneySection: React.FC = () => {
                   type="button"
                   onClick={handlePrev}
                   aria-label="Previous milestone record"
-                  className="p-1.5 rounded-lg bg-purple-100 hover:bg-purple-200 text-slate-950 border border-purple-300 dark:bg-white/10 dark:border-white/20 dark:text-white dark:hover:bg-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                  className="p-1.5 rounded-lg bg-purple-100 hover:bg-purple-200 text-slate-950 border border-purple-300 dark:bg-purple-900/40 dark:border-purple-700/50 dark:text-white dark:hover:bg-purple-800/60 transition cursor-pointer shadow-xs"
                 >
                   <ChevronLeft className="w-3.5 h-3.5" />
                 </button>
@@ -417,7 +417,7 @@ export const JourneySection: React.FC = () => {
                   type="button"
                   onClick={handleNext}
                   aria-label="Next milestone record"
-                  className="p-1.5 rounded-lg bg-purple-100 hover:bg-purple-200 text-slate-950 border border-purple-300 dark:bg-white/10 dark:border-white/20 dark:text-white dark:hover:bg-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                  className="p-1.5 rounded-lg bg-purple-100 hover:bg-purple-200 text-slate-950 border border-purple-300 dark:bg-purple-900/40 dark:border-purple-700/50 dark:text-white dark:hover:bg-purple-800/60 transition cursor-pointer shadow-xs"
                 >
                   <ChevronRight className="w-3.5 h-3.5" />
                 </button>
@@ -429,7 +429,7 @@ export const JourneySection: React.FC = () => {
               onTouchStart={onTouchStart}
               onTouchMove={onTouchMove}
               onTouchEnd={onTouchEnd}
-              className="relative w-full rounded-3xl p-5 space-y-3 transition-all duration-300 border-2 backdrop-blur-2xl bg-white/80 dark:bg-[#181126]/85 text-slate-950 dark:text-white border-purple-500/80 dark:border-purple-400/90 shadow-xl shadow-purple-300/40 dark:shadow-purple-950/80 ring-2 ring-purple-400/50"
+              className="relative w-full rounded-3xl p-5 space-y-3 transition-all duration-300 border-2 transform-gpu bg-white/95 dark:bg-[#181126]/95 text-slate-950 dark:text-white border-purple-500/80 dark:border-purple-400/90 shadow-xl shadow-purple-300/30 dark:shadow-purple-950/60 ring-2 ring-purple-400/50"
             >
               {/* Card Header Stamp */}
               <div className="flex items-center justify-between border-b border-purple-200 dark:border-purple-900/80 pb-3">
@@ -450,7 +450,7 @@ export const JourneySection: React.FC = () => {
 
               {/* Callout Highlight Banner */}
               <div
-                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl backdrop-blur-md border font-mono text-[11px] font-bold ${activeCallout.colorClass}`}
+                className={`flex items-center gap-1.5 px-3 py-1.5 rounded-xl border font-mono text-[11px] font-bold ${activeCallout.colorClass}`}
               >
                 {activeCallout.icon}
                 <span>{activeCallout.text}</span>
@@ -526,11 +526,12 @@ export const JourneySection: React.FC = () => {
                     zIndex: isActive
                       ? 40
                       : 20 - Math.abs(Math.round(centerIdx - idx)),
+                    willChange: 'transform',
                   }}
-                  className={`absolute bottom-0 w-72 md:w-80 h-76 md:h-80 rounded-3xl p-5 md:p-6 transition-all duration-500 cursor-pointer ${
+                  className={`absolute bottom-0 w-72 md:w-80 h-76 md:h-80 rounded-3xl p-5 md:p-6 transition-all duration-500 cursor-pointer transform-gpu will-change-transform ${
                     isActive
-                      ? 'bg-white/80 dark:bg-[#181126]/85 text-slate-950 dark:text-white border-2 border-purple-500/80 dark:border-purple-400/90 shadow-xl shadow-purple-300/40 dark:shadow-purple-950/80 backdrop-blur-2xl ring-2 ring-purple-400/50 scale-105'
-                      : 'bg-white/60 dark:bg-[#120B1E]/80 text-slate-900 dark:text-purple-100 border border-purple-300/60 dark:border-purple-900/60 backdrop-blur-xl opacity-90 hover:opacity-100 hover:scale-102 hover:border-purple-400 shadow-md'
+                      ? 'bg-white/95 dark:bg-[#181126]/95 border-2 border-purple-500/80 dark:border-purple-400/90 shadow-xl shadow-purple-300/30 dark:shadow-purple-950/60 ring-2 ring-purple-400/50 scale-105 transform-gpu text-slate-950 dark:text-white'
+                      : 'bg-white/85 dark:bg-[#140C20]/85 border border-purple-200/80 dark:border-purple-900/60 opacity-90 hover:opacity-100 hover:scale-102 hover:border-purple-400 shadow-md transform-gpu text-slate-900 dark:text-purple-100'
                   }`}
                 >
                   {/* Card Header Stamp */}
@@ -581,9 +582,9 @@ export const JourneySection: React.FC = () => {
           {/* --------------------------------------------------------------------- */}
           {/* THE 3D FROSTED PURPLE GLASS POCKET FOLDER (EXACT SPEC PRESERVED) */}
           {/* --------------------------------------------------------------------- */}
-          <div className="relative z-30 rounded-[2.5rem] bg-gradient-to-b from-purple-100/80 via-purple-50/70 to-purple-200/80 dark:from-purple-900/40 dark:via-purple-950/45 dark:to-[#160B28]/70 backdrop-blur-3xl border-2 border-purple-300/80 dark:border-purple-500/30 shadow-[0_30px_70px_-15px_rgba(147,51,234,0.25)] dark:shadow-[0_30px_70px_-15px_rgba(147,51,234,0.5)] ring-1 ring-purple-300/40 dark:ring-white/10 p-5 sm:p-8 md:p-10 space-y-6 sm:space-y-8 overflow-hidden">
+          <div className="relative z-30 rounded-[2.5rem] bg-gradient-to-b from-purple-100/90 via-purple-50/80 to-purple-200/90 dark:from-purple-900/60 dark:via-purple-950/70 dark:to-[#160B28]/90 border-2 border-purple-300/80 dark:border-purple-500/40 shadow-[0_20px_50px_-15px_rgba(147,51,234,0.25)] dark:shadow-[0_25px_60px_-15px_rgba(147,51,234,0.5)] ring-1 ring-purple-300/40 dark:ring-white/10 p-5 sm:p-8 md:p-10 space-y-6 sm:space-y-8 overflow-hidden transform-gpu">
             {/* Folder Tab Cutout on Top-Left */}
-            <div className="absolute -top-7 left-6 sm:left-12 w-52 sm:w-60 h-8 rounded-t-2xl bg-purple-200/90 dark:bg-purple-900/60 backdrop-blur-2xl border-t-2 border-x-2 border-purple-300 dark:border-purple-500/40 text-purple-950 dark:text-purple-200 shadow-xs flex items-center justify-center">
+            <div className="absolute -top-7 left-6 sm:left-12 w-52 sm:w-60 h-8 rounded-t-2xl bg-purple-200/95 dark:bg-purple-900/80 border-t-2 border-x-2 border-purple-300 dark:border-purple-500/40 text-purple-950 dark:text-purple-200 shadow-xs flex items-center justify-center">
               <span className="font-mono text-[10px] font-bold uppercase tracking-widest">
                 DOSSIER SPEC #FLIGHT-2023-2027
               </span>
@@ -615,7 +616,7 @@ export const JourneySection: React.FC = () => {
                   <button
                     type="button"
                     onClick={handlePrev}
-                    className="p-2 rounded-xl bg-purple-100 hover:bg-purple-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-950 dark:text-white border border-purple-300 dark:border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                    className="p-2 rounded-xl bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-800/60 text-slate-950 dark:text-white border border-purple-300 dark:border-purple-700/60 transition cursor-pointer shadow-xs"
                     title="Previous Flight Record"
                   >
                     <ChevronLeft className="w-4 h-4" />
@@ -623,7 +624,7 @@ export const JourneySection: React.FC = () => {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="p-2 rounded-xl bg-purple-100 hover:bg-purple-200 dark:bg-white/10 dark:hover:bg-white/20 text-slate-950 dark:text-white border border-purple-300 dark:border-white/20 backdrop-blur-md transition cursor-pointer shadow-xs"
+                    className="p-2 rounded-xl bg-purple-100 hover:bg-purple-200 dark:bg-purple-900/40 dark:hover:bg-purple-800/60 text-slate-950 dark:text-white border border-purple-300 dark:border-purple-700/60 transition cursor-pointer shadow-xs"
                     title="Next Flight Record"
                   >
                     <ChevronRight className="w-4 h-4" />
@@ -660,7 +661,7 @@ export const JourneySection: React.FC = () => {
 
                 {/* Unique Callout Banner */}
                 <div
-                  className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl border backdrop-blur-md font-mono text-xs font-bold shadow-xs ${activeCallout.colorClass}`}
+                  className={`flex items-center gap-2 px-3.5 py-2 rounded-2xl border font-mono text-xs font-bold shadow-xs ${activeCallout.colorClass}`}
                 >
                   {activeCallout.icon}
                   <span>{activeCallout.text}</span>
@@ -679,7 +680,7 @@ export const JourneySection: React.FC = () => {
                     {activeMilestone.achievements.map((ach: string, aIdx: number) => (
                       <div
                         key={aIdx}
-                        className="flex items-start gap-2.5 p-3 rounded-2xl border text-xs sm:text-sm font-medium transition-colors backdrop-blur-md shadow-2xs bg-purple-50/90 dark:bg-purple-950/40 border-purple-200 dark:border-purple-700/50 text-slate-950 dark:text-purple-100"
+                        className="flex items-start gap-2.5 p-3 rounded-2xl border text-xs sm:text-sm font-medium transition-colors shadow-2xs bg-purple-50/90 dark:bg-purple-950/50 border-purple-200 dark:border-purple-800/80 text-slate-950 dark:text-purple-100"
                       >
                         <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5 text-purple-700 dark:text-purple-400" />
                         <span>{ach}</span>
@@ -692,13 +693,13 @@ export const JourneySection: React.FC = () => {
               {/* Folder Bottom Row: Brand Pill + Action Icons */}
               <div className="pt-4 border-t border-purple-300/40 dark:border-purple-800/60 flex flex-wrap items-center justify-between gap-3 text-purple-200">
                 {/* Brand Badge */}
-                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-purple-100/90 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/80 dark:border-purple-700/60 text-slate-950 dark:text-purple-200 font-mono text-xs font-bold shadow-xs">
+                <div className="flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-purple-100/90 dark:bg-purple-950/60 border border-purple-300/80 dark:border-purple-700/60 text-slate-950 dark:text-purple-200 font-mono text-xs font-bold shadow-xs">
                   <span className="text-purple-700 dark:text-purple-400">⊘</span>
                   <span>Karan Verma · Flight Log Registry</span>
                 </div>
 
                 {/* Social / Engagement Icons (Bookmark, Heart, Share) */}
-                <div className="flex items-center gap-2 p-1 rounded-full bg-purple-100/90 dark:bg-purple-950/60 backdrop-blur-md border border-purple-300/80 dark:border-purple-700/60 text-slate-950 dark:text-purple-200 shadow-xs">
+                <div className="flex items-center gap-2 p-1 rounded-full bg-purple-100/90 dark:bg-purple-950/60 border border-purple-300/80 dark:border-purple-700/60 text-slate-950 dark:text-purple-200 shadow-xs">
                   <button
                     type="button"
                     onClick={() => setBookmarked(!bookmarked)}

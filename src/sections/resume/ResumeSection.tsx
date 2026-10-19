@@ -227,14 +227,15 @@ Verification Code: #MIT-UJJAIN-CSE-TOPPER`;
 
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
                 {/* Photo Specimen Box */}
-                <div className="relative shrink-0 w-32 h-36 sm:w-40 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md group">
+                <div className="relative shrink-0 w-32 h-36 sm:w-40 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md ring-1 ring-white/20 group">
                   <img
-                    src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80"
-                    alt="Karan Verma"
-                    className="w-full h-full object-cover filter grayscale contrast-125 group-hover:scale-105 transition-transform duration-500"
+                    src="/karan-photo.jpg"
+                    alt="Karan Verma - Software Developer & Educator"
+                    className="w-full h-full object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-black/10 mix-blend-overlay pointer-events-none" />
-                  <div className="absolute bottom-2 left-2 right-2 bg-slate-950/85 text-white font-mono text-[9px] text-center py-0.5 rounded px-1 font-bold">
+                  {/* Sleek Specular Border Highlight */}
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/20 pointer-events-none rounded-xl" />
+                  <div className="absolute bottom-2 left-2 right-2 z-10 bg-slate-950/90 backdrop-blur-sm text-white font-mono text-[9px] text-center py-0.5 rounded px-1 font-bold border border-white/15 tracking-wider shadow-sm">
                     ID: #KV-2026-CSE
                   </div>
                 </div>

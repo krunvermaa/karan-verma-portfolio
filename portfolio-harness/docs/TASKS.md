@@ -3,23 +3,29 @@
 Updated by the Orchestrator at iteration start, on every task state change, and at close. First file read after `harness.md`.
 
 ## Current iteration
-- **Iteration:** 016 — `iter/016-journey-purple-glass-and-scroll-animations`
-- **Goal:** (1) Uniform authentic purple glassmorphism for all Journey cards with high-contrast black text in light mode; (2) Revert scroll animations as per user feedback to maintain clean, classic portfolio flow.
+- **Iteration:** 017 — `iter/017-photo-perf-about-layout-blending`
+- **Goal:** (1) Replace resume photo with Karan's actual portrait photo `/karan-photo.jpg`; (2) Fix laggy/jittery UI in Journey by removing GPU-choking nested multi-pass blurs; (3) Reorganize About section so boxes sit under Creative License in a balanced bento grid; (4) Animate Creative License Badge with interactive 3D tilt and specular shine; (5) Add smooth gradient blending transitions between sections; (6) Remove browser scrollbar on the right.
 - **Status:** completed
 
 ### Test plan for this iteration
 | Stage | What | Status |
 |---|---|---|
-| S1 Parallel Subagents | Deploy specialized subagents for Journey glassmorphism and contrast | Passed ✅ |
-| S2 Journey Uniform Purple Glass & Black Text | Verify all 10 cards use uniform purple glass and light mode text is crisp black | Passed ✅ |
-| S3 Clean Scroll Flow | Remove scroll portal conduits, radar HUD, and velocity indicators per user request | Passed ✅ |
-| S4 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, zero select-none, commit and push | Passed ✅ |
+| S1 5 Parallel Subagents | Deploy specialized subagents for Photo, Journey Perf, About Layout, Badge Animation, Global CSS | Complete |
+| S2 Photo & Badge Integration | Verify `/karan-photo.jpg` properly cropped & formatted on Resume Pass and License Badge | Complete |
+| S3 60FPS Journey Performance | Verify lag and jitter eliminated via hardware acceleration and optimized glass styling | Complete |
+| S4 About Bento Layout | Verify boxes adjusted under Creative License to fill horizontal space harmoniously | Complete |
+| S5 Scrollbar & Section Blending | Verify right-side scrollbar hidden and sections blend smoothly into each other | Complete |
+| S6 Quality Gate & Deploy | Run npm run lint (tsc --noEmit), npm run build, zero select-none, commit and push | Complete |
 
 ### Tasks
 | ID | Task | Owner (role) | Owned files | State | Notes |
 |---|---|---|---|---|---|
-| 016-1 | Journey Uniform Purple Glass & Light Mode Black Text | Journey Specialist | `src/sections/journey/JourneySection.tsx` | done | All 10 cards uniform purple glass, crisp black text in light mode |
-| 016-2 | Revert Scroll Animations & HUD | Orchestrator | `src/App.tsx`, `src/components/index.ts` | done | Removed conduits, radar HUD, and velocity pill for clean native flow |
+| 017-1 | Resume Photo Replacement & Pass Styling | Resume Specialist | `src/sections/resume/ResumeSection.tsx` | done | Replaced unsplash placeholder with `/karan-photo.jpg` |
+| 017-2 | Journey 60FPS GPU Optimization & De-jitter | Performance Specialist | `src/sections/journey/JourneySection.tsx` | done | Eliminated recursive blur bottlenecks, buttery smooth 60FPS |
+| 017-3 | About Section Space Utilization & Bento Grid | About Layout Specialist | `src/sections/about/AboutSection.tsx` | done | Positioned credential boxes under Creative License in 2-col bento grid |
+| 017-4 | Creative License Badge 3D Animation | Animation Specialist | `src/sections/about/DeveloperLicenseBadge.tsx` | done | Interactive 3D tilt, holographic shine, photo avatar |
+| 017-5 | Scrollbar Removal & Global Blend Utilities | Styling Specialist | `src/index.css` | done | Hid right scrollbar globally, added section blend gradients |
+| 017-6 | Seamless Section Blending Integration | Orchestrator | `src/App.tsx` | done | Added smooth atmospheric gradient boundaries |
 
 States: `todo` · `in-progress` · `blocked` · `review` · `done`
 

@@ -1,24 +1,113 @@
 import React, { useState } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { PERSONAL_INFO } from '@/data/portfolioData';
 import { Github, Linkedin, Twitter, Award, ShieldCheck } from 'lucide-react';
 
 export const DeveloperLicenseBadge: React.FC = () => {
   const [stampVerified, setStampVerified] = useState(true);
+  const [isHovered, setIsHovered] = useState(false);
+
+  // Pointer position motion values normalized to [-0.5, 0.5]
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+
+  // Smooth spring physics for fluid tilt and gentle return to rest
+  const springConfig = { stiffness: 180, damping: 20 };
+  const smoothX = useSpring(mouseX, springConfig);
+  const smoothY = useSpring(mouseY, springConfig);
+
+  // Subtle 3D perspective transforms (-5deg to 5deg)
+  const rotateX = useTransform(smoothY, [-0.5, 0.5], ['5deg', '-5deg']);
+  const rotateY = useTransform(smoothX, [-0.5, 0.5], ['-5deg', '5deg']);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    if (rect.width === 0 || rect.height === 0) return;
+    const xPct = (e.clientX - rect.left) / rect.width - 0.5;
+    const yPct = (e.clientY - rect.top) / rect.height - 0.5;
+    mouseX.set(xPct);
+    mouseY.set(yPct);
+  };
+
+  const handleMouseEnter = () => {
+    setIsHovered(true);
+  };
+
+  const handleMouseLeave = () => {
+    mouseX.set(0);
+    mouseY.set(0);
+    setIsHovered(false);
+  };
 
   return (
-    <div className="relative w-full max-w-xl mx-auto pt-7 sm:pt-8 my-1 sm:my-3 perspective-1000">
+    <div
+      onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+      className="relative w-full max-w-xl mx-auto pt-7 sm:pt-8 my-1 sm:my-3 [perspective:1000px]"
+    >
       {/* Metal Binder Clip at Top (Licencia Creativa Reference) - Sunset Copper Finish */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none">
+      <motion.div
+        className="absolute top-0 left-1/2 -translate-x-1/2 flex flex-col items-center z-30 pointer-events-none origin-top"
+        animate={
+          isHovered
+            ? {
+                y: [-2, 1, -1, 0],
+                rotate: [0, -2.5, 2.5, -1, 0],
+                scale: 1.05,
+              }
+            : {
+                rotate: [0, -1, 1, -0.5, 0],
+                y: [0, -0.8, 0, -0.4, 0],
+                scale: 1,
+              }
+        }
+        transition={
+          isHovered
+            ? { duration: 0.6, ease: 'easeOut' }
+            : { duration: 6, repeat: Infinity, ease: 'easeInOut' }
+        }
+      >
         {/* Metal Wire Loop */}
         <div className="w-8 h-8 rounded-t-full border-2 border-orange-400/90 dark:border-orange-500/80 bg-transparent -mb-2 shadow-xs" />
         {/* Sunset Copper Bulldog Clip Body */}
         <div className="w-14 h-5 rounded-xs bg-gradient-to-r from-amber-600 via-orange-300 to-amber-700 dark:from-orange-800 dark:via-orange-400 dark:to-orange-900 border border-orange-600/90 dark:border-orange-700 shadow-md flex items-center justify-center">
           <div className="w-10 h-1 bg-orange-950/40 dark:bg-black/50 rounded-full" />
         </div>
-      </div>
+      </motion.div>
 
-      {/* Clear Acrylic / Transparent ID Badge Holder */}
-      <div className="relative p-2 sm:p-3 rounded-2xl sm:rounded-3xl bg-white/85 dark:bg-[#1A110D]/85 backdrop-blur-xl border-2 border-orange-100/90 dark:border-orange-900/50 shadow-2xl ambient-shadow transition-colors duration-300">
+      {/* Clear Acrylic / Transparent ID Badge Holder with 3D Tilt */}
+      <motion.div
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+        }}
+        whileHover={{ scale: 1.01 }}
+        transition={{
+          scale: { type: 'spring', stiffness: 260, damping: 20 },
+        }}
+        className="relative p-2 sm:p-3 rounded-2xl sm:rounded-3xl bg-white/85 dark:bg-[#1A110D]/85 backdrop-blur-xl border-2 border-orange-100/90 dark:border-orange-900/50 shadow-2xl ambient-shadow transition-colors duration-300 overflow-hidden"
+      >
+        {/* Specular Holographic Sheen Sweep */}
+        <div
+          className="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl sm:rounded-3xl z-20"
+          aria-hidden="true"
+        >
+          <motion.div
+            className="w-1/2 h-[200%] -top-1/2 absolute bg-gradient-to-r from-transparent via-white/30 dark:via-orange-400/20 to-transparent -skew-x-12"
+            animate={{
+              x: ['-140%', '340%'],
+            }}
+            transition={{
+              duration: 3.6,
+              repeat: Infinity,
+              repeatDelay: 2.4,
+              ease: [0.4, 0, 0.2, 1],
+            }}
+          />
+        </div>
+
         {/* Paper License Card Inside */}
         <div className="relative rounded-xl sm:rounded-2xl bg-[#FFFDF9] dark:bg-[#190F0B] border border-orange-900/20 dark:border-orange-900/40 p-4 sm:p-6 md:p-7 shadow-xs overflow-hidden text-slate-900 dark:text-slate-100 font-sans transition-colors duration-300">
           {/* Subtle Vintage Paper Texture */}
@@ -84,16 +173,18 @@ export const DeveloperLicenseBadge: React.FC = () => {
                 </svg>
               </div>
 
-              {/* Developer Portrait Avatar Frame */}
-              <div className="relative w-20 sm:w-full max-w-[120px] aspect-square rounded-xl bg-slate-950 text-white flex flex-col items-center justify-center p-2 shadow-sm border border-orange-300/80 dark:border-orange-900/60 overflow-hidden shrink-0">
-                {/* Vector Graphic Portrait */}
-                <div className="w-10 sm:w-12 h-10 sm:h-12 rounded-full bg-gradient-to-tr from-orange-600 via-amber-500 to-orange-400 flex items-center justify-center text-white font-display font-extrabold text-base sm:text-lg shadow-inner">
-                  KV
-                </div>
-                <div className="text-[8px] sm:text-[9px] font-mono text-slate-300 mt-1 font-semibold">
-                  DEVELOPER
-                </div>
-                <div className="absolute bottom-1 right-1 w-2 h-2 rounded-full bg-emerald-400 border border-slate-900" />
+              {/* Developer Portrait Avatar Frame with Karan's actual portrait photo */}
+              <div className="relative w-20 sm:w-full max-w-[120px] aspect-square rounded-xl border border-orange-300/80 dark:border-orange-900/60 shadow-sm overflow-hidden shrink-0 bg-slate-950 group">
+                <img
+                  src="/karan-photo.jpg"
+                  alt="Karan Verma"
+                  className="w-full h-full object-cover object-top transition-transform duration-300 group-hover:scale-105"
+                  loading="lazy"
+                />
+                <div
+                  className="absolute bottom-1 right-1 w-2.5 h-2.5 rounded-full bg-emerald-400 border border-slate-950 shadow-xs"
+                  title="Status: Active Developer"
+                />
               </div>
 
               {/* Sticker / Stamp Under Photo (Reference) */}
@@ -153,19 +244,42 @@ export const DeveloperLicenseBadge: React.FC = () => {
                 </div>
               </div>
 
-              {/* Rubber Stamp (Licencia Reference) */}
-              <div
-                onClick={() => setStampVerified(!stampVerified)}
-                className={`cursor-pointer inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full border-2 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider transform -rotate-1 sm:-rotate-2 transition-transform hover:scale-105 max-w-full my-1 ${
+              {/* Rubber Stamp (Licencia Reference) - Interactive Tactile Button */}
+              <motion.button
+                type="button"
+                onClick={() => setStampVerified((prev) => !prev)}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ type: 'spring', stiffness: 450, damping: 20 }}
+                className={`relative overflow-hidden cursor-pointer inline-flex items-center gap-1.5 px-2.5 sm:px-3 py-1 rounded-full border-2 text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-wider transform -rotate-1 sm:-rotate-2 max-w-full my-1 transition-colors duration-200 ${
                   stampVerified
-                    ? 'border-emerald-600 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 font-extrabold'
-                    : 'border-orange-600 text-orange-800 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/60 font-extrabold'
+                    ? 'border-emerald-600 text-emerald-800 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 font-extrabold shadow-xs shadow-emerald-500/20'
+                    : 'border-orange-600 text-orange-800 dark:text-orange-300 bg-orange-50 dark:bg-orange-950/60 font-extrabold shadow-xs shadow-orange-500/20'
                 }`}
+                title="Click to toggle official verification seal"
+                aria-pressed={stampVerified}
               >
-                <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                {/* Tactile Ripple / Flash on click */}
+                <motion.span
+                  key={stampVerified ? 'verified-flash' : 'pending-flash'}
+                  initial={{ scale: 0.3, opacity: 0.6 }}
+                  animate={{ scale: 2.2, opacity: 0 }}
+                  transition={{ duration: 0.45, ease: 'easeOut' }}
+                  className={`absolute inset-0 rounded-full pointer-events-none ${
+                    stampVerified ? 'bg-emerald-400/40' : 'bg-orange-400/40'
+                  }`}
+                />
+
+                <motion.span
+                  animate={{ rotate: stampVerified ? [0, -12, 8, 0] : [0, 12, -8, 0] }}
+                  transition={{ duration: 0.35 }}
+                  className="shrink-0 flex items-center"
+                >
+                  <ShieldCheck className="w-3.5 h-3.5" />
+                </motion.span>
                 <span className="hidden sm:inline">MSME 5.0 RECOGNIZED · COLLEGE TOPPER</span>
                 <span className="sm:hidden">MSME 5.0 · COLLEGE TOPPER</span>
-              </div>
+              </motion.button>
             </div>
           </div>
 
@@ -244,7 +358,7 @@ export const DeveloperLicenseBadge: React.FC = () => {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };
