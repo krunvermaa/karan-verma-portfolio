@@ -23,8 +23,6 @@
     --grid-line: rgba(0, 0, 0, 0.05);
     --dot-color: rgba(0, 0, 0, 0.1);
     --ambient-glow: rgba(217, 119, 6, 0.12);
-    --section-blend-from: rgba(0, 0, 0, 0.04);
-    --section-blend-to: rgba(0, 0, 0, 0.04);
   }
 
   [data-theme='dark'],
@@ -44,8 +42,6 @@
     --grid-line: rgba(255, 255, 255, 0.055);
     --dot-color: rgba(255, 255, 255, 0.12);
     --ambient-glow: rgba(99, 102, 241, 0.2);
-    --section-blend-from: rgba(0, 0, 0, 0.4);
-    --section-blend-to: rgba(0, 0, 0, 0.4);
   }
 
   html,
@@ -195,27 +191,6 @@ body,
   height: 0 !important;
 }
 
-/* Section blending gradient masks & overlays */
-.section-blend-top {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 5rem;
-  pointer-events: none;
-  background: linear-gradient(to bottom, var(--section-blend-from, rgba(0, 0, 0, 0.05)), transparent);
-  z-index: 10;
-}
-.section-blend-bottom {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 5rem;
-  pointer-events: none;
-  background: linear-gradient(to top, var(--section-blend-to, rgba(0, 0, 0, 0.05)), transparent);
-  z-index: 10;
-}
 
 /* Hardware acceleration utility for silky smooth GPU compositing */
 .gpu-layer {

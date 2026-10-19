@@ -227,11 +227,11 @@ Verification Code: #MIT-UJJAIN-CSE-TOPPER`;
 
               <div className="flex flex-col sm:flex-row items-center sm:items-start gap-5 sm:gap-6">
                 {/* Photo Specimen Box */}
-                <div className="relative shrink-0 w-32 h-36 sm:w-40 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md ring-1 ring-white/20 group">
+                <div className="relative shrink-0 w-32 h-40 sm:w-36 sm:h-44 rounded-xl overflow-hidden bg-slate-950 border-2 border-slate-950 shadow-md ring-1 ring-white/20 group">
                   <img
                     src="/karan-photo.jpg"
                     alt="Karan Verma - Software Developer & Educator"
-                    className="w-full h-full object-cover object-top sm:object-center group-hover:scale-105 transition-transform duration-500"
+                    className="w-full h-full object-cover object-[center_top] group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Sleek Specular Border Highlight */}
                   <div className="absolute inset-0 ring-1 ring-inset ring-white/20 pointer-events-none rounded-xl" />

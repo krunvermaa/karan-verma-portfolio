@@ -105,56 +105,20 @@ export default function App() {
           onContact={() => handleNavigate('contact')}
         />
 
-        {/* Seamless Blending Divider: Hero -> Work */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#F8FAFF] to-[#F0F7FF] dark:from-[#080B15] dark:to-[#060D1A]"
-        />
-
         {/* 02. The Astro Hanging Clothesline Showcase: Suspended Curve & Clothespin Cards */}
         <HangingCardsShowcase onSelectProject={handleOpenCaseStudy} />
-
-        {/* Seamless Blending Divider: Work -> About */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#F0F7FF] to-[#FFF9F5] dark:from-[#060D1A] dark:to-[#150C09]"
-        />
 
         {/* 03. About & Operating Philosophy */}
         <AboutSection />
 
-        {/* Seamless Blending Divider: About -> Skills */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#FFF9F5] to-[#FFFBEB] dark:from-[#150C09] dark:to-[#0B0F19]"
-        />
-
         {/* 04. Technical Stack & Matrix */}
         <SkillsSection onSelectTechFilter={() => handleNavigate('work')} />
-
-        {/* Seamless Blending Divider: Skills -> Journey */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#FFFBEB] to-[#FBF8FF] dark:from-[#0B0F19] dark:to-[#0E061B]"
-        />
 
         {/* 05. Journey & Milestones */}
         <JourneySection />
 
-        {/* Seamless Blending Divider: Journey -> Resume */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#FBF8FF] to-[#FFF8F9] dark:from-[#0E061B] dark:to-[#110609]"
-        />
-
         {/* 06. Resume Dossier */}
         <ResumeSection />
-
-        {/* Seamless Blending Divider: Resume -> Contact */}
-        <div
-          aria-hidden="true"
-          className="relative z-10 h-16 sm:h-24 w-full -my-8 sm:-my-12 pointer-events-none bg-gradient-to-b from-[#FFF8F9] to-[#F8F6FF] dark:from-[#110609] dark:to-[#080711]"
-        />
 
         {/* 07. Contact Section & Live Clock */}
         <ContactSection />
